@@ -102,7 +102,7 @@ for (i = 0; i < points; i++) {
 
 // Color Variables
 color_velocity = 0;
-base_color_change = 0;
+color_change = 0;
 stalk_color_a = color;
 stalk_color_b = merge_color(color, c_black, 0.15);
 stalk_color_c = merge_color(color, c_black, 0.11);

@@ -6,7 +6,7 @@ var cam_width = game_manager.camera_width;
 var cam_height = game_manager.camera_height;
 var cam_x = game_manager.camera_x;
 var cam_y = game_manager.camera_y;
-if (point_in_rectangle(x, y, cam_x - 5, cam_y, cam_x + cam_width, cam_y + cam_height)) {
+if (point_in_rectangle(x, y, cam_x - 5, cam_y, cam_x + cam_width, cam_y + cam_height + ((points + 1) * height))) {
 	visible = true;
 }
 else {
@@ -97,7 +97,7 @@ stalk_angle = clamp(stalk_angle + stalk_spd, -stalk_max_angle, stalk_max_angle);
 stalk_angle = lerp(stalk_angle, 0, stalk_angle_decay);
 
 // Corn color movement
-color_velocity = (clamp(abs(stalk_angle) / stalk_max_angle, 0, 1) * max_color_change) + base_color_change;
+color_velocity = (clamp(abs(stalk_angle) / stalk_max_angle, 0, 1) * max_color_change) + color_change;
 
 stalk_color_a_merge = merge_color(stalk_color_a, c_black, color_velocity);
 stalk_color_b_merge = merge_color(stalk_color_b, c_black, color_velocity);

@@ -1,38 +1,28 @@
 {
-    "id": "de5357ba-cc15-4d5b-9e83-f32ab6d08867",
+    "id": "d8d54466-755d-4406-822d-ff430b84e903",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "oDebugUnit",
+    "name": "oWind",
     "eventList": [
         {
-            "id": "ca592572-0dac-4384-8c04-f32ad6b5ba3b",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 3,
-            "m_owner": "de5357ba-cc15-4d5b-9e83-f32ab6d08867"
-        },
-        {
-            "id": "26840c8a-ef38-4c5b-af92-56f3242ee431",
+            "id": "c0b63717-b56f-4447-845e-8c3faa2cbad1",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "de5357ba-cc15-4d5b-9e83-f32ab6d08867"
+            "m_owner": "d8d54466-755d-4406-822d-ff430b84e903"
         },
         {
-            "id": "4d5485c7-fc42-4129-87b9-3e6d84d5352d",
+            "id": "1805c84a-b779-4875-9b1d-69b3d90ecad8",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
-            "eventtype": 8,
-            "m_owner": "de5357ba-cc15-4d5b-9e83-f32ab6d08867"
+            "eventtype": 3,
+            "m_owner": "d8d54466-755d-4406-822d-ff430b84e903"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -52,9 +42,22 @@
     "physicsShapePoints": null,
     "physicsStartAwake": true,
     "properties": [
-        
+        {
+            "id": "e6e3e23b-50a7-4d59-b841-325e81a89d47",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "wind_spd",
+            "varType": 0
+        }
     ],
     "solid": false,
-    "spriteId": "40c7d2e0-6662-4b77-a69f-5ad969843e36",
-    "visible": true
+    "spriteId": "6c0e27f3-fe4e-4fa2-81df-618327412454",
+    "visible": false
 }

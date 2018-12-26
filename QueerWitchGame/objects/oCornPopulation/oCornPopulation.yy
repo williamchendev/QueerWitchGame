@@ -43,7 +43,7 @@
             "rangeMin": 0,
             "resourceFilter": 1023,
             "value": "0",
-            "varName": "base_color_change",
+            "varName": "color_change",
             "varType": 0
         },
         {
