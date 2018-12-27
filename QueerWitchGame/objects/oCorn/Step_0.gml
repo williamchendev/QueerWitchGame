@@ -30,7 +30,7 @@ if (!complex_physics) {
 }
 
 // Iterate through points on Corn Stalk
-for (i = 0; i < points; i++) {
+for (var i = 0; i < points; i++) {
 	// Calculate the sinusoidal math for points
 	sin_val[i] += radial_spd;
 	if (sin_val[i] > 1) {
@@ -66,7 +66,7 @@ for (i = 0; i < points; i++) {
 	y_position[i] = lerp(y_position[i], y_target[i], lerp_spd);
 	
 	// Create variables for Corn Leaves
-	for (l = 0; l < leaf_points[i]; l++) {
+	for (var l = 0; l < leaf_points[i]; l++) {
 		// Leaf Sin Variables
 		leaf_sin[i, l] += radial_leaf_spd;
 		if (leaf_sin[i, l] > 1) {

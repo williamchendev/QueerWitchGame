@@ -6,3 +6,13 @@ if (instance_number(object_index) > 1) {
 	exit;
 }
 persistent = true;
+
+// Player Input Management
+up_check = vk_up;
+down_check = vk_down;
+left_check = vk_left;
+right_check = vk_right;
+
+select_check = ord("Z");
+cancel_check = ord("X");
+menu_check = ord("C");

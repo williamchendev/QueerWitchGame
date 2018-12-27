@@ -25,10 +25,12 @@ x_velocity = 0;
 y_velocity = 0;
 
 slope_angle = 0;
+slope_offset = 0;
 
 // Behaviour Variables
 player_input = true;
 canmove = true;
+gui_mode = noone;
 
 camera_follow = true;	
 camera_follow_spd = 0.05;
@@ -38,9 +40,25 @@ universal_physics_object = instance_create_layer(x, y, layer, oPhysics);
 universal_physics_object.base_object = self;
 
 // Inventory Variables
+unit_inventory = createEmptyInventory(6, 4);
 
+// GUI & Menu Settings
+menu_lerp_spd = 0.1;
+
+// GUI & Menu Variables
+menu_alpha = 0;
+
+menu_radial_select = 0;
+menu_radial_draw_pos = 0;
+menu_radial_target_pos = 0;
+for (var i = 0; i < 5; i++) {
+	menu_radial_node[i, 0] = x;
+	menu_radial_node[i, 1] = 1;
+	menu_radial_node[i, 2] = 0;
+}
 
 // Animation Settings
+draw_sin_spd = 0.0074;
 squash_stretch = 0.2;
 
 idle_anim = sCathIdle;
@@ -48,5 +66,10 @@ walk_anim = sCathRun;
 jump_anim = sCathJump;
 
 // Animation Variables
+sin_val = random_range(0.0, 1.0);
+
 draw_xscale = 1;
 draw_yscale = 1;
+
+// Singleton
+game_manager = instance_find(oGameManager, 0);

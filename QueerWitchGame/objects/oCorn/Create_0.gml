@@ -39,7 +39,7 @@ tassle_points = 5;
 // Variables
 stalk_spd = 0;
 stalk_angle = 0;
-for (i = 0; i < points; i++) {
+for (var i = 0; i < points; i++) {
 	// Stalk Positional & Movement Variables
 	x_origin[i] = x;
 	y_origin[i] = y - (height * i);
@@ -58,7 +58,7 @@ for (i = 0; i < points; i++) {
 	if (i == points - 1) {
 		leaf_points[i] = tassle_points;
 	}
-	for (l = 0; l < leaf_points[i]; l++) {
+	for (var l = 0; l < leaf_points[i]; l++) {
 		// Create angle for leaves
 		if (i == points - 1) {
 			leaf_origin_angle[i, l] = random_range(-30, 30);

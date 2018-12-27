@@ -146,7 +146,7 @@
             "Key": "592a6847-e0d7-471f-af7b-6a418becf447",
             "Value": {
                 "id": "4998a39a-d626-4f5c-bad5-9192472346e2",
-                "resourcePath": "scripts\\createInventory\\createInventory.yy",
+                "resourcePath": "scripts\\createEmptyInventory\\createEmptyInventory.yy",
                 "resourceType": "GMScript"
             }
         },
