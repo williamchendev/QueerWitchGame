@@ -18,8 +18,10 @@ for (var h = 0; h < inven_height; h++) {
 	}
 }
 
-// Assigns Inventory to game object
+// Assigns inventory data to inventory object
 temp_inventory_obj.inventory = temp_inventory;
+temp_inventory_obj.inventory_width = inven_width;
+temp_inventory_obj.inventory_height = inven_height;
 
 // Returns empty inventory game object
 return temp_inventory_obj;

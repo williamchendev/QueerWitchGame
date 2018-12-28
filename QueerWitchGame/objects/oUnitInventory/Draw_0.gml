@@ -1,22 +1,10 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Inventory Object Draw Event
+// draws the Inventory Object to the screen
 
-// Skip drawing inventory unless set to draw
-draw_self();
-if (!draw_inventory) {
+// Draws the object only if object mode is active
+if (!object_mode) {
 	exit;
 }
 
-// Draw Inventory
-draw_set_color(c_black);
-draw_rectangle(x, y, x + 20, y + 20, false);
-for (var h = 0; h < inventory_height; h++) {
-	for (var w = 0; w < inventory_width; w++) {
-		var temp_start_x = x + (w * 10);
-		var temp_start_y = y + (h * 10);
-		draw_rectangle(temp_start_x, temp_start_y, temp_start_x + 10, temp_start_y + 10, false);
-	}
-}
-
-// Reset drawing variables
-draw_set_color(c_white);
+// Draws the inventory object
+draw_self();

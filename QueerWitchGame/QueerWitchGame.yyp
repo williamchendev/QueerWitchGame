@@ -143,6 +143,14 @@
             }
         },
         {
+            "Key": "51fbe359-2a24-4ed0-bc11-1ef9e6d5a136",
+            "Value": {
+                "id": "3ecbadf6-bf9e-430a-81d1-3ba84dcb5bbc",
+                "resourcePath": "scripts\\checkInventorySpaceEmpty\\checkInventorySpaceEmpty.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "592a6847-e0d7-471f-af7b-6a418becf447",
             "Value": {
                 "id": "4998a39a-d626-4f5c-bad5-9192472346e2",
@@ -207,6 +215,14 @@
             }
         },
         {
+            "Key": "7dd3ba93-6693-4db8-97a9-215f0ac1b931",
+            "Value": {
+                "id": "9e3e94b7-1fca-47db-a3de-9a770c96b43a",
+                "resourcePath": "fonts\\fNormalFont\\fNormalFont.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
             "Key": "80ab2562-0e2c-462e-85c2-a894fda12cb8",
             "Value": {
                 "id": "61fbfe01-e98b-48de-845c-58d25a7ae42a",
@@ -244,6 +260,14 @@
                 "id": "9caa4997-e6e7-48bf-8e18-03b81122ab53",
                 "resourcePath": "views\\933009a1-889e-4154-83ab-5468d941edf1.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "94211bbe-b2dc-41e9-8e7d-82d1f2d3507c",
+            "Value": {
+                "id": "309a328b-3424-44eb-b982-3dd3277b7f4a",
+                "resourcePath": "scripts\\debugInventoryPopulationFill\\debugInventoryPopulationFill.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -431,6 +455,14 @@
             }
         },
         {
+            "Key": "fec46faa-6004-483e-b4ed-62ba760afcce",
+            "Value": {
+                "id": "c2c70ea1-667b-436f-a0d1-09283f86c274",
+                "resourcePath": "scripts\\placeItemInventory\\placeItemInventory.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ff6e7cd9-c64c-4b8f-ae9c-ff966e03b20c",
             "Value": {
                 "id": "d8a657b8-752c-49dd-a9a6-ff970ee5d625",
@@ -440,7 +472,10 @@
         }
     ],
     "script_order": [
-        "592a6847-e0d7-471f-af7b-6a418becf447"
+        "592a6847-e0d7-471f-af7b-6a418becf447",
+        "94211bbe-b2dc-41e9-8e7d-82d1f2d3507c",
+        "51fbe359-2a24-4ed0-bc11-1ef9e6d5a136",
+        "fec46faa-6004-483e-b4ed-62ba760afcce"
     ],
     "tutorial": ""
 }

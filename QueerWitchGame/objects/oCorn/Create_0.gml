@@ -6,7 +6,7 @@ points = 6;
 height = 8;
 width = 2;
 color = make_color_rgb(236, 205, 104);
-max_color_change = 0.1;
+max_color_change = 0.2;
 
 complex_physics = true;
 lerp_spd = 0.1;
