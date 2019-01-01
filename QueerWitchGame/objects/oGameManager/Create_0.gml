@@ -7,6 +7,9 @@ if (instance_number(object_index) > 1) {
 }
 persistent = true;
 
+// Global Item Data
+itemData();
+
 // Player Input Management
 up_check = vk_up;
 down_check = vk_down;

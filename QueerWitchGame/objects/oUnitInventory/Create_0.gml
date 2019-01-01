@@ -12,12 +12,12 @@ inventory_height = 0;
 
 // Inventory GUI Mode Settings
 inventory_grid_size = 16;
-inventory_grid_space_size = 2;
-inventory_offset_size = 4;
+inventory_outline_size = 2;
+inventory_offset_size = 6;
 draw_offset_x = 24;
 draw_offset_y = -56;
 
-draw_lerp_spd = 0.1;
+draw_lerp_spd = 0.15;
 radial_spd = 0.0067;
 
 // Inventory GUI Mode Variables
@@ -27,6 +27,13 @@ draw_inventory_open = false;
 select_index = 0;
 select_target_width = 1;
 select_target_height = 1;
+
+select_item_id = 0;
+select_item_width = 0;
+select_item_height = 0;
+select_item_x = 0;
+select_item_y = 0;
+select_can_place = true;
 
 select_xpos = 0;
 select_ypos = 0;

@@ -41,7 +41,7 @@ universal_physics_object.base_object = self;
 
 // Inventory Variables
 unit_inventory = createEmptyInventory(6, 4);
-debugInventoryPopulationFill(unit_inventory);
+debugInventoryPopulationFill1(unit_inventory);
 
 // GUI & Menu Settings
 menu_lerp_spd = 0.1;

@@ -84,13 +84,11 @@ if (canmove) {
 	menu_alpha = lerp(menu_alpha, 0, menu_lerp_spd);
 	if (key_menu_press) {
 		canmove = false;
-		
-		menu_radial_select = 0;
-		menu_radial_draw_pos = 0;
-		menu_radial_target_pos = 0;
+		gui_mode = "select";
+		menu_radial_draw_pos = menu_radial_select;
+		menu_radial_target_pos = menu_radial_select;
 		
 		x_velocity = 0;
-		gui_mode = "select";
 	}
 }
 else {
@@ -114,7 +112,7 @@ else {
 		
 		// Select Menu option
 		if (key_select_press) {
-			if (menu_radial_select == 1) {
+			if (menu_radial_select == 2) {
 				gui_mode = "inventory";
 			}
 		}
@@ -297,8 +295,8 @@ if (camera_follow) {
 	var target_pos_y = y;
 	if (gui_mode == "inventory") {
 		if (unit_inventory != noone) {
-			target_pos_x = x + ((unit_inventory.inventory_width / 2) * (unit_inventory.inventory_grid_size + unit_inventory.inventory_grid_space_size)) + unit_inventory.inventory_offset_size;
-			target_pos_y = y + ((((unit_inventory.inventory_height / 2) * (unit_inventory.inventory_grid_size + unit_inventory.inventory_grid_space_size)) + unit_inventory.inventory_offset_size) * 0.6);
+			target_pos_x = x + ((unit_inventory.inventory_width / 2) * unit_inventory.inventory_grid_size) + unit_inventory.inventory_offset_size;
+			target_pos_y = y + ((((unit_inventory.inventory_height / 2) * unit_inventory.inventory_grid_size) + unit_inventory.inventory_offset_size) * 0.6);
 		}
 	}
 	
