@@ -53,140 +53,173 @@ if (draw_inventory) {
 	
 	// Input Calculations
 	var update_inventory = false;
-	if (key_select_press) {
-		// Moving around Items in Inventory
-		if (draw_inventory_open) {
-			if (select_item_id == 0) {
-				if (inventory[select_x, select_y] > 0) {
-					// Set select item properties
-					select_item_id = inventory[select_x, select_y];
-					
-					select_item_width = temp_selected_width;
-					select_item_height = temp_selected_height;
-					
-					select_item_x = select_x;
-					select_item_y = select_y;
-					
-					// Reset inventory spaces
-					for (var h = 0; h < select_item_height; h++) {
-						for (var w = 0; w < select_item_width; w++) {
-							inventory[w + select_x, h + select_y] = 0;
-						}
-					}
-					update_inventory = true;
-				}
+	if (select_place) {
+		// Place a specific number of stacks down on a specific tile
+		if (key_up_press or key_right_press) {
+			select_place_num++;
+			if (select_place_num > select_item_stacks) {
+				select_place_num = 1;
 			}
-			else {
-				if (checkInventorySpaceEmpty(self, select_x, select_y, select_item_width, select_item_height)) {
-					// Place Item in empty inventory space
-					var temp_formatted_index = (-1 * (select_x + (select_y * inventory_width))) - 1;
-					for (var h = 0; h < select_item_height; h++) {
-						for (var w = 0; w < select_item_width; w++) {
-							inventory[w + select_x, h + select_y] = temp_formatted_index;
-						}
-					}
-					inventory[select_x, select_y] = select_item_id;
-					
+		}
+		else if (key_down_press or key_left_press) {
+			select_place_num--;
+			if (select_place_num < 1) {
+				select_place_num = select_item_stacks;
+			}	
+		}
+			
+		if (key_select_press) {
+			if (checkItemInventory(self, select_x, select_y, select_item_width, select_item_height, select_item_id, select_place_num)) {
+				// Place Item in empty inventory space
+				placeItemInventory(self, select_item_id, select_x, select_y, select_place_num);
+				
+				select_item_stacks -= select_place_num;
+				
+				if (select_item_stacks <= 0) {
 					// Reset select item properties
 					select_item_id = 0;
+					select_item_stacks = 0;
 					
 					select_item_width = 0;
 					select_item_height = 0;
-					
-					select_item_x = 0;
-					select_item_y = 0;
-					
-					update_inventory = true;
-					draw_inventory_open = false;
+			
+					select_place = false;
+					select_place_num = 0;
 				}
+				select_place = false;
+				select_place_num = 0;
 			}
 		}
-	}
-	else if (key_cancel_press) {
-		if (select_item_id != 0) {
-			// Place Item in old inventory space
-			var temp_formatted_index = (-1 * (select_item_x + (select_item_y * inventory_width))) - 1;
-			for (var h = 0; h < select_item_height; h++) {
-				for (var w = 0; w < select_item_width; w++) {
-					inventory[w + select_item_x, h + select_item_y] = temp_formatted_index;
-				}
-			}
-			inventory[select_item_x, select_item_y] = select_item_id;
-					
-			// Reset select item properties
-			select_item_id = 0;
-					
-			select_item_width = 0;
-			select_item_height = 0;
-					
-			select_item_x = 0;
-			select_item_y = 0;
-			
-			update_inventory = true;
+		else if (key_cancel_press) {
+			select_place = false;
+			select_place_num = 0;
 		}
 	}
 	else {
-		// Move Inventory Selection Index
-		if (select_item_id == 0) {
-			// Move Select Cursor when nothing is selected
-			if (key_up_press) {
-				select_y--;
-				if (select_y < 0) {
-					select_y = inventory_height - 1;
+		if (key_select_press) {
+			// Moving around Items in Inventory
+			if (draw_inventory_open) {
+				if (select_item_id == 0) {
+					if (inventory[select_x, select_y] > 0) {
+						// Set select item properties
+						select_item_id = inventory[select_x, select_y];
+						select_item_stacks = inventory_stacks[select_x, select_y];
+					
+						select_item_width = temp_selected_width;
+						select_item_height = temp_selected_height;
+					
+						// Reset inventory spaces
+						for (var h = 0; h < select_item_height; h++) {
+							for (var w = 0; w < select_item_width; w++) {
+								inventory[w + select_x, h + select_y] = 0;
+							}
+						}
+						inventory_stacks[select_x, select_y] = 0;
+						update_inventory = true;
+					}
+				}
+				else {
+					if (checkItemInventory(self, select_x, select_y, select_item_width, select_item_height, select_item_id)) {
+						if (select_item_stacks == 1 && checkItemInventory(self, select_x, select_y, select_item_width, select_item_height, select_item_id, 1)) {	
+							// Place Item in empty inventory space
+							placeItemInventory(self, select_item_id, select_x, select_y);
+					
+							// Reset select item properties
+							select_item_id = 0;
+							select_item_stacks = 0;
+					
+							select_item_width = 0;
+							select_item_height = 0;
+					
+							update_inventory = true;
+							draw_inventory_open = false;
+						}
+						else if (select_item_stacks != 1) {
+							select_place = true;
+							select_place_num = select_item_stacks;
+						}
+					}
 				}
 			}
-			else if (key_down_press) {
-				select_y += temp_selected_height;
-				if (select_y >= inventory_height) {
-					select_y = 0;
-				}
-			}
-	
-			if (key_left_press) {
-				select_x--;
-				if (select_x < 0) {
-					select_x = inventory_width - 1;
-				}
-			}
-			else if (key_right_press) {
-				select_x += temp_selected_width;
-				if (select_x >= inventory_width) {
-					select_x = 0;
-				}
-			}
-	
-			if (inventory[select_x, select_y] < 0) {
-				var temp_select_x = select_x;
-				var temp_select_y = select_y;
-				select_x = (-1 * (inventory[temp_select_x, temp_select_y] + 1)) % inventory_width;
-				select_y = (-1 * (inventory[temp_select_x, temp_select_y] + 1)) div inventory_width;
+		}
+		else if (key_cancel_press) {
+			if (select_item_id != 0) {
+				// Place Item back into the inventory
+				addItemInventory(self, select_item_id, select_item_stacks);
+					
+				// Reset select item properties
+				select_item_id = 0;
+				select_item_stacks = 0;
+					
+				select_item_width = 0;
+				select_item_height = 0;
+			
+				update_inventory = true;
 			}
 		}
 		else {
-			// Move Select Cursor when something is selected
-			if (key_up_press) {
-				select_y--;
-				if (select_y < 0) {
-					select_y = inventory_height - select_item_height;
+			// Move Inventory Selection Index
+			if (select_item_id == 0) {
+				// Move Select Cursor when nothing is selected
+				if (key_up_press) {
+					select_y--;
+					if (select_y < 0) {
+						select_y = inventory_height - 1;
+					}
 				}
-			}
-			else if (key_down_press) {
-				select_y += temp_selected_height;
-				if (select_y + select_item_height - 1 >= inventory_height) {
-					select_y = 0;
+				else if (key_down_press) {
+					select_y += temp_selected_height;
+					if (select_y >= inventory_height) {
+						select_y = 0;
+					}
 				}
-			}
 	
-			if (key_left_press) {
-				select_x--;
-				if (select_x < 0) {
-					select_x = inventory_width - select_item_width;
+				if (key_left_press) {
+					select_x--;
+					if (select_x < 0) {
+						select_x = inventory_width - 1;
+					}
+				}
+				else if (key_right_press) {
+					select_x += temp_selected_width;
+					if (select_x >= inventory_width) {
+						select_x = 0;
+					}
+				}
+	
+				if (inventory[select_x, select_y] < 0) {
+					var temp_select_x = select_x;
+					var temp_select_y = select_y;
+					select_x = (-1 * (inventory[temp_select_x, temp_select_y] + 1)) % inventory_width;
+					select_y = (-1 * (inventory[temp_select_x, temp_select_y] + 1)) div inventory_width;
 				}
 			}
-			else if (key_right_press) {
-				select_x += temp_selected_width;
-				if (select_x + select_item_width - 1 >= inventory_width) {
-					select_x = 0;
+			else {
+				// Move Select Cursor when something is selected
+				if (key_up_press) {
+					select_y--;
+					if (select_y < 0) {
+						select_y = inventory_height - select_item_height;
+					}
+				}
+				else if (key_down_press) {
+					select_y++;
+					if (select_y + select_item_height - 1 >= inventory_height) {
+						select_y = 0;
+					}
+				}
+	
+				if (key_left_press) {
+					select_x--;
+					if (select_x < 0) {
+						select_x = inventory_width - select_item_width;
+					}
+				}
+				else if (key_right_press) {
+					select_x++;
+					if (select_x + select_item_width - 1 >= inventory_width) {
+						select_x = 0;
+					}
 				}
 			}
 		}
@@ -230,7 +263,7 @@ if (draw_inventory) {
 	select_width = lerp(select_width, select_target_width * inventory_grid_size, draw_lerp_spd);
 	select_height = lerp(select_height, select_target_height * inventory_grid_size, draw_lerp_spd);
 	if (select_item_id != 0) {
-		select_can_place = checkInventorySpaceEmpty(self, select_x, select_y, select_item_width, select_item_height);
+		select_can_place = checkItemInventory(self, select_x, select_y, select_item_width, select_item_height, select_item_id);
 	}
 	
 	// Open Inventory Initialization & Reset
@@ -249,26 +282,19 @@ else {
 	// Reset Inventory Initialization
 	if (draw_inventory_open) {
 		if (select_item_id != 0) {
-			// Place Item in old inventory space
-			var temp_formatted_index = (-1 * (select_item_x + (select_item_y * inventory_width))) - 1;
-			for (var h = 0; h < select_item_height; h++) {
-				for (var w = 0; w < select_item_width; w++) {
-					inventory[w + select_item_x, h + select_item_y] = temp_formatted_index;
-				}
-			}
-			inventory[select_item_x, select_item_y] = select_item_id;
+			// Place Item back into inventory
+			addItemInventory(self, select_item_id, select_item_stacks);
 					
 			// Reset select item properties
 			select_item_id = 0;
+			select_item_stacks = 0;
 					
 			select_item_width = 0;
 			select_item_height = 0;
-					
-			select_item_x = 0;
-			select_item_y = 0;
 			
 			update_inventory = true;
 		}
+		select_place = false;
 	}
 	draw_inventory_open = false;
 }

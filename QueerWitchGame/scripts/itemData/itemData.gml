@@ -16,7 +16,6 @@ enum itemstats
 }
 
 /// ***Items***
-global.item_data_length = 2;
 
 // Null
 global.item_data[0, itemstats.name] = "Empty";
@@ -25,7 +24,7 @@ global.item_data[0, itemstats.sprite_index] = sItems1x1;
 global.item_data[0, itemstats.image_index] = 0;
 global.item_data[0, itemstats.width_space] = 1;
 global.item_data[0, itemstats.height_space] = 1;
-global.item_data[0, itemstats.stack_limit] = 1;
+global.item_data[0, itemstats.stack_limit] = 0;
 global.item_data[0, itemstats.type] = "Empty";
 global.item_data[0, itemstats.type_index] = 0;
 
@@ -47,7 +46,7 @@ global.item_data[2, itemstats.sprite_index] = sItems1x1;
 global.item_data[2, itemstats.image_index] = 1;
 global.item_data[2, itemstats.width_space] = 1;
 global.item_data[2, itemstats.height_space] = 1;
-global.item_data[2, itemstats.stack_limit] = 1;
+global.item_data[2, itemstats.stack_limit] = 4;
 global.item_data[2, itemstats.type] = "Food";
 global.item_data[2, itemstats.type_index] = 0;
 

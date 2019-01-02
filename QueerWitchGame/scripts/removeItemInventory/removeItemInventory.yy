@@ -1,8 +1,8 @@
 {
-    "id": "51fbe359-2a24-4ed0-bc11-1ef9e6d5a136",
+    "id": "27cfc8b6-3c6c-4f06-86da-c5117735332b",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "checkInventorySpaceEmpty",
+    "name": "removeItemInventory",
     "IsCompatibility": false,
     "IsDnD": false
 }

@@ -7,6 +7,7 @@ object_mode = false;
 
 // Inventory Variables
 inventory = noone;
+inventory_stacks = noone;
 inventory_width = 0;
 inventory_height = 0;
 
@@ -24,15 +25,17 @@ radial_spd = 0.0067;
 draw_inventory = false;
 draw_inventory_open = false;
 
+select_place = false;
+select_place_num = 0;
+
 select_index = 0;
 select_target_width = 1;
 select_target_height = 1;
 
 select_item_id = 0;
+select_item_stacks = 0;
 select_item_width = 0;
 select_item_height = 0;
-select_item_x = 0;
-select_item_y = 0;
 select_can_place = true;
 
 select_xpos = 0;
