@@ -5,6 +5,7 @@
 var temp_inven_obj = argument0;
 
 placeItemInventory(argument0, 1, 0, 0);
+placeItemInventory(argument0, 1, 1, 0);
 placeItemInventory(argument0, 2, 2, 2, -1);
 placeItemInventory(argument0, 2, 1, 2);
 placeItemInventory(argument0, 3, 4, 2);

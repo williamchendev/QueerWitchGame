@@ -82,11 +82,16 @@ if (canmove) {
 	
 	// Switch to player menu
 	menu_alpha = lerp(menu_alpha, 0, menu_lerp_spd);
+	select_alpha = lerp(select_alpha, 0, menu_lerp_spd);
 	if (key_menu_press) {
 		canmove = false;
 		gui_mode = "select";
 		menu_radial_draw_pos = menu_radial_select;
 		menu_radial_target_pos = menu_radial_select;
+		
+		// ****DEBUG****
+		// Debug Sparkle Effect (Remove in the future)
+		//instance_create_depth(x, y, depth - 1, oSparkleEffect1);
 		
 		x_velocity = 0;
 	}
@@ -112,7 +117,25 @@ else {
 		
 		// Select Menu option
 		if (key_select_press) {
-			if (menu_radial_select == 2) {
+			if (menu_radial_select == 0) {
+				// Select Action Option
+				gui_mode = "actions";
+				
+				// Prepare Select Menu with Action Options
+				select_list = createActionList(self);
+				select_list_length = 1;
+				select_menu_select = 0;
+				if (select_list != noone) {
+					select_list_length = array_length_1d(select_list);
+					select_menu_select = select_list_length div 2;
+				}
+				
+				select_menu_draw_pos = select_menu_select;
+				select_option_lerp = 0;
+				select_update_option = true;
+			}
+			else if (menu_radial_select == 2) {
+				// Select Inventory Option
 				gui_mode = "inventory";
 			}
 		}
@@ -120,11 +143,77 @@ else {
 		// Lerp radial menu
 		menu_alpha = lerp(menu_alpha, 1, menu_lerp_spd);
 		menu_radial_draw_pos = lerp(menu_radial_draw_pos, menu_radial_target_pos, menu_lerp_spd);
+		
+		// Lerp select menu
+		select_alpha = lerp(select_alpha, 0, menu_lerp_spd);
 	}
 	else {
-		// Inventory Navigation
-		if (gui_mode == "inventory") {
+		// UI Navigation
+		if (gui_mode == "actions") {
+			// Action Management
+			var temp_prev_menu_select = select_menu_select;
+			if (key_up_press) {
+				select_menu_select--;
+			}
+			else if (key_down_press) {
+				select_menu_select++;
+			}
+			select_menu_select = clamp(select_menu_select, 0, clamp(select_list_length - 1, 0, select_list_length));
 			
+			// Update action option UI
+			if (temp_prev_menu_select != select_menu_select) {
+				// Reset option lerp
+				select_option_lerp = 0;
+				
+				// Update Stats UI
+				select_update_option = true;
+			}
+			
+			// Check if Action Options Avaiable
+			if (select_list != noone) {
+				// Update Unit Stat UI
+				if (select_update_option) {
+					select_update_option = false;
+				
+					var temp_prev_stats_mode = draw_stats_mode;
+					draw_stats_mode = checkUIType(select_list[select_menu_select]);
+					if (temp_prev_stats_mode != draw_stats_mode) {
+						draw_stats_alpha = 0;
+					}
+					select_item_stacks = 0;
+					select_consumable_strength = 0;
+				}
+			
+				// Use selected action option
+				select_can_use = false;
+				if (countItemInventory(unit_inventory, select_list[select_menu_select]) > 0) {
+					select_can_use = true;
+					
+					if (global.item_data[select_list[select_menu_select], itemstats.type] == itemtypes.consumable) {
+						select_item_stacks = countItemInventory(unit_inventory, select_list[select_menu_select]);
+						select_consumable_strength = global.consumable_data[global.item_data[select_list[select_menu_select], itemstats.type_index], consumablestats.strength];
+					}
+					
+					if (key_select_press) {
+						if (unitUseConsumable(self, select_list[select_menu_select])) {
+							removeItemInventory(unit_inventory, select_list[select_menu_select]);
+							select_update_option = true;
+							select_consumable_strength = 0;
+						}
+					}
+				}
+			}
+			else {
+				select_can_use = true;
+			}
+			
+			// Lerp select menu
+			select_alpha = lerp(select_alpha, 1, menu_lerp_spd);
+			select_menu_draw_pos = lerp(select_menu_draw_pos, select_menu_select, menu_lerp_spd);
+			select_option_lerp = lerp(select_option_lerp, 1, menu_lerp_spd);
+		}
+		else if (gui_mode == "inventory") {
+			// Inventory Management
 		}
 		
 		// Lerp radial menu
@@ -139,6 +228,8 @@ else {
 		}
 		else {
 			gui_mode = "select";
+			draw_stats_mode = noone;
+			select_consumable_strength = 0;
 		}
 	}
 }
@@ -281,6 +372,41 @@ if (gui_mode == "select") {
 		menu_radial_node[i, 2] = 0.5 + (temp_menu_prox * 0.5);
 	}
 }
+
+// Unit UI Animation
+if (draw_stats_mode != noone) {
+	draw_stats_alpha = lerp(draw_stats_alpha, 1, menu_lerp_spd);
+	if (draw_stats_mode == "calories") {
+		calorie_show = lerp(calorie_show, calories, 0.1);
+	}
+}
+else {
+	draw_stats_alpha = 0;
+}
+
+// ****DEBUG****
+if (keyboard_check_pressed(ord("K"))) {
+	if (draw_stats_mode == noone) {
+		draw_stats_mode = "health";
+	}
+	else if (draw_stats_mode == "health") {
+		draw_stats_mode = "calories";
+		calorie_show = calories;
+	}
+	else {
+		draw_stats_mode = noone;
+	}
+	draw_stats_alpha = 0;
+}
+
+if (keyboard_check_pressed(ord("I"))) {
+	calories += 1000;
+}
+
+if (keyboard_check_pressed(ord("O"))) {
+	calories -= 1000;
+}
+
 
 // Inventory
 if (unit_inventory != noone) {

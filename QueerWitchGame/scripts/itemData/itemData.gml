@@ -15,6 +15,14 @@ enum itemstats
 	type_index
 }
 
+enum itemtypes
+{
+	consumable,
+	weapon,
+	ammo,
+	key_item
+}
+
 /// ***Items***
 
 // Null
@@ -28,15 +36,15 @@ global.item_data[0, itemstats.stack_limit] = 0;
 global.item_data[0, itemstats.type] = "Empty";
 global.item_data[0, itemstats.type_index] = 0;
 
-// Debug
-global.item_data[1, itemstats.name] = "Debug";
-global.item_data[1, itemstats.description] = "This is a test of the system";
+// Debug Candy
+global.item_data[1, itemstats.name] = "Debug Candy";
+global.item_data[1, itemstats.description] = "It's a rare candy made to debug games.";
 global.item_data[1, itemstats.sprite_index] = sItems1x1;
 global.item_data[1, itemstats.image_index] = 0;
 global.item_data[1, itemstats.width_space] = 1;
 global.item_data[1, itemstats.height_space] = 1;
 global.item_data[1, itemstats.stack_limit] = 1;
-global.item_data[1, itemstats.type] = "Food";
+global.item_data[1, itemstats.type] = itemtypes.consumable;
 global.item_data[1, itemstats.type_index] = 0;
 
 // Granola Bar
@@ -47,8 +55,8 @@ global.item_data[2, itemstats.image_index] = 1;
 global.item_data[2, itemstats.width_space] = 1;
 global.item_data[2, itemstats.height_space] = 1;
 global.item_data[2, itemstats.stack_limit] = 4;
-global.item_data[2, itemstats.type] = "Food";
-global.item_data[2, itemstats.type_index] = 0;
+global.item_data[2, itemstats.type] = itemtypes.consumable;
+global.item_data[2, itemstats.type_index] = 1;
 
 // Trail Mix
 global.item_data[3, itemstats.name] = "Trail Mix";
@@ -58,5 +66,5 @@ global.item_data[3, itemstats.image_index] = 0;
 global.item_data[3, itemstats.width_space] = 2;
 global.item_data[3, itemstats.height_space] = 2;
 global.item_data[3, itemstats.stack_limit] = 1;
-global.item_data[3, itemstats.type] = "Food";
-global.item_data[3, itemstats.type_index] = 0;
+global.item_data[3, itemstats.type] = itemtypes.consumable;
+global.item_data[3, itemstats.type_index] = 2;

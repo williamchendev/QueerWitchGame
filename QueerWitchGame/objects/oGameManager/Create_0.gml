@@ -9,6 +9,7 @@ persistent = true;
 
 // Global Item Data
 itemData();
+consumableData();
 
 // Player Input Management
 up_check = vk_up;
