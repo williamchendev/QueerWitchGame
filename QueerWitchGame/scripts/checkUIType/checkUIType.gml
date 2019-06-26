@@ -14,9 +14,9 @@ var temp_ui_type = noone;
 if (temp_item_type = itemtypes.consumable) {
 	// Temporary Consumable Data variables
 	var temp_consumable_type = global.consumable_data[temp_item_type_index, consumablestats.type];
-	var temp_consumable_strength = global.consumable_data[temp_item_type_index, consumablestats.strength];
-	var temp_status_effects = global.consumable_data[temp_item_type_index, consumablestats.status_effects];
-	var temp_effect_strength = global.consumable_data[temp_item_type_index, consumablestats.effect_strength];
+	//var temp_consumable_strength = global.consumable_data[temp_item_type_index, consumablestats.strength];
+	//var temp_status_effects = global.consumable_data[temp_item_type_index, consumablestats.status_effects];
+	//var temp_effect_strength = global.consumable_data[temp_item_type_index, consumablestats.effect_strength];
 	
 	// Check which type to return
 	if (temp_consumable_type == consumabletype.heal) {

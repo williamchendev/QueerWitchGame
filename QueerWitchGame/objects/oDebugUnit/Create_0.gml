@@ -27,6 +27,8 @@ y_velocity = 0;
 slope_angle = 0;
 slope_offset = 0;
 
+platform_list = ds_list_create();
+
 // Behaviour Variables
 player_input = true;
 canmove = true;
@@ -70,7 +72,7 @@ calorie_color_4 = make_color_rgb(0, 118, 225);
 // GUI & Menu Settings
 menu_lerp_spd = 0.1;
 
-select_menu_radius = 32;
+//select_menu_radius = 32;
 select_menu_x_offset = 4;
 select_menu_y_offset = -26;
 
@@ -101,7 +103,8 @@ select_list_length = 0;
 
 // Animation Settings
 draw_sin_spd = 0.0074;
-squash_stretch = 0.2;
+//squash_stretch = 0.2;
+squash_stretch = 0.3;
 
 idle_anim = sCathIdle;
 walk_anim = sCathRun;

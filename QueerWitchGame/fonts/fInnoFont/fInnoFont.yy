@@ -1,7 +1,7 @@
 {
     "id": "5673b58d-052a-4268-ba86-8af180901475",
     "modelName": "GMFont",
-    "mvc": "1.0",
+    "mvc": "1.1",
     "name": "fInnoFont",
     "AntiAlias": 1,
     "TTFName": "${project_dir}\\fonts\\fInnoFont\\InnoFontv2.ttf",
@@ -10,6 +10,7 @@
     "charset": 0,
     "first": 0,
     "fontName": "InnoFont",
+    "glyphOperations": 0,
     "glyphs": [
         {
             "Key": 32,
@@ -1437,20 +1438,23 @@
             }
         }
     ],
-    "image": null,
+    "hinting": 0,
     "includeTTF": true,
+    "interpreter": 0,
     "italic": false,
     "kerningPairs": [
         
     ],
     "last": 0,
+    "maintainGms1Font": false,
+    "pointRounding": 0,
     "ranges": [
         {
             "x": 32,
             "y": 127
         }
     ],
-    "sampleText": "abcdef ABCDEF\\u000d\\u000a0123456789 .,<>\"'&!?\\u000d\\u000athe quick brown fox jumps over the lazy dog\\u000d\\u000aTHE QUICK BROWN FOX JUMPS OVER THE LAZY DOG\\u000d\\u000a$¢£\\u000d\\u000a\\u000d\\u000aDefault Character(9647) ▯",
+    "sampleText": "abcdef ABCDEF\\u000a0123456789 .,<>\"'&!?\\u000athe quick brown fox jumps over the lazy dog\\u000aTHE QUICK BROWN FOX JUMPS OVER THE LAZY DOG\\u000a$¢£\\u000a\\u000aDefault Character(9647) ▯",
     "size": 12,
     "styleName": "Medium",
     "textureGroupId": "1225f6b0-ac20-43bd-a82e-be73fa0b6f4f"

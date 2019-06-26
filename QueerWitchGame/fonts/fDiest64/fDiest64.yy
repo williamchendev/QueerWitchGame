@@ -1,7 +1,7 @@
 {
     "id": "3efb55da-4da7-4b4e-8716-b4175134ba21",
     "modelName": "GMFont",
-    "mvc": "1.0",
+    "mvc": "1.1",
     "name": "fDiest64",
     "AntiAlias": 0,
     "TTFName": "${project_dir}\\fonts\\fDiest64\\diest64Redux.ttf",
@@ -10,6 +10,7 @@
     "charset": 0,
     "first": 0,
     "fontName": "diest64Redux",
+    "glyphOperations": 0,
     "glyphs": [
         {
             "Key": 32,
@@ -1452,13 +1453,16 @@
             }
         }
     ],
-    "image": null,
+    "hinting": 0,
     "includeTTF": true,
+    "interpreter": 0,
     "italic": false,
     "kerningPairs": [
         
     ],
     "last": 0,
+    "maintainGms1Font": false,
+    "pointRounding": 0,
     "ranges": [
         {
             "x": 32,

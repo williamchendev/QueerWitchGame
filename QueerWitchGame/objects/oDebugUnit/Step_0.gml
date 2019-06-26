@@ -49,7 +49,7 @@ if (canmove) {
 	
 	// Jumping
 	if (key_up) {
-		if (!place_free(x, y + 1)) {
+		if (!platform_free(x, y + 1, platform_list)) {
 			// First Jump
 			y_velocity = 0;
 			y_velocity -= jump_spd;
@@ -77,6 +77,14 @@ if (canmove) {
 			// Variable Jump Height
 			y_velocity -= jump_velocity;
 			jump_velocity *= jump_decay;
+		}
+	}
+	
+	// Jumping Down (Platforms)
+	if (key_down_press) {
+		if (place_free(x, y + 1) and !platform_free(x, y + 1, platform_list)) {
+			y += 1;
+			y_velocity += 0.05;
 		}
 	}
 	
@@ -235,7 +243,7 @@ else {
 }
 
 // Physics
-if (place_free(x, y + 1)) {
+if (platform_free(x, y + 1, platform_list)) {
 	//Gravity
 	grav_velocity += grav;
 	grav_velocity *= grav_multiplier;
@@ -294,12 +302,12 @@ if (x_velocity != 0) {
 var vspd = 0;
 if (y_velocity != 0) {
 	// Vertical Collisions
-	if (place_free(x, y + y_velocity)) {
+	if (platform_free(x, y + y_velocity, platform_list)) {
 		vspd += y_velocity;
 	}
 	else {
 		for (var i = abs(y_velocity); i > 0; i -= 0.5) {
-			if (place_free(x, y + (i * sign(y_velocity)))) {
+			if (platform_free(x, y + (i * sign(y_velocity)), platform_list)) {
 				vspd += i * sign(y_velocity);
 				break;
 			}
@@ -328,10 +336,12 @@ if (hspd != 0) {
 	image_xscale = sign(hspd);	
 }
 
-sprite_index = idle_anim;
-if (!place_free(x, y + 1)) {
+if (!platform_free(x, y + 1, platform_list)) {
 	if (hspd != 0) {
 		sprite_index = walk_anim;
+	}
+	else {
+		sprite_index = idle_anim;
 	}
 }
 else {
