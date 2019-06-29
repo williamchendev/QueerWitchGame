@@ -20,3 +20,9 @@ right_check = vk_right;
 select_check = ord("Z");
 cancel_check = ord("X");
 menu_check = ord("C");
+
+// Camera Variables
+camera_width = 480;
+camera_height = 270;
+camera_x = 0;
+camera_y = 0;

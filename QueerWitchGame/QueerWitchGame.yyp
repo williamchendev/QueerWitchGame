@@ -359,6 +359,14 @@
             }
         },
         {
+            "Key": "676d5520-c594-40c6-a3a3-1bbc07b46418",
+            "Value": {
+                "id": "a4a34001-04a2-4ad9-87af-1eaaa4000176",
+                "resourcePath": "rooms\\rLevelEditor\\rLevelEditor.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "6793e5e7-efaf-4a14-b083-e9b62b63cee2",
             "Value": {
                 "id": "0ab580df-a00c-4646-b603-11522c73d71a",
@@ -375,6 +383,14 @@
             }
         },
         {
+            "Key": "696f3389-6606-4c4c-a237-b26bad1afd7f",
+            "Value": {
+                "id": "62fa3349-00e0-4eb9-ac10-14c04f2fc11c",
+                "resourcePath": "objects\\oEditor\\oEditor.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "6bedeb3b-5cf7-4c33-917a-2e9ffc57d679",
             "Value": {
                 "id": "329c2a63-0e22-476e-a0c9-b08c5d56df93",
@@ -388,6 +404,14 @@
                 "id": "f666cb8b-979d-479e-bc4a-454c5f227b75",
                 "resourcePath": "sprites\\sDebugSystem\\sDebugSystem.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6c18990a-03ef-449b-a98f-7782f1d2e815",
+            "Value": {
+                "id": "107dc05e-d168-4edf-84e4-c4d33da0b188",
+                "resourcePath": "scripts\\keyboard_check_number\\keyboard_check_number.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -548,6 +572,14 @@
                 "id": "309a328b-3424-44eb-b982-3dd3277b7f4a",
                 "resourcePath": "scripts\\debugInventoryPopulationFill\\debugInventoryPopulationFill.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "9785b2a7-6f5d-4aa9-84c1-11c1c6ce1561",
+            "Value": {
+                "id": "a46ad9cc-33d1-44f2-b9f9-f78048894619",
+                "resourcePath": "views\\9785b2a7-6f5d-4aa9-84c1-11c1c6ce1561.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -909,6 +941,7 @@
         "7ade5730-0846-442e-91bc-c03831193521",
         "9fce1346-69f4-4386-b267-5a2f5647bed9",
         "1a2bd610-e755-4cdf-b058-1ef50f3db865",
+        "6c18990a-03ef-449b-a98f-7782f1d2e815",
         "192c1d3a-ee15-45b7-87f9-6ac78bdc2b7c"
     ],
     "tutorial": ""
