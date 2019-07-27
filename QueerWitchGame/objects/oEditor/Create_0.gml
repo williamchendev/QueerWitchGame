@@ -1,6 +1,9 @@
 /// @description Level Editor Initialization Event
 // Initializes all the variables and properties of the level editor
 
+// Editor Data
+editorData();
+
 // Menu Settings
 menu_screen = true;
 new_block_screen = false;
@@ -15,6 +18,7 @@ menu_option_open_block_alpha = 0;
 block_select = -1;
 block_width_select = "";
 block_height_select = "";
+block_name_select = "";
 
 // Editor Settings
 enum editormode {
@@ -23,6 +27,9 @@ enum editormode {
 	text
 }
 editor_mode = editormode.block;
+
+editor_tools = noone;
+editor_objects = noone;
 
 editor_spd = 2;
 editor_grid = true;
@@ -35,7 +42,6 @@ max_block_height = 400;
 // Editor Variables
 block_width = 0;
 block_height = 0;
-block_ground_axis = 0;
 
 // Camera Settings
 camera_follow = true;	

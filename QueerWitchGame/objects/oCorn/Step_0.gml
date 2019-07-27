@@ -36,7 +36,7 @@ for (var i = 0; i < points; i++) {
 	if (sin_val[i] > 1) {
 		sin_val[i] = 0;
 	}
-	var draw_sin = (sin(sin_val[i] * 2 * pi) / 2) + 1;
+	//var draw_sin = (sin(sin_val[i] * 2 * pi) / 2) + 1;
 	
 	// Move target points with physics
 	if (complex_physics) {

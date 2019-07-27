@@ -11,6 +11,9 @@ persistent = true;
 itemData();
 consumableData();
 
+// Debug Mode
+global.debug = false;
+
 // Player Input Management
 up_check = vk_up;
 down_check = vk_down;

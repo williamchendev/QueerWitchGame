@@ -76,9 +76,32 @@ if (menu_screen) {
 		// Draw Menu Text
 		draw_text(temp_minor_menu_x - 58, temp_minor_menu_y - 42, "New Block");
 		draw_text(temp_minor_menu_x - 58, temp_minor_menu_y - 24, "Width: " + block_width_select);
-		//draw_rectangle(temp_minor_menu_x - 60, temp_minor_menu_y - 24, temp_minor_menu_x - 5, temp_minor_menu_y - 10, true);
 		draw_text(temp_minor_menu_x + 4, temp_minor_menu_y - 24, "Height: " + block_height_select);
-		//draw_rectangle(temp_minor_menu_x + 2, temp_minor_menu_y - 24, temp_minor_menu_x + 60, temp_minor_menu_y - 10, true);
+		if (string_width("Name: " + block_name_select) < 92) {
+			draw_text(temp_minor_menu_x - 58, temp_minor_menu_y - 9, "Name: " + block_name_select);
+			draw_set_alpha(0.6);
+			draw_text(temp_minor_menu_x - 58 + string_width("Name: " + block_name_select), temp_minor_menu_y - 9, ".txt");
+		}
+		else {
+			var temp_show_name = "";
+			for (var i = string_length(block_name_select); i > 0; i--) {
+				temp_show_name = string(string_char_at(block_name_select, i)) + temp_show_name;
+				if (string_width("Name: ..." + temp_show_name) >= 92) {
+					temp_show_name = string_delete(temp_show_name, 0, 1);
+					break;
+				}
+			}
+			draw_text(temp_minor_menu_x - 58, temp_minor_menu_y - 9, "Name: ..." + temp_show_name);
+			draw_set_alpha(0.6);
+			draw_text(temp_minor_menu_x - 58 + string_width("Name: ..." + temp_show_name), temp_minor_menu_y - 9, ".txt");
+		}
+		draw_set_alpha(1);
+		draw_rectangle(temp_minor_menu_x - 46, temp_minor_menu_y + 9, temp_minor_menu_x - 12, temp_minor_menu_y + 25, false);
+		draw_rectangle(temp_minor_menu_x, temp_minor_menu_y + 9, temp_minor_menu_x + 44, temp_minor_menu_y + 25, false);
+		draw_set_color(c_black);
+		draw_text(temp_minor_menu_x - 42, temp_minor_menu_y + 10, "Cancel");
+		draw_text(temp_minor_menu_x + 4, temp_minor_menu_y + 10, "New File");
+		draw_set_color(c_white);
 		
 		// Draw Menu Selection
 		if (block_select == 0) {
@@ -87,26 +110,27 @@ if (menu_screen) {
 		else if (block_select == 1) {
 			draw_line(temp_minor_menu_x + 1, temp_minor_menu_y - 10, temp_minor_menu_x + 52, temp_minor_menu_y - 10);
 		}
+		else if (block_select == 2) {
+			draw_line(temp_minor_menu_x - 61, temp_minor_menu_y + 5, temp_minor_menu_x + 48, temp_minor_menu_y + 5);
+		}
 	}
 }
 else {
 	
-	// Grid Pattern
-	if (editor_grid) {
-		draw_set_alpha(1);
-		draw_set_color(c_white);
-		var grid_draw_start_x = ((floor(oGameManager.camera_x / 48) - 4) * 48);
-		var grid_draw_start_y = ((floor(oGameManager.camera_y / 48) - 4) * 48);
-		for (var h = 0; h < (oGameManager.camera_height / 48) + 8; h++) {
-			for (var w = 0; w < (oGameManager.camera_width / 48) + 8; w++) {
-				var grid_draw_temp_x = grid_draw_start_x + (w * 48);
-				var grid_draw_temp_y = grid_draw_start_y + (h * 48);
-				draw_line(grid_draw_temp_x, grid_draw_temp_y, grid_draw_temp_x + 4, grid_draw_temp_y);
-				draw_line(grid_draw_temp_x, grid_draw_temp_y, grid_draw_temp_x, grid_draw_temp_y + 4);
-				draw_line(grid_draw_temp_x + 48, grid_draw_temp_y + 48, grid_draw_temp_x + 43, grid_draw_temp_y + 48);
-				draw_line(grid_draw_temp_x + 48, grid_draw_temp_y + 48, grid_draw_temp_x + 48, grid_draw_temp_y + 43);
-			}
-		}
-	}
 	
+	
+	/*
+	if (editor_groundlevel) {
+		draw_set_color(c_red);
+		draw_line_width(oGameManager.camera_x - 20, (block_ground_axis * 48) + 288, oGameManager.camera_x + oGameManager.camera_width + 20, (block_ground_axis * 48) + 288, 3);
+		draw_set_color(c_black);
+		draw_rectangle(15, (block_ground_axis * 48) + 288 - 8, 94, (block_ground_axis * 48) + 288 + 8, false);
+		draw_set_color(c_red);
+		draw_rectangle(15, (block_ground_axis * 48) + 288 - 8, 94, (block_ground_axis * 48) + 288 + 8, true); 
+		draw_text(18, (block_ground_axis * 48) + 288 - 8, "Ground Level: " + string(block_ground_axis));
+	}
+	*/
 }
+
+draw_set_color(c_white);
+draw_set_alpha(1);

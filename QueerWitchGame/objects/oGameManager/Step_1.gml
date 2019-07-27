@@ -6,6 +6,11 @@ camera_height = camera_get_view_height(view_camera[0]);
 camera_x = camera_get_view_x(view_camera[0]);
 camera_y = camera_get_view_y(view_camera[0]);
 
+// Debug Event
+if (keyboard_check_pressed(vk_f8)) {
+	global.debug = !global.debug;	
+}
+
 // Game Fullscreen
 if (keyboard_check_pressed(vk_f11)) {
 	if (window_get_fullscreen()) {

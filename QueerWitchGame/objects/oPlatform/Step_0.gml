@@ -16,6 +16,7 @@ if (unit_num > 0) {
 		}
 	}
 }
+ds_list_destroy(unit_list);
 
 // Update Unit List
 for (var i = 0; i < ds_list_size(units); i++) {
@@ -41,6 +42,7 @@ if (enemy_num > 0) {
 		}
 	}
 }
+ds_list_destroy(enemy_list);
 
 // Update Enemy List
 for (var i = 0; i < ds_list_size(enemies); i++) {
