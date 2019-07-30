@@ -15,6 +15,14 @@
             "objectId": "4fddc718-6124-4209-94e4-c4f97e0d878f",
             "propertyId": "081a5034-c959-47e0-8ed2-af66f7499257",
             "value": "Solids"
+        },
+        {
+            "id": "16350da4-95c8-48f2-b16d-1094471c76dc",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "4fddc718-6124-4209-94e4-c4f97e0d878f",
+            "propertyId": "aa69584b-523b-4e91-940b-49f7f0a558c4",
+            "value": "0"
         }
     ],
     "parentObjectId": "4fddc718-6124-4209-94e4-c4f97e0d878f",

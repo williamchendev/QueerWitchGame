@@ -1,37 +1,28 @@
 {
-    "id": "87b333c1-4147-46cc-9db4-1c21c07571a8",
+    "id": "267121b0-7638-466f-a20e-0eb286a6244a",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "oEditorTileSetBracket",
+    "name": "oEditorObjectBracket2",
     "eventList": [
-        {
-            "id": "36609ea7-6600-4798-95e8-c69ad7b797f4",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "87b333c1-4147-46cc-9db4-1c21c07571a8"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": [
         {
-            "id": "16a63077-9241-422a-ab75-b3a6471d7e9c",
+            "id": "130a25ba-f803-4caa-b384-9bf3b5ee2633",
             "modelName": "GMOverriddenProperty",
             "mvc": "1.0",
             "objectId": "4fddc718-6124-4209-94e4-c4f97e0d878f",
             "propertyId": "081a5034-c959-47e0-8ed2-af66f7499257",
-            "value": "Tiles"
+            "value": "Objects"
         },
         {
-            "id": "51d9dd4d-0015-4d1a-8430-0852a43aa74f",
+            "id": "eee65fc0-160c-4157-bb0e-8d0d579fed57",
             "modelName": "GMOverriddenProperty",
             "mvc": "1.0",
             "objectId": "4fddc718-6124-4209-94e4-c4f97e0d878f",
             "propertyId": "aa69584b-523b-4e91-940b-49f7f0a558c4",
-            "value": "1"
+            "value": "2"
         }
     ],
     "parentObjectId": "4fddc718-6124-4209-94e4-c4f97e0d878f",

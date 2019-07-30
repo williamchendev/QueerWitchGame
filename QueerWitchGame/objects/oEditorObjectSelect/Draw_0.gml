@@ -1,4 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Skipped Draw Event
 
+// Don't draw the sprite icon
 return;

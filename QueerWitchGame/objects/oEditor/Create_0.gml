@@ -28,6 +28,7 @@ enum editormode {
 }
 editor_mode = editormode.block;
 
+editor_click = true;
 editor_tools = noone;
 editor_objects = noone;
 

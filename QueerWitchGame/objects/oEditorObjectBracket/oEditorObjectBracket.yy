@@ -72,7 +72,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "0",
+            "value": "2",
             "varName": "entity_type",
             "varType": 0
         },
@@ -86,7 +86,7 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "Error",
+            "value": "Objects",
             "varName": "bar_name",
             "varType": 2
         }

@@ -13,17 +13,17 @@ if (!menu_screen) {
 			for (var w = 0; w < (oGameManager.camera_width / 48) + 8; w++) {
 				var grid_draw_temp_x = grid_draw_start_x + (w * 48);
 				var grid_draw_temp_y = grid_draw_start_y + (h * 48);
-				draw_line(grid_draw_temp_x, grid_draw_temp_y, grid_draw_temp_x + 4, grid_draw_temp_y);
-				draw_line(grid_draw_temp_x, grid_draw_temp_y, grid_draw_temp_x, grid_draw_temp_y + 4);
-				draw_line(grid_draw_temp_x + 48, grid_draw_temp_y + 48, grid_draw_temp_x + 43, grid_draw_temp_y + 48);
-				draw_line(grid_draw_temp_x + 48, grid_draw_temp_y + 48, grid_draw_temp_x + 48, grid_draw_temp_y + 43);
+				draw_sprite(sEditorGrid, 0, grid_draw_temp_x, grid_draw_temp_y);
+				//draw_line(grid_draw_temp_x, grid_draw_temp_y, grid_draw_temp_x + 4, grid_draw_temp_y);
+				//draw_line(grid_draw_temp_x, grid_draw_temp_y, grid_draw_temp_x, grid_draw_temp_y + 4);
+				//draw_line(grid_draw_temp_x + 48, grid_draw_temp_y + 48, grid_draw_temp_x + 43, grid_draw_temp_y + 48);
+				//draw_line(grid_draw_temp_x + 48, grid_draw_temp_y + 48, grid_draw_temp_x + 48, grid_draw_temp_y + 43);
 			}
 		}
 	}
 	
 	// Draw Block Bounds
 	draw_set_color(c_red);
-	draw_line(0, 0, 0, 32);
 	draw_line(0, 0, 0, block_height * 48);
 	draw_line(0, 0, block_width * 48, 0);
 	draw_line(0, block_height * 48, block_width * 48, block_height * 48);

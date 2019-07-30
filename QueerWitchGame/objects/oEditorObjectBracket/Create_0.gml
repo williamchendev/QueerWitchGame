@@ -1,8 +1,11 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Editor Object Sub-Menu Init
+// This is the sub menu that contains all the objects to select when using the editor
 
 // Settings
 expanded = false;
+selected = -1;
+
+// Object Options
 options = noone;
 for (var i = 0; i < array_length_2d(global.editor_entity_data, entity_type); i++) {
 	var temp_x_pos = i mod 3;
@@ -14,5 +17,5 @@ for (var i = 0; i < array_length_2d(global.editor_entity_data, entity_type); i++
 }
 
 // Variables
-height = ceil(i / 3);
+height = ceil(i / 3) * 36;
 hover_text = noone;

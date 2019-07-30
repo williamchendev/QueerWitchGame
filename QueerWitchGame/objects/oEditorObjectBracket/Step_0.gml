@@ -1,15 +1,20 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Editor Object Sub-Menu Update
+// Calculates the behaviour of the sub menu in the editor
 
+// Check if the main object menu set this bracket as active
 if (visible) {
-	if (mouse_check_button_pressed(mb_left)) {
+	// Check if the user clicked to expand or shrink this submenu
+	if (mouse_check_button_pressed(mb_left) and oEditor.editor_click) {
 		if (abs(mouse_room_x() - (x + 53.5)) < 52) {
 			if (abs(mouse_room_y() - (y + 8.5)) < 8) {
+				// Pull in or push out sub menu
 				expanded = !expanded;
+				oEditor.editor_click = false;
 			}
 		}
 	}
 
+	// Check if User mouse is hovering over an option and display the selected option as hovering text
 	hover_text = noone;
 	for (var i = 0; i < array_length_1d(options); i++) {
 		var temp_x_pos = i mod 3;
@@ -19,11 +24,9 @@ if (visible) {
 		if (options[i].hover) {
 			hover_text = options[i].button_name;
 		}
+		if (options[i].selected) {
+			selected = i;
+		}
 		options[i].visible = expanded;
-	}
-}
-else {
-	for (var i = 0; i < array_length_1d(options); i++) {
-		options[i].visible = false;
 	}
 }
