@@ -33,15 +33,15 @@ if (menu_screen) {
 				menu_screen = false;
 				new_block_screen = false;
 				editor_mode = editormode.block;
-				editor_tools = instance_create_layer(oGameManager.camera_x + oGameManager.camera_width - 20, oGameManager.camera_y + 20, layer, oEditorUtilBar);
+				editor_tools = instance_create_layer(oGameManager.camera_x + oGameManager.camera_width - 20, oGameManager.camera_y + 20, layer_get_id("Editor_UI"), oEditorUtilBar);
 				editor_objects = instance_create_layer(oGameManager.camera_x, oGameManager.camera_y, layer_get_id("Editor_UI"), oEditorObjectSelectMenu);
 				
 				block_width = real(string_digits(block_width_select));
 				block_height = real(string_digits(block_height_select));
 				
 				// Screen Settings
-				surface_resize(application_surface, 960, 540);
-				camera_set_view_size(view_camera[0], 960, 540);
+				//surface_resize(application_surface, 960, 540);
+				//camera_set_view_size(view_camera[0], 960, 540);
 			}
 			else {
 				block_select = -1;
@@ -228,8 +228,14 @@ else {
 
 // Resizing Screen
 if (keyboard_check_pressed(vk_f11)) {
-	surface_resize(application_surface, 960, 540);
-	camera_set_view_size(view_camera[0], 960, 540);
+	if (window_get_fullscreen()) {
+		surface_resize(application_surface, 960, 540);
+		camera_set_view_size(view_camera[0], 960, 540);
+	}
+	else {
+		surface_resize(application_surface, 480, 270);
+		camera_set_view_size(view_camera[0], 480, 270);
+	}
 }
 
 // Camera Movement

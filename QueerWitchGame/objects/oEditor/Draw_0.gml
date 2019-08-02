@@ -14,10 +14,6 @@ if (!menu_screen) {
 				var grid_draw_temp_x = grid_draw_start_x + (w * 48);
 				var grid_draw_temp_y = grid_draw_start_y + (h * 48);
 				draw_sprite(sEditorGrid, 0, grid_draw_temp_x, grid_draw_temp_y);
-				//draw_line(grid_draw_temp_x, grid_draw_temp_y, grid_draw_temp_x + 4, grid_draw_temp_y);
-				//draw_line(grid_draw_temp_x, grid_draw_temp_y, grid_draw_temp_x, grid_draw_temp_y + 4);
-				//draw_line(grid_draw_temp_x + 48, grid_draw_temp_y + 48, grid_draw_temp_x + 43, grid_draw_temp_y + 48);
-				//draw_line(grid_draw_temp_x + 48, grid_draw_temp_y + 48, grid_draw_temp_x + 48, grid_draw_temp_y + 43);
 			}
 		}
 	}

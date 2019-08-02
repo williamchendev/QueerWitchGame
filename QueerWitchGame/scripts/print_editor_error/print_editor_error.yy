@@ -1,8 +1,8 @@
 {
-    "id": "d9f4715c-1842-421f-9afa-92890f3df15a",
+    "id": "4ab6e364-4e80-4fb7-9ab5-78a87c360631",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "tilesetSetTile",
+    "name": "print_editor_error",
     "IsCompatibility": false,
     "IsDnD": false
 }

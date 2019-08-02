@@ -1,6 +1,6 @@
 /// keyboard_check_letter();
 /// @description Returns the letter pressed by the User's keyboard, if the backspace was pressed it returns -1, if no letter was pressed it returns noone
-/// @returns {real} Returns the letter pressed by the User's keyboard,  if the backspace was pressed it returns -1, otherwise returns ""
+/// @returns {real} Returns the letter pressed by the User's keyboard,  if the backspace was pressed it returns -1, otherwise returns noone
 
 var temp_check_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var temp_shift = false;

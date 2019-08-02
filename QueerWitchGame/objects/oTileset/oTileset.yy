@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "oTileset",
     "eventList": [
-        
+        {
+            "id": "21646d65-ff1f-4c23-80de-a7f2683f8903",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "3649b267-6b64-4cf1-87b1-def39b6e87a6"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
@@ -24,6 +33,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "00000000-0000-0000-0000-000000000000",
-    "visible": true
+    "spriteId": "5e3e9d8e-b8a9-4279-8662-38a73696ed3b",
+    "visible": false
 }
