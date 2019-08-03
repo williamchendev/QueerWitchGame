@@ -16,9 +16,9 @@ for (var i = 0; i < sprite_get_number(tilesets[0]); i++) {
 	var temp_x_pos = i mod 3;
 	var temp_y_pos = floor(i / 3);
 	options[i] = instance_create_layer(x + 18 + (temp_x_pos * 36), y + 18 + (temp_y_pos * 36), layer, oEditorObjectSelect);
-	options[i].button_image = tilesets[0];
+	options[i].button_image = tilesets[oEditor.block_tileset_index];
 	options[i].button_index = i;
-	options[i].button_name = sprite_get_name(tilesets[0]) + "[" + string(i) + "]";
+	options[i].button_name = sprite_get_name(tilesets[oEditor.block_tileset_index]) + "[" + string(i) + "]";
 	options[i].visible = false;
 }
 

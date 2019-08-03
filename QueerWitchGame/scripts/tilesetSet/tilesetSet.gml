@@ -29,9 +29,18 @@ var temp_tile_x = temp_tileset.x + (temp_x * 48);
 var temp_tile_y = temp_tileset.y + (temp_y * 48);
 
 // Set Tile
-temp_tileset.tile_index[temp_x, temp_y] = temp_index;
-temp_tileset.tile_id[temp_x, temp_y] = layer_sprite_create(temp_layer, temp_tile_x, temp_tile_y, temp_sprite);
-var temp_tile = temp_tileset.tile_id[temp_x, temp_y];
+if (temp_tileset.tile_index[temp_x, temp_y] != temp_index) {
+	if (temp_tileset.tile_index[temp_x, temp_y] != -1) {
+		layer_sprite_destroy(temp_tileset.tile_id[temp_x, temp_y]);
+		temp_tileset.tile_id[temp_x, temp_y] = noone;
+	}
+	temp_tileset.tile_index[temp_x, temp_y] = temp_index;
+	temp_tileset.tile_id[temp_x, temp_y] = layer_sprite_create(temp_layer, temp_tile_x, temp_tile_y, temp_sprite);
+	var temp_tile = temp_tileset.tile_id[temp_x, temp_y];
+}
+else {
+	return;
+}
 
 // Set Tile properties
 layer_sprite_speed(temp_tile, 0);

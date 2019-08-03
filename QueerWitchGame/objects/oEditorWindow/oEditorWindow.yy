@@ -2,7 +2,7 @@
     "id": "0a9d4755-d355-4fbb-ae6d-6ef10fdb819a",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "oEditorBlockWindow",
+    "name": "oEditorWindow",
     "eventList": [
         {
             "id": "d0cdfe38-cb01-4db9-9d48-db7126a19473",

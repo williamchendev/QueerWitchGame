@@ -4,45 +4,32 @@
 // Editor Data
 editorData();
 
-// Menu Settings
-menu_screen = true;
-new_block_screen = false;
-
-// Menu Variables
-menu_option_play_demo_alpha = 0;
-menu_option_new_level_alpha = 0;
-menu_option_open_level_alpha = 0;
-menu_option_new_block_alpha = 0;
-menu_option_open_block_alpha = 0;
-
-block_select = -1;
-block_width_select = "";
-block_height_select = "";
-block_name_select = "";
-
 // Editor Settings
-enum editormode {
-	block,
+enum editortypes {
+	start,
+	play,
 	level,
-	text
+	block
 }
-editor_mode = editormode.block;
+
+editor_mode = editortypes.start;
 
 editor_click = true;
 editor_tools = noone;
 editor_objects = noone;
 
 editor_spd = 2;
+
+editor_snap = true;
 editor_grid = true;
 
-min_block_width = 4;
-max_block_width = 80;
-min_block_height = 7;
-max_block_height = 400;
-
-// Editor Variables
+// Block Editor Variables
 block_width = 0;
 block_height = 0;
+block_filename = "";
+
+block_tileset_index = 0;
+block_tileset = noone;
 
 // Camera Settings
 camera_follow = true;	

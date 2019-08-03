@@ -26,3 +26,30 @@ for (var h = 0; h < temp_tileset.height; h++) {
 		}
 	}
 }
+
+// Reset Editor Tiles
+if (instance_exists(oEditor)) {
+	if (oEditor.editor_mode == editortypes.block) {
+		with (oEditorTileSetBracket) {
+			for (var i = 0; i < array_length_1d(options); i++) {
+				instance_destroy(options[i]);
+			}
+			
+			options = noone;
+			for (var i = 0; i < sprite_get_number(tilesets[0]); i++) {
+				var temp_x_pos = i mod 3;
+				var temp_y_pos = floor(i / 3);
+				options[i] = instance_create_layer(x + 18 + (temp_x_pos * 36), y + 18 + (temp_y_pos * 36), layer, oEditorObjectSelect);
+				options[i].button_image = tilesets[oEditor.block_tileset_index];
+				options[i].button_index = i;
+				options[i].button_name = sprite_get_name(tilesets[oEditor.block_tileset_index]) + "[" + string(i) + "]";
+				options[i].visible = false;
+			}
+		}
+		
+		if (oEditorObjectSelectMenu.selected_menu == 1) {
+			oEditorObjectSelectMenu.selected_menu = -1;
+			oEditorObjectSelectMenu.selected_index = -1;
+		}
+	}
+}

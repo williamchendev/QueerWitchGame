@@ -82,7 +82,7 @@
             "Key": "0a9d4755-d355-4fbb-ae6d-6ef10fdb819a",
             "Value": {
                 "id": "849d462d-f566-4b4b-ac07-ecf25b176fb0",
-                "resourcePath": "objects\\oEditorBlockWindow\\oEditorBlockWindow.yy",
+                "resourcePath": "objects\\oEditorWindow\\oEditorWindow.yy",
                 "resourceType": "GMObject"
             }
         },

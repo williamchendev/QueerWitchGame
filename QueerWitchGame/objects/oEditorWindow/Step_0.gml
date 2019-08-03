@@ -1,6 +1,16 @@
 /// @description Editor Block Window Update
 // Calculates and repositions the elements of Block Window around with the Block Window
 
+// Initiate Destroy Object
+if (destroy) {
+	destroyed = true;
+	for (var i = 0; i < array_length_1d(elements); i++) {
+		instance_destroy(elements[i].id);
+	}
+	instance_destroy(id);
+	return;
+}
+
 // Mouse Drag
 if (drag) {
 	if (mouse_check_button(mb_left)) {
@@ -16,17 +26,18 @@ if (drag) {
 if (mouse_check_button_pressed(mb_left)) {
 	if (abs((x + width - 5.5) - mouse_room_x()) < 4.5) {
 		if (abs((y + 7.5) - mouse_room_y()) < 4.5) {
-			destroyed = true;
-			for (var i = 0; i < array_length_1d(elements); i++) {
-				instance_destroy(elements[i].id);
+			if (instance_exists(oEditor)) {
+				oEditor.editor_click = false;
 			}
-			instance_destroy(id);
-			return;
+			with (oEditorWindow) {
+				destroy = false;
+			}
+			destroy = true;
 		}
 	}
 	else if (abs((x + (width / 2))  - mouse_room_x()) < width / 2) {
 		if (abs((y + (title_height / 2)) - mouse_room_y()) < title_height / 2) {
-			with (oEditorBlockWindow) {
+			with (oEditorWindow) {
 				drag = false;
 			}
 			drag = true;

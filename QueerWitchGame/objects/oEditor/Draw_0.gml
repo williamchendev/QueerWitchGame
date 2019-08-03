@@ -2,7 +2,7 @@
 // Draws the Level Editor to the screen
 
 // *TEMP*
-if (!menu_screen) {
+if (editor_mode == editortypes.block) {
 	// Grid Pattern
 	draw_set_alpha(1);
 	if (editor_grid) {
@@ -26,4 +26,27 @@ if (!menu_screen) {
 	draw_line(block_width * 48, 0, block_width * 48, block_height * 48);
 	
 	draw_set_color(c_white);
+	
+	// Draw Selected Object at Cursor
+	var temp_snap_x = (floor(mouse_room_x() / 48) * 48);
+	var temp_snap_y = (floor(mouse_room_y() / 48) * 48);
+	if (editor_objects.selected_menu != -1 and editor_objects.selected_index != -1) {
+		if (editor_objects.selected_menu == 1) {
+			// Tileset Cursor
+			if (mouse_room_x() >= 0 and mouse_room_x() < (block_width * 48)) {
+				if (mouse_room_y() >= 0 and mouse_room_y() < (block_height * 48)) {
+					draw_sprite_ext(global.editor_entity_data[1, block_tileset_index], editor_objects.selected_index, temp_snap_x, temp_snap_y, 1, 1, 0, c_white, 0.6);
+				}
+			}
+		}
+		else {
+			// Object Cursor
+			if (editor_snap) {
+				draw_sprite_ext(global.editor_icon_data[editor_objects.selected_menu, editor_objects.selected_index], 0, temp_snap_x, temp_snap_y, 1, 1, 0, c_white, 0.6);
+			}
+			else {
+				draw_sprite_ext(global.editor_icon_data[editor_objects.selected_menu, editor_objects.selected_index], 0, mouse_room_x(), mouse_room_y(), 1, 1, 0, c_white, 0.6);
+			}
+		}
+	}
 }

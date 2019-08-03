@@ -19,6 +19,7 @@ drag = false;
 mouse_x_offset = 0;
 mouse_y_offset = 0;
 
+destroy = false;
 destroyed = false;
 
 // Elements

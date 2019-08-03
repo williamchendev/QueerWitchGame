@@ -1,8 +1,14 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Start Menu Button Init
+// The buttons found in the editor start menu
+// Initializes all the variables necessary for the start menu button
 
 // Settings
-button_name = "Play Demo";
+pause = false;
+pressed = false;
+
+button_name = "Debug";
+
+width = 55;
 
 // Variables
 alpha = 0;

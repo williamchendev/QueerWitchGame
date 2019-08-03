@@ -17,4 +17,3 @@ var temp_error = instance_create_layer(x, y, layer_get_id("Editor_UI"), oEditorE
 temp_error.height = string_height(temp_text) + 8;
 temp_error.body_text = temp_text;
 temp_error.window_title = temp_title;
-
