@@ -15,8 +15,10 @@ enum editortypes {
 editor_mode = editortypes.start;
 
 editor_click = true;
+editor_delete = false;
 editor_tools = noone;
 editor_objects = noone;
+editor_cursor = -1;
 
 editor_spd = 2;
 

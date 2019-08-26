@@ -66,7 +66,7 @@ if (!destroyed) {
 		camera_set_view_pos(camera, oEditor.x, oEditor.y);
 		
 		oEditor.block_tileset_index = 0;
-		oEditor.block_tileset = tilesetCreate(0, 0, temp_width, temp_height, layer_get_id("Tiles"), global.editor_entity_data[1, 0]);
+		oEditor.block_tileset = tilesetCreate(0, 0, temp_width, temp_height, layer_get_id("Tiles"), global.editor_data[global.editor_data_categories_length, 0]);
 		
 		oEditor.editor_tools = instance_create_layer(oEditor.x + oGameManager.camera_width - 20, oEditor.y + 20, layer_get_id("Editor_UI"), oEditorUtilBar);
 		oEditor.editor_objects = instance_create_layer(oEditor.x, oEditor.y, layer_get_id("Editor_UI"), oEditorObjectSelectMenu);

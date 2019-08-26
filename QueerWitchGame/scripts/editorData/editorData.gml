@@ -1,41 +1,66 @@
 /// editorData();
 /// @description Establishes the global variables for all Editor GameObject Values
 
-// Solids [0]
-global.editor_entity_data[0, 0] = oSolid;
-global.editor_entity_data[0, 1] = oSolidRotation;
-global.editor_entity_data[0, 2] = oPlatform;
+global.editor_data_categories = 9;
+global.editor_data_categories_length = 1000;
 
-// Tilesets [1]
-global.editor_entity_data[1, 0] = sDebugTileSet;
-global.editor_entity_data[1, 1] = sDebugTileSet;
+global.editor_data = noone;
+for (var i = 0; i < (global.editor_data_categories * global.editor_data_categories_length); i++) {
+	global.editor_data[i, 0] = noone;
+}
 
-// Objects [2]
-global.editor_entity_data[2, 0] = oDebugUnit;
-global.editor_entity_data[2, 1] = oSolid;
-global.editor_entity_data[2, 2] = oSolidRotation;
-global.editor_entity_data[2, 3] = oPlatform;
-global.editor_entity_data[2, 4] = oPlatform;
-global.editor_entity_data[2, 5] = oPlatform;
-global.editor_entity_data[2, 6] = oPlatform;
-global.editor_entity_data[2, 7] = oPlatform;
-global.editor_entity_data[2, 8] = oPlatform;
+/********************/
+/* Solids [0 - 999] */
+/********************/
+global.editor_data[0, 0] = oSolid;
+global.editor_data[0, 1] = sDebugSolid;
 
-// Solids Icons [0]
-global.editor_icon_data[0, 0] = sDebugSolid;
-global.editor_icon_data[0, 1] = sDebugSolidRotation;
-global.editor_icon_data[0, 2] = sDebugPlatform;
+global.editor_data[1, 0] = oSolidRotation;
+global.editor_data[1, 1] = sDebugSolidRotation;
 
-// TileSet Icons [1]
-global.editor_icon_data[1, 0] = noone;
+global.editor_data[2, 0] = oPlatform;
+global.editor_data[2, 1] = sDebugPlatform;
 
-// Objects Icons [2]
-global.editor_icon_data[2, 0] = sCathIdle;
-global.editor_icon_data[2, 1] = sDebugSolid;
-global.editor_icon_data[2, 2] = sDebugSolidRotation;
-global.editor_icon_data[2, 3] = sDebugPlatform;
-global.editor_icon_data[2, 4] = sDebugPlatform;
-global.editor_icon_data[2, 5] = sDebugPlatform;
-global.editor_icon_data[2, 6] = sDebugPlatform;
-global.editor_icon_data[2, 7] = sDebugPlatform;
-global.editor_icon_data[2, 8] = sDebugPlatform;
+/**************************/
+/* Tilesets [1000 - 1999] */
+/**************************/
+i = global.editor_data_categories_length;
+global.editor_data[i, 0] = sDebugTileSet;
+
+global.editor_data[i + 1, 0] = sDebugTileSet;
+
+/*************************/
+/* Objects [2000 - 2999] */
+/*************************/
+i = global.editor_data_categories_length * 2;
+global.editor_data[i, 0] = oDebugUnit;
+global.editor_data[i, 1] = sCathIdle;
+global.editor_data[i, 2] = 24;
+global.editor_data[i, 3] = 48;
+
+global.editor_data[i + 1, 0] = oSolidRotation;
+global.editor_data[i + 1, 1] = sDebugSolidRotation;
+
+global.editor_data[i + 2, 0] = oPlatform;
+global.editor_data[i + 2, 1] = sDebugPlatform;
+
+global.editor_data[i + 3, 0] = oPlatform;
+global.editor_data[i + 3, 1] = sDebugPlatform;
+
+global.editor_data[i + 4, 0] = oPlatform;
+global.editor_data[i + 4, 1] = sDebugPlatform;
+
+global.editor_data[i + 5, 0] = oPlatform;
+global.editor_data[i + 5, 1] = sDebugPlatform;
+
+global.editor_data[i + 6, 0] = oPlatform;
+global.editor_data[i + 6, 1] = sDebugPlatform;
+
+global.editor_data[i + 7, 0] = oPlatform;
+global.editor_data[i + 7, 1] = sDebugPlatform;
+
+global.editor_data[i + 8, 0] = oPlatform;
+global.editor_data[i + 8, 1] = sDebugPlatform;
+
+global.editor_data[i + 9, 0] = oPlatform;
+global.editor_data[i + 9, 1] = sDebugPlatform;

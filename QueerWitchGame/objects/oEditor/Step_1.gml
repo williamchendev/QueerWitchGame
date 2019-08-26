@@ -31,8 +31,9 @@ else if (editor_mode == editortypes.block) {
 	editor_tools.y = oGameManager.camera_y + 20;
 }
 
-// Reset the Editor check clicked
+// Reset the Editor Click check and Editor Cursor sprite
 editor_click = true;
+editor_cursor = -1;
 
 // Resizing Screen
 if (keyboard_check_pressed(vk_f11)) {

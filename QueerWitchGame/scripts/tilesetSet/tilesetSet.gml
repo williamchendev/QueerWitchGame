@@ -1,9 +1,9 @@
 /// tilesetSet(tileset,x,y,index);
-/// @description Edits the tileset by setting a tile at the given coordinate within the tileset array
+/// @description Edits the tileset by setting a tile at the given coordinate within the tileset array (-1 as the index sets the given tile to empty)
 /// @param {real} tileset The tileset object id to set a tile in
 /// @param {integer} x The X coordinate in the tileset object's array to set the tile
 /// @param {integer} y The Y coordinate in the tileset object's array to set the tile
-/// @param {integer} index The given index of the desired tile being set in the array
+/// @param {integer} index The given index of the desired tile being set in the array (-1 as the index sets the given tile to empty)
 
 // Establish Variables
 var temp_tileset = argument0;
@@ -33,6 +33,12 @@ if (temp_tileset.tile_index[temp_x, temp_y] != temp_index) {
 	if (temp_tileset.tile_index[temp_x, temp_y] != -1) {
 		layer_sprite_destroy(temp_tileset.tile_id[temp_x, temp_y]);
 		temp_tileset.tile_id[temp_x, temp_y] = noone;
+		
+		// If set to -1, tile is deleted already
+		if (temp_index == -1) {
+			temp_tileset.tile_index[temp_x, temp_y] = -1;
+			return;
+		}
 	}
 	temp_tileset.tile_index[temp_x, temp_y] = temp_index;
 	temp_tileset.tile_id[temp_x, temp_y] = layer_sprite_create(temp_layer, temp_tile_x, temp_tile_y, temp_sprite);
