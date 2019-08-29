@@ -34,18 +34,22 @@ if (selected) {
 					else if (abs((x + edge_a) - mouse_room_x()) < mouse_mid_bounds) {
 						// Left Horizontal Line
 						mouse_mode = 1;
+						scale_mode = false;
 					}
 					else if (abs((x + edge_b) - mouse_room_x()) < mouse_mid_bounds) {
 						// Right Horizontal Line
 						mouse_mode = 1;
+						scale_mode = true;
 					}
 					else if (abs((y + edge_c) - mouse_room_y()) < mouse_mid_bounds) {
 						// Top Vertical Line
 						mouse_mode = 2;
+						scale_mode = false;
 					}
 					else if (abs((y + edge_d) - mouse_room_y()) < mouse_mid_bounds) {
 						// Bottom Vertical Line
 						mouse_mode = 2;
+						scale_mode = true;
 					}
 				}
 			}
@@ -77,12 +81,57 @@ if (selected) {
 				// Old Object Variables
 				old_x = x;
 				old_y = y;
-				old_mid_x = mid_a;
-				old_mid_y = mid_b;
+				
+				var temp_bbox_left = sprite_get_bbox_left(temp_sprite_index) * object_x_scale;
+				var temp_bbox_right = sprite_get_bbox_right(temp_sprite_index) * object_x_scale;
+				var temp_bbox_top = sprite_get_bbox_top(temp_sprite_index) * object_y_scale;
+				var temp_bbox_bottom = sprite_get_bbox_bottom(temp_sprite_index) * object_y_scale;
+	
+				temp_bbox_left -= sprite_get_xoffset(temp_sprite_index) * object_x_scale;
+				temp_bbox_bottom -= sprite_get_yoffset(temp_sprite_index) * object_y_scale;
+				temp_bbox_right -= sprite_get_xoffset(temp_sprite_index) * object_x_scale;
+				temp_bbox_top -= sprite_get_yoffset(temp_sprite_index) * object_y_scale;
+	
+				var temp_point1_dis = point_distance(0, 0, temp_bbox_left, temp_bbox_top);
+				var temp_point1_angle = point_direction(0, 0, temp_bbox_left, temp_bbox_top);
+				var temp_point2_dis = point_distance(0, 0, temp_bbox_right, temp_bbox_top);
+				var temp_point2_angle = point_direction(0, 0, temp_bbox_right, temp_bbox_top);
+				var temp_point3_dis = point_distance(0, 0, temp_bbox_right, temp_bbox_bottom);
+				var temp_point3_angle = point_direction(0, 0, temp_bbox_right, temp_bbox_bottom);
+				var temp_point4_dis = point_distance(0, 0, temp_bbox_left, temp_bbox_bottom);
+				var temp_point4_angle = point_direction(0, 0, temp_bbox_left, temp_bbox_bottom);
+	
+				var temp_left_top_x_offset = lengthdir_x(temp_point1_dis, temp_point1_angle + object_rotation);
+				var temp_left_top_y_offset = lengthdir_y(temp_point1_dis, temp_point1_angle + object_rotation);
+				var temp_right_top_x_offset = lengthdir_x(temp_point2_dis, temp_point2_angle + object_rotation);
+				var temp_right_top_y_offset = lengthdir_y(temp_point2_dis, temp_point2_angle + object_rotation);
+				var temp_right_bottom_x_offset = lengthdir_x(temp_point3_dis, temp_point3_angle + object_rotation);
+				var temp_right_bottom_y_offset = lengthdir_y(temp_point3_dis, temp_point3_angle + object_rotation);
+				var temp_left_bottom_x_offset = lengthdir_x(temp_point4_dis, temp_point4_angle + object_rotation);
+				var temp_left_bottom_y_offset = lengthdir_y(temp_point4_dis, temp_point4_angle + object_rotation);
+				
+				var temp_edge_a = min(temp_left_top_x_offset, temp_right_top_x_offset, temp_right_bottom_x_offset, temp_left_bottom_x_offset);
+				var temp_edge_b = max(temp_left_top_x_offset, temp_right_top_x_offset, temp_right_bottom_x_offset, temp_left_bottom_x_offset);
+				var temp_edge_c = min(temp_left_top_y_offset, temp_right_top_y_offset, temp_right_bottom_y_offset, temp_left_bottom_y_offset);
+				var temp_edge_d = max(temp_left_top_y_offset, temp_right_top_y_offset, temp_right_bottom_y_offset, temp_left_bottom_y_offset);
+				
+				var temp_bbox_half_x = ((temp_edge_b - temp_edge_a) / 2.0) + temp_edge_a;
+				var temp_bbox_half_y = ((temp_edge_d - temp_edge_c) / 2.0) + temp_edge_c;
+				
+				old_mid_x = temp_bbox_half_x;
+				old_mid_y = temp_bbox_half_y;
+				
+				old_scale_x = object_x_scale;
+				old_scale_y = object_y_scale;
 				old_rotation = object_rotation;
 				
 				// Disable editor click
 				oEditor.editor_click = false;
+				
+				// Perform Step if Scaling Mode
+				if (mouse_mode == 1 or mouse_mode == 2) {
+					event_perform(ev_step, 0);
+				}
 			}
 		}
 	}
@@ -97,6 +146,31 @@ if (selected) {
 				var temp_object_rotation = old_rotation + (temp_new_rotate - temp_old_rotate);
 				
 				// Calculate Center Rotate Offset
+				var temp_bbox_left = (sprite_get_bbox_left(temp_sprite_index) * object_x_scale) - (sprite_get_xoffset(temp_sprite_index) * object_x_scale);
+				var temp_bbox_right = (sprite_get_bbox_right(temp_sprite_index) * object_x_scale) - (sprite_get_xoffset(temp_sprite_index) * object_x_scale);
+				var temp_bbox_top = (sprite_get_bbox_top(temp_sprite_index) * object_y_scale) - (sprite_get_yoffset(temp_sprite_index) * object_y_scale);
+				var temp_bbox_bottom = (sprite_get_bbox_bottom(temp_sprite_index) * object_y_scale) - (sprite_get_yoffset(temp_sprite_index) * object_y_scale);
+				
+				var temp_bbox_half_x = ((temp_bbox_right - temp_bbox_left) / 2.0) + temp_bbox_left;
+				var temp_bbox_half_y = ((temp_bbox_bottom - temp_bbox_top) / 2.0) + temp_bbox_top;
+				
+				var temp_mid_dis = point_distance(0, 0, temp_bbox_half_x, temp_bbox_half_y);
+				var temp_mid_dir = point_direction(temp_bbox_half_x, temp_bbox_half_y, 0, 0);
+				
+				// Set Rotation
+				if (abs(angle_difference(temp_object_rotation, 0)) < 5) {
+					object_rotation = 0;
+				}
+				else {
+					object_rotation = round(temp_object_rotation);
+				}
+				
+				// Update Position
+				x = (old_x + old_mid_x) + lengthdir_x(temp_mid_dis, temp_mid_dir + object_rotation);
+				y = (old_y + old_mid_y) + lengthdir_y(temp_mid_dis, temp_mid_dir + object_rotation);
+			}
+			else if (mouse_mode <= 2) {
+				// Scale
 				var temp_bbox_left = sprite_get_bbox_left(temp_sprite_index) - sprite_get_xoffset(temp_sprite_index);
 				var temp_bbox_right = sprite_get_bbox_right(temp_sprite_index) - sprite_get_xoffset(temp_sprite_index);
 				var temp_bbox_top = sprite_get_bbox_top(temp_sprite_index) - sprite_get_yoffset(temp_sprite_index);
@@ -105,24 +179,98 @@ if (selected) {
 				var temp_bbox_half_x = ((temp_bbox_right - temp_bbox_left) / 2.0) + temp_bbox_left;
 				var temp_bbox_half_y = ((temp_bbox_bottom - temp_bbox_top) / 2.0) + temp_bbox_top;
 				
-				var temp_mid_dis = point_distance(0, 0, temp_bbox_half_x, temp_bbox_half_y);
-				var temp_mid_dir = point_direction(temp_bbox_half_x, temp_bbox_half_y, 0, 0);
-				
-				// Update Rotation and Position
-				if (abs(angle_difference(temp_object_rotation, 0)) < 5) {
-					object_rotation = 0;
+				// Scaling Mode
+				if (mouse_mode == 1) {
+					// Horizontal Scaling
+					var temp_mask_width = temp_bbox_right - temp_bbox_left;
+					var temp_mask_height = temp_bbox_bottom - temp_bbox_top;
+					
+					// Variables
+					var temp_bbox_old_scale_left = ((sprite_get_bbox_left(temp_sprite_index)) * old_scale_x) - (sprite_get_xoffset(temp_sprite_index) * old_scale_x);
+					var temp_bbox_old_scale_right = ((sprite_get_bbox_right(temp_sprite_index) + 1) * old_scale_x) - (sprite_get_xoffset(temp_sprite_index) * old_scale_x);
+					
+					var temp_mouse_offset;
+					var temp_x_position_update;
+					
+					// Left or Right Directional Scaling
+					if (scale_mode) {
+						// Drag Right Scaling
+						if (sign(old_scale_x) >= 0) {
+							// Calculate Drag Scale
+							temp_mouse_offset = mouse_room_x() - (old_x + temp_bbox_old_scale_left);
+							object_x_scale = (temp_mouse_offset / temp_mask_width);
+						
+							// Update Position from Positive Scale
+							var temp_bbox_new_scale_left = (sprite_get_bbox_left(temp_sprite_index) * object_x_scale) - (sprite_get_xoffset(temp_sprite_index) * object_x_scale);
+							temp_x_position_update = (old_x + temp_bbox_old_scale_left) - temp_bbox_new_scale_left;
+						}
+						else {
+							// Calculate Drag Scale
+							temp_mouse_offset = mouse_room_x() - (old_x + temp_bbox_old_scale_right);
+							object_x_scale = (temp_mouse_offset / temp_mask_width) * -1;
+						
+							// Update Position from Negative Scale
+							var temp_bbox_new_scale_right = ((sprite_get_bbox_right(temp_sprite_index) + 1) * object_x_scale) - (sprite_get_xoffset(temp_sprite_index) * object_x_scale);
+							temp_x_position_update = (old_x + temp_bbox_old_scale_right) - temp_bbox_new_scale_right;
+						}
+					}
+					else {
+						// Drag Left Scaling
+						if (sign(old_scale_x) >= 0) {
+							// Calculate Drag Scale
+							temp_mouse_offset = (old_x + temp_bbox_old_scale_right) - mouse_room_x();
+							object_x_scale = (temp_mouse_offset / temp_mask_width);
+							
+							// Update Position from Positive Scale
+							var temp_bbox_new_scale_right = ((sprite_get_bbox_right(temp_sprite_index) + 1) * object_x_scale) - (sprite_get_xoffset(temp_sprite_index) * object_x_scale);
+							temp_x_position_update = (old_x + temp_bbox_old_scale_right) - temp_bbox_new_scale_right;
+						}
+						else {			
+							// Calculate Drag Scale
+							temp_mouse_offset = (old_x + temp_bbox_old_scale_left) - mouse_room_x();
+							object_x_scale = (temp_mouse_offset / temp_mask_width) * -1;
+							
+							// Update Position from Negative Scale
+							var temp_bbox_new_scale_left = ((sprite_get_bbox_left(temp_sprite_index)) * object_x_scale) - (sprite_get_xoffset(temp_sprite_index) * object_x_scale);
+							temp_x_position_update = (old_x + temp_bbox_old_scale_left) - temp_bbox_new_scale_left;
+						}
+					}
+					
+					// Update X Position
+					x = temp_x_position_update;
+					
+					// Center Y Position
+					var temp_mid_dis = point_distance(0, 0, temp_bbox_half_x, temp_bbox_half_y);
+					var temp_mid_dir = point_direction(temp_bbox_half_x, temp_bbox_half_y, 0, 0);
+					
+					y = (old_y + old_mid_y) + lengthdir_y(temp_mid_dis, temp_mid_dir);
+					
+					// Clamp Scale
+					if (abs(object_x_scale * temp_mask_width) < 1) {
+						var temp_x_scale = object_x_scale;
+						if (temp_x_scale == 0) {
+							temp_x_scale = 1;
+						}
+						object_x_scale = sign(temp_x_scale) * (1 / temp_mask_width);
+					}
 				}
 				else {
-					object_rotation = temp_object_rotation;
-				}
-				
-				x = (old_x + old_mid_x) + lengthdir_x(temp_mid_dis, temp_mid_dir + object_rotation);
-				y = (old_y + old_mid_y) + lengthdir_y(temp_mid_dis, temp_mid_dir + object_rotation);
-			}
-			else if (mouse_mode <= 2) {
-				// Scale
-				if (mouse_mode == 1) {
+					// Vertical Scaling
 					
+					// Center X Position
+					var temp_mid_dis = point_distance(0, 0, temp_bbox_half_x, temp_bbox_half_y);
+					var temp_mid_dir = point_direction(temp_bbox_half_x, temp_bbox_half_y, 0, 0);
+					
+					x = (old_x + old_mid_x) + lengthdir_x(temp_mid_dis, temp_mid_dir);
+					
+					// Clamp Scale
+					if (abs(object_y_scale * temp_mask_height) < 1) {
+						var temp_y_scale = object_y_scale;
+						if (temp_y_scale == 0) {
+							temp_y_scale = 1;
+						}
+						object_y_scale = sign(temp_y_scale) * (1 / temp_mask_height);
+					}
 				}
 			}
 			else if (mouse_mode == 3) {
@@ -152,6 +300,15 @@ if (selected) {
 			}
 		}
 		else {
+			// Scaling Reset Position
+			if (mouse_mode == 1) {
+				y = old_y;
+			}
+			else if (mouse_mode == 2) {
+				x = old_x;
+			}
+			
+			// Reset Mouse Press
 			mouse_press = false;
 			mouse_mode = -1;
 		}
@@ -170,15 +327,22 @@ if (selected) {
 	}
 	
 	// Set Edges and Mids
-	var temp_bbox_left = sprite_get_bbox_left(temp_sprite_index);
-	var temp_bbox_right = sprite_get_bbox_right(temp_sprite_index);
-	var temp_bbox_top = sprite_get_bbox_top(temp_sprite_index);
-	var temp_bbox_bottom = sprite_get_bbox_bottom(temp_sprite_index);
+	var temp_rotation = object_rotation;
+	if (mouse_press) {
+		if (mouse_mode == 1 or mouse_mode == 2) {
+			temp_rotation = 0;
+		}
+	}
 	
-	temp_bbox_left -= sprite_get_xoffset(temp_sprite_index);
-	temp_bbox_bottom -= sprite_get_yoffset(temp_sprite_index);
-	temp_bbox_right -= sprite_get_xoffset(temp_sprite_index);
-	temp_bbox_top -= sprite_get_yoffset(temp_sprite_index);
+	var temp_bbox_left = sprite_get_bbox_left(temp_sprite_index) * object_x_scale;
+	var temp_bbox_right = (sprite_get_bbox_right(temp_sprite_index) + 1) * object_x_scale;
+	var temp_bbox_top = sprite_get_bbox_top(temp_sprite_index) * object_y_scale;
+	var temp_bbox_bottom = (sprite_get_bbox_bottom(temp_sprite_index) + 1) * object_y_scale;
+	
+	temp_bbox_left -= sprite_get_xoffset(temp_sprite_index) * object_x_scale;
+	temp_bbox_bottom -= sprite_get_yoffset(temp_sprite_index) * object_y_scale;
+	temp_bbox_right -= sprite_get_xoffset(temp_sprite_index) * object_x_scale;
+	temp_bbox_top -= sprite_get_yoffset(temp_sprite_index) * object_y_scale;
 	
 	var temp_point1_dis = point_distance(0, 0, temp_bbox_left, temp_bbox_top);
 	var temp_point1_angle = point_direction(0, 0, temp_bbox_left, temp_bbox_top);
@@ -189,14 +353,14 @@ if (selected) {
 	var temp_point4_dis = point_distance(0, 0, temp_bbox_left, temp_bbox_bottom);
 	var temp_point4_angle = point_direction(0, 0, temp_bbox_left, temp_bbox_bottom);
 	
-	var temp_left_top_x_offset = lengthdir_x(temp_point1_dis, temp_point1_angle + object_rotation);
-	var temp_left_top_y_offset = lengthdir_y(temp_point1_dis, temp_point1_angle + object_rotation);
-	var temp_right_top_x_offset = lengthdir_x(temp_point2_dis, temp_point2_angle + object_rotation);
-	var temp_right_top_y_offset = lengthdir_y(temp_point2_dis, temp_point2_angle + object_rotation);
-	var temp_right_bottom_x_offset = lengthdir_x(temp_point3_dis, temp_point3_angle + object_rotation);
-	var temp_right_bottom_y_offset = lengthdir_y(temp_point3_dis, temp_point3_angle + object_rotation);
-	var temp_left_bottom_x_offset = lengthdir_x(temp_point4_dis, temp_point4_angle + object_rotation);
-	var temp_left_bottom_y_offset = lengthdir_y(temp_point4_dis, temp_point4_angle + object_rotation);
+	var temp_left_top_x_offset = lengthdir_x(temp_point1_dis, temp_point1_angle + temp_rotation);
+	var temp_left_top_y_offset = lengthdir_y(temp_point1_dis, temp_point1_angle + temp_rotation);
+	var temp_right_top_x_offset = lengthdir_x(temp_point2_dis, temp_point2_angle + temp_rotation);
+	var temp_right_top_y_offset = lengthdir_y(temp_point2_dis, temp_point2_angle + temp_rotation);
+	var temp_right_bottom_x_offset = lengthdir_x(temp_point3_dis, temp_point3_angle + temp_rotation);
+	var temp_right_bottom_y_offset = lengthdir_y(temp_point3_dis, temp_point3_angle + temp_rotation);
+	var temp_left_bottom_x_offset = lengthdir_x(temp_point4_dis, temp_point4_angle + temp_rotation);
+	var temp_left_bottom_y_offset = lengthdir_y(temp_point4_dis, temp_point4_angle + temp_rotation);
 	
 	edge_a = min(temp_left_top_x_offset, temp_right_top_x_offset, temp_right_bottom_x_offset, temp_left_bottom_x_offset);
 	edge_b = max(temp_left_top_x_offset, temp_right_top_x_offset, temp_right_bottom_x_offset, temp_left_bottom_x_offset);

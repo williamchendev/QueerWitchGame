@@ -17,8 +17,27 @@ if (editor_mode == editortypes.block) {
 		var temp_snap_y = floor(mouse_room_y() / 48);
 		
 		// Editor Tool Type Behaviour
-		if (editor_tools.util_type == 0) {
-			// Selection Tool Selected
+		if (editor_tools.util_type <= 1) {
+			// Selection or Move Tool Selected
+			if (editor_tools.util_type == 1) {
+				// Move Tool Behaviour
+				if (mouse_check_button_pressed(mb_left)) {
+					// Check if Object is Selected
+					for (var i = 0; i < instance_number(oEditorObject); i++) {
+						var temp_editor_object_check = instance_find(oEditorObject, i);
+						if (temp_editor_object_check.selected) {
+							// End Behaviour
+							return;
+						}
+					}
+				}
+				else {
+					// End Behaviour
+					return;
+				}
+			}
+			
+			// Selection Tool Behaviour
 			var temp_select_obj = noone;
 			if (mouse_check_button_pressed(mb_left)) {
 				// Set Editor Object Selected
@@ -60,13 +79,7 @@ if (editor_mode == editortypes.block) {
 			}
 		}
 		else {
-			if (editor_tools.util_type == 1) {
-				// Move Tool Selected
-				
-				// Skip Resetting Editor Objects
-				return;
-			}
-			else if (editor_tools.util_type == 2) {
+			if (editor_tools.util_type == 2) {
 				// Draw Tool Selected
 				if (editor_objects.selected_menu == 1) {
 					// Tileset Selected

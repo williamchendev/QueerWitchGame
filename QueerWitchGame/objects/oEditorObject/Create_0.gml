@@ -26,10 +26,14 @@ mouse_press = false;
 mouse_press_x = 0;
 mouse_press_y = 0;
 
+scale_mode = false;
+
 old_x = 0;
 old_y = 0;
 old_mid_x = 0;
 old_mid_y = 0;
+old_scale_x = 0;
+old_scale_y = 0;
 old_rotation = 0;
 
 edges_calc = false;
