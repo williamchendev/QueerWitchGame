@@ -79,6 +79,10 @@ if (editor_object.object_editor_id != -1) {
 						}
 						drawTextOutline(x + temp_bbox_right, y + temp_bbox_top + 9, c_white, c_black, "Angle: " + string(temp_draw_angle) + "°");
 					}
+					else if (editor_object.mouse_mode <= 2) {
+						drawTextOutline(x + temp_bbox_right, y + temp_bbox_top + 9, c_white, c_black, "X Scale: " + string(editor_object.object_x_scale));
+						drawTextOutline(x + temp_bbox_right, y + temp_bbox_top + 18, c_white, c_black, "Y Scale: " + string(editor_object.object_y_scale));
+					}
 					else if (editor_object.mouse_mode == 3) {
 						drawTextOutline(x + temp_bbox_right, y + temp_bbox_top + 9, c_white, c_black, "[X = " + string(round(x)) + ", Y = " + string(round(y)) + "]");
 					}

@@ -719,6 +719,14 @@
             }
         },
         {
+            "Key": "80851748-39ad-4569-b2e7-60e48113a077",
+            "Value": {
+                "id": "da41b862-6526-431b-a642-abe5b23e5d12",
+                "resourcePath": "objects\\oEditorRibbon\\oEditorRibbon.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "80ab2562-0e2c-462e-85c2-a894fda12cb8",
             "Value": {
                 "id": "61fbfe01-e98b-48de-845c-58d25a7ae42a",
@@ -1300,6 +1308,14 @@
                 "id": "55db9950-3ab5-4322-971d-6b261eeb4a89",
                 "resourcePath": "options\\mac\\options_mac.yy",
                 "resourceType": "GMMacOptions"
+            }
+        },
+        {
+            "Key": "f42baf34-d7cb-4003-920e-ebfa74afdd21",
+            "Value": {
+                "id": "2c193557-c5fb-43bb-80dc-c1de6cb7d978",
+                "resourcePath": "views\\f42baf34-d7cb-4003-920e-ebfa74afdd21.yy",
+                "resourceType": "GMFolder"
             }
         },
         {

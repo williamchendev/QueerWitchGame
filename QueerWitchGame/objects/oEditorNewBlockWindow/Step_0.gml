@@ -56,23 +56,30 @@ if (!destroyed) {
 		
 		// Create New Block
 		if (instance_exists(oEditorStartMenu)) {
+			// Remove Start Menu
 			instance_destroy(oEditorStartMenu);
 		}
 		
+		// Set Editor Position and Camera
 		oEditor.x = -33;
 		oEditor.y = -20;
 		
 		var camera = view_camera[0];
 		camera_set_view_pos(camera, oEditor.x, oEditor.y);
 		
+		// Create Block Tileset
 		oEditor.block_tileset_index = 0;
 		oEditor.block_tileset = tilesetCreate(0, 0, temp_width, temp_height, layer_get_id("Tiles"), global.editor_data[global.editor_data_categories_length, 0]);
 		
+		// Create Editor Tools
 		oEditor.editor_tools = instance_create_layer(oEditor.x + oGameManager.camera_width - 20, oEditor.y + 20, layer_get_id("Editor_UI"), oEditorUtilBar);
 		oEditor.editor_objects = instance_create_layer(oEditor.x, oEditor.y, layer_get_id("Editor_UI"), oEditorObjectSelectMenu);
+		oEditor.editor_ribbon = instance_create_layer(oEditor.x + 9, oEditor.y - 1, layer_get_id("Editor_UI"), oEditorRibbon);
 		
+		// Set Editor Mode to Block
 		oEditor.editor_mode = editortypes.block;
 		
+		// Set Editor Block Properties
 		oEditor.block_width = temp_width;
 		oEditor.block_height = temp_height;
 		oEditor.block_filename = temp_filename;

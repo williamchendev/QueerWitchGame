@@ -45,4 +45,7 @@ for (var i = 1; i < sprite_get_number(tilesets[0]) + 1; i++) {
 
 // Variables
 height = ceil(i / 3) * 36;
+
 hover_text = noone;
+hover_text_details = noone;
+hover_text_details_timer = 0;

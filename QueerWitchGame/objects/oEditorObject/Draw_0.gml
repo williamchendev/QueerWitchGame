@@ -26,8 +26,8 @@ if (object_editor_id != -1) {
 					temp_old_x = x;
 				}
 				
-				draw_sprite_ext(temp_sprite_index, 0, temp_old_x, temp_old_y, old_scale_x, old_scale_y, 0, c_white, 0.4);
-				draw_sprite_ext(temp_sprite_index, 0, x, y, object_x_scale, object_y_scale, 0, c_white, 1);
+				draw_sprite_ext(temp_sprite_index, 0, temp_old_x, temp_old_y, old_scale_x, old_scale_y, object_rotation, c_white, 0.4);
+				draw_sprite_ext(temp_sprite_index, 0, x, y, object_x_scale, object_y_scale, object_rotation, c_white, 1);
 				return;
 			}
 		}

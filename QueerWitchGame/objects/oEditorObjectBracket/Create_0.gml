@@ -29,4 +29,7 @@ for (var i = 0; i < editor_data_length; i++) {
 
 // Variables
 height = ceil(i / 3) * 36;
+
 hover_text = noone;
+hover_text_details = noone;
+hover_text_details_timer = 60;

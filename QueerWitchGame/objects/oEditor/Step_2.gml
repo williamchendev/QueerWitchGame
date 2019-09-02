@@ -101,9 +101,9 @@ if (editor_mode == editortypes.block) {
 					// Check if Object has offset from Editor Data
 					var temp_obj_x_offset = 0;
 					var temp_obj_y_offset = 0;
-					if (array_length_2d(global.editor_data, (editor_objects.selected_menu * global.editor_data_categories_length) + editor_objects.selected_index) >= 4) {
-						temp_obj_x_offset = global.editor_data[(editor_objects.selected_menu * global.editor_data_categories_length) + editor_objects.selected_index, 2];
-						temp_obj_y_offset = global.editor_data[(editor_objects.selected_menu * global.editor_data_categories_length) + editor_objects.selected_index, 3];
+					if (array_length_2d(global.editor_data, (editor_objects.selected_menu * global.editor_data_categories_length) + editor_objects.selected_index) >= 5) {
+						temp_obj_x_offset = global.editor_data[(editor_objects.selected_menu * global.editor_data_categories_length) + editor_objects.selected_index, 3];
+						temp_obj_y_offset = global.editor_data[(editor_objects.selected_menu * global.editor_data_categories_length) + editor_objects.selected_index, 4];
 					}
 				
 					// Check if Editor is in the Draw Snap mode
