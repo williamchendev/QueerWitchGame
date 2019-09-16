@@ -6,31 +6,43 @@ x = oGameManager.camera_x;
 y = oGameManager.camera_y;
 
 // Checks if Mouse clicked on the expand tab for the Main Object Selection Menu
-if (mouse_check_button_pressed(mb_left) and oEditor.editor_click) {
-	if (abs(mouse_room_y() - (oGameManager.camera_y + (oGameManager.camera_height / 2))) < (oGameManager.camera_height / 2)) {
-		if (expanded) {
-			// Pushes menu back in if expanded
-			if (abs(mouse_room_x() - (oGameManager.camera_x + 113)) < 4) {
-				oEditor.editor_click = false;
-				expanded = false;
-				with (oEditorObjectBracket) {
-					visible = false;
+if (!instance_exists(oEditorWindow)) {
+	if (mouse_check_button_pressed(mb_left) and oEditor.editor_click) {
+		if (abs(mouse_room_y() - (oGameManager.camera_y + (oGameManager.camera_height / 2))) < (oGameManager.camera_height / 2)) {
+			if (expanded) {
+				// Pushes menu back in if expanded
+				if (abs(mouse_room_x() - (oGameManager.camera_x + 113)) < 4) {
+					oEditor.editor_click = false;
+					expanded = false;
+					with (oEditorObjectBracket) {
+						visible = false;
+					}
+					with (oEditorObjectSelect) {
+						visible = false;
+					}
 				}
-				with (oEditorObjectSelect) {
-					visible = false;
+			}
+			else {
+				// Pulls menu out if not expanded
+				if (abs(mouse_room_x() - (x + 4.5)) < 4) {
+					oEditor.editor_click = false;
+					expanded = true;
+					with (oEditorObjectBracket) {
+						visible = true;
+					}
 				}
 			}
 		}
-		else {
-			// Pulls menu out if not expanded
-			if (abs(mouse_room_x() - (x + 4.5)) < 4) {
-				oEditor.editor_click = false;
-				expanded = true;
-				with (oEditorObjectBracket) {
-					visible = true;
-				}
-			}
-		}
+	}
+}
+else {
+	// Editor Window Hide Object Select Bracket
+	expanded = false;
+	with (oEditorObjectBracket) {
+		visible = false;
+	}
+	with (oEditorObjectSelect) {
+		visible = false;
 	}
 }
 

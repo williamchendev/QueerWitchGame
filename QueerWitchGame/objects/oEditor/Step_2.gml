@@ -3,6 +3,11 @@
 
 // Editor Mode Behaviours
 if (editor_mode == editortypes.block) {
+	// Cease Behaviour if Editor Window Exists
+	if (instance_exists(oEditorWindow)) {
+		return;
+	}
+	
 	// Check if Editor was clicked and viable
 	if (editor_click) {
 		// Check if Editor Options was selected
@@ -142,8 +147,20 @@ if (editor_mode == editortypes.block) {
 							}
 						}
 					
+						// Check which Object Type
+						var temp_object_type = "Unindexed";
+						var temp_editor_object_type = oEditorObject;
+						if (editor_objects.selected_menu == 0) {
+							temp_object_type = "Solid";
+							temp_editor_object_type = oEditorObjectSolid;
+						}
+						else if (editor_objects.selected_menu == 2) {
+							temp_object_type = "Object";
+							temp_editor_object_type = oEditorObjectObject;
+						}
+						
 						// Create Object
-						var temp_object = instance_create_layer(temp_obj_x, temp_obj_y, layer_get_id("Instances"), oEditorObject);
+						var temp_object = instance_create_layer(temp_obj_x, temp_obj_y, layer_get_id("Instances"), temp_editor_object_type);
 						temp_object.mask_index = global.editor_data[(editor_objects.selected_menu * global.editor_data_categories_length) + editor_objects.selected_index, 1];
 						temp_object.sprite_index = global.editor_data[(editor_objects.selected_menu * global.editor_data_categories_length) + editor_objects.selected_index, 1];
 						temp_object.object_editor_id = (editor_objects.selected_menu * global.editor_data_categories_length) + editor_objects.selected_index;
@@ -151,10 +168,8 @@ if (editor_mode == editortypes.block) {
 						temp_object.object_ui = instance_create_layer(temp_obj_x, temp_obj_y, layer_get_id("Object_UI"), oEditorObjectUI);
 						temp_object.object_ui.editor_object = temp_object;
 					
-						// Check which Object Type to set new Object
-						var temp_object_type = "Object";
+						// Set Object UI for Modes
 						if (editor_objects.selected_menu == 0) {
-							temp_object_type = "Solid";
 							temp_object.object_show_name = false;
 						}
 						temp_object.object_type = temp_object_type;

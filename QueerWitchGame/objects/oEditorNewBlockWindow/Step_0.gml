@@ -60,6 +60,9 @@ if (!destroyed) {
 			instance_destroy(oEditorStartMenu);
 		}
 		
+		// Reset Editor
+		instance_create_layer(0, 0, layer, oEditorReset);
+		
 		// Set Editor Position and Camera
 		oEditor.x = -33;
 		oEditor.y = -20;
@@ -74,7 +77,7 @@ if (!destroyed) {
 		// Create Editor Tools
 		oEditor.editor_tools = instance_create_layer(oEditor.x + oGameManager.camera_width - 20, oEditor.y + 20, layer_get_id("Editor_UI"), oEditorUtilBar);
 		oEditor.editor_objects = instance_create_layer(oEditor.x, oEditor.y, layer_get_id("Editor_UI"), oEditorObjectSelectMenu);
-		oEditor.editor_ribbon = instance_create_layer(oEditor.x + 9, oEditor.y - 1, layer_get_id("Editor_UI"), oEditorRibbon);
+		oEditor.editor_ribbon = instance_create_layer(oEditor.x + 9, oEditor.y - 1, layer_get_id("Editor_UI"), oEditorRibbonBlock);
 		
 		// Set Editor Mode to Block
 		oEditor.editor_mode = editortypes.block;
@@ -82,7 +85,7 @@ if (!destroyed) {
 		// Set Editor Block Properties
 		oEditor.block_width = temp_width;
 		oEditor.block_height = temp_height;
-		oEditor.block_filename = temp_filename;
+		oEditor.filename = temp_filename;
 		
 		// Delete Window & Elements
 		destroyed = true;

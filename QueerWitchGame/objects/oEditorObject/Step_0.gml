@@ -1,6 +1,11 @@
 /// @description Editor Object Update
 // Calculates the functionality and behaviour of the Editor Object
 
+// Cease Behaviour if Editor Window Exists
+if (instance_exists(oEditorWindow)) {
+	return;
+}
+
 // Selected Behaviour
 if (selected) {
 	// Get Sprite Index

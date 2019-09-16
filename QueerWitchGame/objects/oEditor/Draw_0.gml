@@ -27,6 +27,11 @@ if (editor_mode == editortypes.block) {
 	
 	draw_set_color(c_white);
 	
+	// Skip Drawing Cursor
+	if (instance_exists(oEditorWindow)) {
+		return;
+	}
+	
 	// Draw Selected Object at Cursor
 	var temp_snap_x = (floor(mouse_room_x() / 48) * 48);
 	var temp_snap_y = (floor(mouse_room_y() / 48) * 48);

@@ -26,10 +26,14 @@ editor_spd = 2;
 editor_snap = true;
 editor_grid = true;
 
+// Data Settings
+filename = "";
+sub_directory = "";
+data_directory = string(program_directory +"\Data\\");
+
 // Block Editor Variables
 block_width = 0;
 block_height = 0;
-block_filename = "";
 
 block_tileset_index = 0;
 block_tileset = noone;

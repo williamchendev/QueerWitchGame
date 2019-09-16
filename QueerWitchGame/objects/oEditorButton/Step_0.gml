@@ -1,6 +1,11 @@
 /// @description Editor Button Update Event
 // Calculates the behaviour for the Editor Button
 
+// Cease Behaviour if Editor Window Exists
+if (instance_exists(oEditorWindow)) {
+	return;
+}
+
 // Check if Mouse Click on Button
 if (oEditor.editor_click) {
 	var temp_rad_check = sqrt(sqr(mouse_room_x() - x) + sqr(mouse_room_y() - y));

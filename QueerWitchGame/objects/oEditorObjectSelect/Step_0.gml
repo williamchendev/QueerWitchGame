@@ -1,6 +1,11 @@
 /// @description Editor Object Select Update
 // Calculates the behavior for the selected object button
 
+// Cease Behaviour if Editor Window Exists
+if (instance_exists(oEditorWindow)) {
+	return;
+}
+
 hover = false;
 if (visible) {
 	// Checks if mouse is hovering over object selection

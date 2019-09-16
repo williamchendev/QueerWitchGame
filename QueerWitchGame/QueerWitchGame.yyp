@@ -423,6 +423,14 @@
             }
         },
         {
+            "Key": "506ed6df-989c-43fc-b5d3-2059ed711b98",
+            "Value": {
+                "id": "33f2734f-3b7e-4e27-abf9-9b4ba9d58087",
+                "resourcePath": "objects\\oEditorReset\\oEditorReset.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "50e6a3c8-635f-404b-83d3-5ed74d8422d5",
             "Value": {
                 "id": "779d42c9-a31e-46fb-aba7-84f14c8d9e92",
@@ -484,6 +492,14 @@
                 "id": "4998a39a-d626-4f5c-bad5-9192472346e2",
                 "resourcePath": "scripts\\createEmptyInventory\\createEmptyInventory.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "595d0fb1-4648-4924-a1fe-0100e357a411",
+            "Value": {
+                "id": "bcb1df1a-e075-435a-8146-d5aab02ae80f",
+                "resourcePath": "views\\595d0fb1-4648-4924-a1fe-0100e357a411.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -671,6 +687,14 @@
             }
         },
         {
+            "Key": "740d87a3-4156-40c3-8e07-31c7419089eb",
+            "Value": {
+                "id": "c9415f22-e3ff-49cf-a5ed-4e838be23c3e",
+                "resourcePath": "sprites\\sEditorFolder\\sEditorFolder.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7ade5730-0846-442e-91bc-c03831193521",
             "Value": {
                 "id": "52c33e9c-d3e1-4835-b33a-6604262ff55f",
@@ -732,6 +756,14 @@
                 "id": "61fbfe01-e98b-48de-845c-58d25a7ae42a",
                 "resourcePath": "views\\80ab2562-0e2c-462e-85c2-a894fda12cb8.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "8251215e-19d2-4f96-9435-1d3ad5b5c21f",
+            "Value": {
+                "id": "f88a9ec6-afc5-4c48-bd00-cb43554d748c",
+                "resourcePath": "objects\\oEditorSaveBlockWindow\\oEditorSaveBlockWindow.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -828,6 +860,14 @@
                 "id": "9caa4997-e6e7-48bf-8e18-03b81122ab53",
                 "resourcePath": "views\\933009a1-889e-4154-83ab-5468d941edf1.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "93682021-1f89-4415-accc-dda61ccd36c2",
+            "Value": {
+                "id": "2d4b1695-34fe-486b-b9b2-0af9b46fe2af",
+                "resourcePath": "objects\\oEditorObjectObject\\oEditorObjectObject.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -940,6 +980,14 @@
                 "id": "8827596f-a01d-4c42-8ec0-0301f77a8c19",
                 "resourcePath": "views\\b44ebb66-2ad3-4f54-9b7a-c4f21036ad65.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b4a0dcfa-ec6a-4154-bad5-7a0b34e6284b",
+            "Value": {
+                "id": "e120c4c2-c923-432b-8ede-5c2545f6f7fe",
+                "resourcePath": "objects\\oEditorObjectSolid\\oEditorObjectSolid.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1340,6 +1388,14 @@
                 "id": "111c40f2-0c3f-4bb3-b2ae-4fb5fcef1339",
                 "resourcePath": "views\\f9c03f53-f9fe-4b56-9fc0-40a6fedd12a8.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "faa5b2f2-e23c-4767-850f-518cd868ca6b",
+            "Value": {
+                "id": "387afe76-45fb-433a-9309-a59eead3803a",
+                "resourcePath": "objects\\oEditorRibbonBlock\\oEditorRibbonBlock.yy",
+                "resourceType": "GMObject"
             }
         },
         {
