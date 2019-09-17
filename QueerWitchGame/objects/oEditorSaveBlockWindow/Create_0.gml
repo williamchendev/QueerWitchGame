@@ -7,7 +7,7 @@ event_inherited();
 // File Settings
 file = noone;
 file_name = oEditor.filename;
-file_name_full = oEditor.data_directory + oEditor.sub_directory + oEditor.filename;
+file_name_full = oGameManager.data_directory + oEditor.sub_directory + oEditor.filename;
 
 file_write = false;
 file_write_objects = false;
@@ -22,11 +22,12 @@ gen_save_index = 0;
 gen_save_lines[0] = "// Block File Settings";
 gen_save_lines[1] = "width: " + string(oEditor.block_width);
 gen_save_lines[2] = "height: " + string(oEditor.block_height);
-gen_save_lines[3] = "";
+gen_save_lines[3] = "origin: " + string(oEditor.block_origin);
+gen_save_lines[4] = "";
 
-gen_save_lines[4] = "// Tileset Data";
-gen_save_lines[5] = "tileset_index: " + string(oEditor.block_tileset_index);
-gen_save_index = 6;
+gen_save_lines[5] = "// Tileset Data";
+gen_save_lines[6] = "tileset_index: " + string(oEditor.block_tileset_index);
+gen_save_index = 7;
 for (var h = 0; h < oEditor.block_tileset.height; h++) {
 	var temp_tileset_string = "";
 	for (var w = 0; w < oEditor.block_tileset.width; w++) {

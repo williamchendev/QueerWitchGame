@@ -34,7 +34,7 @@ player_input = true;
 canmove = true;
 gui_mode = noone;
 
-camera_follow = true;	
+camera_follow = true;	// DEBUG true
 camera_follow_spd = 0.05;
 camera_y_offset = -42;
 

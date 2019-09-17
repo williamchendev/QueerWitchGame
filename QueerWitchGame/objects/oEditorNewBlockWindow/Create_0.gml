@@ -45,7 +45,7 @@ element_offset[1, 1] = 24;
 
 // Block Height
 elements[2] = instance_create_layer(x, y, layer_get_id("Editor_UI"), oEditorTextInput);
-elements[2].text_input = "Debug"; // Debug
+elements[2].text_input = "debug"; // Debug
 elements[2].empty_text = "file name";
 elements[2].use_alpha = true;
 elements[2].width = 118;

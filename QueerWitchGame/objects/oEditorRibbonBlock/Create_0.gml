@@ -17,6 +17,7 @@ ribbon_options[0, 0] = "New File";
 ribbon_options[0, 1] = "Open File";
 ribbon_options[0, 2] = "Save File   [Ctrl+S]";
 ribbon_options[0, 3] = "Save As File   [Ctrl+Shft+S]";
+ribbon_options[0, 4] = "Return to Editor Menu";
 
 ribbon_options[1, 0] = "You're outta touch";
 ribbon_options[1, 1] = "But I'm";
@@ -37,3 +38,5 @@ ribbon_options[3, 2] = "Black";
 ribbon_actions[0, 0] = oEditorNewBlockWindow;
 ribbon_actions[0, 1] = noone;
 ribbon_actions[0, 2] = oEditorSaveBlockWindow;
+ribbon_actions[0, 3] = noone;
+ribbon_actions[0, 4] = oEditorStartMenuWindow;

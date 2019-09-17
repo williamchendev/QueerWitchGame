@@ -29,7 +29,7 @@ if (menu_pause) {
 else {
 	// Button Press Actions
 	if (play_demo.pressed) {
-		
+		instance_create_layer(x, y, layer, oEditorPlayDemoWindow);
 	}
 	if (new_level.pressed) {
 		

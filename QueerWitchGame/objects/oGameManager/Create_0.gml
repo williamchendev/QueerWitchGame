@@ -7,12 +7,21 @@ if (instance_number(object_index) > 1) {
 }
 persistent = true;
 
+// System Settings
+data_directory = string(program_directory +"\Data\\");
+
+// Level Generation Data
+generate = false;
+blocks = noone;
+
 // Global Item Data
 itemData();
 consumableData();
 
-// Debug Mode
+// Debug Settings
 global.debug = false;
+
+debug_camera_spd = 100;
 
 // Player Input Management
 up_check = vk_up;
