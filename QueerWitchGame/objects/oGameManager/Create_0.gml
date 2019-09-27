@@ -17,6 +17,7 @@ blocks = noone;
 // Global Item Data
 itemData();
 consumableData();
+weaponData();
 
 // Debug Settings
 global.debug = false;

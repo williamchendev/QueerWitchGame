@@ -73,8 +73,8 @@ calorie_color_4 = make_color_rgb(0, 118, 225);
 menu_lerp_spd = 0.1;
 
 //select_menu_radius = 32;
-select_menu_x_offset = 4;
-select_menu_y_offset = -26;
+select_menu_x_offset = -6;
+select_menu_y_offset = -24;
 
 // GUI & Menu Variables
 menu_alpha = 0;

@@ -135,7 +135,7 @@ else {
 				select_menu_select = 0;
 				if (select_list != noone) {
 					select_list_length = array_length_1d(select_list);
-					select_menu_select = select_list_length div 2;
+					//select_menu_select = select_list_length div 2;
 				}
 				
 				select_menu_draw_pos = select_menu_select;

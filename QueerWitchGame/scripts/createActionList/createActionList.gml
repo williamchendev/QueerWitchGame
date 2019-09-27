@@ -68,9 +68,19 @@ for (var h = 0; h < temp_inventory_height; h++) {
 				temp_actions_list[i] = temp_inventory_obj.inventory[w, h];
 				i++;
 			}
+			else if (temp_item_type == itemtypes.weapon) {
+				// If criteria is met add item id to the action list and increment up
+				temp_actions_list[i] = temp_inventory_obj.inventory[w, h];
+				i++;
+			}
 		}
 	}
 }
 
 // Return the list of action item id's
+/*
+for (var i = 0; i < 24; i++) {
+	temp_actions_list[i] = temp_inventory_obj.inventory[0, 0];
+}
+*/
 return temp_actions_list;

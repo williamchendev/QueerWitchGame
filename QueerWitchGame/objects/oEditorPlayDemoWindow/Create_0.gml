@@ -23,7 +23,7 @@ y = oGameManager.camera_y + camera_y_offset;
 
 // File Path
 elements[0] = instance_create_layer(x, y, layer_get_id("Editor_UI"), oEditorTextInput);
-elements[0].text_input = ""; // Debug
+elements[0].text_input = "debug"; // Debug
 elements[0].empty_text = "file path";
 elements[0].use_alpha = true;
 elements[0].width = 140;

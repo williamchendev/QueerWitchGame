@@ -171,3 +171,9 @@ for (var q = 0; q < temp_blocks; q++) {
 	
 	temp_level_x += temp_width * 48;
 }
+
+// Clear DS Variables
+ds_grid_destroy(temp_block_settings);
+ds_list_destroy(temp_block_tiledata);
+ds_list_destroy(temp_block_solids);
+ds_list_destroy(temp_block_objects);

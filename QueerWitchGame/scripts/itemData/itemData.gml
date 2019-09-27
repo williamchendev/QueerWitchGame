@@ -68,3 +68,14 @@ global.item_data[3, itemstats.height_space] = 2;
 global.item_data[3, itemstats.stack_limit] = 1;
 global.item_data[3, itemstats.type] = itemtypes.consumable;
 global.item_data[3, itemstats.type_index] = 2;
+
+// Baseball Bat
+global.item_data[4, itemstats.name] = "Baseball Bat";
+global.item_data[4, itemstats.description] = "Smmmmaaaaashhhhhhh!";
+global.item_data[4, itemstats.sprite_index] = sItems4x1;
+global.item_data[4, itemstats.image_index] = 1;
+global.item_data[4, itemstats.width_space] = 4;
+global.item_data[4, itemstats.height_space] = 1;
+global.item_data[4, itemstats.stack_limit] = 1;
+global.item_data[4, itemstats.type] = itemtypes.weapon;
+global.item_data[4, itemstats.type_index] = 0;
