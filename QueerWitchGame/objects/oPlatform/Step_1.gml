@@ -21,7 +21,11 @@ ds_list_destroy(unit_list);
 // Update Unit List
 for (var i = 0; i < ds_list_size(units); i++) {
 	var temp_unit = ds_list_find_value(units, i);
-	if (temp_unit.y > y + 1) {
+	
+	if (!instance_exists(temp_unit)) {
+		ds_list_delete(units, ds_list_find_index(units, temp_unit));
+	}
+	else if (temp_unit.y > y + 1) {
 		ds_list_delete(temp_unit.platform_list, ds_list_find_index(temp_unit.platform_list, id));
 		ds_list_delete(units, ds_list_find_index(units, temp_unit));
 	}
@@ -47,7 +51,11 @@ ds_list_destroy(enemy_list);
 // Update Enemy List
 for (var i = 0; i < ds_list_size(enemies); i++) {
 	var temp_enemy = ds_list_find_value(enemies, i);
-	if (temp_enemy.y > y + 1) {
+	
+	if (!instance_exists(temp_enemy)) {
+		ds_list_delete(enemies, ds_list_find_index(enemies, temp_enemy));
+	}
+	else if (temp_enemy.y > y + 1) {
 		ds_list_delete(temp_enemy.platform_list, ds_list_find_index(temp_enemy.platform_list, id));
 		ds_list_delete(enemies, ds_list_find_index(enemies, temp_enemy));
 	}

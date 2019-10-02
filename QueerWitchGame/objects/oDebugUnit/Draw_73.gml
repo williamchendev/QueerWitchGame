@@ -1,6 +1,31 @@
 /// @description Draw Unit GUI Event
 // draws the unit's gui to the screen
 
+// Stop Time Effect
+if (gui_mode != noone) {
+	if (game_manager.stop_time) {
+		// Draw Gray Overlay
+		draw_set_alpha(0.3);
+		draw_set_color(c_black);
+		draw_rectangle(game_manager.camera_x - 10, game_manager.camera_y - 10, game_manager.camera_x + game_manager.camera_width + 10, game_manager.camera_y + game_manager.camera_height + 10, false);
+		draw_set_alpha(1);
+		draw_set_color(c_white);
+		
+		// Draw Unit Sprite
+		draw_sprite_ext(sprite_index, image_index, x, y + slope_offset, draw_xscale * image_xscale, draw_yscale, slope_angle, image_blend, image_alpha);
+	}
+}
+
+// Draw Target UI
+if (gui_mode == "targeting") {
+	if (target_draw_points != noone) {
+		draw_sprite_ext(sEditorSelect, 0, targets[target].x + target_draw_points[0], targets[target].y + target_draw_points[1], 1 * sign(targets[target].image_xscale), 1 * sign(targets[target].image_yscale), 0, c_white, 1);
+		draw_sprite_ext(sEditorSelect, 0, targets[target].x + target_draw_points[2], targets[target].y + target_draw_points[3], -1 * sign(targets[target].image_xscale), 1 * sign(targets[target].image_yscale), 0, c_white, 1);
+		draw_sprite_ext(sEditorSelect, 0, targets[target].x + target_draw_points[4], targets[target].y + target_draw_points[5], -1 * sign(targets[target].image_xscale), -1 * sign(targets[target].image_yscale), 0, c_white, 1);
+		draw_sprite_ext(sEditorSelect, 0, targets[target].x + target_draw_points[6], targets[target].y + target_draw_points[7], 1 * sign(targets[target].image_xscale), -1 * sign(targets[target].image_yscale), 0, c_white, 1);
+	}
+}
+
 // Draw Unit Actions & Magic Select Menu
 if (select_alpha > 0.05) {
 	// Unit Select Menu Position Variables
@@ -15,9 +40,9 @@ if (select_alpha > 0.05) {
 		// Draw Actions List
 		for (var i = 0; i < select_list_length; i++) {
 			// Calculate Radial Position of Action Option
-			var temp_action_sin = (i - select_menu_draw_pos) * -15;
-			var temp_action_x = temp_select_x + lengthdir_x(100, temp_action_sin) - 70;
-			var temp_action_y = temp_select_y + lengthdir_y(80, temp_action_sin);
+			var temp_action_sin = (i - select_menu_draw_pos) * -32;
+			var temp_action_x = temp_select_x + lengthdir_x(40, temp_action_sin);
+			var temp_action_y = temp_select_y + lengthdir_y(40, temp_action_sin);
 				
 			var draw_sin = (sin((sin_val - (i * 0.12)) * 2 * pi) / 2) + 1;
 				
@@ -91,7 +116,7 @@ if (select_alpha > 0.05) {
 			}
 			else {
 				// Draw non selected blip
-				var temp_action_alpha = clamp((1.5 - abs(select_menu_draw_pos - i)) / 1.5, 0, 1);
+				var temp_action_alpha = clamp((2.5 - abs(select_menu_draw_pos - i)) / 2.5, 0, 1);
 				//var temp_action_alpha = 0.4;
 				draw_set_alpha(select_alpha * select_alpha * temp_action_alpha);
 					
@@ -255,6 +280,32 @@ else if (draw_stats_mode == "calories") {
 	draw_set_alpha(draw_stats_alpha * draw_stats_alpha);
 	draw_set_color(c_white);
 	draw_text(temp_stats_x, temp_stats_y - 17, format_str_int_comma(round(calorie_show)) + " kcal");
+}
+else {
+	if (action_fade > 0.1) {
+		// Unit Stat position variables
+		var temp_stats_x = x + lengthdir_y(48, slope_angle) + ui_stat_x_offset;
+		var temp_stats_y = bbox_top + ui_stat_y_offset + slope_offset + (32 * (1 - power(action_fade, 2)));
+	
+		// Draw Front of Calorie Meter
+		draw_set_alpha(power(action_fade, 8));
+	
+		// Draw Action Bar
+		draw_set_color(c_white);
+		draw_rectangle(temp_stats_x - 32, temp_stats_y - 20, temp_stats_x + 32, temp_stats_y - 14, false);
+		draw_set_color(c_black);
+		draw_rectangle(temp_stats_x - 31, temp_stats_y - 19, temp_stats_x + 31, temp_stats_y - 15, false);
+		draw_set_color(c_white);
+		draw_rectangle(temp_stats_x - 30, temp_stats_y - 18, temp_stats_x - 30 + round(action * 60), temp_stats_y - 16, false);
+		
+		// Draw Ready
+		draw_set_alpha(1);
+		draw_set_font(fDiest64);
+		draw_set_halign(fa_center);
+		if (action >= 1) {
+			drawTextOutline(temp_stats_x, (bbox_top + ui_stat_y_offset + slope_offset) - 20, c_black, c_white, " Ready!");
+		}
+	}
 }
 
 // Reset Drawing Values

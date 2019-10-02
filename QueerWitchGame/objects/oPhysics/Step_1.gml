@@ -1,6 +1,12 @@
 /// @description Universal Physics Event
 // calculates physical velocity and movement
 
+// Check if Object Exists
+if (!instance_exists(base_object)) {
+	instance_destroy();
+	return;
+}
+
 // Update positions
 x = base_object.x;
 y = base_object.y;

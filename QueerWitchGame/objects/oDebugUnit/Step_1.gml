@@ -5,10 +5,22 @@
 if (camera_follow) {
 	var target_pos_x = x;
 	var target_pos_y = y;
+	
+	// UI Camera Modes
 	if (gui_mode == "inventory") {
+		// Inventory
 		if (unit_inventory != noone) {
 			target_pos_x = x + ((unit_inventory.inventory_width / 2) * unit_inventory.inventory_grid_size) + unit_inventory.inventory_offset_size;
 			target_pos_y = y + ((((unit_inventory.inventory_height / 2) * unit_inventory.inventory_grid_size) + unit_inventory.inventory_offset_size) * 0.6);
+		}
+	}
+	else if (gui_mode == "targeting") {
+		// Targeting
+		if (targets != noone) {
+			if (targets[target] != noone) {
+				target_pos_x = round(lerp(x, targets[target].x, 0.5));
+				target_pos_y = round(lerp(y, targets[target].y, 0.5));
+			}
 		}
 	}
 	

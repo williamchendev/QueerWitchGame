@@ -60,3 +60,6 @@ walk_anim = sWillWalk;
 // Animation Variables
 draw_xscale = 1;
 draw_yscale = 1;
+
+//**DEBUG**
+hp = 4;

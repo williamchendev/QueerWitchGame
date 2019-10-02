@@ -45,6 +45,15 @@ universal_physics_object.base_object = self;
 unit_inventory = createEmptyInventory(6, 4);
 debugInventoryPopulationFill1(unit_inventory);
 
+// Combat Variables
+action = 0;
+action_spd = 0.01;
+action_fade = 0;
+
+target = 0;
+targets = noone;
+target_draw_points = noone;
+
 // Unit Stat Settings
 ui_stat_x_offset = 0;
 ui_stat_y_offset = 0;
@@ -73,7 +82,7 @@ calorie_color_4 = make_color_rgb(0, 118, 225);
 menu_lerp_spd = 0.1;
 
 //select_menu_radius = 32;
-select_menu_x_offset = -6;
+select_menu_x_offset = 0;
 select_menu_y_offset = -24;
 
 // GUI & Menu Variables

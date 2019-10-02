@@ -21,8 +21,10 @@ weaponData();
 
 // Debug Settings
 global.debug = false;
+sprite_index = noone;
 
-debug_camera_spd = 100;
+debug_x_offset = 4;
+debug_y_offset = 0;
 
 // Player Input Management
 up_check = vk_up;
@@ -33,6 +35,9 @@ right_check = vk_right;
 select_check = ord("Z");
 cancel_check = ord("X");
 menu_check = ord("C");
+
+// Time Settings
+stop_time = false;
 
 // Camera Variables
 camera_width = 480;

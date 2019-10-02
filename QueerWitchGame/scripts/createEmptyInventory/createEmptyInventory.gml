@@ -5,7 +5,7 @@
 /// @returns {real} id of the empty inventory object
 
 // Creates Inventory Game Object
-var temp_inventory_obj = instance_create_depth(0, 0, 0, oUnitInventory);
+var temp_inventory_obj = instance_create_layer(0, 0, layer_get_id("Foreground_Instances"), oUnitInventory);
 
 // Creates Inventory Array
 var inven_width = argument0;
