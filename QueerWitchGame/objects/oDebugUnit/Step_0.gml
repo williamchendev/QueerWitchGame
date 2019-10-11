@@ -285,6 +285,17 @@ else {
 					}
 				}
 				
+				// Select Targets
+				if (key_select_press) {
+					canmove = true;
+					gui_mode = noone;
+					game_manager.stop_time = false;
+				}
+				if (key_menu_press) {
+					targets = noone;
+					target = 0;
+				}
+				
 				// Target Draw Variables
 				if (targets[target] != noone) {
 					// Target Variables
@@ -359,20 +370,24 @@ if (!game_manager.stop_time) {
 	else {
 		grav_velocity = 0;
 	}
+	
+	// Delta Time
+	var temp_x_velocity = x_velocity * (delta_time * 0.000065);
+	var temp_y_velocity = y_velocity * (delta_time * 0.000065);
 
 	var hspd = 0
-	if (x_velocity != 0) {
+	if (temp_x_velocity != 0) {
 		// Horizontal Collisions
-		if (place_free(x + x_velocity, y)) {
+		if (place_free(x + temp_x_velocity, y)) {
 			// Move Unit with horizontal velocity
-			hspd += x_velocity;
+			hspd += temp_x_velocity;
 		
 			// Downward Slope collision check
-			if (y_velocity == 0) {
-				if (!place_free(x + x_velocity, y + slope_tolerance)) {
+			if (temp_y_velocity == 0) {
+				if (!place_free(x + temp_x_velocity, y + slope_tolerance)) {
 					var prev_slope_y = 0;
 					for (var i = 0.5; i <= abs(slope_tolerance); i += 0.5) {
-						if (!place_free(x + x_velocity, y + (sign(slope_tolerance) * i))) {
+						if (!place_free(x + temp_x_velocity, y + (sign(slope_tolerance) * i))) {
 							y += sign(slope_tolerance) * prev_slope_y;
 							break;
 						}
@@ -383,10 +398,10 @@ if (!game_manager.stop_time) {
 		}
 		else {
 			// Upward Slope collision check
-			if (!place_free(x, y + 1) && place_free(x + x_velocity, y - slope_tolerance)) {
+			if (!place_free(x, y + 1) && place_free(x + temp_x_velocity, y - slope_tolerance)) {
 				for (var i = 0; i <= abs(slope_tolerance); i += 0.5) {
-					if (place_free(x + x_velocity, y - (sign(slope_tolerance) * i))) {
-						hspd += x_velocity;
+					if (place_free(x + temp_x_velocity, y - (sign(slope_tolerance) * i))) {
+						hspd += temp_x_velocity;
 						y -= sign(slope_tolerance) * i;
 						break;
 					}
@@ -394,7 +409,7 @@ if (!game_manager.stop_time) {
 			}
 			else {
 				// Stop Unit momentum with Collision
-				for (var i = abs(x_velocity); i > 0; i -= 0.5) {
+				for (var i = abs(temp_x_velocity); i > 0; i -= 0.5) {
 					if (place_free(x + (i * sign(x_velocity)), y)) {
 						hspd += i * sign(x_velocity);
 						break;
@@ -406,13 +421,13 @@ if (!game_manager.stop_time) {
 	}
 
 	var vspd = 0;
-	if (y_velocity != 0) {
+	if (temp_y_velocity != 0) {
 		// Vertical Collisions
-		if (platform_free(x, y + y_velocity, platform_list)) {
-			vspd += y_velocity;
+		if (platform_free(x, y + temp_y_velocity, platform_list)) {
+			vspd += temp_y_velocity;
 		}
 		else {
-			for (var i = abs(y_velocity); i > 0; i -= 0.5) {
+			for (var i = abs(temp_y_velocity); i > 0; i -= 0.5) {
 				if (platform_free(x, y + (i * sign(y_velocity)), platform_list)) {
 					vspd += i * sign(y_velocity);
 					break;

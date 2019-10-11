@@ -79,3 +79,14 @@ global.item_data[4, itemstats.height_space] = 1;
 global.item_data[4, itemstats.stack_limit] = 1;
 global.item_data[4, itemstats.type] = itemtypes.weapon;
 global.item_data[4, itemstats.type_index] = 0;
+
+// M14
+global.item_data[5, itemstats.name] = "Marinda .308";
+global.item_data[5, itemstats.description] = "Arkov's standard issue rifle, a traditon-bound old world firearm. The markings indicate it was manufactured in Rasa.";
+global.item_data[5, itemstats.sprite_index] = sItems6x2;
+global.item_data[5, itemstats.image_index] = 1;
+global.item_data[5, itemstats.width_space] = 6;
+global.item_data[5, itemstats.height_space] = 2;
+global.item_data[5, itemstats.stack_limit] = 1;
+global.item_data[5, itemstats.type] = itemtypes.weapon;
+global.item_data[5, itemstats.type_index] = 1;

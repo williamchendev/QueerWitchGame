@@ -7,7 +7,8 @@
     "inheritCreationOrder": false,
     "inheritLayers": false,
     "instanceCreationOrderIDs": [
-        "dbb05f6e-3f22-4bdc-8b4c-f52824d3b36c"
+        "dbb05f6e-3f22-4bdc-8b4c-f52824d3b36c",
+        "1fa8c0e7-f233-42a3-93a2-a908f00b3320"
     ],
     "IsDnD": false,
     "layers": [
@@ -138,7 +139,7 @@
             "inheritSubLayers": false,
             "inheritVisibility": false,
             "instances": [
-
+{"name": "inst_1D56133C","id": "1fa8c0e7-f233-42a3-93a2-a908f00b3320","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"imageIndex": 0,"imageSpeed": 1,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_1D56133C","objId": "72c6038b-c68d-4deb-a931-976a431fd900","properties": null,"rotation": 0,"scaleX": 1,"scaleY": 1,"mvc": "1.1","x": 192,"y": 320}
             ],
             "layers": [
 
@@ -445,7 +446,7 @@
         "id": "370842db-edde-496a-ae23-155c4e533208",
         "inheritPhysicsSettings": false,
         "modelName": "GMRoomPhysicsSettings",
-        "PhysicsWorld": false,
+        "PhysicsWorld": true,
         "PhysicsWorldGravityX": 0,
         "PhysicsWorldGravityY": 10,
         "PhysicsWorldPixToMeters": 0.1,

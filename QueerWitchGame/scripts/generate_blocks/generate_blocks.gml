@@ -128,8 +128,8 @@ for (var q = 0; q < temp_blocks; q++) {
 	for (var k = 0; k < array_height_2d(temp_block_solidsdata); k++) {
 		// Get Solids Data
 		var temp_id = temp_block_solidsdata[k, 0];
-		var temp_x_position = temp_block_solidsdata[k, 1];
-		var temp_y_position = temp_block_solidsdata[k, 2];
+		var temp_x_position = round(temp_block_solidsdata[k, 1]);
+		var temp_y_position = round(temp_block_solidsdata[k, 2]);
 		var temp_angle = temp_block_solidsdata[k, 3];
 		var temp_x_scale = temp_block_solidsdata[k, 4];
 		var temp_y_scale = temp_block_solidsdata[k, 5];
@@ -156,8 +156,8 @@ for (var q = 0; q < temp_blocks; q++) {
 	for (var k = 0; k < array_height_2d(temp_block_objectsdata); k++) {
 		// Get Objects Data
 		var temp_id = temp_block_objectsdata[k, 0];
-		var temp_x_position = temp_block_objectsdata[k, 1];
-		var temp_y_position = temp_block_objectsdata[k, 2];
+		var temp_x_position = round(temp_block_objectsdata[k, 1]);
+		var temp_y_position = round(temp_block_objectsdata[k, 2]);
 		var temp_angle = temp_block_objectsdata[k, 3];
 		var temp_x_scale = temp_block_objectsdata[k, 4];
 		var temp_y_scale = temp_block_objectsdata[k, 5];

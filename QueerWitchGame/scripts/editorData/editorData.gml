@@ -42,7 +42,7 @@ global.editor_data[i, 2] = "A Player Character Entity made for debugging";
 global.editor_data[i, 3] = 24;
 global.editor_data[i, 4] = 48;
 
-global.editor_data[i + 1, 0] = oEnemy;
+global.editor_data[i + 1, 0] = oEnemy1;
 global.editor_data[i + 1, 1] = sWillIdle;
 global.editor_data[i + 1, 2] = "An Enemy Entity made for debugging";
 global.editor_data[i + 1, 3] = 24;
