@@ -3,4 +3,6 @@
 
 ds_list_destroy(units);
 ds_list_destroy(enemies);
+units = -1;
+enemies = -1;
 return;

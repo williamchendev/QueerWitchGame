@@ -43,12 +43,14 @@ var temp_cursor_x = temp_x + select_xpos;
 var temp_cursor_y = temp_y + select_ypos;
 if (select_item_id != 0) {
 	// Draw Select Cursor with Item
+	var temp_can_place_alpha = 0.8;
 	var temp_can_place_color = c_white;
 	if (!select_can_place) {
+		var temp_can_place_alpha = 0.9;
 		temp_can_place_color = make_color_rgb(224,18,95);
 	}
 	var temp_item_offset = 2;
-	draw_sprite_ext(global.item_data[select_item_id, itemstats.sprite_index], global.item_data[select_item_id, itemstats.image_index], temp_cursor_x + temp_item_offset, temp_cursor_y + temp_item_offset, 1, 1, 0, temp_can_place_color, 0.8 * draw_alpha);
+	draw_sprite_ext(global.item_data[select_item_id, itemstats.sprite_index], global.item_data[select_item_id, itemstats.image_index], temp_cursor_x + temp_item_offset, temp_cursor_y + temp_item_offset, 1, 1, 0, temp_can_place_color, temp_can_place_alpha * draw_alpha);
 	
 	// Draw placing stacks in inventory
 	if (select_place) {

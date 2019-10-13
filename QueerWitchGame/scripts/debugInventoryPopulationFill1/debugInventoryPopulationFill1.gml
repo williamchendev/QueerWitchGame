@@ -10,4 +10,4 @@ placeItemInventory(temp_inven_obj, 1, 1, 0);
 //placeItemInventory(temp_inven_obj, 2, 1, 2);
 //placeItemInventory(temp_inven_obj, 3, 4, 2);
 placeItemInventory(temp_inven_obj, 4, 2, 1);
-placeItemInventory(temp_inven_obj, 5, 0, 2);
+placeItemInventory(temp_inven_obj, 6, 0, 2);

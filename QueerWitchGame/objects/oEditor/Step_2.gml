@@ -72,6 +72,7 @@ if (editor_mode == editortypes.block) {
 					temp_select_obj = ds_list_find_value(temp_object_list, temp_select_index + 1);
 				}
 				ds_list_destroy(temp_object_list);
+				temp_object_list = -1;
 				
 				// Reset all Editor Object Selection
 				with (oEditorObject) {
@@ -142,6 +143,7 @@ if (editor_mode == editortypes.block) {
 					
 							mask_index = sDebugSolid;
 							ds_list_destroy(temp_object_list);
+							temp_object_list = -1;
 							if (!temp_can_place) {
 								return;
 							}
@@ -195,10 +197,12 @@ if (editor_mode == editortypes.block) {
 						var temp_object_single = ds_list_find_value(temp_object_list, 0);
 						instance_destroy(temp_object_single);
 						ds_list_destroy(temp_object_list);
+						temp_object_list = -1;
 						editor_delete = true;
 						return;
 					}
 					ds_list_destroy(temp_object_list);
+					temp_object_list = -1;
 				}
 			
 				// Erase Tileset

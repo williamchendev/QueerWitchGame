@@ -177,3 +177,7 @@ ds_grid_destroy(temp_block_settings);
 ds_list_destroy(temp_block_tiledata);
 ds_list_destroy(temp_block_solids);
 ds_list_destroy(temp_block_objects);
+temp_block_settings = -1;
+temp_block_tiledata = -1;
+temp_block_solids = -1;
+temp_block_objects = -1;
