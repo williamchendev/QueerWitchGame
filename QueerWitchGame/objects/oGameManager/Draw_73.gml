@@ -18,5 +18,5 @@ if (global.debug) {
 	draw_line(camera_x + debug_x_offset - 2, camera_y + debug_y_offset + 16, camera_x + debug_x_offset + 97, camera_y + debug_y_offset + 16);
 	
 	// Draw Time Modifier
-	drawTextOutline(camera_x + debug_x_offset, camera_y + debug_y_offset + 17, c_white, c_black, "Time: " + string(stop_time));
+	drawTextOutline(camera_x + debug_x_offset, camera_y + debug_y_offset + 17, c_white, c_black, "Time: " + string(time_spd));
 }

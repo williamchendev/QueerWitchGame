@@ -14,9 +14,16 @@ if (keyboard_check_pressed(vk_f7)) {
 // Debug Mode Functions
 if (global.debug) {
 	if (keyboard_check_pressed(ord(0))) {
-		stop_time = !stop_time;
+		time_spd += 0.1;
 	}
+	else if (keyboard_check_pressed(ord(9))) {
+		time_spd -= 0.1;
+	}
+	time_spd = clamp(time_spd, 0, 1);
 }
+
+// Time Functions
+global.deltatime = ((delta_time / 1000000) * fps) * time_spd;
 
 // Game Fullscreen
 if (keyboard_check_pressed(vk_f11)) {

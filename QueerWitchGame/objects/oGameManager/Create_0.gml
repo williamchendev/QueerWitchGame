@@ -37,7 +37,10 @@ cancel_check = ord("X");
 menu_check = ord("C");
 
 // Time Settings
-stop_time = false;
+time_spd = 1;
+global.deltatime = 0;
+
+stop_time = false; //DEBUG
 
 // Camera Variables
 camera_width = 480;

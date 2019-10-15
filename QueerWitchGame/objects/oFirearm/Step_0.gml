@@ -49,7 +49,7 @@ if (bursts > 0) {
 			ds_list_add(flash_timer, flash_delay);
 			
 			if (muzzle_flash_sprite != noone) {
-				ds_list_add(flash_imageindex, random_range(1, sprite_get_number(muzzle_flash_sprite)));
+				ds_list_add(flash_imageindex, random_range(0, sprite_get_number(muzzle_flash_sprite)));
 			}
 			
 			// Calculate Flash Position

@@ -16,7 +16,7 @@ projectiles = 1;
 burst = 3;
 burst_delay = 0.2;
 
-flash_delay = 0.7;
+flash_delay = 0.6;
 
 // Bullet Case Settings
 case_sprite = s308Case;
