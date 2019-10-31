@@ -3,7 +3,7 @@
 
 // Unit Collision Check
 var unit_list = ds_list_create();
-var unit_num = collision_rectangle_list(x, y - 10, x + sprite_width, y, oDebugUnit, false, true, unit_list, false);
+var unit_num = collision_rectangle_list(x, y - 10, x + sprite_width, y, oUnit, false, true, unit_list, false);
 if (unit_num > 0) {
 	// Adds Units that are not apart of the list of indexed units if they touch the platform
 	for (var i = 0; i < ds_list_size(unit_list); i++) {

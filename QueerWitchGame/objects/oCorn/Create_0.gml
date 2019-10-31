@@ -6,6 +6,7 @@ points = 6;
 height = 8;
 width = 2;
 color = make_color_rgb(236, 205, 104);
+color_dark = make_color_rgb(21, 29, 74);
 max_color_change = 0.2;
 
 complex_physics = true;

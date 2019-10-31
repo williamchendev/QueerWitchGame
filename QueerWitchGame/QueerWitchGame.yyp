@@ -143,6 +143,14 @@
             }
         },
         {
+            "Key": "146d0302-37ef-4242-b0e6-49e912c51d39",
+            "Value": {
+                "id": "7d3294df-b33b-4b37-b509-ba506911a450",
+                "resourcePath": "views\\146d0302-37ef-4242-b0e6-49e912c51d39.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "17a5064f-58cd-48d6-8a0c-940f2b096bfa",
             "Value": {
                 "id": "0aadee63-4b10-4e90-ab43-705fc98a1ec9",
@@ -527,6 +535,14 @@
             }
         },
         {
+            "Key": "4dc1cb70-aeeb-42a1-8769-6460635f0a41",
+            "Value": {
+                "id": "b4c89e73-0297-402f-901b-43b82f48feb6",
+                "resourcePath": "views\\4dc1cb70-aeeb-42a1-8769-6460635f0a41.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "4fddc718-6124-4209-94e4-c4f97e0d878f",
             "Value": {
                 "id": "86228f71-0e22-4eca-b45a-bfe199a73036",
@@ -716,14 +732,6 @@
                 "id": "81997e0e-651b-4ad0-b8f3-7fc3f0240de2",
                 "resourcePath": "views\\6a0a52de-2aa2-4703-a6ed-24d4e049f14b.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "6b7eb1f3-30aa-4ac9-94a4-f8c0992a1f13",
-            "Value": {
-                "id": "6daa7ba4-89cb-4a63-887b-4ff11a2da0bd",
-                "resourcePath": "scripts\\inverse_smooth_lerp\\inverse_smooth_lerp.yy",
-                "resourceType": "GMScript"
             }
         },
         {
@@ -1119,14 +1127,6 @@
             }
         },
         {
-            "Key": "a2d482a0-7816-44a2-85c4-b853e75f1949",
-            "Value": {
-                "id": "6e2bd908-011c-4677-9201-59c27baad5b9",
-                "resourcePath": "views\\a2d482a0-7816-44a2-85c4-b853e75f1949.yy",
-                "resourceType": "GMFolder"
-            }
-        },
-        {
             "Key": "a3b08c58-8371-44b0-9a04-997584430d1a",
             "Value": {
                 "id": "9cb65ecc-22cf-4fe0-a02c-4c36f00ec5a2",
@@ -1251,6 +1251,14 @@
             "Value": {
                 "id": "4f10885a-9b28-49ee-ac82-939dfe3a2dfc",
                 "resourcePath": "objects\\oEnemy1\\oEnemy1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "b9a78bd6-3147-4864-a139-55f70d5b2a42",
+            "Value": {
+                "id": "c703f9b4-7b01-4311-8163-990f5f9d9f60",
+                "resourcePath": "objects\\oArm\\oArm.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1407,6 +1415,14 @@
             }
         },
         {
+            "Key": "d34aafe8-06f6-46ae-8ca4-591ee8f3818c",
+            "Value": {
+                "id": "2b7aa25f-880d-4879-bc7a-673586dec7ed",
+                "resourcePath": "views\\d34aafe8-06f6-46ae-8ca4-591ee8f3818c.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "d549f4c6-ed6c-4551-b0b6-5f918c8a22a2",
             "Value": {
                 "id": "13d7bb6d-d555-4fdd-90a2-87aeea5f17fa",
@@ -1556,6 +1572,14 @@
                 "id": "26241b8a-303b-4552-8948-aca69f7a3f91",
                 "resourcePath": "scripts\\format_string_numbers\\format_string_numbers.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "e761ccad-0c72-4e17-b007-706073eade60",
+            "Value": {
+                "id": "7cc187bf-07e5-4a74-807b-ff90f9b9ee19",
+                "resourcePath": "objects\\oGun_M14\\oGun_M14.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1759,7 +1783,6 @@
         "35609add-fe27-4b72-9d54-6bd987800371",
         "5903b0fa-1e73-498c-9065-376bf0eadfb0",
         "7ade5730-0846-442e-91bc-c03831193521",
-        "6b7eb1f3-30aa-4ac9-94a4-f8c0992a1f13",
         "9fce1346-69f4-4386-b267-5a2f5647bed9",
         "1a2bd610-e755-4cdf-b058-1ef50f3db865",
         "6c18990a-03ef-449b-a98f-7782f1d2e815",

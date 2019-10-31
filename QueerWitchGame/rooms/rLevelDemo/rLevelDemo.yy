@@ -7,7 +7,9 @@
     "inheritCreationOrder": false,
     "inheritLayers": false,
     "instanceCreationOrderIDs": [
-        "dbb05f6e-3f22-4bdc-8b4c-f52824d3b36c"
+        "dbb05f6e-3f22-4bdc-8b4c-f52824d3b36c",
+        "de7c0824-e537-4920-a6ff-a3203a68a743",
+        "1a36f955-83a6-45f3-8dc7-2d8b70284c77"
     ],
     "IsDnD": false,
     "layers": [
@@ -15,7 +17,7 @@
             "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
             "name": "Editor",
             "id": "1d999b34-89e1-4173-add5-5d949a4f95db",
-            "depth": -3100,
+            "depth": -4100,
             "grid_x": 48,
             "grid_y": 48,
             "hierarchyFrozen": false,
@@ -44,7 +46,7 @@
             "animationFPS": 15,
             "animationSpeedType": "0",
             "colour": { "Value": 0 },
-            "depth": -3000,
+            "depth": -4000,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -79,7 +81,7 @@
             "assets": [
 
             ],
-            "depth": -2000,
+            "depth": -3000,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -102,7 +104,7 @@
             "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
             "name": "Foreground_Instances",
             "id": "878773e5-52c7-4c90-aa50-db4369898285",
-            "depth": -1000,
+            "depth": -2000,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -138,7 +140,8 @@
             "inheritSubLayers": false,
             "inheritVisibility": false,
             "instances": [
-
+{"name": "inst_1C4406FD","id": "de7c0824-e537-4920-a6ff-a3203a68a743","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"imageIndex": 0,"imageSpeed": 1,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_1C4406FD","objId": "72c6038b-c68d-4deb-a931-976a431fd900","properties": null,"rotation": 0,"scaleX": 1,"scaleY": 1,"mvc": "1.1","x": 96,"y": 256},
+{"name": "inst_6575656A","id": "1a36f955-83a6-45f3-8dc7-2d8b70284c77","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"imageIndex": 0,"imageSpeed": 1,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_6575656A","objId": "28abf5b7-3d56-4df2-b978-d019b8537a45","properties": null,"rotation": 0,"scaleX": 1,"scaleY": 1,"mvc": "1.1","x": 96,"y": 320}
             ],
             "layers": [
 
@@ -154,7 +157,7 @@
             "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
             "name": "Background_Instances",
             "id": "f427c589-33d7-4f9b-a786-9f7280ead348",
-            "depth": 1000,
+            "depth": 2000,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -183,7 +186,7 @@
             "assets": [
 
             ],
-            "depth": 2000,
+            "depth": 3000,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -209,7 +212,7 @@
             "assets": [
 
             ],
-            "depth": 3000,
+            "depth": 3100,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -225,7 +228,7 @@
             "m_serialiseFrozen": false,
             "modelName": "GMRAssetLayer",
             "mvc": "1.0",
-            "userdefined_depth": true,
+            "userdefined_depth": false,
             "visible": true
         },
         {
@@ -235,7 +238,7 @@
             "animationFPS": 15,
             "animationSpeedType": "0",
             "colour": { "Value": 0 },
-            "depth": 3100,
+            "depth": 3200,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -270,7 +273,7 @@
             "animationFPS": 15,
             "animationSpeedType": "0",
             "colour": { "Value": 0 },
-            "depth": 3200,
+            "depth": 3300,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -305,7 +308,7 @@
             "animationFPS": 15,
             "animationSpeedType": "0",
             "colour": { "Value": 0 },
-            "depth": 3300,
+            "depth": 3400,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -340,7 +343,7 @@
             "animationFPS": 15,
             "animationSpeedType": "0",
             "colour": { "Value": 0 },
-            "depth": 3400,
+            "depth": 3500,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -375,7 +378,7 @@
             "animationFPS": 15,
             "animationSpeedType": "0",
             "colour": { "Value": 0 },
-            "depth": 3500,
+            "depth": 3600,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
@@ -410,7 +413,7 @@
             "animationFPS": 15,
             "animationSpeedType": "0",
             "colour": { "Value": 4286545791 },
-            "depth": 3600,
+            "depth": 3700,
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,

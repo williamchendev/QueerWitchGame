@@ -85,7 +85,7 @@ for (var i = 0; i < points; i++) {
 		leaf_y_position[i, l] = lerp(leaf_y_position[i, l], leaf_y_target[i, l], lerp_spd);
 		
 		// Leaf color merge
-		leaf_color_merge[i, l] = merge_color(leaf_color[i, l], c_black, color_velocity);
+		leaf_color_merge[i, l] = merge_color(leaf_color[i, l], color_dark, color_velocity);
 	}
 }
 
@@ -99,6 +99,6 @@ stalk_angle = lerp(stalk_angle, 0, stalk_angle_decay);
 // Corn color movement
 color_velocity = (clamp(abs(stalk_angle) / stalk_max_angle, 0, 1) * max_color_change) + color_change;
 
-stalk_color_a_merge = merge_color(stalk_color_a, c_black, color_velocity);
-stalk_color_b_merge = merge_color(stalk_color_b, c_black, color_velocity);
-stalk_color_c_merge = merge_color(stalk_color_c, c_black, color_velocity);
+stalk_color_a_merge = merge_color(stalk_color_a, color_dark, color_velocity);
+stalk_color_b_merge = merge_color(stalk_color_b, color_dark, color_velocity);
+stalk_color_c_merge = merge_color(stalk_color_c, color_dark, color_velocity);

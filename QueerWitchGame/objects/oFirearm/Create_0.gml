@@ -20,25 +20,35 @@ projectiles = 1;
 burst = 0;
 burst_delay = 0.1;
 
-flash_delay = 0.2;
+flash_delay = 7;
 
 // Position Settings
 muzzle_x = 28;
 muzzle_y = -2;
+
+double_handed = false;
+
+arm_x = noone;
+arm_y = noone;
+
+arm_x[0] = 0;
+arm_y[0] = 0;
 
 case_eject_x = 1;
 case_eject_y = -1;
 case_direction = 30;
 
 // Behaviour Settings
-lerp_spd = 0.8;
-aim_spd = 0.3;
-angle_adjust_spd = 1;
+move_spd = 0.4;
 
-recoil_spd = 0.8;
-recoil_angle = 2;
+aim_spd = 0.04;
+lerp_spd = 0.12;
+angle_adjust_spd = 0.1;
+
+recoil_spd = 0.66;
+recoil_angle = 4;
 recoil_direction = 6;
-recoil_delay = 0.3;
+recoil_delay = 4.6;
 recoil_clamp = 16;
 
 // Aiming Settings
@@ -52,6 +62,9 @@ accuracy_peak = 0.1;
 x_position = x;
 y_position = y;
 
+recoil_offset_x = 0;
+recoil_offset_y = 0;
+
 aim_hip_max = 0;
 
 recoil_timer = 0;
@@ -64,6 +77,8 @@ bursts_timer = 0;
 bullet_cases = 0;
 
 // Draw Variables
+//muzzle_flash_index = 0;
+
 flash_timer = ds_list_create();
 flash_direction = ds_list_create();
 flash_xposition = ds_list_create();
