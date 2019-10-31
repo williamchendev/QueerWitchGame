@@ -21,9 +21,10 @@ flash_delay = 7;
 muzzle_x = 26;
 muzzle_y = -2;
 
+// Arm Settings
 double_handed = true;
 
-arm_x[0] = 11;
+arm_x[0] = 13;
 arm_y[0] = 0;
 
 arm_x[1] = 2;

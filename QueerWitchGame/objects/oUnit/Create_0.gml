@@ -20,8 +20,11 @@ slope_tolerance = 3; // Tolerance for walking up slopes in pixels
 canmove = true;
 player_input = true;
 
-weapon_x = -1;
-weapon_y = -24;
+weapon_hip_x = -1;
+weapon_hip_y = -24;
+
+weapon_aim_x = 4;
+weapon_aim_y = -32;
 
 // Animation Settings
 idle_animation = sCathIdle;
@@ -36,7 +39,7 @@ jump_animation = sWillIdle;
 
 animation_spd = 0.18;
 
-arm_x[0] = 3;
+arm_x[0] = 2;
 arm_y[0] = -32;
 
 arm_x[1] = -5;
@@ -72,6 +75,14 @@ universal_physics_object.base_object = self;
 // Behaviour Variables
 weapons[0] = instance_create_layer(x, y, weapon_layer_id, oGun_M14);
 weapons[0].equip = true;
+
+target = noone;
+
+weapon_x = 0;
+weapon_y = 0;
+
+aim_ambient_x = 0;
+aim_ambient_y = 0;
 
 // Animation Variables
 draw_index = 0;

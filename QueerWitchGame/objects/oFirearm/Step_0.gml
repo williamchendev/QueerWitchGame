@@ -12,9 +12,11 @@ var temp_x = x + recoil_offset_x;
 var temp_y = y + recoil_offset_y;
 
 /// Weapon Rotation & Scaling
+/*
 var temp_target_x = mouse_room_x();
 var temp_target_y = mouse_room_y();
 weapon_rotation = point_direction(temp_x, temp_y, temp_target_x, temp_target_y);
+*/
 
 if (temp_x + lengthdir_x(5, weapon_rotation) < temp_x) {
 	weapon_yscale = -1;
@@ -27,7 +29,8 @@ else {
 var temp_weapon_rotation = weapon_rotation + recoil_angle_shift;
 
 // Set Fire Mode Behaviour
-if (mouse_check_button_pressed(mb_left)) {
+if (attack) {
+	attack = false;
 	bursts = max(burst, 1);
 	bursts_timer = 0;
 }
@@ -134,6 +137,7 @@ if (recoil_timer > 0) {
 	}
 }
 else {
+	aiming = true;
 	recoil_angle_shift = lerp(recoil_angle_shift, 0, angle_adjust_spd * global.deltatime);
 	recoil_offset_x = lerp(recoil_offset_x, 0, lerp_spd * global.deltatime);
 	recoil_offset_y = lerp(recoil_offset_y, 0, lerp_spd * global.deltatime);

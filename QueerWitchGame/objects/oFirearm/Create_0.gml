@@ -26,17 +26,17 @@ flash_delay = 7;
 muzzle_x = 28;
 muzzle_y = -2;
 
+case_eject_x = 1;
+case_eject_y = -1;
+case_direction = 30;
+
+// Arm Settings
 double_handed = false;
 
 arm_x = noone;
 arm_y = noone;
-
 arm_x[0] = 0;
 arm_y[0] = 0;
-
-case_eject_x = 1;
-case_eject_y = -1;
-case_direction = 30;
 
 // Behaviour Settings
 move_spd = 0.4;

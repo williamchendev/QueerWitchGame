@@ -12,6 +12,7 @@ weapon_xscale = 1;
 weapon_yscale = 1;
 
 // Behaviour Settings
+attack = false;
 equip = false;
 aiming = true;
 

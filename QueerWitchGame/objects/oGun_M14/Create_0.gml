@@ -21,6 +21,7 @@ flash_delay = 7;
 muzzle_x = 28;
 muzzle_y = -2;
 
+// Arm Settings
 double_handed = true;
 
 arm_x[0] = 13;
@@ -50,5 +51,5 @@ recoil_clamp = 6;
 sniper = true;
 
 range = 1000;
-accuracy = 40;
+accuracy = 10;
 accuracy_peak = 1;
