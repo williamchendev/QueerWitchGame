@@ -31,6 +31,14 @@
     },
     "resources": [
         {
+            "Key": "02a282cc-752a-4527-b57e-49bc18e255f8",
+            "Value": {
+                "id": "f7983ad3-5e27-489c-bbd6-784438b2b2e5",
+                "resourcePath": "objects\\oUnitEnemy\\oUnitEnemy.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "02f9ba76-1e6f-46d4-ba76-2cc0fc8d804a",
             "Value": {
                 "id": "97a31d6b-de3b-4d55-bfd1-917fd0f36937",
@@ -139,14 +147,6 @@
             "Value": {
                 "id": "f247ac1a-2e66-44bd-9a6d-f6eb1ca65838",
                 "resourcePath": "views\\144918ea-e771-486b-bc85-910d862977b4.yy",
-                "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "146d0302-37ef-4242-b0e6-49e912c51d39",
-            "Value": {
-                "id": "7d3294df-b33b-4b37-b509-ba506911a450",
-                "resourcePath": "views\\146d0302-37ef-4242-b0e6-49e912c51d39.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -855,6 +855,14 @@
             }
         },
         {
+            "Key": "758bc346-1101-48cf-9c96-7e6e06281e54",
+            "Value": {
+                "id": "8d43567b-243d-45c8-8933-00515006a9a2",
+                "resourcePath": "objects\\oUnitCombat\\oUnitCombat.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "76a8a2d5-78bd-4d15-89be-b3b75e79f60b",
             "Value": {
                 "id": "73ff5235-804e-4b88-a658-763888c22b83",
@@ -1551,6 +1559,14 @@
             }
         },
         {
+            "Key": "e3456b8f-3823-4f58-9f4c-63d8b3f64ae9",
+            "Value": {
+                "id": "c2f016b3-840e-4665-bc3f-06c9a49da064",
+                "resourcePath": "objects\\oUnitPlayer\\oUnitPlayer.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e41f060d-c82d-468e-855b-2477b8278a17",
             "Value": {
                 "id": "d05c20ce-8163-4e2a-b630-28b0ff630472",
@@ -1676,6 +1692,14 @@
                 "id": "7135f50c-c629-4c0d-8d12-be3cf26c98f4",
                 "resourcePath": "scripts\\tilesetChange\\tilesetChange.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f5a05ab3-05fb-4980-8f9d-2c8c8967b427",
+            "Value": {
+                "id": "84d42300-a1cb-4906-ab7a-d7c8c0c34e13",
+                "resourcePath": "views\\f5a05ab3-05fb-4980-8f9d-2c8c8967b427.yy",
+                "resourceType": "GMFolder"
             }
         },
         {

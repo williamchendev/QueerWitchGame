@@ -1,39 +1,6 @@
 /// @description Unit Update Event
 // Performs calculations necessary for the Unit's behavior
 
-// Key Checks (Player Input)
-var key_left = false;
-var key_right = false;
-var key_up = false;
-var key_down = false;
-
-var key_left_press = false;
-var key_right_press = false;
-var key_up_press = false;
-var key_down_press = false;
-
-var key_select_press = false;
-var key_cancel_press = false;
-var key_menu_press = false;
-
-if (player_input) {
-	if (game_manager != noone) {
-		key_left = keyboard_check(game_manager.left_check);
-		key_right = keyboard_check(game_manager.right_check);
-		key_up = keyboard_check(game_manager.up_check);
-		key_down = keyboard_check(game_manager.down_check);
-
-		key_left_press = keyboard_check_pressed(game_manager.left_check);
-		key_right_press = keyboard_check_pressed(game_manager.right_check);
-		key_up_press = keyboard_check_pressed(game_manager.up_check);
-		key_down_press = keyboard_check_pressed(game_manager.down_check);
-		
-		key_select_press = keyboard_check_pressed(game_manager.select_check);
-		key_cancel_press = keyboard_check_pressed(game_manager.cancel_check);
-		key_menu_press = keyboard_check_pressed(game_manager.menu_check);
-	}
-}
-
 // Movement (Player Input)
 if (canmove) {
 	// Horizontal Movement
@@ -210,89 +177,9 @@ else {
 	}
 }
 
-// Weapons
-arms[0].visible = false;
-arms[1].visible = false;
-for (var i = 0; i < array_length_1d(weapons); i++) {
-	if (weapons[i].equip) {
-		// Weapon Behaviour
-		if (key_select_press) {
-			// Fire Weapon
-			weapons[i].attack = canmove;
-		}
-		
-		if (target != noone) {
-			// Aim Weapon
-			weapons[i].aiming = false;
-			if (abs(hspd) <= 0.1) {
-				if (!platform_free(x, y + 1, platform_list)) {
-					if (target.x > x) {
-						weapons[i].aiming = true;
-						weapons[i].weapon_rotation = point_direction(x + weapon_x, y + weapon_y, target.x, target.y);
-					}
-				}
-			}
-		}
-		else {
-			// Ambient Aiming
-			weapons[i].aiming = false;
-			aim_ambient_x = lerp(aim_ambient_x, x + (draw_xscale * image_xscale * 50), weapons[i].lerp_spd * global.deltatime);
-			aim_ambient_y = lerp(aim_ambient_y, y + weapon_hip_y, weapons[i].lerp_spd * global.deltatime);
-			weapons[i].weapon_rotation = point_direction(x + weapon_x, y + weapon_y, aim_ambient_x, aim_ambient_y);
-		}
-		
-		// Move Weapon Position and Rotation
-		var temp_weapon_x = weapon_hip_x;
-		var temp_weapon_y = weapon_hip_y;
-		if (weapons[i].aiming) {
-			temp_weapon_x = weapon_aim_x;
-			temp_weapon_y = weapon_aim_y;
-		}
-		
-		weapon_x = lerp(weapon_x, temp_weapon_x, weapons[i].lerp_spd * global.deltatime);
-		weapon_y = lerp(weapon_y, temp_weapon_y, weapons[i].lerp_spd * global.deltatime);
-		
-		weapons[i].x_position = x + (draw_xscale * image_xscale * weapon_x);
-		weapons[i].y_position = y + (draw_yscale * image_yscale * weapon_y);
-		//weapons[i].weapon_rotation = 90 - (90 * image_xscale);
-		
-		// Establish Arm Variables
-		var temp_arm_direction = 0;
-		if (sign(image_xscale) < 0) {
-			temp_arm_direction = 1;
-		}
-		
-		// Set Arm Position Backarm
-		arms[0].visible = true;
-		arms[0].limb_direction = sign(image_xscale);
-		
-		arms[0].limb_anchor_x = x + (draw_xscale * image_xscale * arm_x[0]);
-		arms[0].limb_anchor_y = y + (draw_yscale * image_yscale * arm_y[0]);
-		
-		var temp_limb_distance = point_distance(0, 0, weapons[i].arm_x[0], weapons[i].arm_y[0] * sign(image_xscale));
-		var temp_limb_direction = point_direction(0, 0, weapons[i].arm_x[0], weapons[i].arm_y[0] * sign(image_xscale));
-		
-		arms[0].limb_target_x = weapons[i].x + weapons[i].recoil_offset_x + lengthdir_x(temp_limb_distance, temp_limb_direction + weapons[i].weapon_rotation + weapons[i].recoil_angle_shift);
-		arms[0].limb_target_y = weapons[i].y + weapons[i].recoil_offset_y + lengthdir_y(temp_limb_distance, temp_limb_direction + weapons[i].weapon_rotation + weapons[i].recoil_angle_shift);
-		
-		// Set Arm Position Frontarm
-		if (weapons[i].double_handed) {
-			arms[1].visible = true;
-			arms[1].limb_direction = sign(image_xscale);
-			
-			arms[1].limb_anchor_x = x + (draw_xscale * image_xscale * arm_x[1]);
-			arms[1].limb_anchor_y = y + (draw_yscale * image_yscale * arm_y[1]);
-			
-			var temp_limb_distance = point_distance(0, 0, weapons[i].arm_x[1], weapons[i].arm_y[1] * sign(image_xscale));
-			var temp_limb_direction = point_direction(0, 0, weapons[i].arm_x[1], weapons[i].arm_y[1] * sign(image_xscale));
-		
-			arms[1].limb_target_x = weapons[i].x + weapons[i].recoil_offset_x + lengthdir_x(temp_limb_distance, temp_limb_direction + weapons[i].weapon_rotation + weapons[i].recoil_angle_shift);
-			arms[1].limb_target_y = weapons[i].y + weapons[i].recoil_offset_y + lengthdir_y(temp_limb_distance, temp_limb_direction + weapons[i].weapon_rotation + weapons[i].recoil_angle_shift);
-		}
-	}
-}
-
 /*
+// Slope Angles
+
 var slope_solid_obj = collision_line(x, y, x, y + 5, oSolid, false, false);
 if (slope_solid_obj != noone) {
 	slope_angle = lerp(slope_angle, slope_solid_obj.image_angle, slope_angle_lerp_spd);

@@ -24,6 +24,7 @@ if (global.debug) {
 
 // Time Functions
 global.deltatime = ((delta_time / 1000000) * fps) * time_spd;
+global.realdeltatime = ((delta_time / 1000000) * fps);
 
 // Game Fullscreen
 if (keyboard_check_pressed(vk_f11)) {

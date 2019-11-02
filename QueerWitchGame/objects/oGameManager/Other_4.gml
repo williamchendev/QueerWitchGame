@@ -17,6 +17,9 @@ if (generate) {
 	
 	// Reset Editor Data
 	global.editor_data = noone;
+	
+	ds_list_destroy(instantiated_units);
+	instantiated_units = ds_list_create();
 }
 
 // Reset Generate Function

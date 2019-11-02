@@ -4,8 +4,8 @@
     "mvc": "1.1",
     "name": "8b86f196-8071-4450-8201-9b8862eda69b",
     "children": [
-        "8373d824-8b69-4b8b-b497-0ddfa6d1b5e1",
-        "f99f3606-46bc-4f73-9bd9-b7f564913f0e"
+        "f5a05ab3-05fb-4980-8f9d-2c8c8967b427",
+        "058fd81f-43dc-4d05-8187-cf9b758f012b"
     ],
     "filterType": "GMScript",
     "folderName": "Level",

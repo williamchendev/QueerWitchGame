@@ -14,6 +14,8 @@ data_directory = string(program_directory +"\Data\\");
 generate = false;
 blocks = noone;
 
+instantiated_units = ds_list_create();
+
 // Global Item Data
 itemData();
 consumableData();
@@ -36,9 +38,12 @@ select_check = ord("Z");
 cancel_check = ord("X");
 menu_check = ord("C");
 
+command_check = vk_control;
+
 // Time Settings
 time_spd = 1;
 global.deltatime = 0;
+global.realdeltatime = 0;
 
 stop_time = false; //DEBUG
 

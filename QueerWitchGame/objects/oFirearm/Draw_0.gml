@@ -31,40 +31,40 @@ var temp_fanlength = (pi * (range * 2)) * (temp_accuracy / 360);
 var temp_fantris = floor(temp_fanlength / clamp(temp_accuracy, 1, 10));
 var temp_fanseg = (temp_accuracy / temp_fantris);
 
-/*
-if (!sniper) {
-	// Draw Aim Fan Reticule
-	if (temp_fantris == 1) {
-		var temp_fanangle = (temp_accuracy / 2);
-		var temp_point1_x = temp_muzzle_x + lengthdir_x(range, temp_weapon_rotation - temp_fanangle); 
-		var temp_point1_y = temp_muzzle_y + lengthdir_y(range, temp_weapon_rotation - temp_fanangle);
-		var temp_point2_x = temp_muzzle_x + lengthdir_x(range, temp_weapon_rotation + temp_fanangle); 
-		var temp_point2_y = temp_muzzle_y + lengthdir_y(range, temp_weapon_rotation + temp_fanangle);
-		draw_triangle(temp_point1_x, temp_point1_y, temp_muzzle_x, temp_muzzle_y, temp_point2_x, temp_point2_y, false);
+if (equip) {
+	if (!sniper) {
+		// Draw Aim Fan Reticule
+		if (temp_fantris == 1) {
+			var temp_fanangle = (temp_accuracy / 2);
+			var temp_point1_x = temp_muzzle_x + lengthdir_x(range, temp_weapon_rotation - temp_fanangle); 
+			var temp_point1_y = temp_muzzle_y + lengthdir_y(range, temp_weapon_rotation - temp_fanangle);
+			var temp_point2_x = temp_muzzle_x + lengthdir_x(range, temp_weapon_rotation + temp_fanangle); 
+			var temp_point2_y = temp_muzzle_y + lengthdir_y(range, temp_weapon_rotation + temp_fanangle);
+			draw_triangle(temp_point1_x, temp_point1_y, temp_muzzle_x, temp_muzzle_y, temp_point2_x, temp_point2_y, false);
+		}
+		else {
+			draw_primitive_begin(pr_trianglestrip);
+			for (var i = 0; i < temp_fantris; i++) {
+				var temp_fanangle = temp_weapon_rotation - (temp_accuracy / 2) + (temp_fanseg * i);
+	
+				draw_vertex(temp_muzzle_x + lengthdir_x(range, temp_fanangle), temp_muzzle_y + lengthdir_y(range, temp_fanangle));
+				draw_vertex(temp_muzzle_x, temp_muzzle_y);
+				draw_vertex(temp_muzzle_x + lengthdir_x(range, temp_fanangle + temp_fanseg), temp_muzzle_y + lengthdir_y(range, temp_fanangle + temp_fanseg));
+			}
+			draw_primitive_end();
+		}
 	}
 	else {
-		draw_primitive_begin(pr_trianglestrip);
+		// Draw Line Fan Reticule
+		draw_line(temp_muzzle_x, temp_muzzle_y, temp_muzzle_x + lengthdir_x(range, temp_weapon_rotation - (temp_accuracy / 2)), temp_muzzle_y + lengthdir_y(range, temp_weapon_rotation - (temp_accuracy / 2)));
+		draw_line(temp_muzzle_x, temp_muzzle_y, temp_muzzle_x + lengthdir_x(range + 1, temp_weapon_rotation + (temp_accuracy / 2)), temp_muzzle_y + lengthdir_y(range + 1, temp_weapon_rotation + (temp_accuracy / 2)));
+	
 		for (var i = 0; i < temp_fantris; i++) {
 			var temp_fanangle = temp_weapon_rotation - (temp_accuracy / 2) + (temp_fanseg * i);
-	
-			draw_vertex(temp_muzzle_x + lengthdir_x(range, temp_fanangle), temp_muzzle_y + lengthdir_y(range, temp_fanangle));
-			draw_vertex(temp_muzzle_x, temp_muzzle_y);
-			draw_vertex(temp_muzzle_x + lengthdir_x(range, temp_fanangle + temp_fanseg), temp_muzzle_y + lengthdir_y(range, temp_fanangle + temp_fanseg));
+			draw_line(temp_muzzle_x + lengthdir_x(range, temp_fanangle), temp_muzzle_y + lengthdir_y(range, temp_fanangle), temp_muzzle_x + lengthdir_x(range, temp_fanangle + temp_fanseg), temp_muzzle_y + lengthdir_y(range, temp_fanangle + temp_fanseg));
 		}
-		draw_primitive_end();
 	}
 }
-else {
-	// Draw Line Fan Reticule
-	draw_line(temp_muzzle_x, temp_muzzle_y, temp_muzzle_x + lengthdir_x(range, temp_weapon_rotation - (temp_accuracy / 2)), temp_muzzle_y + lengthdir_y(range, temp_weapon_rotation - (temp_accuracy / 2)));
-	draw_line(temp_muzzle_x, temp_muzzle_y, temp_muzzle_x + lengthdir_x(range + 1, temp_weapon_rotation + (temp_accuracy / 2)), temp_muzzle_y + lengthdir_y(range + 1, temp_weapon_rotation + (temp_accuracy / 2)));
-	
-	for (var i = 0; i < temp_fantris; i++) {
-		var temp_fanangle = temp_weapon_rotation - (temp_accuracy / 2) + (temp_fanseg * i);
-		draw_line(temp_muzzle_x + lengthdir_x(range, temp_fanangle), temp_muzzle_y + lengthdir_y(range, temp_fanangle), temp_muzzle_x + lengthdir_x(range, temp_fanangle + temp_fanseg), temp_muzzle_y + lengthdir_y(range, temp_fanangle + temp_fanseg));
-	}
-}
-*/
 
 // Draw the Flash
 draw_set_color(c_white);

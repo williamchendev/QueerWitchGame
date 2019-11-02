@@ -18,13 +18,6 @@ slope_tolerance = 3; // Tolerance for walking up slopes in pixels
 
 // Beahviour Settings
 canmove = true;
-player_input = true;
-
-weapon_hip_x = -1;
-weapon_hip_y = -24;
-
-weapon_aim_x = 4;
-weapon_aim_y = -32;
 
 // Animation Settings
 idle_animation = sCathIdle;
@@ -38,12 +31,6 @@ jump_animation = sWillIdle;
 */
 
 animation_spd = 0.18;
-
-arm_x[0] = 2;
-arm_y[0] = -32;
-
-arm_x[1] = -5;
-arm_y[1] = -32;
 
 squash_stretch = 0.4;
 scale_reset_spd = 0.15;
@@ -62,27 +49,8 @@ jump_velocity = 0;
 slope_angle = 0;
 slope_offset = 0;
 
-backarm_layer_id = layer_create(((instance_number(oUnit) + 1) * -5) - 1, object_get_name(self) + "_" + string(instance_number(oUnit)) + "_backarmlayer");
-layer_id = layer_create(((instance_number(oUnit) + 1) * -5) - 2, object_get_name(self) + "_" + string(instance_number(oUnit)) + "_layer");
-weapon_layer_id = layer_create(((instance_number(oUnit) + 1) * -5) - 3, object_get_name(self) + "_" + string(instance_number(oUnit)) + "_weaponlayer");
-frontarm_layer_id = layer_create(((instance_number(oUnit) + 1) * -5) - 4, object_get_name(self) + "_" + string(instance_number(oUnit)) + "_frontarmlayer");
-
-layer = layer_id;
-
-universal_physics_object = instance_create_layer(x, y, layer_id, oPhysics);
+universal_physics_object = instance_create_layer(x, y, layer_get_id("Instances"), oPhysics);
 universal_physics_object.base_object = self;
-
-// Behaviour Variables
-weapons[0] = instance_create_layer(x, y, weapon_layer_id, oGun_M14);
-weapons[0].equip = true;
-
-target = noone;
-
-weapon_x = 0;
-weapon_y = 0;
-
-aim_ambient_x = 0;
-aim_ambient_y = 0;
 
 // Animation Variables
 draw_index = 0;
@@ -90,10 +58,56 @@ draw_index = 0;
 draw_xscale = 1;
 draw_yscale = 1;
 
-arms[0] = instance_create_layer(x, y, backarm_layer_id, oArm);
-arms[1] = instance_create_layer(x, y, frontarm_layer_id, oArm);
-
 image_speed = 0;
+
+// Input Variables
+key_left = false;
+key_right = false;
+key_up = false;
+key_down = false;
+
+key_left_press = false;
+key_right_press = false;
+key_up_press = false;
+key_down_press = false;
+
+key_select_press = false;
+key_cancel_press = false;
+key_menu_press = false;
+
+key_command = false;
 
 // Singleton
 game_manager = instance_find(oGameManager, 0);
+ds_list_add(game_manager.instantiated_units, self);
+
+// Layers
+layer_id = -1;
+
+var temp_layer_id = 0;
+var temp_unit_layers = ds_list_create();
+for (var i = 0; i < instance_number(oUnit); i++) {
+	var temp_unit = instance_find(oUnit, i);
+	if (ds_list_find_index(game_manager.instantiated_units, temp_unit) != -1) {
+		ds_list_add(temp_unit_layers, temp_unit.layer_id);
+	}
+}
+ds_list_sort(temp_unit_layers, true);
+
+for (var i = 0; i < ds_list_size(temp_unit_layers); i++) {
+	var temp_unit_layer_id = ds_list_find_value(temp_unit_layers, i);
+	if (temp_layer_id == temp_unit_layer_id) {
+		temp_layer_id++;
+	}
+	else if (temp_layer_id < temp_unit_layer_id) {
+		break;
+	}
+}
+ds_list_destroy(temp_unit_layers);
+layer_id = temp_layer_id;
+
+for (var i = 0; i < 5; i++) {
+	layers[i] = layer_create(((layer_id + 1) * -5) - i, object_get_name(self) + "_" + string(instance_number(oUnit)) + "_layer" + string(i));
+}
+
+layer = layers[2];
