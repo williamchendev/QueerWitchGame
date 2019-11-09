@@ -4,24 +4,9 @@
 // Physics & Unit Behaviour Inheritance
 event_inherited();
 
-// Swap Weapons (Debug)
-if (keyboard_check_pressed(ord("P"))) {
-	if (weapons[0].object_index == oGun_FAL) {
-		instance_destroy(weapons[0]);
-		weapons[0] = instance_create_layer(x, y, layers[3], oGun_M14);
-		weapons[0].equip = true;
-	}
-	else {
-		instance_destroy(weapons[0]);
-		weapons[0] = instance_create_layer(x, y, layers[3], oGun_FAL);
-		weapons[0].equip = true;
-	}
-}
-
 // Limbs
 for (var q = 0; q < limbs; q++) {
-	limb[0].visible = false;
-	limb[1].visible = false;
+	limb[q].visible = false;
 }
 
 // Weapons
@@ -31,21 +16,28 @@ for (var i = 0; i < array_length_1d(weapons); i++) {
 		if (key_select_press) {
 			// Fire Weapon
 			weapons[i].attack = canmove;
+			weapons[i].ignore_id = team_id;
 		}
 		
 		// Aiming Behaviour
 		weapons[i].aiming = false;
 		if (target != noone) {
-			// Aim Weapon
-			if (abs(hspd) <= 0.1) {
-				if (!platform_free(x, y + 1, platform_list)) {
-					if (sign(image_xscale) == sign(target.x - x)) {
-						weapons[i].aiming = true;
-						var temp_weapon_target_angle = point_direction(x + weapon_x, y + weapon_y, target.x, target.y - 24);
-						var temp_weapon_delta_angle = angle_difference(weapons[i].weapon_rotation, temp_weapon_target_angle);
-						weapons[i].weapon_rotation = weapons[i].weapon_rotation - (temp_weapon_delta_angle * weapons[i].lerp_spd * global.deltatime);
+			if (instance_exists(target)) {
+				// Aim Weapon
+				if (abs(x_velocity) <= 0.1) {
+					if (!platform_free(x, y + 1, platform_list)) {
+						if (sign(image_xscale) == sign(target.x - x)) {
+							weapons[i].aiming = true;
+							var temp_weapon_target_angle = point_direction(x + weapon_x, y + weapon_y, target.x, target.y - 24);
+							var temp_weapon_delta_angle = angle_difference(weapons[i].weapon_rotation, temp_weapon_target_angle);
+							weapons[i].weapon_rotation = weapons[i].weapon_rotation - (temp_weapon_delta_angle * weapons[i].lerp_spd * global.deltatime);
+						}
 					}
 				}
+			}
+			else {
+				// Reset Target
+				target = noone;
 			}
 		}
 		

@@ -76,10 +76,13 @@ bursts = 0;
 bursts_timer = 0;
 bullet_cases = 0;
 
+ignore_id = "unassigned";
+
 // Draw Variables
 //muzzle_flash_index = 0;
 
 flash_timer = ds_list_create();
+flash_length = ds_list_create();
 flash_direction = ds_list_create();
 flash_xposition = ds_list_create();
 flash_yposition = ds_list_create();

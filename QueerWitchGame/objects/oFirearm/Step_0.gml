@@ -58,7 +58,7 @@ if (bursts > 0) {
 	
 		// Projectiles
 		for (var i = 0; i < projectiles; i++) {
-			// Hitscan
+			// Direction
 			var temp_accuracy = (clamp((accuracy - accuracy_peak) * (1 - aim), 0, 360 - accuracy_peak) + accuracy_peak) / 2;
 			var temp_hitscan_angle = temp_weapon_rotation + random_range(-temp_accuracy, temp_accuracy);
 			
@@ -71,7 +71,7 @@ if (bursts > 0) {
 				ds_list_add(flash_imageindex, random_range(0, sprite_get_number(muzzle_flash_sprite)));
 			}
 			
-			// Calculate Flash Position
+			// Position
 			var temp_muzzle_direction = point_direction(0, 0, muzzle_x * weapon_xscale, muzzle_y * weapon_yscale);
 			var temp_muzzle_distance = point_distance(0, 0, muzzle_x * weapon_xscale, muzzle_y * weapon_yscale) - 2;
 
@@ -80,6 +80,10 @@ if (bursts > 0) {
 			
 			ds_list_add(flash_xposition, temp_muzzle_x);
 			ds_list_add(flash_yposition, temp_muzzle_y);
+			
+			// Range
+			var temp_range = raycast_line(temp_muzzle_x, temp_muzzle_y, temp_hitscan_angle, range, damage, ignore_id);
+			ds_list_add(flash_length, temp_range);
 			
 			// Bullet Cases
 			if (case_sprite != noone) {
@@ -114,6 +118,7 @@ for (var f = ds_list_size(flash_timer) - 1; f >= 0; f--) {
 	temp_flash_timer -= global.deltatime;
 	if (temp_flash_timer <= 0) {
 		ds_list_delete(flash_timer, f);
+		ds_list_delete(flash_length, f);
 		ds_list_delete(flash_direction, f);
 		ds_list_delete(flash_xposition, f);
 		ds_list_delete(flash_yposition, f);

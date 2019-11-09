@@ -166,10 +166,10 @@ if (!platform_free(x, y + 1, platform_list)) {
 }
 else {
 	sprite_index = jump_animation;
-	if (vspd < 0.15) {
+	if (y_velocity < 0.15) {
 		image_index = 0;
 	}
-	else if (vspd > 0.15) {
+	else if (y_velocity > 0.15) {
 		image_index = 2;
 	}
 	else {

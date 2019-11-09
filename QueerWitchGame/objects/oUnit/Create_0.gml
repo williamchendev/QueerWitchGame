@@ -19,6 +19,11 @@ slope_tolerance = 3; // Tolerance for walking up slopes in pixels
 // Beahviour Settings
 canmove = true;
 
+team_id = "unassigned";
+
+health_points = 6;
+max_health_points = 6;
+
 // Animation Settings
 idle_animation = sCathIdle;
 walk_animation = sCathRun;

@@ -31,6 +31,7 @@ var temp_fanlength = (pi * (range * 2)) * (temp_accuracy / 360);
 var temp_fantris = floor(temp_fanlength / clamp(temp_accuracy, 1, 10));
 var temp_fanseg = (temp_accuracy / temp_fantris);
 
+/*
 if (equip) {
 	if (!sniper) {
 		// Draw Aim Fan Reticule
@@ -65,6 +66,7 @@ if (equip) {
 		}
 	}
 }
+*/
 
 // Draw the Flash
 draw_set_color(c_white);
@@ -73,6 +75,7 @@ if (ds_list_size(flash_timer) > 0) {
 	for (var f = ds_list_size(flash_timer) - 1; f >= 0; f--) {
 		// Flash Variables
 		var temp_flash_timer = ds_list_find_value(flash_timer, f);
+		var temp_flash_length = ds_list_find_value(flash_length, f);
 		var temp_flash_direction = ds_list_find_value(flash_direction, f);
 		var temp_flash_xposition = ds_list_find_value(flash_xposition, f);
 		var temp_flash_yposition = ds_list_find_value(flash_yposition, f);
@@ -80,7 +83,7 @@ if (ds_list_size(flash_timer) > 0) {
 	
 		// Draw Bullet Trail
 		draw_set_alpha(0.4 * (1 - power(((flash_delay - temp_flash_timer) / flash_delay), 2)));
-		draw_line(temp_flash_xposition, temp_flash_yposition, temp_flash_xposition + lengthdir_x(range, temp_flash_direction), temp_flash_yposition + lengthdir_y(range, temp_flash_direction));
+		draw_line(temp_flash_xposition, temp_flash_yposition, temp_flash_xposition + lengthdir_x(temp_flash_length, temp_flash_direction), temp_flash_yposition + lengthdir_y(temp_flash_length, temp_flash_direction));
 	
 		// Draw Bullet Trail Muzzle Flash
 		draw_set_alpha(1);
