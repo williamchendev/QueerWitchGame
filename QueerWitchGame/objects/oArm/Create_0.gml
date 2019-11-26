@@ -10,7 +10,7 @@ limb_target_y = y;
 
 limb_direction = 1;
 
-limb_length = 16;
+limb_length = 18;
 limb_compress = 0.3;
 
 // Arm Variables

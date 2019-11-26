@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+/*
 if (camera_follow) {
 	// Camera Variables
 	var temp_camera = view_camera[0];
@@ -36,6 +37,7 @@ if (camera_follow) {
 	
 	camera_set_view_pos(temp_camera, camera_x, camera_y);
 }
+*/
 
 // Reset Room
 if (keyboard_check_pressed(ord("R")) or (health_points <= 0)) {

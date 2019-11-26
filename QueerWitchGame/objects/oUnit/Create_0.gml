@@ -63,6 +63,8 @@ draw_index = 0;
 draw_xscale = 1;
 draw_yscale = 1;
 
+jump_peak_threshold = 0.8;
+
 image_speed = 0;
 
 // Input Variables

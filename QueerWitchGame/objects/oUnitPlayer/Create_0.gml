@@ -33,3 +33,7 @@ team_id = "player";
 
 weapons[0] = instance_create_layer(x, y, layers[3], oGun_M14);
 weapons[0].equip = true;
+
+idle_animation = sWilliamDS_Idle;
+walk_animation = sWilliamDS_Run;
+jump_animation = sWilliamDS_Jump;
