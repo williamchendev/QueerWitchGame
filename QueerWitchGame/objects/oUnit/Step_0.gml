@@ -145,13 +145,13 @@ y += vspd;
 draw_xscale = lerp(draw_xscale, 1, scale_reset_spd * global.deltatime);
 draw_yscale = lerp(draw_yscale, 1, scale_reset_spd * global.deltatime);
 
-if (hspd != 0) {
+if (x_velocity != 0) {
 	// Set Sprite facing direction
-	image_xscale = sign(hspd);	
+	image_xscale = sign(x_velocity);	
 }
 
 if (!platform_free(x, y + 1, platform_list)) {
-	if (hspd != 0) {
+	if (x_velocity != 0) {
 		sprite_index = walk_animation;
 	}
 	else {

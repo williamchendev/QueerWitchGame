@@ -24,7 +24,7 @@ muzzle_y = -2;
 // Arm Settings
 double_handed = true;
 
-arm_x[0] = 13;
+arm_x[0] = 16;
 arm_y[0] = 0;
 
 arm_x[1] = 2;

@@ -8,6 +8,8 @@ limb_anchor_y = y;
 limb_target_x = x;
 limb_target_y = y;
 
+limb_sprite = sWilliam_Arms;
+
 limb_direction = 1;
 
 limb_length = 18;

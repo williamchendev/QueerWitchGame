@@ -322,7 +322,7 @@
             "Key": "312de436-32f5-42ee-bc73-d6c498d8849b",
             "Value": {
                 "id": "5bc88979-7c55-4759-9b9b-7465ef4d0549",
-                "resourcePath": "sprites\\sWilliam_Arms1\\sWilliam_Arms1.yy",
+                "resourcePath": "sprites\\sWilliam_Arms\\sWilliam_Arms.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1692,14 +1692,6 @@
                 "id": "2a89af7e-d3a1-414f-ad37-7a15371d2fe2",
                 "resourcePath": "fonts\\fHeartBit\\fHeartBit.yy",
                 "resourceType": "GMFont"
-            }
-        },
-        {
-            "Key": "e867e359-6e66-4745-a4e9-541404422b84",
-            "Value": {
-                "id": "456272f4-349d-4a8f-b884-20dae39eacd7",
-                "resourcePath": "sprites\\sWilliam_Arms2\\sWilliam_Arms2.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
