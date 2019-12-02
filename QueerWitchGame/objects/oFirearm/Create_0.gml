@@ -5,7 +5,7 @@
 event_inherited();
 
 // Weapon Settings
-weapon_ammo_id = 
+weapon_ammo_id = 7;
 
 // Sprite Settings
 weapon_sprite = sMarinda308;

@@ -34,75 +34,96 @@ if (canmove) {
 			}
 		}
 		
-		// Command Mode Enabled Behaviour
-		if (key_command) {
-			// Command Mode Behaviour
-			if (targets != noone) {
-				if (key_select_press) {
-					// Select Target
-					if (target != ds_list_find_value(targets, targets_index)) {
-						target = ds_list_find_value(targets, targets_index);
-					}
-					else {
-						target = noone;
-					}
-				}
-				else if (key_left_press) {
-					// Move Target Select Index Left
-					targets_index--;
-					if (targets_index < 0) {
-						targets_index = ds_list_size(targets) - 1;
-					}
-				}
-				else if (key_right_press) {
-					// Move Target Select Index Right
-					targets_index++;
-					if (targets_index >= ds_list_size(targets)) {
-						targets_index = 0;
-					}
-				}
-			}
-			
-			command_time = true;
-			global.deltatime = global.deltatime * command_time_mod;
-			
-			if (instance_exists(oTargetUI)) {
-				var temp_target_ui = instance_find(oTargetUI, 0);
-				temp_target_ui.target = ds_list_find_value(targets, targets_index);
-				temp_target_ui.selected = false;
-				if (temp_target_ui.target == target) {
-					temp_target_ui.selected = true;
-				}
-			}
-			
-			// Prevent Attacking in Inherited Event
-			key_select_press = false;
-			
-			// Maintain Velocity while in Command Mode
-			if (x_velocity < 0) {
-				key_left = true;
-				key_right = false;
-			}
-			else if (x_velocity > 0) {
-				key_left = false;
-				key_right = true;
-			}
-			else {
-				key_left = false;
-				key_right = false;
+		// Command Mode Behaviour
+		if (inventory_show) {
+			// Inventory Behaviour
+			if (key_menu_press) {
+				inventory_show = false;
 			}
 		}
-		else {
-			// Disable Command
-			command = false;
-			command_lerp_time = true;
+		
+		if (!inventory_show) {
+			// Command Mode Targeting Behaviour
+			if (key_command) {
+				// Targeting Behaviour
+				if (targets != noone) {
+					if (key_select_press) {
+						// Select Target
+						if (target != ds_list_find_value(targets, targets_index)) {
+							target = ds_list_find_value(targets, targets_index);
+							
+							// Open Inventory
+							if (target == self) {
+								target = noone;
+								inventory_show = true;
+							}
+						}
+						else {
+							target = noone;
+						}
+					}
+					else if (key_left_press) {
+						// Move Target Select Index Left
+						targets_index--;
+						if (targets_index < 0) {
+							targets_index = ds_list_size(targets) - 1;
+						}
+					}
+					else if (key_right_press) {
+						// Move Target Select Index Right
+						targets_index++;
+						if (targets_index >= ds_list_size(targets)) {
+							targets_index = 0;
+						}
+					}
+				}
 			
-			if (ds_exists(targets, ds_type_list)) {
-				ds_list_destroy(targets);
+				if (instance_exists(oTargetUI)) {
+					var temp_target_ui = instance_find(oTargetUI, 0);
+					temp_target_ui.target = ds_list_find_value(targets, targets_index);
+					temp_target_ui.selected = false;
+					if (temp_target_ui.target == target) {
+						temp_target_ui.selected = true;
+					}
+				}
 			}
-			instance_destroy(oTargetUI);
-			targets = -1;
-			targets_index = -1;
+			else {
+				// Disable Command Mode
+				command = false;
+				command_lerp_time = true;
+			
+				if (ds_exists(targets, ds_type_list)) {
+					ds_list_destroy(targets);
+				}
+				instance_destroy(oTargetUI);
+				targets = -1;
+				targets_index = -1;
+			}
+		}
+		
+		// Apply Slow Down Effect
+		command_time = true;
+		global.deltatime = global.deltatime * command_time_mod;
+		
+		// Prevent Attacking/Jumping in Inherited Event
+		key_up = false;
+		key_up_press = false;
+		key_down = false;
+		key_down_press = false;
+		key_select_press = false;
+			
+		// Maintain Velocity while in Command Mode
+		if (x_velocity < 0) {
+			key_left = true;
+			key_right = false;
+		}
+		else if (x_velocity > 0) {
+			key_left = false;
+			key_right = true;
+		}
+		else {
+			key_left = false;
+			key_right = false;
 		}
 	}
 	else {
@@ -165,6 +186,7 @@ if (canmove) {
 				ds_list_delete(temp_targets, temp_nearest_unit);
 			}
 			ds_list_destroy(temp_targets);
+			ds_list_add(targets, self);
 			temp_targets = -1;
 			targets_index = 0;
 			
@@ -190,23 +212,6 @@ if (canmove) {
 					temp_target_ui.target = ds_list_find_value(targets, targets_index);
 				}
 			}
-		}
-		else {
-			// Access Inventory
-			if (key_menu_press) {
-				inventory_show = true;
-				canmove = false;
-			}
-		}
-	}
-}
-else {
-	// Inventory Behaviour
-	if (inventory_show) {
-		// Disable Inventory
-		if (key_menu_press) {
-			inventory_show = false;
-			canmove = true;
 		}
 	}
 }

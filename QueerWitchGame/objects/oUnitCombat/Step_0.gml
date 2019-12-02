@@ -21,6 +21,9 @@ for (var i = 0; i < ds_list_size(inventory.weapons); i++) {
 			temp_weapon.ignore_id = team_id;
 		}
 		
+		// Weapon Layer
+		temp_weapon.layer = layers[3];
+		
 		// Aiming Behaviour
 		temp_weapon.aiming = false;
 		if (target != noone) {
