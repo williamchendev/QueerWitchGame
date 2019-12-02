@@ -4,6 +4,9 @@
 // Inherit the parent event
 event_inherited();
 
+// Weapon Settings
+weapon_ammo_id = 
+
 // Sprite Settings
 weapon_sprite = sMarinda308;
 regular_sprite = sMarinda308;

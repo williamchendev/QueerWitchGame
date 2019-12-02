@@ -21,10 +21,8 @@ if (x != oUnitPlayer.x) {
 event_inherited();
 
 if (health_points <= 0) {
+	instance_destroy(inventory);
 	instance_destroy();
-	for (var i = 0; i < array_length_1d(weapons); i++) {
-		instance_destroy(weapons[i]);
-	}
 }
 
 key_select_press = false;

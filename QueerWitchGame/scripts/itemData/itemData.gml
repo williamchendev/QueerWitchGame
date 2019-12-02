@@ -91,7 +91,7 @@ global.item_data[5, itemstats.stack_limit] = 1;
 global.item_data[5, itemstats.type] = itemtypes.weapon;
 global.item_data[5, itemstats.type_index] = 1;
 
-// M14
+// FAL
 global.item_data[6, itemstats.name] = "FAL-E";
 global.item_data[6, itemstats.description] = "The right arm of the free world, now in burst fire";
 global.item_data[6, itemstats.sprite_index] = sItems6x2;
@@ -101,3 +101,14 @@ global.item_data[6, itemstats.height_space] = 2;
 global.item_data[6, itemstats.stack_limit] = 1;
 global.item_data[6, itemstats.type] = itemtypes.weapon;
 global.item_data[6, itemstats.type_index] = 2;
+
+// 308 Winchester Ammo
+global.item_data[7, itemstats.name] = ".308 Winchester Ammo";
+global.item_data[7, itemstats.description] = "";
+global.item_data[7, itemstats.sprite_index] = sItems1x1;
+global.item_data[7, itemstats.image_index] = 2;
+global.item_data[7, itemstats.width_space] = 1;
+global.item_data[7, itemstats.height_space] = 1;
+global.item_data[7, itemstats.stack_limit] = 10;
+global.item_data[7, itemstats.type] = itemtypes.ammo;
+global.item_data[7, itemstats.type_index] = 0;

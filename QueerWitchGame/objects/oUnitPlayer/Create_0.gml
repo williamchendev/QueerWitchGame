@@ -4,23 +4,32 @@
 // Inherit the parent event
 event_inherited();
 
-// Behaviour
+// Animation Settings
+idle_animation = sWilliamDS_Idle;
+walk_animation = sWilliamDS_Run;
+jump_animation = sWilliamDS_Jump;
+
+// Behaviour Settings
 command = false;
 
 command_time = false;
 command_time_mod = 0.25;
 command_lerp_time = false;
 
+inventory_show = false;
+
+// Camera Settings
 camera_follow = true;
 camera_follow_spd = 0.05;
 camera_y_offset = -42;
 
-// Combat
-targets = noone;
-targets_index = -1;
-
+// Combat Settings
 health_points = 100;
 max_health_points = 100;
+
+// Combat Variables
+targets = noone;
+targets_index = -1;
 
 // Debug
 player_input = true;
@@ -31,9 +40,6 @@ camera_y = camera_get_view_y(temp_camera);
 
 team_id = "player";
 
-weapons[0] = instance_create_layer(x, y, layers[3], oGun_M14);
-weapons[0].equip = true;
-
-idle_animation = sWilliamDS_Idle;
-walk_animation = sWilliamDS_Run;
-jump_animation = sWilliamDS_Jump;
+addItemInventory(inventory, 5);
+var temp_weapon = ds_list_find_value(inventory.weapons, 0);
+temp_weapon.equip = true;

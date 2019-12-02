@@ -25,8 +25,15 @@ for (var h = 0; h < temp_inventory_height; h++) {
 		if (temp_item_stack > 0) {
 			if (checkItemInventory(temp_inventory_obj, w, h, temp_item_width, temp_item_height, temp_item_id)) {
 				 var temp_can_place_num = clamp(temp_item_stack, 1, temp_item_stack_limit - temp_inventory_obj.inventory_stacks[w, h]);
-				 placeItemInventory(self, temp_item_id, w, h, temp_can_place_num);
+				 placeItemInventory(temp_inventory_obj, temp_item_id, w, h, temp_can_place_num);
 				 temp_item_stack -= temp_can_place_num;
+				 
+				 if (global.item_data[temp_item_id, itemstats.type] == itemtypes.weapon) {
+					 if (temp_can_place_num > 0) {
+						 ds_list_add(temp_inventory_obj.weapons, instance_create_layer(x, y, layer, global.weapon_data[global.item_data[temp_item_id, itemstats.type_index], weaponstats.object]));
+						 ds_list_add(temp_inventory_obj.weapons_index, (temp_inventory_width * h) + w);
+					 }
+				 }
 			}
 		}
 		else {

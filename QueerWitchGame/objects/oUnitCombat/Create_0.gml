@@ -6,7 +6,6 @@ event_inherited();
 
 // Combat Variables
 target = noone;
-weapons = noone;
 
 // Weapon Settings
 weapon_hip_x = -1;

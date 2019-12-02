@@ -8,6 +8,8 @@
 
 // Assemble argument variables
 var temp_inventory_obj = argument[0];
+var temp_inventory_width = temp_inventory_obj.inventory_width;
+
 var temp_item_id = argument[1];
 var temp_x = argument[2];
 var temp_y = argument[3];
@@ -15,7 +17,7 @@ var temp_width = global.item_data[temp_item_id, itemstats.width_space];
 var temp_height = global.item_data[temp_item_id, itemstats.height_space];
 
 // Set formatted spaces in inventory array
-var temp_formatted_index = (-1 * (temp_x + (temp_y * temp_inventory_obj.inventory_width))) - 1;
+var temp_formatted_index = (-1 * (temp_x + (temp_y * temp_inventory_width))) - 1;
 for (var h = 0; h < temp_height; h++) {
 	for (var w = 0; w < temp_width; w++) {
 		var temp_check_x = temp_x + w;

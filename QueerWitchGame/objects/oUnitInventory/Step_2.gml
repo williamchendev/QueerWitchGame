@@ -75,8 +75,8 @@ if (draw_inventory) {
 				
 				select_item_stacks -= select_place_num;
 				
+				// Reset select item properties
 				if (select_item_stacks <= 0) {
-					// Reset select item properties
 					select_item_id = 0;
 					select_item_stacks = 0;
 					
@@ -107,6 +107,16 @@ if (draw_inventory) {
 					
 						select_item_width = temp_selected_width;
 						select_item_height = temp_selected_height;
+						
+						// Set select Weapon properties
+						if (global.item_data[select_item_id, itemstats.type] == itemtypes.weapon) {
+							for (var q = 0; q < ds_list_size(weapons_index); q++) {
+								if (ds_list_find_value(weapons_index, q) == select_index) {
+									weapon_place_index = q;
+									break;
+								}
+							}
+						}
 					
 						// Reset inventory spaces
 						for (var h = 0; h < select_item_height; h++) {
@@ -123,7 +133,13 @@ if (draw_inventory) {
 						if (select_item_stacks == 1 && checkItemInventory(self, select_x, select_y, select_item_width, select_item_height, select_item_id, 1)) {	
 							// Place Item in empty inventory space
 							placeItemInventory(self, select_item_id, select_x, select_y);
-					
+							
+							// Update Weapon Index
+							if (weapon_place_index != -1) {
+								ds_list_set(weapons_index, weapon_place_index, select_index);
+								weapon_place_index = -1;
+							}
+							
 							// Reset select item properties
 							select_item_id = 0;
 							select_item_stacks = 0;
@@ -131,6 +147,7 @@ if (draw_inventory) {
 							select_item_width = 0;
 							select_item_height = 0;
 					
+							// Update Inventory
 							update_inventory = true;
 							draw_inventory_open = false;
 						}
@@ -153,7 +170,15 @@ if (draw_inventory) {
 					
 				select_item_width = 0;
 				select_item_height = 0;
+				
+				// Delete redundant weapon index
+				if (weapon_place_index != -1) {
+					ds_list_delete(weapons, weapon_place_index);
+					ds_list_delete(weapons_index, weapon_place_index);
+					weapon_place_index = -1;
+				}
 			
+				// Update Inventory
 				update_inventory = true;
 			}
 		}
@@ -291,6 +316,13 @@ else {
 					
 			select_item_width = 0;
 			select_item_height = 0;
+			
+			// Delete redundant weapon index
+			if (weapon_place_index != -1) {
+				ds_list_delete(weapons, weapon_place_index);
+				ds_list_delete(weapons_index, weapon_place_index);
+				weapon_place_index = -1;
+			}
 			
 			update_inventory = true;
 		}

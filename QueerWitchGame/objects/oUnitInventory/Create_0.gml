@@ -11,6 +11,12 @@ inventory_stacks = noone;
 inventory_width = 0;
 inventory_height = 0;
 
+// Inventory Weapon Variables
+weapons = ds_list_create();
+weapons_index = ds_list_create();
+
+weapon_place_index = -1;
+
 // Inventory GUI Mode Settings
 inventory_grid_size = 16;
 inventory_outline_size = 2;

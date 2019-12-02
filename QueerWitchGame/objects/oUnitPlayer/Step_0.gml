@@ -22,20 +22,6 @@ if (player_input) {
 	}
 }
 
-// Swap Weapons (Debug)
-if (keyboard_check_pressed(ord("P"))) {
-	if (weapons[0].object_index == oGun_FAL) {
-		instance_destroy(weapons[0]);
-		weapons[0] = instance_create_layer(x, y, layers[3], oGun_M14);
-		weapons[0].equip = true;
-	}
-	else {
-		instance_destroy(weapons[0]);
-		weapons[0] = instance_create_layer(x, y, layers[3], oGun_FAL);
-		weapons[0].equip = true;
-	}
-}
-
 // Command Mode Behaviour
 if (canmove) {
 	if (command) {
@@ -51,27 +37,29 @@ if (canmove) {
 		// Command Mode Enabled Behaviour
 		if (key_command) {
 			// Command Mode Behaviour
-			if (key_select_press) {
-				// Select Target
-				if (target != ds_list_find_value(targets, targets_index)) {
-					target = ds_list_find_value(targets, targets_index);
+			if (targets != noone) {
+				if (key_select_press) {
+					// Select Target
+					if (target != ds_list_find_value(targets, targets_index)) {
+						target = ds_list_find_value(targets, targets_index);
+					}
+					else {
+						target = noone;
+					}
 				}
-				else {
-					target = noone;
+				else if (key_left_press) {
+					// Move Target Select Index Left
+					targets_index--;
+					if (targets_index < 0) {
+						targets_index = ds_list_size(targets) - 1;
+					}
 				}
-			}
-			else if (key_left_press) {
-				// Move Target Select Index Left
-				targets_index--;
-				if (targets_index < 0) {
-					targets_index = ds_list_size(targets) - 1;
-				}
-			}
-			else if (key_right_press) {
-				// Move Target Select Index Right
-				targets_index++;
-				if (targets_index >= ds_list_size(targets)) {
-					targets_index = 0;
+				else if (key_right_press) {
+					// Move Target Select Index Right
+					targets_index++;
+					if (targets_index >= ds_list_size(targets)) {
+						targets_index = 0;
+					}
 				}
 			}
 			
@@ -87,15 +75,10 @@ if (canmove) {
 				}
 			}
 			
-			// Reset Keys
-			/*
-			key_left = false;
-			key_right = false;
-			key_up = false;
-			key_down = false;
-			*/
+			// Prevent Attacking in Inherited Event
 			key_select_press = false;
 			
+			// Maintain Velocity while in Command Mode
 			if (x_velocity < 0) {
 				key_left = true;
 				key_right = false;
@@ -114,8 +97,10 @@ if (canmove) {
 			command = false;
 			command_lerp_time = true;
 			
+			if (ds_exists(targets, ds_type_list)) {
+				ds_list_destroy(targets);
+			}
 			instance_destroy(oTargetUI);
-			ds_list_destroy(targets);
 			targets = -1;
 			targets_index = -1;
 		}
@@ -138,11 +123,12 @@ if (canmove) {
 			
 			// Equiped Weapon
 			var temp_weapon_distance = 264;
-			if (weapons != noone) {
-				for (var w = 0; w < array_length_1d(weapons); w++) {
+			if (inventory.weapons != noone) {
+				for (var w = 0; w < ds_list_size(inventory.weapons); w++) {
 					// Find Equiped Weapon
-					if (weapons[w].equip) {
-						temp_weapon_distance = max(temp_weapon_distance, weapons[w].range);
+					var temp_weapon = ds_list_find_value(inventory.weapons, w);
+					if (temp_weapon.equip) {
+						temp_weapon_distance = max(temp_weapon_distance, temp_weapon.range);
 						break;
 					}
 				}
@@ -191,13 +177,36 @@ if (canmove) {
 				}
 			}
 			
-			// Create Target Reticle
-			if (!instance_exists(oTargetUI)) {
-				if (ds_list_size(targets) > 0) {
+			// Destroy Targets List if no Viable Targets
+			if (ds_list_size(targets) <= 0) {
+				ds_list_destroy(targets);
+				targets = noone;
+				target = noone;
+			}
+			else {
+				// Create Target Reticle
+				if (!instance_exists(oTargetUI)) {
 					var temp_target_ui = instance_create_layer(x, y, layers[3], oTargetUI);
 					temp_target_ui.target = ds_list_find_value(targets, targets_index);
 				}
 			}
+		}
+		else {
+			// Access Inventory
+			if (key_menu_press) {
+				inventory_show = true;
+				canmove = false;
+			}
+		}
+	}
+}
+else {
+	// Inventory Behaviour
+	if (inventory_show) {
+		// Disable Inventory
+		if (key_menu_press) {
+			inventory_show = false;
+			canmove = true;
 		}
 	}
 }
@@ -209,4 +218,11 @@ event_inherited();
 if (command_time) {
 	command_time = false;
 	global.deltatime = global.deltatime / command_time_mod;
+}
+
+// Update Unit Inventory
+if (inventory != noone) {
+	inventory.x = x;
+	inventory.y = y;
+	inventory.draw_inventory = inventory_show;
 }

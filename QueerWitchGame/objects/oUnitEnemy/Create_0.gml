@@ -4,11 +4,20 @@
 // Inherit the parent event
 event_inherited();
 
-weapons[0] = instance_create_layer(x, y, layers[3], oGun_M14);
-weapons[0].equip = true;
+addItemInventory(inventory, 5);
+var temp_weapon = ds_list_find_value(inventory.weapons, 0);
+temp_weapon.equip = true;
 
 target = oUnitPlayer;
 
 team_id = "enemy";
 
 debug_timer = irandom_range(120, 480);
+
+// Debug
+idle_animation = sWilliamDS_Idle;
+walk_animation = sWilliamDS_Run;
+jump_animation = sWilliamDS_Jump;
+
+limb[0].limb_sprite = sWilliamDS_Arms;
+limb[1].limb_sprite = sWilliamDS_Arms;

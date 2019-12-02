@@ -22,6 +22,17 @@ for (var h = 0; h < temp_inventory_obj.inventory_height; h++) {
 				temp_item_stacks -= temp_delete_stack;
 				
 				if (temp_inventory_obj.inventory_stacks[w, h] <= 0) {
+					if (global.item_data[temp_inventory_obj.inventory[w, h], itemstats.type] == itemtypes.weapon) {
+						for (var q = 0; q < ds_list_size(temp_inventory_obj.weapons_index); q++) {
+							var temp_item_pos = (temp_inventory_obj.inventory_width * h) + w;
+							if (ds_list_find_value(temp_inventory_obj.weapons_index, q) == temp_item_pos) {
+								ds_list_delete(temp_inventory_obj.weapons, q);
+								ds_list_delete(temp_inventory_obj.weapons_index, q);
+								break;
+							}
+						}
+					}
+					
 					var temp_width = global.item_data[temp_inventory_obj.inventory[w, h], itemstats.width_space];
 					var temp_height = global.item_data[temp_inventory_obj.inventory[w, h], itemstats.height_space];
 					for (var yi = 0; yi < temp_height; yi++) {

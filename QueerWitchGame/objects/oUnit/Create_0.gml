@@ -21,6 +21,7 @@ canmove = true;
 
 team_id = "unassigned";
 
+health_show = true;
 health_points = 6;
 max_health_points = 6;
 
@@ -83,6 +84,9 @@ key_cancel_press = false;
 key_menu_press = false;
 
 key_command = false;
+
+// Inventory
+inventory = createEmptyInventory(6, 4);
 
 // Singleton
 game_manager = instance_find(oGameManager, 0);
