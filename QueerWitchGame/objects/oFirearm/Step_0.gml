@@ -166,3 +166,22 @@ if (bullet_cases != 0) {
 	}
 	bullet_cases = 0;
 }
+
+// Hit Effect
+if (instance_exists(oKnockout)) {
+	hit_effect_offset += global.deltatime;
+	hit_effect_xscale += global.deltatime * 0.1;
+	hit_effect_yscale -= global.deltatime * 0.05;
+	if (hit_effect_index == -1) {
+		hit_effect_index = irandom_range(0, sprite_get_number(sImpact_Blood));
+		hit_effect_xscale = 0.8;
+		hit_effect_yscale = 1;
+		if (random_range(0, 1) <= 0.5) {
+			hit_effect_yscale = -1;
+		}
+	}
+}
+else {
+	hit_effect_index = -1;
+	hit_effect_offset = 0;
+}

@@ -40,7 +40,7 @@ if (camera_follow) {
 */
 
 // Reset Room
-if (keyboard_check_pressed(ord("R")) or (health_points <= 0)) {
+if (keyboard_check_pressed(ord("R")) or (knockout_timer <= 0)) {
 	ds_list_destroy(game_manager.instantiated_units);
 	game_manager.instantiated_units = ds_list_create();
 	room_restart();

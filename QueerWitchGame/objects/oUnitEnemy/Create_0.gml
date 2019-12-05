@@ -21,3 +21,7 @@ jump_animation = sWilliamDS_Jump;
 
 limb[0].limb_sprite = sWilliamDS_Arms;
 limb[1].limb_sprite = sWilliamDS_Arms;
+
+health_points = 1;
+max_health_points = 1;
+health_show = false;

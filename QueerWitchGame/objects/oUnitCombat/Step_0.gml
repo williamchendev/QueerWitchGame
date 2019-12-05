@@ -118,7 +118,7 @@ if (knockout) {
 			knockout_active = true;
 			
 			// Disable Movement
-			game_manager.time_spd = 0.1;
+			game_manager.time_spd = 0.07;
 			for (var u = 0; u < instance_number(oUnitCombat); u++) {
 				var temp_combat_unit = instance_find(oUnitCombat, u);
 				temp_combat_unit.canmove = false;

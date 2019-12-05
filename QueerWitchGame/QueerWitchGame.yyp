@@ -1730,7 +1730,7 @@
             "Key": "e92ab6eb-bd31-4324-81ac-b12a9428473c",
             "Value": {
                 "id": "a324f830-8d50-40bd-8392-26012045f70e",
-                "resourcePath": "sprites\\sBloodSplatter\\sBloodSplatter.yy",
+                "resourcePath": "sprites\\sImpact_Blood\\sImpact_Blood.yy",
                 "resourceType": "GMSprite"
             }
         },

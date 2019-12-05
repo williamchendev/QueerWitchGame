@@ -17,7 +17,7 @@ equip = false;
 aiming = true;
 
 // Combat Settings
-damage = 4;
+damage = 1;
 
 // Behaviour Variables
 aim = 0;

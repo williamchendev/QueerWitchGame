@@ -26,16 +26,17 @@ camera_x = x - (game_manager.camera_width / 2);
 camera_y = y - (game_manager.camera_height / 2);
 
 camera_follow = true;
-camera_follow_spd = 0.05;
+camera_follow_spd = 0.03;
 camera_y_offset = -42;
 
-camera_spacing = 32;
-
-camera_combat_lockon_distance = 300;
+camera_moving_x_offset = 120;
+camera_lockon_bounds = -64;
+camera_horizontal_spacing = 120;
+camera_vertical_spacing = 64;
 
 // Combat Settings
-health_points = 100;
-max_health_points = 100;
+health_points = 3;
+max_health_points = 3;
 
 // Combat Variables
 targets = noone;

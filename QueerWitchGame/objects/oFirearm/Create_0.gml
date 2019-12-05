@@ -7,6 +7,9 @@ event_inherited();
 // Weapon Settings
 weapon_ammo_id = 7;
 
+bullets = 0;
+bullets_max = 5;
+
 // Sprite Settings
 weapon_sprite = sMarinda308;
 regular_sprite = sMarinda308;
@@ -91,3 +94,8 @@ flash_xposition = ds_list_create();
 flash_yposition = ds_list_create();
 
 flash_imageindex = ds_list_create();
+
+hit_effect_index = -1;
+hit_effect_offset = 0;
+hit_effect_xscale = 1;
+hit_effect_yscale = 1;

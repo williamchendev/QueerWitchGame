@@ -7,7 +7,7 @@
         "e92ab6eb-bd31-4324-81ac-b12a9428473c"
     ],
     "filterType": "GMSprite",
-    "folderName": "Blood",
+    "folderName": "Impact",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

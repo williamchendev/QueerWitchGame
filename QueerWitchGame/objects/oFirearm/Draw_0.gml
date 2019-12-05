@@ -109,7 +109,7 @@ if (ds_list_size(flash_timer) > 0) {
 			/*
 			draw_line(temp_flash_xposition, temp_flash_yposition, temp_flash_xposition + lengthdir_x(temp_flash_length, temp_flash_direction), temp_flash_yposition + lengthdir_y(temp_flash_length, temp_flash_direction));
 			*/
-			draw_sprite_ext(sBloodSplatter, 0, temp_flash_xposition + lengthdir_x(temp_flash_length, temp_flash_direction), temp_flash_yposition + lengthdir_y(temp_flash_length, temp_flash_direction), 1, 1, temp_flash_direction, c_white, 1);
+			draw_sprite_ext(sImpact_Blood, hit_effect_index, temp_flash_xposition + lengthdir_x(temp_flash_length + hit_effect_offset, temp_flash_direction), temp_flash_yposition + lengthdir_y(temp_flash_length + hit_effect_offset, temp_flash_direction), hit_effect_xscale, hit_effect_yscale, temp_flash_direction, c_white, 1);
 		}
 		
 		// Reset Shader
