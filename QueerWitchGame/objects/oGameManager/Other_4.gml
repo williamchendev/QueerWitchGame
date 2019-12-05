@@ -25,3 +25,6 @@ if (generate) {
 
 // Reset Generate Function
 generate = false;
+
+// Reset Room Speed
+time_spd = 1.0;

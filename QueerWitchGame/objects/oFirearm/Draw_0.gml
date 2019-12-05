@@ -71,6 +71,12 @@ if (equip) {
 // Draw the Flash
 draw_set_color(c_white);
 if (ds_list_size(flash_timer) > 0) {
+	// Check Shader
+	var temp_shader = shader_current();
+	if (temp_shader != -1) {
+		shader_reset();
+	}
+	
 	// Individual Bullet Flashes
 	for (var f = ds_list_size(flash_timer) - 1; f >= 0; f--) {
 		// Flash Variables
@@ -81,14 +87,34 @@ if (ds_list_size(flash_timer) > 0) {
 		var temp_flash_yposition = ds_list_find_value(flash_yposition, f);
 		var temp_flash_imageindex = ds_list_find_value(flash_imageindex, f);
 	
-		// Draw Bullet Trail
-		draw_set_alpha(0.4 * (1 - power(((flash_delay - temp_flash_timer) / flash_delay), 2)));
-		draw_line(temp_flash_xposition, temp_flash_yposition, temp_flash_xposition + lengthdir_x(temp_flash_length, temp_flash_direction), temp_flash_yposition + lengthdir_y(temp_flash_length, temp_flash_direction));
+		// Check Draw Mode
+		if (temp_shader == -1) {
+			// Draw Bullet Trail
+			draw_set_alpha(0.4 * (1 - power(((flash_delay - temp_flash_timer) / flash_delay), 2)));
+			draw_line(temp_flash_xposition, temp_flash_yposition, temp_flash_xposition + lengthdir_x(temp_flash_length, temp_flash_direction), temp_flash_yposition + lengthdir_y(temp_flash_length, temp_flash_direction));
 	
-		// Draw Bullet Trail Muzzle Flash
-		draw_set_alpha(1);
-		if (muzzle_flash_sprite != noone) {
-			draw_sprite_ext(muzzle_flash_sprite, temp_flash_imageindex, temp_flash_xposition, temp_flash_yposition, 1, (1 - power(((flash_delay - temp_flash_timer) / flash_delay), 3)) * weapon_yscale, temp_flash_direction, c_white, 1);
+			// Draw Bullet Trail Muzzle Flash
+			draw_set_alpha(1);
+			if (muzzle_flash_sprite != noone) {
+				draw_sprite_ext(muzzle_flash_sprite, temp_flash_imageindex, temp_flash_xposition, temp_flash_yposition, 1, (1 - power(((flash_delay - temp_flash_timer) / flash_delay), 3)) * weapon_yscale, temp_flash_direction, c_white, 1);
+			}
+		}
+		else {
+			// Draw Knockout
+			draw_set_alpha(1);
+			draw_set_color(c_black);
+			if (muzzle_flash_sprite != noone) {
+				draw_sprite_ext(muzzle_flash_sprite, temp_flash_imageindex, temp_muzzle_x, temp_muzzle_y, 1, (1 - power(((flash_delay - temp_flash_timer) / flash_delay), 3)) * weapon_yscale, temp_flash_direction, c_black, 1);
+			}
+			/*
+			draw_line(temp_flash_xposition, temp_flash_yposition, temp_flash_xposition + lengthdir_x(temp_flash_length, temp_flash_direction), temp_flash_yposition + lengthdir_y(temp_flash_length, temp_flash_direction));
+			*/
+			draw_sprite_ext(sBloodSplatter, 0, temp_flash_xposition + lengthdir_x(temp_flash_length, temp_flash_direction), temp_flash_yposition + lengthdir_y(temp_flash_length, temp_flash_direction), 1, 1, temp_flash_direction, c_white, 1);
+		}
+		
+		// Reset Shader
+		if (temp_shader != -1) {
+			shader_set(temp_shader);
 		}
 	}
 	

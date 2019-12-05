@@ -21,8 +21,10 @@ if (x != oUnitPlayer.x) {
 event_inherited();
 
 if (health_points <= 0) {
-	instance_destroy(inventory);
-	instance_destroy();
+	if (knockout_timer <= 0) {
+		instance_destroy(inventory);
+		instance_destroy();
+	}
 }
 
 key_select_press = false;

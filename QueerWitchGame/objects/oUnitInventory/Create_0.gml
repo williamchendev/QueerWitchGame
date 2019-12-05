@@ -21,8 +21,6 @@ weapon_place_index = -1;
 inventory_grid_size = 16;
 inventory_outline_size = 2;
 inventory_offset_size = 6;
-draw_offset_x = 24;
-draw_offset_y = -56;
 
 draw_lerp_spd = 0.15;
 radial_spd = 0.0067;

@@ -89,22 +89,24 @@ else {
 		
 		draw_set_font(fHeartBit);
 		drawTextOutline(temp_cursor_x, temp_cursor_y_h, c_white, c_black, global.item_data[inventory[select_xi, select_yi], itemstats.name]);
-		drawTextOutline(temp_cursor_x, temp_cursor_y_h + 14, c_white, c_black, "\"" + format_string_width(global.item_data[inventory[select_xi, select_yi], itemstats.description] + "\"", temp_desc_length));
+		//drawTextOutline(temp_cursor_x, temp_cursor_y_h + 14, c_white, c_black, "\"" + format_string_width(global.item_data[inventory[select_xi, select_yi], itemstats.description] + "\"", temp_desc_length));
 	}
 }
 
 // **DEBUG DRAWCODE**
-draw_set_color(c_black);
-draw_set_font(-1);
-var select_xi = select_index % inventory_width;
-var select_yi = select_index div inventory_width;
-draw_text(x - 40, y, select_index);
-draw_text(x - 40, y + 12, "x:" + string(select_xi));
-draw_text(x - 40, y + 24, "y:" + string(select_yi));
-draw_text(x - 40, y + 36, "id:" + string(inventory[select_xi, select_yi]));
-draw_text(x - 40, y + 48, "stack:" + string(inventory_stacks[select_xi, select_yi]));
-draw_text(x - 40, y + 60, "weapons_count:" + string(ds_list_size(weapons)));
-draw_text(x - 40, y + 72, "weapons_index:" + string(ds_list_find_value(weapons_index, 0)));
+if (global.debug) {
+	draw_set_color(c_black);
+	draw_set_font(-1);
+	var select_xi = select_index % inventory_width;
+	var select_yi = select_index div inventory_width;
+	draw_text(x - 40, y, select_index);
+	draw_text(x - 40, y + 12, "x:" + string(select_xi));
+	draw_text(x - 40, y + 24, "y:" + string(select_yi));
+	draw_text(x - 40, y + 36, "id:" + string(inventory[select_xi, select_yi]));
+	draw_text(x - 40, y + 48, "stack:" + string(inventory_stacks[select_xi, select_yi]));
+	draw_text(x - 40, y + 60, "weapons_count:" + string(ds_list_size(weapons)));
+	draw_text(x - 40, y + 72, "weapons_index:" + string(ds_list_find_value(weapons_index, 0)));
+}
 
 // Reset drawing variables
 draw_set_color(c_white);

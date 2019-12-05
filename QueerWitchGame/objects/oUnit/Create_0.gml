@@ -14,7 +14,7 @@ grav_multiplier = 0.93; // Dampening Multiplyer of the Downward Velocity (Makes 
 max_grav_spd = 2; // Max Speed of Unit's Downward Velocity
 
 slope_tolerance = 3; // Tolerance for walking up slopes in pixels
-//slope_angle_lerp_spd = 0.1; // Speed to lerp the angle to the slope the player is standing on
+slope_angle_lerp_spd = 0.1; // Speed to lerp the angle to the slope the player is standing on
 
 // Beahviour Settings
 canmove = true;
@@ -29,6 +29,7 @@ max_health_points = 6;
 idle_animation = sCathIdle;
 walk_animation = sCathRun;
 jump_animation = sCathJump;
+hurt_animation = sWilliam_Hurt;
 
 /*
 idle_animation = sWillIdle;
@@ -61,8 +62,13 @@ universal_physics_object.base_object = self;
 // Animation Variables
 draw_index = 0;
 
+draw_color = c_white;
+draw_alpha = 1;
+
 draw_xscale = 1;
 draw_yscale = 1;
+
+draw_angle = 0;
 
 jump_peak_threshold = 0.8;
 

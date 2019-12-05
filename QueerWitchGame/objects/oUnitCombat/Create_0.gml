@@ -23,6 +23,11 @@ limb_y[0] = -32;
 limb_x[1] = -5;
 limb_y[1] = -32;
 
+// Knockout Settings
+knockout = true;
+knockout_active = false;
+knockout_timer = 0.5;
+
 // Weapon Variables
 weapon_x = 0;
 weapon_y = 0;

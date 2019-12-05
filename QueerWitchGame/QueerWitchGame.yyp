@@ -159,6 +159,14 @@
             }
         },
         {
+            "Key": "173c7777-8f51-4a61-8f75-092adb04a9f4",
+            "Value": {
+                "id": "3dfbd681-c5e8-4a81-89d8-34660e56c7f9",
+                "resourcePath": "shaders\\shd_black\\shd_black.yy",
+                "resourceType": "GMShader"
+            }
+        },
+        {
             "Key": "17a5064f-58cd-48d6-8a0c-940f2b096bfa",
             "Value": {
                 "id": "0aadee63-4b10-4e90-ab43-705fc98a1ec9",
@@ -252,6 +260,14 @@
                 "id": "864cf1d6-030c-490b-a9bf-00b2ab5f17c9",
                 "resourcePath": "sprites\\sWilliam_Run\\sWilliam_Run.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "244697c7-3c30-488f-8a69-a905f62bd157",
+            "Value": {
+                "id": "07232d26-0136-4868-af1d-27daaf6ef626",
+                "resourcePath": "views\\244697c7-3c30-488f-8a69-a905f62bd157.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -428,6 +444,14 @@
                 "id": "9751f2ea-7ad3-4826-91db-5fd4356aeeee",
                 "resourcePath": "sprites\\sWillWalk\\sWillWalk.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3878a788-cbc9-4cac-b366-aaae11ae1138",
+            "Value": {
+                "id": "5f399c6d-51e1-4c9b-8e48-3b6cf4ec0f45",
+                "resourcePath": "objects\\oKnockout\\oKnockout.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -967,6 +991,14 @@
             }
         },
         {
+            "Key": "80e7a65c-14b3-4d09-bd92-d54265f79e7a",
+            "Value": {
+                "id": "576ed74c-4e56-4880-a14d-74e135de297d",
+                "resourcePath": "views\\80e7a65c-14b3-4d09-bd92-d54265f79e7a.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "81627190-f0ad-4948-85a2-65fc48aaa771",
             "Value": {
                 "id": "25896ccd-cea1-45f7-a24c-b68c1807befe",
@@ -1163,6 +1195,14 @@
             "Value": {
                 "id": "e1126350-bbbe-447d-be81-88442b8f31ab",
                 "resourcePath": "sprites\\sEditorGrid\\sEditorGrid.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "9f39263c-bc38-4411-90d1-7fb5aaff914f",
+            "Value": {
+                "id": "a982c6b7-d1f4-42c1-b8ec-2f4f45a5c403",
+                "resourcePath": "sprites\\sWilliam_Hurt\\sWilliam_Hurt.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1684,6 +1724,14 @@
                 "id": "8385c062-8cb4-4623-a32b-263bb2726be8",
                 "resourcePath": "views\\e88adb3f-2354-45f3-9c59-0d38e2ffeffd.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e92ab6eb-bd31-4324-81ac-b12a9428473c",
+            "Value": {
+                "id": "a324f830-8d50-40bd-8392-26012045f70e",
+                "resourcePath": "sprites\\sBloodSplatter\\sBloodSplatter.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

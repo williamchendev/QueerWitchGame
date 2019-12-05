@@ -14,8 +14,8 @@ if (draw_inventory) {
 	draw_alpha = lerp(draw_alpha, 1, draw_lerp_spd);
 	
 	// Calculate Inventory Position & Properties
-	draw_inventory_x = x + draw_offset_x + (-32 * (1 - (draw_alpha * draw_alpha)));
-	draw_inventory_y = y + draw_offset_y;
+	draw_inventory_x = x + (-32 * (1 - (draw_alpha * draw_alpha)));
+	draw_inventory_y = y - ((inventory_height / 2) * inventory_grid_size) - inventory_offset_size - inventory_outline_size;
 	draw_inventory_outline_size = (inventory_offset_size * draw_sin) + inventory_outline_size;
 	
 	// Player Input

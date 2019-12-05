@@ -151,6 +151,7 @@ if (x_velocity != 0) {
 }
 
 if (!platform_free(x, y + 1, platform_list)) {
+	// Set Unit ground Animation
 	if (x_velocity != 0) {
 		sprite_index = walk_animation;
 	}
@@ -158,13 +159,30 @@ if (!platform_free(x, y + 1, platform_list)) {
 		sprite_index = idle_animation;
 	}
 	
+	// Set Unit Image Index
 	draw_index += animation_spd * global.deltatime;
 	while (draw_index > sprite_get_number(sprite_index)) {
 		draw_index -= sprite_get_number(sprite_index);
 	}
 	image_index = clamp(floor(draw_index), 0, sprite_get_number(sprite_index) - 1);
+	
+	// Slope Angles
+	var slope_solid_obj = collision_line(x, y, x, y + 5, oSolid, false, false);
+	if (slope_solid_obj != noone) {
+		slope_angle = lerp(slope_angle, slope_solid_obj.image_angle, slope_angle_lerp_spd * global.deltatime);
+		slope_offset = 0;
+		if (slope_solid_obj.image_angle != 0) {
+			slope_offset = slope_tolerance;
+		}
+	}
+	else {
+		slope_angle = lerp(slope_angle, 0, slope_angle_lerp_spd * global.deltatime);
+		slope_offset = 0;
+	}
+	draw_angle = slope_angle;
 }
 else {
+	// Set Jump Animation
 	sprite_index = jump_animation;
 	if (y_velocity < -jump_peak_threshold) {
 		image_index = 0;
@@ -175,21 +193,14 @@ else {
 	else {
 		image_index = 1;
 	}
+	
+	// Slope Angles
+	slope_angle = lerp(slope_angle, 0, slope_angle_lerp_spd * global.deltatime);
+	slope_offset = 0;
+	draw_angle = slope_angle;
 }
 
-/*
-// Slope Angles
-
-var slope_solid_obj = collision_line(x, y, x, y + 5, oSolid, false, false);
-if (slope_solid_obj != noone) {
-	slope_angle = lerp(slope_angle, slope_solid_obj.image_angle, slope_angle_lerp_spd);
-	slope_offset = 0;
-	if (slope_solid_obj.image_angle != 0) {
-		slope_offset = slope_tolerance;
-	}
+// Hurt Animation
+if (health_points <= 0) {
+	sprite_index = hurt_animation;
 }
-else {
-	slope_angle = lerp(slope_angle, 0, slope_lerp_spd);
-	slope_offset = 0;
-}
-*/

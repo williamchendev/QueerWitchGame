@@ -50,7 +50,7 @@ for (var i = 0; i < ds_list_size(inventory.weapons); i++) {
 			// Ambient Aiming
 			aim_ambient_x = lerp(aim_ambient_x, x + (draw_xscale * image_xscale * 50), temp_weapon.lerp_spd * global.deltatime);
 			aim_ambient_y = lerp(aim_ambient_y, y + weapon_hip_y, temp_weapon.lerp_spd * global.deltatime);
-			temp_weapon.weapon_rotation = temp_weapon.weapon_rotation - (angle_difference(temp_weapon.weapon_rotation, point_direction(x + weapon_x, y + weapon_y, aim_ambient_x, aim_ambient_y)) * temp_weapon.lerp_spd * global.deltatime);
+			temp_weapon.weapon_rotation = temp_weapon.weapon_rotation - (angle_difference(temp_weapon.weapon_rotation, slope_angle + point_direction(x + weapon_x, y + weapon_y, aim_ambient_x, aim_ambient_y)) * temp_weapon.lerp_spd * global.deltatime);
 		}
 		
 		// Move Weapon Position and Rotation
@@ -64,21 +64,26 @@ for (var i = 0; i < ds_list_size(inventory.weapons); i++) {
 		weapon_x = lerp(weapon_x, temp_weapon_x, temp_weapon.lerp_spd * global.deltatime);
 		weapon_y = lerp(weapon_y, temp_weapon_y, temp_weapon.lerp_spd * global.deltatime);
 		
-		temp_weapon.x_position = x + (draw_xscale * image_xscale * weapon_x);
-		temp_weapon.y_position = y + (draw_yscale * image_yscale * weapon_y);
+		var temp_weapon_distance = point_distance(0, 0, (draw_xscale * image_xscale * weapon_x), (draw_yscale * image_yscale * weapon_y));
+		var temp_weapon_direction = point_direction(0, 0, (draw_xscale * image_xscale * weapon_x), (draw_yscale * image_yscale * weapon_y));
+		temp_weapon.x_position = x + lengthdir_x(temp_weapon_distance, temp_weapon_direction + draw_angle);
+		temp_weapon.y_position = y + lengthdir_y(temp_weapon_distance, temp_weapon_direction + draw_angle);
 		
 		// Establish Arm Variables
 		var temp_arm_direction = 0;
 		if (sign(image_xscale) < 0) {
 			temp_arm_direction = 1;
 		}
+		var temp_arm_x_offset = sign(x_velocity);
 		
 		// Set Arm Position Backarm
 		limb[0].visible = true;
 		limb[0].limb_direction = sign(image_xscale);
 		
-		limb[0].limb_anchor_x = x + (draw_xscale * image_xscale * limb_x[0]);
-		limb[0].limb_anchor_y = y + (draw_yscale * image_yscale * limb_y[0]);
+		var temp_limb_anchor_distance = point_distance(0, 0, (draw_xscale * image_xscale * limb_x[0]) + temp_arm_x_offset, (draw_yscale * image_yscale * limb_y[0]));
+		var temp_limb_anchor_direction = point_direction(0, 0, (draw_xscale * image_xscale * limb_x[0]) + temp_arm_x_offset, (draw_yscale * image_yscale * limb_y[0]));
+		limb[0].limb_anchor_x = x + lengthdir_x(temp_limb_anchor_distance, draw_angle + temp_limb_anchor_direction);
+		limb[0].limb_anchor_y = y + lengthdir_y(temp_limb_anchor_distance, draw_angle + temp_limb_anchor_direction);
 		
 		var temp_limb_distance = point_distance(0, 0, temp_weapon.arm_x[0], temp_weapon.arm_y[0] * sign(image_xscale));
 		var temp_limb_direction = point_direction(0, 0, temp_weapon.arm_x[0], temp_weapon.arm_y[0] * sign(image_xscale));
@@ -91,14 +96,51 @@ for (var i = 0; i < ds_list_size(inventory.weapons); i++) {
 			limb[1].visible = true;
 			limb[1].limb_direction = sign(image_xscale);
 			
-			limb[1].limb_anchor_x = x + (draw_xscale * image_xscale * limb_x[1]);
-			limb[1].limb_anchor_y = y + (draw_yscale * image_yscale * limb_y[1]);
+			var temp_limb_anchor_distance = point_distance(0, 0, (draw_xscale * image_xscale * limb_x[1]) + temp_arm_x_offset, (draw_yscale * image_yscale * limb_y[0]));
+			var temp_limb_anchor_direction = point_direction(0, 0, (draw_xscale * image_xscale * limb_x[1]) + temp_arm_x_offset, (draw_yscale * image_yscale * limb_y[0]));
+			limb[1].limb_anchor_x = x + lengthdir_x(temp_limb_anchor_distance, draw_angle + temp_limb_anchor_direction);
+			limb[1].limb_anchor_y = y + lengthdir_y(temp_limb_anchor_distance, draw_angle + temp_limb_anchor_direction);
 			
 			var temp_limb_distance = point_distance(0, 0, temp_weapon.arm_x[1], temp_weapon.arm_y[1] * sign(image_xscale));
 			var temp_limb_direction = point_direction(0, 0, temp_weapon.arm_x[1], temp_weapon.arm_y[1] * sign(image_xscale));
 		
 			limb[1].limb_target_x = temp_weapon.x + temp_weapon.recoil_offset_x + lengthdir_x(temp_limb_distance, temp_limb_direction + temp_weapon.weapon_rotation + temp_weapon.recoil_angle_shift);
 			limb[1].limb_target_y = temp_weapon.y + temp_weapon.recoil_offset_y + lengthdir_y(temp_limb_distance, temp_limb_direction + temp_weapon.weapon_rotation + temp_weapon.recoil_angle_shift);
+		}
+	}
+}
+
+// Knockout
+if (knockout) {
+	if (!knockout_active) {
+		// Activate Knockout
+		if (health_points <= 0) {
+			knockout_active = true;
+			
+			// Disable Movement
+			game_manager.time_spd = 0.1;
+			for (var u = 0; u < instance_number(oUnitCombat); u++) {
+				var temp_combat_unit = instance_find(oUnitCombat, u);
+				temp_combat_unit.canmove = false;
+			}
+			if (!instance_exists(oKnockout)) {
+				instance_create_depth(x, y, -6000, oKnockout);
+			}
+		}
+	}
+	else {
+		knockout_timer -= (global.realdeltatime / 60);
+		if (knockout_timer <= 0) {
+			knockout = false;
+			knockout_active = false;
+			game_manager.time_spd = 1;
+			for (var u = 0; u < instance_number(oUnitCombat); u++) {
+				var temp_combat_unit = instance_find(oUnitCombat, u);
+				temp_combat_unit.canmove = true;
+			}
+			if (instance_exists(oKnockout)) {
+				instance_destroy(oKnockout);
+			}
 		}
 	}
 }

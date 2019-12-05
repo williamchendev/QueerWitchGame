@@ -2,14 +2,14 @@
 // Draws the unit to the screen
 
 // Draw Unit Sprite
-draw_sprite_ext(sprite_index, image_index, x, y, draw_xscale * image_xscale, draw_yscale, 0, image_blend, image_alpha);
+draw_sprite_ext(sprite_index, image_index, x, y, draw_xscale * image_xscale, draw_yscale, draw_angle, image_blend, image_alpha);
 
 // Draw Stats Variables
 var temp_stats_x = x - 1;
 var temp_stats_y = y - (54 * draw_yscale);
 
 // Draw Health Bar
-if (health_show) {
+if (canmove and health_show) {
 	if (health_points > 0) {
 		var temp_health_width = 48;
 		var temp_health_percent_width = (health_points / max_health_points) * temp_health_width;

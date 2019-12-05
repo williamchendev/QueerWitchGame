@@ -117,13 +117,15 @@ for (var f = ds_list_size(flash_timer) - 1; f >= 0; f--) {
 	var temp_flash_timer = ds_list_find_value(flash_timer, f);
 	temp_flash_timer -= global.deltatime;
 	if (temp_flash_timer <= 0) {
-		ds_list_delete(flash_timer, f);
-		ds_list_delete(flash_length, f);
-		ds_list_delete(flash_direction, f);
-		ds_list_delete(flash_xposition, f);
-		ds_list_delete(flash_yposition, f);
-		ds_list_delete(flash_imageindex, f);
-		continue;
+		if (!instance_exists(oKnockout)) {
+			ds_list_delete(flash_timer, f);
+			ds_list_delete(flash_length, f);
+			ds_list_delete(flash_direction, f);
+			ds_list_delete(flash_xposition, f);
+			ds_list_delete(flash_yposition, f);
+			ds_list_delete(flash_imageindex, f);
+			continue;
+		}
 	}
 	ds_list_set(flash_timer, f, temp_flash_timer);
 }

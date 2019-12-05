@@ -19,14 +19,16 @@ if (target != noone) {
 		temp_bbox_right -= sprite_get_xoffset(temp_sprite_index) * temp_object_x_scale;
 		temp_bbox_top -= sprite_get_yoffset(temp_sprite_index) * temp_object_y_scale;
 	
+		var temp_object_angle = target.draw_angle;
+	
 		var temp_point1_dis = point_distance(0, 0, temp_bbox_left, temp_bbox_top);
-		var temp_point1_angle = point_direction(0, 0, temp_bbox_left, temp_bbox_top);
+		var temp_point1_angle = point_direction(0, 0, temp_bbox_left, temp_bbox_top) + temp_object_angle;
 		var temp_point2_dis = point_distance(0, 0, temp_bbox_right, temp_bbox_top);
-		var temp_point2_angle = point_direction(0, 0, temp_bbox_right, temp_bbox_top);
+		var temp_point2_angle = point_direction(0, 0, temp_bbox_right, temp_bbox_top) + temp_object_angle;
 		var temp_point3_dis = point_distance(0, 0, temp_bbox_right, temp_bbox_bottom);
-		var temp_point3_angle = point_direction(0, 0, temp_bbox_right, temp_bbox_bottom);
+		var temp_point3_angle = point_direction(0, 0, temp_bbox_right, temp_bbox_bottom) + temp_object_angle;
 		var temp_point4_dis = point_distance(0, 0, temp_bbox_left, temp_bbox_bottom);
-		var temp_point4_angle = point_direction(0, 0, temp_bbox_left, temp_bbox_bottom);
+		var temp_point4_angle = point_direction(0, 0, temp_bbox_left, temp_bbox_bottom) + temp_object_angle;
 	
 		var temp_left_top_x_offset = lengthdir_x(temp_point1_dis, temp_point1_angle + temp_object_rotation);
 		var temp_left_top_y_offset = lengthdir_y(temp_point1_dis, temp_point1_angle + temp_object_rotation);
