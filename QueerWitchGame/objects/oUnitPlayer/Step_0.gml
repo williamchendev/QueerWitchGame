@@ -224,15 +224,3 @@ if (command_time) {
 	command_time = false;
 	global.deltatime = global.deltatime / command_time_mod;
 }
-
-// Update Unit Inventory
-if (inventory != noone) {
-	// Sprite Variables
-	var temp_y_scale = (image_yscale * draw_yscale);
-	var temp_mask_height = sprite_get_bbox_bottom(sprite_index) - sprite_get_bbox_top(sprite_index);
-	
-	// Set Inventory visual features
-	inventory.x = x + inventory_x_offset;
-	inventory.y = y + lengthdir_y(temp_mask_height * 0.5 * temp_y_scale, draw_angle + 90);
-	inventory.draw_inventory = inventory_show;
-}

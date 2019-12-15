@@ -127,14 +127,6 @@
             }
         },
         {
-            "Key": "0f356f73-517f-4b3f-8e61-c3596487c7f5",
-            "Value": {
-                "id": "c9bd2b1a-96e7-467b-8cbc-65fa4c3defa6",
-                "resourcePath": "rooms\\rBattleDebug\\rBattleDebug.yy",
-                "resourceType": "GMRoom"
-            }
-        },
-        {
             "Key": "11ba9726-e2f9-43b5-91ac-8a62b19da1b9",
             "Value": {
                 "id": "65795481-c424-4675-8064-148a3bed9703",
@@ -218,7 +210,7 @@
             "Key": "1b9cf958-713d-41c8-9237-dd19fd9a87a0",
             "Value": {
                 "id": "53acc935-c56a-4047-94f6-f4092d92314a",
-                "resourcePath": "rooms\\rPlatformingDebug1\\rPlatformingDebug1.yy",
+                "resourcePath": "rooms\\rDebugRoom1\\rDebugRoom1.yy",
                 "resourceType": "GMRoom"
             }
         },
@@ -791,6 +783,14 @@
             }
         },
         {
+            "Key": "6910b598-e2fc-4c4a-98c5-20abce96015d",
+            "Value": {
+                "id": "5db2f6c7-71ca-48d9-a816-fa0ff4d5616b",
+                "resourcePath": "rooms\\rDebugRoom3\\rDebugRoom3.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "696f3389-6606-4c4c-a237-b26bad1afd7f",
             "Value": {
                 "id": "62fa3349-00e0-4eb9-ac10-14c04f2fc11c",
@@ -908,6 +908,14 @@
                 "id": "43754b75-76a8-47f0-9ff9-dbc9acb7ad82",
                 "resourcePath": "views\\73595581-7529-4f81-96af-0d6b51f16235.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "73fdadfb-c863-438e-8232-da3dfd79adaf",
+            "Value": {
+                "id": "cdc28561-2726-4e53-8066-0e629c6c8f8a",
+                "resourcePath": "objects\\oRagdoll\\oRagdoll.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1802,7 +1810,7 @@
             "Key": "f1ff6ff5-ede6-44d8-8c59-eb4e445aa0d2",
             "Value": {
                 "id": "fb44d20e-2f9a-42b0-9bb2-dd75801ffd4e",
-                "resourcePath": "rooms\\rPlatformingDebug2\\rPlatformingDebug2.yy",
+                "resourcePath": "rooms\\rDebugRoom2\\rDebugRoom2.yy",
                 "resourceType": "GMRoom"
             }
         },
@@ -1890,7 +1898,7 @@
             "Key": "fc180190-fa17-4ada-91c7-3687a2b8a882",
             "Value": {
                 "id": "959c6128-977d-4d0f-bcda-74be31923adb",
-                "resourcePath": "rooms\\rPlatformingDebug\\rPlatformingDebug.yy",
+                "resourcePath": "rooms\\rDebugRoom\\rDebugRoom.yy",
                 "resourceType": "GMRoom"
             }
         },

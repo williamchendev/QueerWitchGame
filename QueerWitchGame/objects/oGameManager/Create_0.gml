@@ -8,6 +8,9 @@ if (instance_number(object_index) > 1) {
 persistent = true;
 
 // System Settings
+game_width = 640;
+game_height = 360;
+
 data_directory = string(program_directory +"\Data\\");
 
 // Level Generation Data

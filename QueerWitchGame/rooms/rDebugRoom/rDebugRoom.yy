@@ -1,6 +1,6 @@
 
 {
-    "name": "rPlatformingDebug",
+    "name": "rDebugRoom",
     "id": "fc180190-fa17-4ada-91c7-3687a2b8a882",
     "creationCodeFile": "RoomCreationCode.gml",
     "inheritCode": false,

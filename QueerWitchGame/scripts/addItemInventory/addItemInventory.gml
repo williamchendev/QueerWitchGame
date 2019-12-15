@@ -30,7 +30,7 @@ for (var h = 0; h < temp_inventory_height; h++) {
 				 
 				 if (global.item_data[temp_item_id, itemstats.type] == itemtypes.weapon) {
 					 if (temp_can_place_num > 0) {
-						 ds_list_add(temp_inventory_obj.weapons, instance_create_layer(x, y, layer, global.weapon_data[global.item_data[temp_item_id, itemstats.type_index], weaponstats.object]));
+						 ds_list_add(temp_inventory_obj.weapons, instance_create_layer(x, y, layer_get_id("Instances"), global.weapon_data[global.item_data[temp_item_id, itemstats.type_index], weaponstats.object]));
 						 ds_list_add(temp_inventory_obj.weapons_index, (temp_inventory_width * h) + w);
 					 }
 				 }

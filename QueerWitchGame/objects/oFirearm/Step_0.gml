@@ -179,6 +179,7 @@ if (instance_exists(oKnockout)) {
 		if (random_range(0, 1) <= 0.5) {
 			hit_effect_yscale = -1;
 		}
+		hit_effect_yscale *= random_range(0.7, 1);
 	}
 }
 else {

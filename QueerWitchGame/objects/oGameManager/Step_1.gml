@@ -29,12 +29,12 @@ global.realdeltatime = ((delta_time / 1000000) * fps);
 // Game Fullscreen
 if (keyboard_check_pressed(vk_f11)) {
 	if (window_get_fullscreen()) {
-		window_set_size(960, 540);
+		window_set_size(game_width * 2, game_height * 2);
 		window_set_fullscreen(false);
 	}
 	else {
 		window_set_size(1920, 1080);
 		window_set_fullscreen(true);
 	}
-	surface_resize(application_surface, 480, 270);
+	surface_resize(application_surface, game_width, game_height);
 }

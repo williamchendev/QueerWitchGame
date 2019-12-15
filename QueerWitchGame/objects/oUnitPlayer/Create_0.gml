@@ -20,6 +20,7 @@ inventory_show = false;
 
 // Inventory Settings
 inventory_x_offset = 32;
+inventory_lerp_spd = 0.08;
 
 // Camera Settings
 camera_x = x - (game_manager.camera_width / 2);
@@ -54,3 +55,4 @@ team_id = "player";
 addItemInventory(inventory, 5);
 var temp_weapon = ds_list_find_value(inventory.weapons, 0);
 temp_weapon.equip = true;
+inventory.debug = true;

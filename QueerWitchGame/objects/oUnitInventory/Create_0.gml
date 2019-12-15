@@ -1,6 +1,7 @@
 /// @description Inventory Initialization
 
 // Settings
+debug = false;
 
 // Object Mode Variables
 object_mode = false;

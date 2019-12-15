@@ -309,7 +309,7 @@ else {
 		if (select_item_id != 0) {
 			// Place Item back into inventory
 			addItemInventory(self, select_item_id, select_item_stacks);
-					
+			
 			// Reset select item properties
 			select_item_id = 0;
 			select_item_stacks = 0;
