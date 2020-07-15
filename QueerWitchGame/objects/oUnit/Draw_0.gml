@@ -2,7 +2,7 @@
 // Draws the unit to the screen
 
 // Draw Unit Sprite
-draw_sprite_ext(sprite_index, image_index, x, y, draw_xscale * image_xscale, draw_yscale, draw_angle, image_blend, image_alpha);
+draw_sprite_ext(sprite_index, image_index, x, y, draw_xscale * image_xscale, draw_yscale, draw_angle, draw_color, image_alpha);
 
 // Draw Stats Variables
 var temp_stats_x = x - 1;

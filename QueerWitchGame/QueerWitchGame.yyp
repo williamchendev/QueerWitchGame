@@ -935,6 +935,14 @@
             }
         },
         {
+            "Key": "778bab2d-2c30-4820-af5e-51ed657f1f4a",
+            "Value": {
+                "id": "735cac6e-c20f-49d2-954b-d6e4520788e9",
+                "resourcePath": "sprites\\sWilliam_Aim\\sWilliam_Aim.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7ade5730-0846-442e-91bc-c03831193521",
             "Value": {
                 "id": "52c33e9c-d3e1-4835-b33a-6604262ff55f",

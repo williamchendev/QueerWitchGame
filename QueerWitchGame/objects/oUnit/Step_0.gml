@@ -4,11 +4,16 @@
 // Movement (Player Input)
 if (canmove) {
 	// Horizontal Movement
+	var temp_spd = spd;
+	if (key_aim_press) {
+		temp_spd = walk_spd;
+	}
+	
 	if (key_left) {
-		x_velocity = -spd;
+		x_velocity = -temp_spd;
 	}
 	else if (key_right) {
-		x_velocity = spd;
+		x_velocity = temp_spd;
 	}
 	else {
 		x_velocity = 0;
@@ -156,7 +161,12 @@ if (!platform_free(x, y + 1, platform_list)) {
 		sprite_index = walk_animation;
 	}
 	else {
-		sprite_index = idle_animation;
+		if (!key_aim_press) {
+			sprite_index = idle_animation;
+		}
+		else if (canmove) {
+			sprite_index = aim_animation;
+		}
 	}
 	
 	// Set Unit Image Index

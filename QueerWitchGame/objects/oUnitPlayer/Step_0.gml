@@ -14,7 +14,12 @@ if (player_input) {
 		key_up_press = keyboard_check_pressed(game_manager.up_check);
 		key_down_press = keyboard_check_pressed(game_manager.down_check);
 		
-		key_select_press = keyboard_check_pressed(game_manager.select_check);
+		//key_select_press = keyboard_check_pressed(game_manager.select_check);
+		key_select_press = mouse_check_button_pressed(mb_left);
+		
+		key_fire_press = mouse_check_button_pressed(mb_left);
+		key_aim_press = mouse_check_button(mb_right);
+		
 		key_cancel_press = keyboard_check_pressed(game_manager.cancel_check);
 		key_menu_press = keyboard_check_pressed(game_manager.menu_check);
 		
@@ -22,8 +27,12 @@ if (player_input) {
 	}
 }
 
-// Command Mode Behaviour
+// Reset Behaviour Variables
+//target_manual = false;
+
+// Player Unit Behaviour
 if (canmove) {
+	// Command Mode Behaviour
 	if (command) {
 		// Time Lerp
 		if (command_lerp_time) {
@@ -213,6 +222,16 @@ if (canmove) {
 				}
 			}
 		}
+	}
+	
+	// Manual Aim Behaviour
+	if (key_aim_press) {
+		target_manual = true;
+		target_x = mouse_x;
+		target_y = mouse_y;
+	}
+	else {
+		target_manual = false;
 	}
 }
 

@@ -26,7 +26,17 @@ for (var i = 0; i < ds_list_size(inventory.weapons); i++) {
 		
 		// Aiming Behaviour
 		temp_weapon.aiming = false;
-		if (target != noone) {
+		if (target_manual) {
+			if (sign(target_x - x) != 0) {
+				image_xscale = sign(target_x - x);
+			}
+			
+			temp_weapon.aiming = true;
+			var temp_weapon_target_angle = point_direction(x + weapon_x, y + weapon_y, target_x, target_y);
+			var temp_weapon_delta_angle = angle_difference(temp_weapon.weapon_rotation, temp_weapon_target_angle);
+			temp_weapon.weapon_rotation = temp_weapon.weapon_rotation - (temp_weapon_delta_angle * temp_weapon.lerp_spd * global.deltatime);
+		}
+		else if (target != noone) {
 			if (instance_exists(target)) {
 				// Aim Weapon
 				if (abs(x_velocity) <= 0.1) {
@@ -46,10 +56,10 @@ for (var i = 0; i < ds_list_size(inventory.weapons); i++) {
 			}
 		}
 		
+		// Ambient Aiming
+		aim_ambient_x = lerp(aim_ambient_x, x + (draw_xscale * image_xscale * 50), temp_weapon.lerp_spd * global.deltatime);
+		aim_ambient_y = lerp(aim_ambient_y, y + weapon_hip_y, temp_weapon.lerp_spd * global.deltatime);
 		if (!temp_weapon.aiming) {
-			// Ambient Aiming
-			aim_ambient_x = lerp(aim_ambient_x, x + (draw_xscale * image_xscale * 50), temp_weapon.lerp_spd * global.deltatime);
-			aim_ambient_y = lerp(aim_ambient_y, y + weapon_hip_y, temp_weapon.lerp_spd * global.deltatime);
 			temp_weapon.weapon_rotation = temp_weapon.weapon_rotation - (angle_difference(temp_weapon.weapon_rotation, slope_angle + point_direction(x + weapon_x, y + weapon_y, aim_ambient_x, aim_ambient_y)) * temp_weapon.lerp_spd * global.deltatime);
 		}
 		

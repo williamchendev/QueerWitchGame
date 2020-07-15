@@ -3,6 +3,7 @@
 
 // Physics Settings
 spd = 3; // Running Speed
+walk_spd = 1; // Walk Speed
 
 jump_spd = 1.4; // Jumping Speed
 double_jump_spd = 3; // Double Jumping Seed
@@ -29,6 +30,7 @@ max_health_points = 6;
 idle_animation = sCathIdle;
 walk_animation = sCathRun;
 jump_animation = sCathJump;
+aim_animation = sWilliam_Aim;
 hurt_animation = sWilliam_Hurt;
 
 /*
@@ -88,6 +90,9 @@ key_down_press = false;
 key_select_press = false;
 key_cancel_press = false;
 key_menu_press = false;
+
+key_fire_press = false;
+key_aim_press = false;
 
 key_command = false;
 
