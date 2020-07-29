@@ -1,11 +1,17 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Ragdoll Initialization Event
+// Creates all the variables necessary for the Ragdoll Entity
 
-// Settings
+// Physics Settings
 grav_spd = 0.026;
 grav_multiplier = 0.93;
 max_grav_spd = 2;
 
-// Variables
+slope_tolerance = 1;
+
+// Physics Variables
 x_velocity = 0;
 y_velocity = 0;
+grav_velocity = 0;
+
+// Angle Variables
+angle_adjust_direction = 1;

@@ -147,6 +147,7 @@ x += hspd;
 y += vspd;
 
 // Animation
+var anim_spd_sign = 1;
 draw_xscale = lerp(draw_xscale, 1, scale_reset_spd * global.deltatime);
 draw_yscale = lerp(draw_yscale, 1, scale_reset_spd * global.deltatime);
 
@@ -158,7 +159,15 @@ if (x_velocity != 0) {
 if (!platform_free(x, y + 1, platform_list)) {
 	// Set Unit ground Animation
 	if (x_velocity != 0) {
-		sprite_index = walk_animation;
+		if (!key_aim_press) {
+			sprite_index = walk_animation;
+		}
+		else if (canmove) {
+			sprite_index = aim_walk_animation;
+			if (image_xscale != sign(mouse_x - x)) {
+				anim_spd_sign = -1;
+			}
+		}
 	}
 	else {
 		if (!key_aim_press) {
@@ -170,9 +179,12 @@ if (!platform_free(x, y + 1, platform_list)) {
 	}
 	
 	// Set Unit Image Index
-	draw_index += animation_spd * global.deltatime;
+	draw_index += (animation_spd * anim_spd_sign) * global.deltatime;
 	while (draw_index > sprite_get_number(sprite_index)) {
 		draw_index -= sprite_get_number(sprite_index);
+	}
+	while (draw_index < 0) {
+		draw_index += sprite_get_number(sprite_index);
 	}
 	image_index = clamp(floor(draw_index), 0, sprite_get_number(sprite_index) - 1);
 	

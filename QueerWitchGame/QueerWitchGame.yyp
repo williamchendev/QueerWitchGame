@@ -351,6 +351,14 @@
             }
         },
         {
+            "Key": "32c861c3-5a96-4973-9dd5-03cdeceda9e3",
+            "Value": {
+                "id": "a6323288-f641-4a5d-9e37-ba2fb7c7678b",
+                "resourcePath": "sprites\\sWilliamDS_Aim_Walk\\sWilliamDS_Aim_Walk.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3346893f-b22a-4867-96f1-0e4248650417",
             "Value": {
                 "id": "ae7e5a6e-1cd9-4ad7-b604-9f457367478c",
@@ -468,6 +476,14 @@
                 "id": "edfb31a3-af6b-4aaa-83e4-d5db4c584249",
                 "resourcePath": "objects\\oEditorPlayDemoWindow\\oEditorPlayDemoWindow.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "3cb80463-ba33-46a1-87ed-6a24922e9c9b",
+            "Value": {
+                "id": "02c60daf-970d-4f19-8c9a-5dfb80df1cf1",
+                "resourcePath": "sprites\\sWilliam_Aim_Walk\\sWilliam_Aim_Walk.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1844,6 +1860,14 @@
                 "id": "7135f50c-c629-4c0d-8d12-be3cf26c98f4",
                 "resourcePath": "scripts\\tilesetChange\\tilesetChange.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f51ed53e-077c-44c4-90e7-d29c4f20cd85",
+            "Value": {
+                "id": "eac3af7e-bd89-4045-8c3a-35c810c1d096",
+                "resourcePath": "sprites\\sWilliamDS_Aim\\sWilliamDS_Aim.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

@@ -160,7 +160,8 @@ if (bullet_cases != 0) {
 		var temp_eject_y = y + recoil_offset_y + lengthdir_y(temp_eject_distance, temp_weapon_rotation + temp_eject_direction);
 		
 		var temp_case = instance_create_layer(temp_eject_x, temp_eject_y, layer, oBulletCase);
-		temp_case.case_direction = (random_range(0, case_direction) * weapon_yscale) + 90;
+		temp_case.case_direction = ((random_range(0, case_direction) * weapon_yscale) + 90);
+		//temp_case.case_direction = (weapon_rotation + ((-90 * weapon_yscale) - 180)) + (random_range(0, case_direction) * weapon_yscale);
 		temp_case.sprite_index = case_sprite;
 		temp_case.image_xscale = weapon_yscale;
 	}

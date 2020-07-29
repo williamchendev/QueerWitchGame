@@ -27,6 +27,9 @@ limb_y[0] = -32;
 limb_x[1] = -5;
 limb_y[1] = -32;
 
+limb_aim_move_offset_x = -1;
+limb_aim_offset_y = 2;
+
 // Knockout Settings
 knockout = true;
 knockout_active = false;
@@ -42,3 +45,6 @@ aim_ambient_y = 0;
 // Limb Variables
 limb[0] = instance_create_layer(x, y, layers[1], oArm);
 limb[1] = instance_create_layer(x, y, layers[4], oArm);
+
+limb_sprite[0] = sWilliamDS_Arms;
+limb_sprite[1] = sWilliam_Arms;

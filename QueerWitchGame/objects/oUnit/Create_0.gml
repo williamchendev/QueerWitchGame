@@ -30,7 +30,8 @@ max_health_points = 6;
 idle_animation = sCathIdle;
 walk_animation = sCathRun;
 jump_animation = sCathJump;
-aim_animation = sWilliam_Aim;
+aim_animation = sWilliamDS_Aim;
+aim_walk_animation = sWilliamDS_Aim_Walk;
 hurt_animation = sWilliam_Hurt;
 
 /*
