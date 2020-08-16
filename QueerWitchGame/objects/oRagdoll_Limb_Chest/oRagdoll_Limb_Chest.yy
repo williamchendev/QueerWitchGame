@@ -1,17 +1,17 @@
 {
-    "id": "b0dab07d-e1c4-4499-9fd2-ac4a49713266",
+    "id": "b7cf3947-4dbb-4c55-a58b-fb0f1d41e85e",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "oSolidRotation",
+    "name": "oRagdoll_Limb_Chest",
     "eventList": [
         
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "b6cde809-cf13-4c3c-a967-ebc3bf55edf9",
+    "parentObjectId": "73fdadfb-c863-438e-8232-da3dfd79adaf",
     "persistent": false,
     "physicsAngularDamping": 0.1,
-    "physicsDensity": 0,
+    "physicsDensity": 0.5,
     "physicsFriction": 0.2,
     "physicsGroup": 0,
     "physicsKinematic": false,
@@ -22,37 +22,37 @@
     "physicsShape": 1,
     "physicsShapePoints": [
         {
-            "id": "b9209860-c241-494d-80bb-c0a8fcbf35d7",
+            "id": "5e028eea-a89f-4003-bdb2-895a6691d2bc",
             "modelName": "GMPoint",
             "mvc": "1.0",
-            "x": 0,
-            "y": 0
+            "x": 4,
+            "y": 5
         },
         {
-            "id": "46982ca6-c4aa-4e3c-b4f9-0f22f4fecc1d",
+            "id": "77db9d6c-2f7e-461c-870f-04c14945c1c5",
             "modelName": "GMPoint",
             "mvc": "1.0",
-            "x": 48,
-            "y": 0
+            "x": 14,
+            "y": 5
         },
         {
-            "id": "91831edf-2930-4a03-b5cc-56464df88f86",
+            "id": "177d4928-6db4-4aac-9f77-0fe9ef3294a0",
             "modelName": "GMPoint",
             "mvc": "1.0",
-            "x": 48,
-            "y": 48
+            "x": 14,
+            "y": 22
         },
         {
-            "id": "6f99f548-4da8-48db-86e3-3b66cf7870aa",
+            "id": "04ec1e3c-598e-4a2e-b350-c73bf399a5da",
             "modelName": "GMPoint",
             "mvc": "1.0",
-            "x": 0,
-            "y": 48
+            "x": 4,
+            "y": 22
         }
     ],
     "physicsStartAwake": true,
     "properties": null,
-    "solid": true,
-    "spriteId": "6c962deb-69b0-4508-aa68-ac6fb1d552d1",
+    "solid": false,
+    "spriteId": "2fcc8237-3772-4bb8-9841-d60c46c84d11",
     "visible": true
 }
