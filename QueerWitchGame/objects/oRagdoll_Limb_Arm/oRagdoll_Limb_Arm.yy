@@ -4,15 +4,34 @@
     "mvc": "1.0",
     "name": "oRagdoll_Limb_Arm",
     "eventList": [
-        
+        {
+            "id": "4a1cf878-1bdb-4931-b886-9ead920839ef",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "faee60f6-0c4c-4ba9-985a-46aad74952b4"
+        },
+        {
+            "id": "17f4c296-538a-4a37-bb23-63fae8076e22",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 3,
+            "m_owner": "faee60f6-0c4c-4ba9-985a-46aad74952b4"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
     "parentObjectId": "73fdadfb-c863-438e-8232-da3dfd79adaf",
     "persistent": false,
     "physicsAngularDamping": 0.1,
-    "physicsDensity": 0.5,
-    "physicsFriction": 0.2,
+    "physicsDensity": 1,
+    "physicsFriction": 0.8,
     "physicsGroup": 0,
     "physicsKinematic": false,
     "physicsLinearDamping": 0.1,

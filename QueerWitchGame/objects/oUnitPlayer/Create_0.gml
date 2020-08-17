@@ -9,6 +9,8 @@ idle_animation = sWilliamDS_Idle;
 walk_animation = sWilliamDS_Run;
 jump_animation = sWilliamDS_Jump;
 
+knockout = true;
+
 // Behaviour Settings
 command = false;
 

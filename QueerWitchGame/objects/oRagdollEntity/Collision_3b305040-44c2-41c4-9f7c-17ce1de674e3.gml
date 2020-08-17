@@ -1,2 +1,2 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description oSolidRotation Collision Event
+// Event exists to allow the Ragdoll Entity to collide with Solid Objects

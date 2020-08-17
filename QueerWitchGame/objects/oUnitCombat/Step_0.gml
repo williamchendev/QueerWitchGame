@@ -5,6 +5,15 @@
 event_inherited();
 
 // Limbs
+if (limb[0] != noone) {
+	arm_right_angle_1 = limb[0].angle_1;
+	arm_right_angle_2 = limb[0].angle_2;
+}
+if (limb[1] != noone) {
+	arm_left_angle_1 = limb[1].angle_1;
+	arm_left_angle_2 = limb[1].angle_2;
+}
+
 for (var q = 0; q < limbs; q++) {
 	limb[q].visible = false;
 }

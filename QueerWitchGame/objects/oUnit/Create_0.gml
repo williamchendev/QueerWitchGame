@@ -45,6 +45,15 @@ animation_spd = 0.18;
 squash_stretch = 0.4;
 scale_reset_spd = 0.15;
 
+// Ragdoll Settings
+ragdoll = true;
+ragdoll_head_sprite = sWilliamDS_Head;
+ragdoll_arm_left_sprite = sWilliamDS_Arms;
+ragdoll_arm_right_sprite = sWilliam_Arms;
+ragdoll_chest_sprite = sWilliamDS_Chest;
+ragdoll_leg_left_sprite = sWilliamDS_LeftLeg;
+ragdoll_leg_right_sprite = sWilliamDS_RightLeg;
+
 // Physics Variables
 platform_list = ds_list_create();
 
@@ -76,6 +85,18 @@ draw_angle = 0;
 jump_peak_threshold = 0.8;
 
 image_speed = 0;
+
+// Ragdoll Variables
+force_applied = false;
+force_x = 0;
+force_y = 0;
+force_xvector = 0;
+force_yvector = 0;
+
+arm_left_angle_1 = 0;
+arm_left_angle_2 = 0;
+arm_right_angle_1 = 0;
+arm_right_angle_2 = 0;
 
 // Input Variables
 key_left = false;

@@ -222,7 +222,79 @@ else {
 	draw_angle = slope_angle;
 }
 
-// Hurt Animation
+// Death & Ragdoll
 if (health_points <= 0) {
 	sprite_index = hurt_animation;
+	
+	// Ragdoll
+	if (ragdoll) {
+		// Establish Ragdoll Sprite Array
+		var temp_ragdoll_sprites = noone;
+		temp_ragdoll_sprites[0] = ragdoll_head_sprite;
+		temp_ragdoll_sprites[1] = ragdoll_arm_left_sprite;
+		temp_ragdoll_sprites[2] = ragdoll_arm_right_sprite;
+		temp_ragdoll_sprites[3] = ragdoll_chest_sprite;
+		temp_ragdoll_sprites[4] = ragdoll_leg_left_sprite;
+		temp_ragdoll_sprites[5] = ragdoll_leg_right_sprite;
+	
+		// Instantiate Ragdoll and the Ragdoll Limbs Array
+		var temp_ragdoll_limbs = create_ragdoll(x, y, image_xscale, layer_get_id("Instances"), temp_ragdoll_sprites);
+	
+		// Move Arms
+		with (temp_ragdoll_limbs[2]) {
+			phy_fixed_rotation = true;
+			phy_rotation = -90 - other.arm_left_angle_1;
+		}
+		with (temp_ragdoll_limbs[1]) {
+			phy_fixed_rotation = true;
+			phy_rotation = -90 - other.arm_left_angle_2;
+		}
+		
+		with (temp_ragdoll_limbs[5]) {
+			phy_fixed_rotation = true;
+			phy_rotation = -90 - other.arm_right_angle_1;
+		}
+		with (temp_ragdoll_limbs[4]) {
+			phy_fixed_rotation = true;
+			phy_rotation = -90 - other.arm_right_angle_2;
+		}
+	
+		// Apply Ragdoll Forces
+		if (force_applied) {
+			for (var i = 0; i < array_length_1d(temp_ragdoll_limbs); i++) {
+				if (collision_circle(force_x, force_y, 3, temp_ragdoll_limbs[i], false, true)) {
+					with(temp_ragdoll_limbs[i]) {
+						physics_apply_impulse(other.force_x, other.force_y, other.force_xvector, -other.force_yvector);
+					}
+				}
+			}
+		}
+		
+		ragdoll = false;
+	}
+	
+	/*
+	with (instance_create_layer(x, y, layer_get_id("Instances"), oRagdollParent)) {
+		// Set Ragdoll Parent to Active
+		instantiated = true;
+		
+		// Set Ragdoll Variables
+		image_xscale = other.image_xscale;
+		
+		ragdoll_force = other.ragdoll_force;
+		force_x = other.force_x;
+		force_y = other.force_y;
+		force_xvector = other.force_xvector;
+		force_yvector = other.force_yvector;
+		
+		show_debug_message(string(force_x));
+		show_debug_message(string(force_y));
+		
+		// Run Ragdoll Instantiation
+		event_perform(ev_create, 0);
+	}
+	*/
 }
+
+// Reset Force Applied
+force_applied = false;

@@ -1663,6 +1663,14 @@
             }
         },
         {
+            "Key": "d4c5108c-24c8-46f3-b172-92038827006b",
+            "Value": {
+                "id": "ee8ecf42-136b-4dbb-94e0-ab3160468857",
+                "resourcePath": "scripts\\create_ragdoll\\create_ragdoll.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d549f4c6-ed6c-4551-b0b6-5f918c8a22a2",
             "Value": {
                 "id": "13d7bb6d-d555-4fdd-90a2-87aeea5f17fa",
@@ -1991,6 +1999,14 @@
             }
         },
         {
+            "Key": "f85c6891-f8f9-43ff-940e-7763e1071288",
+            "Value": {
+                "id": "5a2de84f-8312-46ba-a211-cb3b80a453a3",
+                "resourcePath": "views\\f85c6891-f8f9-43ff-940e-7763e1071288.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "f89a800a-ead2-4415-b74d-7263df6f1e52",
             "Value": {
                 "id": "f34962be-7064-40f5-b8c0-002d59383984",
@@ -2092,9 +2108,9 @@
         "70fd08f3-fb94-4c87-a973-0ed51a2bed88",
         "5f84e8ff-771a-426c-bbce-f20958995272",
         "7ff59ac5-0d07-4426-9dfc-cc85476a963f",
-        "34f84d17-0e1d-4c0e-a6ec-d98c186a172b",
         "681cf3ce-1b99-454e-9058-c5f2bcf6a5eb",
         "ca62425f-2c95-4227-94b6-29abe927b5e2",
+        "34f84d17-0e1d-4c0e-a6ec-d98c186a172b",
         "592a6847-e0d7-471f-af7b-6a418becf447",
         "51fbe359-2a24-4ed0-bc11-1ef9e6d5a136",
         "7df71e57-7d4d-4568-83ca-9c81aeaf2d84",
@@ -2103,6 +2119,7 @@
         "fec46faa-6004-483e-b4ed-62ba760afcce",
         "94211bbe-b2dc-41e9-8e7d-82d1f2d3507c",
         "56b664a8-3573-4b64-8117-89c4b15bb15a",
+        "d4c5108c-24c8-46f3-b172-92038827006b",
         "8373d824-8b69-4b8b-b497-0ddfa6d1b5e1",
         "f99f3606-46bc-4f73-9bd9-b7f564913f0e",
         "32717d97-b827-4836-923c-978b07534371",

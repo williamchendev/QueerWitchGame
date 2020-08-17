@@ -20,8 +20,19 @@ if (x != oUnitPlayer.x) {
 // Inherit the parent event
 event_inherited();
 
+
 if (health_points <= 0) {
-	if (knockout_timer <= 0) {
+	var temp_destroy_check = false;
+	if (knockout) {
+		if (knockout_timer <= 0) {
+			temp_destroy_check = true;
+		}
+	}
+	else {
+		temp_destroy_check = true;
+	}
+	
+	if (temp_destroy_check) {
 		instance_destroy(inventory);
 		instance_destroy();
 	}
