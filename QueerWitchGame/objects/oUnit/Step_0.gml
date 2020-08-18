@@ -233,9 +233,10 @@ if (health_points <= 0) {
 		temp_ragdoll_sprites[0] = ragdoll_head_sprite;
 		temp_ragdoll_sprites[1] = ragdoll_arm_left_sprite;
 		temp_ragdoll_sprites[2] = ragdoll_arm_right_sprite;
-		temp_ragdoll_sprites[3] = ragdoll_chest_sprite;
-		temp_ragdoll_sprites[4] = ragdoll_leg_left_sprite;
-		temp_ragdoll_sprites[5] = ragdoll_leg_right_sprite;
+		temp_ragdoll_sprites[3] = ragdoll_chest_top_sprite;
+		temp_ragdoll_sprites[4] = ragdoll_chest_bot_sprite;
+		temp_ragdoll_sprites[5] = ragdoll_leg_left_sprite;
+		temp_ragdoll_sprites[6] = ragdoll_leg_right_sprite;
 	
 		// Instantiate Ragdoll and the Ragdoll Limbs Array
 		var temp_ragdoll_limbs = create_ragdoll(x, y, image_xscale, layer_get_id("Instances"), temp_ragdoll_sprites);
@@ -250,11 +251,11 @@ if (health_points <= 0) {
 			phy_rotation = -90 - other.arm_left_angle_2;
 		}
 		
-		with (temp_ragdoll_limbs[5]) {
+		with (temp_ragdoll_limbs[6]) {
 			phy_fixed_rotation = true;
 			phy_rotation = -90 - other.arm_right_angle_1;
 		}
-		with (temp_ragdoll_limbs[4]) {
+		with (temp_ragdoll_limbs[5]) {
 			phy_fixed_rotation = true;
 			phy_rotation = -90 - other.arm_right_angle_2;
 		}

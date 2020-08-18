@@ -99,3 +99,4 @@ hit_effect_index = -1;
 hit_effect_offset = 0;
 hit_effect_xscale = 1;
 hit_effect_yscale = 1;
+hit_effect_sign = 1;

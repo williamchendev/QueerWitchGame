@@ -119,14 +119,6 @@
             }
         },
         {
-            "Key": "0c063219-09fe-4ccf-b16d-38dfafe72ee6",
-            "Value": {
-                "id": "ece6a6fb-7e1f-40f0-a3bb-feb574a63573",
-                "resourcePath": "objects\\oRagdollParent\\oRagdollParent.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "0c27bd88-7999-4ca6-8942-af77d76225ba",
             "Value": {
                 "id": "516d078f-5672-4785-adf0-33858b5745b5",
@@ -343,14 +335,6 @@
             }
         },
         {
-            "Key": "2fcc8237-3772-4bb8-9841-d60c46c84d11",
-            "Value": {
-                "id": "0dfb8fa7-33c6-4f93-b6bc-58f0bf086769",
-                "resourcePath": "sprites\\sWilliamDS_Chest\\sWilliamDS_Chest.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "308f564e-803f-4e3e-b814-f48a12d4f758",
             "Value": {
                 "id": "19ce4ebc-bc6e-4f54-a388-b024955ec5cb",
@@ -484,6 +468,14 @@
                 "id": "5f399c6d-51e1-4c9b-8e48-3b6cf4ec0f45",
                 "resourcePath": "objects\\oKnockout\\oKnockout.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "396214bd-0109-446a-b1e0-86372e150a75",
+            "Value": {
+                "id": "0a42d72b-18bc-4a80-85ba-d7510995c3d1",
+                "resourcePath": "sprites\\sWilliamDS_ChestTop\\sWilliamDS_ChestTop.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1508,6 +1500,14 @@
                 "id": "826f84b8-af61-46da-85f3-c367e1c2be62",
                 "resourcePath": "objects\\oPhysics\\oPhysics.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "bef6b8bc-8499-43e7-afad-a390507a1ea8",
+            "Value": {
+                "id": "f2c58816-406a-4641-8c57-9136d737b005",
+                "resourcePath": "sprites\\sWilliamDS_ChestBot\\sWilliamDS_ChestBot.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

@@ -50,7 +50,8 @@ ragdoll = true;
 ragdoll_head_sprite = sWilliamDS_Head;
 ragdoll_arm_left_sprite = sWilliamDS_Arms;
 ragdoll_arm_right_sprite = sWilliam_Arms;
-ragdoll_chest_sprite = sWilliamDS_Chest;
+ragdoll_chest_top_sprite = sWilliamDS_ChestTop;
+ragdoll_chest_bot_sprite = sWilliamDS_ChestBot;
 ragdoll_leg_left_sprite = sWilliamDS_LeftLeg;
 ragdoll_leg_right_sprite = sWilliamDS_RightLeg;
 

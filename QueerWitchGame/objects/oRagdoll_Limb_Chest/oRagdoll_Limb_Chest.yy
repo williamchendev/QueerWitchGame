@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "oRagdoll_Limb_Chest",
     "eventList": [
-        
+        {
+            "id": "ed88fdf0-cb8b-432c-b70b-28178549da50",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 73,
+            "eventtype": 8,
+            "m_owner": "b7cf3947-4dbb-4c55-a58b-fb0f1d41e85e"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
@@ -22,37 +31,37 @@
     "physicsShape": 1,
     "physicsShapePoints": [
         {
-            "id": "27abc839-3b72-4f39-bd7b-af7ac16ea80f",
+            "id": "65037d34-6f98-4420-830d-5f4565b610bf",
             "modelName": "GMPoint",
             "mvc": "1.0",
-            "x": 4,
-            "y": 5
+            "x": 3,
+            "y": 2
         },
         {
-            "id": "cba8d364-0e49-4135-b221-fac68c5cd9a1",
+            "id": "ef3e620c-c640-4242-86f9-8b29509b3b78",
             "modelName": "GMPoint",
             "mvc": "1.0",
-            "x": 14,
-            "y": 5
+            "x": 13,
+            "y": 2
         },
         {
-            "id": "c7dfd825-e278-4857-bb0e-29302470b221",
+            "id": "aa0e3779-a6a0-41cd-b2c8-29134a19602c",
             "modelName": "GMPoint",
             "mvc": "1.0",
-            "x": 14,
-            "y": 22
+            "x": 13,
+            "y": 10
         },
         {
-            "id": "78c36e68-921e-4de7-9431-02e7c440e809",
+            "id": "21a9a206-d804-45b6-a280-e876f35aa3bc",
             "modelName": "GMPoint",
             "mvc": "1.0",
-            "x": 4,
-            "y": 22
+            "x": 3,
+            "y": 10
         }
     ],
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "2fcc8237-3772-4bb8-9841-d60c46c84d11",
+    "spriteId": "bef6b8bc-8499-43e7-afad-a390507a1ea8",
     "visible": true
 }

@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "oRagdoll_Limb_Leg",
     "eventList": [
-        
+        {
+            "id": "32d60aef-2cd2-4a80-b0e3-ff7f3f774e8e",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 73,
+            "eventtype": 8,
+            "m_owner": "a86c74b3-a087-49a7-bb3a-024819b9d7f0"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

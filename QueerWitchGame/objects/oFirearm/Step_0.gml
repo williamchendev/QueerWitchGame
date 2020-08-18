@@ -126,6 +126,9 @@ for (var f = ds_list_size(flash_timer) - 1; f >= 0; f--) {
 			ds_list_delete(flash_imageindex, f);
 			continue;
 		}
+		else {
+			temp_flash_timer = 0;
+		}
 	}
 	ds_list_set(flash_timer, f, temp_flash_timer);
 }
@@ -181,6 +184,7 @@ if (instance_exists(oKnockout)) {
 			hit_effect_yscale = -1;
 		}
 		hit_effect_yscale *= random_range(0.7, 1);
+		hit_effect_sign = sign(hit_effect_yscale);
 	}
 }
 else {

@@ -5,4 +5,4 @@
 event_inherited();
 
 // Timer Settings
-timer = 0.1;
+timer = 0.2;

@@ -48,8 +48,8 @@ for (var i = 0; i <= temp_length; i += temp_interpolation) {
 				temp_unit.force_applied = true;
 				temp_unit.force_x = temp_check_x;
 				temp_unit.force_y = temp_check_y;
-				temp_unit.force_xvector = cos(degtorad(temp_angle)) * 20;
-				temp_unit.force_yvector = sin(degtorad(temp_angle)) * 20;
+				temp_unit.force_xvector = cos(degtorad(temp_angle)) * 15;
+				temp_unit.force_yvector = sin(degtorad(temp_angle)) * 15;
 			}
 			
 			return i;
