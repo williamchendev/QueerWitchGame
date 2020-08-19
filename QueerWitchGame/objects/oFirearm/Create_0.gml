@@ -12,13 +12,10 @@ bullets_max = 5;
 
 // Sprite Settings
 weapon_sprite = sMarinda308;
-regular_sprite = sMarinda308;
-reload_sprite = sMarinda308_Reload;
-image_speed = sprite_get_speed(weapon_sprite);
-
 case_sprite = s308Case;
-
 muzzle_flash_sprite = s308MuzzleFlash;
+
+image_speed = 0;
 
 // Bullet Settings
 projectiles = 1;
@@ -32,9 +29,16 @@ flash_delay = 7;
 muzzle_x = 28;
 muzzle_y = -2;
 
+reload_x = 5;
+reload_y = 0;
+reload_offset_y = 5;
+
 case_eject_x = 1;
 case_eject_y = -1;
 case_direction = 30;
+
+// Reload Settings
+magazine_obj = noone;
 
 // Arm Settings
 double_handed = false;

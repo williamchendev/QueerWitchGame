@@ -5,9 +5,6 @@ event_inherited();
 
 // Animation Settings
 weapon_sprite = sFAL;
-regular_sprite = sFAL;
-reload_sprite = noone;
-image_speed = sprite_get_speed(weapon_sprite);
 
 // Bullet Settings
 projectiles = 1;

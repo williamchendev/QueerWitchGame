@@ -5,7 +5,7 @@
 if (canmove) {
 	// Horizontal Movement
 	var temp_spd = spd;
-	if (key_aim_press) {
+	if (key_aim_press or reload) {
 		temp_spd = walk_spd;
 	}
 	
@@ -91,6 +91,7 @@ if (temp_x_velocity != 0) {
 				for (var i = 0.5; i <= abs(slope_tolerance); i += 0.5) {
 					if (!place_free(x + temp_x_velocity, y + (sign(slope_tolerance) * i))) {
 						y += sign(slope_tolerance) * prev_slope_y;
+						action_target_y += sign(slope_tolerance) * prev_slope_y;
 						break;
 					}
 					prev_slope_y = i;
@@ -105,6 +106,7 @@ if (temp_x_velocity != 0) {
 				if (place_free(x + temp_x_velocity, y - (sign(slope_tolerance) * i))) {
 					hspd += temp_x_velocity;
 					y -= sign(slope_tolerance) * i;
+					action_target_y -= sign(slope_tolerance) * i;
 					break;
 				}
 			}
@@ -145,6 +147,10 @@ if (temp_y_velocity != 0) {
 
 x += hspd;
 y += vspd;
+if (action != noone) {
+	action_target_x += hspd;
+	action_target_y += vspd;
+}
 
 // Animation
 var anim_spd_sign = 1;
@@ -159,22 +165,24 @@ if (x_velocity != 0) {
 if (!platform_free(x, y + 1, platform_list)) {
 	// Set Unit ground Animation
 	if (x_velocity != 0) {
-		if (!key_aim_press) {
+		if (!key_aim_press and !reload) {
 			sprite_index = walk_animation;
 		}
 		else if (canmove) {
 			sprite_index = aim_walk_animation;
-			if (image_xscale != sign(mouse_x - x)) {
-				anim_spd_sign = -1;
+			if (!reload) {
+				if (image_xscale != sign(mouse_x - x)) {
+					anim_spd_sign = -1;
+				}
 			}
 		}
 	}
 	else {
-		if (!key_aim_press) {
-			sprite_index = idle_animation;
-		}
-		else if (canmove) {
+		if (key_aim_press and canmove and !reload) {
 			sprite_index = aim_animation;
+		}
+		else {
+			sprite_index = idle_animation;
 		}
 	}
 	

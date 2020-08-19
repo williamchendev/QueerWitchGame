@@ -5,9 +5,6 @@ event_inherited();
 
 // Sprite Settings
 weapon_sprite = sMarinda308;
-regular_sprite = sMarinda308;
-reload_sprite = sMarinda308_Reload;
-image_speed = sprite_get_speed(weapon_sprite);
 
 // Bullet Settings
 projectiles = 1;
@@ -21,14 +18,22 @@ flash_delay = 7;
 muzzle_x = 28;
 muzzle_y = -2;
 
+reload_x = 6;
+reload_y = 0;
+
+reload_offset_y = 6;
+
+// Reload Settings
+magazine_obj = oGun_M14_Mag;
+
 // Arm Settings
 double_handed = true;
 
-arm_x[0] = 16;
-arm_y[0] = 0;
+arm_x[0] = 2;
+arm_y[0] = 1;
 
-arm_x[1] = 2;
-arm_y[1] = 1;
+arm_x[1] = 16;
+arm_y[1] = 0;
 
 // Bullet Case Settings
 case_sprite = s308Case;

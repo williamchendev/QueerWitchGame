@@ -43,6 +43,8 @@ menu_check = ord("C");
 
 command_check = vk_control;
 
+reload_check = ord("R");
+
 // Time Settings
 time_spd = 1;
 global.deltatime = 0;

@@ -18,13 +18,16 @@ weapon_hip_y = -24;
 weapon_aim_x = 4;
 weapon_aim_y = -32;
 
+inventory_x = -1;
+inventory_y = -30;
+
 // Limb Settings
 limbs = 2;
 
-limb_x[0] = 2;
+limb_x[0] = -5;
 limb_y[0] = -32;
 
-limb_x[1] = -5;
+limb_x[1] = 2;
 limb_y[1] = -32;
 
 limb_aim_move_offset_x = -1;
@@ -42,9 +45,11 @@ weapon_y = 0;
 aim_ambient_x = 0;
 aim_ambient_y = 0;
 
-// Limb Variables
-limb[0] = instance_create_layer(x, y, layers[1], oArm);
-limb[1] = instance_create_layer(x, y, layers[4], oArm);
+reload = false;
 
-limb_sprite[0] = sWilliamDS_Arms;
-limb_sprite[1] = sWilliam_Arms;
+// Limb Variables
+limb[0] = instance_create_layer(x, y, layers[4], oArm);
+limb[1] = instance_create_layer(x, y, layers[1], oArm);
+
+limb_sprite[0] = sWilliam_Arms;  // Right Arm
+limb_sprite[1] = sWilliamDS_Arms;  // Left Arm

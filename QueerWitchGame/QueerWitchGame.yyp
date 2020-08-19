@@ -567,6 +567,14 @@
             }
         },
         {
+            "Key": "4130eba1-671d-4c80-8a5f-6584e2380105",
+            "Value": {
+                "id": "18d32316-05ec-4130-8a31-edd64b51e7bb",
+                "resourcePath": "sprites\\sMarinda308_Magazine\\sMarinda308_Magazine.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4217633c-02c5-43ab-a360-25f1a315fa42",
             "Value": {
                 "id": "3b5e81d9-d230-4ee3-b12c-102844b3d257",
@@ -1287,6 +1295,14 @@
             }
         },
         {
+            "Key": "9fa64c79-de75-4b40-8fd6-5f7facd8855f",
+            "Value": {
+                "id": "667e317c-2b4b-4e2b-b807-e004aa156cce",
+                "resourcePath": "views\\9fa64c79-de75-4b40-8fd6-5f7facd8855f.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "9fce1346-69f4-4386-b267-5a2f5647bed9",
             "Value": {
                 "id": "2d5aef95-7bb7-402b-a6f1-559a243c6e87",
@@ -1348,6 +1364,14 @@
                 "id": "431f54a3-55ab-4de0-8889-e2220615731d",
                 "resourcePath": "views\\a9bbc6a7-961f-4843-92fb-4b751cf48239.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "aa2f1a3d-2f17-4c3e-8568-fcc121ee1e02",
+            "Value": {
+                "id": "cac18bbf-20da-4ae3-a3af-0ae9aac19c4e",
+                "resourcePath": "objects\\oGun_M14_Mag\\oGun_M14_Mag.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1507,14 +1531,6 @@
             "Value": {
                 "id": "f2c58816-406a-4641-8c57-9136d737b005",
                 "resourcePath": "sprites\\sWilliamDS_ChestBot\\sWilliamDS_ChestBot.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "c1abc977-143b-4632-af12-bf7722300c0d",
-            "Value": {
-                "id": "1a257b14-de10-49bc-9d25-6735bd4ef5e4",
-                "resourcePath": "sprites\\sMarinda308_Reload\\sMarinda308_Reload.yy",
                 "resourceType": "GMSprite"
             }
         },

@@ -42,6 +42,8 @@ jump_animation = sWillIdle;
 
 animation_spd = 0.18;
 
+action_spd = 0.20;
+
 squash_stretch = 0.4;
 scale_reset_spd = 0.15;
 
@@ -87,6 +89,16 @@ jump_peak_threshold = 0.8;
 
 image_speed = 0;
 
+action = noone;
+action_index = 0;
+action_timer = 0;
+action_anim_timer = 0;
+action_target_x = 0;
+action_target_y = 0;
+
+// Weapon Variables
+reload = false;
+
 // Ragdoll Variables
 force_applied = false;
 force_x = 0;
@@ -116,6 +128,7 @@ key_menu_press = false;
 
 key_fire_press = false;
 key_aim_press = false;
+key_reload_press = false;
 
 key_command = false;
 

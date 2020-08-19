@@ -24,17 +24,17 @@ if (canmove and health_show) {
 		draw_set_color(health_color_4);
 		draw_rectangle(temp_stats_x - (temp_health_width / 2), temp_stats_y - 3, (temp_stats_x + (temp_health_width / 2)), temp_stats_y, false);
 
+		if (health_points < max_health_points) {
+			draw_set_color(health_color_5);
+			draw_rectangle(temp_stats_x - (temp_health_width / 2), temp_stats_y - 3, (temp_stats_x - (temp_health_width / 2)) + temp_health_percent_width + 1, temp_stats_y, false);
+		}
+
 		draw_set_color(health_color_1);
 		draw_rectangle(temp_stats_x - (temp_health_width / 2), temp_stats_y - 3, (temp_stats_x - (temp_health_width / 2)) + temp_health_percent_width, temp_stats_y, false);
 		draw_set_color(health_color_3);
 		draw_rectangle(temp_stats_x - (temp_health_width / 2), temp_stats_y - 1, (temp_stats_x - (temp_health_width / 2)) + temp_health_percent_width, temp_stats_y, false);
 		draw_set_color(health_color_2);
 		draw_rectangle(temp_stats_x - (temp_health_width / 2), temp_stats_y - 2, (temp_stats_x - (temp_health_width / 2)) + temp_health_percent_width, temp_stats_y - 1, false);
-
-		if (health_points < max_health_points) {
-			draw_set_color(health_color_5);
-			draw_rectangle((temp_stats_x - (temp_health_width / 2)) + temp_health_percent_width, temp_stats_y, (temp_stats_x - (temp_health_width / 2)) + temp_health_percent_width, temp_stats_y - 3, false);
-		}
 	
 		// Debug
 		/*
