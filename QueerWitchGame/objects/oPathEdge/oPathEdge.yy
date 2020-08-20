@@ -1,18 +1,18 @@
 {
-    "id": "a86db90b-8767-433e-afcf-7f8b27f9bcf0",
+    "id": "d0145383-7974-441c-a438-70d2decf0f22",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "oPathNode",
+    "name": "oPathEdge",
     "eventList": [
         {
-            "id": "931cbe39-a4d7-4dfb-9d33-eb332c40749d",
+            "id": "2409cf1c-4562-48ba-9881-2d5896906d4b",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "a86db90b-8767-433e-afcf-7f8b27f9bcf0"
+            "m_owner": "d0145383-7974-441c-a438-70d2decf0f22"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",

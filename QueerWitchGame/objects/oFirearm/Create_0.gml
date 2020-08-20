@@ -16,6 +16,7 @@ case_sprite = s308Case;
 muzzle_flash_sprite = s308MuzzleFlash;
 
 image_speed = 0;
+image_index = 1;
 
 // Bullet Settings
 projectiles = 1;

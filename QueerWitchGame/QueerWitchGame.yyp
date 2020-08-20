@@ -375,6 +375,14 @@
             }
         },
         {
+            "Key": "32e0f7db-85ab-40ed-bf52-2c77ce1b2f08",
+            "Value": {
+                "id": "1adb01b7-0763-42f5-83b2-d30b971fb613",
+                "resourcePath": "objects\\oDebugGroundSearch\\oDebugGroundSearch.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "3346893f-b22a-4867-96f1-0e4248650417",
             "Value": {
                 "id": "ae7e5a6e-1cd9-4ad7-b604-9f457367478c",
@@ -1351,6 +1359,14 @@
             }
         },
         {
+            "Key": "a86db90b-8767-433e-afcf-7f8b27f9bcf0",
+            "Value": {
+                "id": "f221b30e-9b37-4997-829c-b4daa77e1680",
+                "resourcePath": "objects\\oPathNode\\oPathNode.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a9188620-a624-4a5a-83ae-a1b53faf038b",
             "Value": {
                 "id": "503bb156-2828-475c-ab33-4d1005dc9517",
@@ -1586,7 +1602,7 @@
             "Key": "c9e561d7-0090-40d7-bd28-edad252c73ec",
             "Value": {
                 "id": "0b860f33-fbd0-4d23-900f-d1482ce90389",
-                "resourcePath": "objects\\oPathNode\\oPathNode.yy",
+                "resourcePath": "objects\\oPathfinder\\oPathfinder.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1636,6 +1652,14 @@
                 "id": "d078ef9e-cb64-4ba9-8a67-77cf8f92e728",
                 "resourcePath": "views\\ce54524f-f444-4d6e-b2c3-3f16dcb0c2bc.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "d0145383-7974-441c-a438-70d2decf0f22",
+            "Value": {
+                "id": "acad5597-e83b-4722-8d97-8892b223688b",
+                "resourcePath": "objects\\oPathEdge\\oPathEdge.yy",
+                "resourceType": "GMObject"
             }
         },
         {
