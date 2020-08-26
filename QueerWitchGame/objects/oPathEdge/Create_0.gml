@@ -1,5 +1,8 @@
-/// @description Pathing Node Initialization Event
-// Initializes all the variables and properties of the pathing node
+/// @description Pathing Edge Initialization Event
+// Initializes all the variables and properties of the pathing edge
 
-// Settings
+// Path Settings
 nodes = noone;
+
+// Weight Settings
+distance = 0;

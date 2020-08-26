@@ -31,6 +31,14 @@
     },
     "resources": [
         {
+            "Key": "00a1aeeb-04f9-492d-8d2c-2dbcaa8fb063",
+            "Value": {
+                "id": "13990903-0885-4630-b90c-cef8d4afb19b",
+                "resourcePath": "views\\00a1aeeb-04f9-492d-8d2c-2dbcaa8fb063.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "02a282cc-752a-4527-b57e-49bc18e255f8",
             "Value": {
                 "id": "f7983ad3-5e27-489c-bbd6-784438b2b2e5",
@@ -132,6 +140,14 @@
                 "id": "b7e70e33-c44c-44d6-8c92-eef21d07cb0f",
                 "resourcePath": "views\\0c3e1943-9464-4379-9c44-28ce84520974.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "0e8854b3-d0b9-4601-83f1-ffd4a539f6fc",
+            "Value": {
+                "id": "cd76b889-786f-4a0f-9061-c519506e8d11",
+                "resourcePath": "objects\\oDebugPathParent\\oDebugPathParent.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -495,11 +511,27 @@
             }
         },
         {
+            "Key": "3992a117-493a-4e36-a2a9-b3d2494e5e8f",
+            "Value": {
+                "id": "b2fc935c-c087-4fe3-95dc-5eb7799a192b",
+                "resourcePath": "objects\\oDebugPath\\oDebugPath.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "3a02949e-0b1e-464c-9980-47138f19b2cc",
             "Value": {
                 "id": "922f3182-d477-4cd9-b571-ca102d1341ab",
                 "resourcePath": "sprites\\sWilliam_Idle\\sWilliam_Idle.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3ae7877a-d8c3-435a-80db-01630638406e",
+            "Value": {
+                "id": "d19edddf-94bc-46cb-8f85-f9f4e921e838",
+                "resourcePath": "scripts\\pathfind_weight\\pathfind_weight.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1631,14 +1663,6 @@
             }
         },
         {
-            "Key": "cc4dcb00-ecde-4d45-8413-807885076c5c",
-            "Value": {
-                "id": "963366c2-49a8-4846-b6db-3fabe507f24b",
-                "resourcePath": "objects\\oRagdollDebug\\oRagdollDebug.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "cc98d028-7bdd-4680-85f3-c87a7baa481e",
             "Value": {
                 "id": "04551b44-5c6a-4ca9-8fa6-c1b2d29d0852",
@@ -2047,6 +2071,14 @@
             }
         },
         {
+            "Key": "f86e77b3-1d6c-4964-ac3c-bc6863b01cda",
+            "Value": {
+                "id": "8cf6053c-7a0b-498d-b1e6-92bb20c97aec",
+                "resourcePath": "scripts\\pathfind_get_path\\pathfind_get_path.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f89a800a-ead2-4415-b74d-7263df6f1e52",
             "Value": {
                 "id": "f34962be-7064-40f5-b8c0-002d59383984",
@@ -2181,6 +2213,8 @@
         "6c18990a-03ef-449b-a98f-7782f1d2e815",
         "d2c8c967-924d-413c-a737-866e16af5903",
         "4ab6e364-4e80-4fb7-9ab5-78a87c360631",
+        "3ae7877a-d8c3-435a-80db-01630638406e",
+        "f86e77b3-1d6c-4964-ac3c-bc6863b01cda",
         "e3eb4f29-c3cc-435d-9cff-ad2dfcea7794",
         "192c1d3a-ee15-45b7-87f9-6ac78bdc2b7c"
     ],

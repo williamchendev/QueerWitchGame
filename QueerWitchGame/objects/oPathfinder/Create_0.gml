@@ -3,3 +3,6 @@
 
 // Settings
 nodes = noone;
+
+path = noone;
+path_rand_start = -1;

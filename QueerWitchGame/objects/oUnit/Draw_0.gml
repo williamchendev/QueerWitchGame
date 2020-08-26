@@ -45,3 +45,41 @@ if (canmove and health_show) {
 		*/
 	}
 }
+
+// Debug
+if (global.debug) {
+	var temp_x = x;
+	var temp_y = y;
+	
+	var temp_sim_velocity = 0;
+	var temp_sim_jump_velocity = hold_jump_spd;
+	var temp_sim_grav_velocity = 0;
+	var temp_sim_djump = false;
+	
+	temp_sim_velocity -= jump_spd;
+	draw_set_color(c_red);
+	while (temp_sim_velocity < 0) {
+		temp_sim_velocity -= temp_sim_jump_velocity;
+		temp_sim_jump_velocity *= jump_decay;
+		
+		temp_sim_grav_velocity += grav_spd;
+		temp_sim_grav_velocity *= grav_multiplier;
+		temp_sim_grav_velocity = min(temp_sim_grav_velocity, max_grav_spd);
+		temp_sim_velocity += temp_sim_grav_velocity;
+		
+		temp_x += spd * sign(image_xscale);
+		temp_y += temp_sim_velocity;
+		
+		draw_point(temp_x, temp_y);
+		
+		if (!temp_sim_djump) {
+			if (temp_sim_velocity >= -double_jump_spd) {
+				temp_sim_velocity = 0;
+				temp_sim_velocity -= double_jump_spd;
+				temp_sim_jump_velocity = hold_jump_spd;
+				temp_sim_djump = true;
+			}
+		}
+	}
+	draw_set_color(c_white);
+}
