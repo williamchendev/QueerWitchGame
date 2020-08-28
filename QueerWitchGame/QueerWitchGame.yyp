@@ -647,6 +647,14 @@
             }
         },
         {
+            "Key": "4639cae7-35f6-4900-be1a-8094250b9999",
+            "Value": {
+                "id": "a08fe40e-d745-460f-8934-01469832a491",
+                "resourcePath": "scripts\\raycast_ground\\raycast_ground.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "479055de-8d2a-42eb-8e40-fcb1633dff31",
             "Value": {
                 "id": "8d1e5485-805c-4645-ae56-1ef48e395e33",
@@ -2151,6 +2159,14 @@
             }
         },
         {
+            "Key": "fabd2941-154a-45d7-b68f-3ce45f7c0660",
+            "Value": {
+                "id": "409fa5b6-9727-4f20-8e0c-7b55177b20ff",
+                "resourcePath": "scripts\\raycast_ground_ignore_edge\\raycast_ground_ignore_edge.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "fadc908d-2531-4699-8d0a-fae916dff371",
             "Value": {
                 "id": "96e55251-5882-4bb1-8f1b-5871e6d50fec",
@@ -2260,6 +2276,8 @@
         "694bd561-ab23-4d50-a22b-782d1b94c3ae",
         "cbda4289-afb7-410a-be4e-acf45d073de5",
         "e3eb4f29-c3cc-435d-9cff-ad2dfcea7794",
+        "4639cae7-35f6-4900-be1a-8094250b9999",
+        "fabd2941-154a-45d7-b68f-3ce45f7c0660",
         "192c1d3a-ee15-45b7-87f9-6ac78bdc2b7c"
     ],
     "tutorial": ""

@@ -98,8 +98,8 @@ temp_return[0, 2] = temp_start_edge_data[1];
 for (var k = 0; k < array_length_1d(temp_path_array); k++) {
 	var temp_array_height = array_height_2d(temp_return);
 	temp_return[temp_array_height, 0] = temp_path_array[k];
-	temp_return[temp_array_height, 1] = temp_path_array[k].x;
-	temp_return[temp_array_height, 2] = temp_path_array[k].y;
+	temp_return[temp_array_height, 1] = temp_path_array[k].x_position;
+	temp_return[temp_array_height, 2] = temp_path_array[k].y_position;
 }
 
 var temp_array_height_again = array_height_2d(temp_return);

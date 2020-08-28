@@ -23,3 +23,6 @@ if (instance_exists(oKnockout)) {
 		shader_reset();
 	}
 }
+
+// Debug Pathing Event Inhertited
+event_inherited();
