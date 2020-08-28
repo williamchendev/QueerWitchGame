@@ -719,6 +719,14 @@
             }
         },
         {
+            "Key": "5167d13e-3c23-4089-bf12-2a3cdbe8e5fc",
+            "Value": {
+                "id": "b10d0f20-5b2e-4a95-9243-69681912abca",
+                "resourcePath": "scripts\\pathfind_get_path\\pathfind_get_path.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "51fbe359-2a24-4ed0-bc11-1ef9e6d5a136",
             "Value": {
                 "id": "3ecbadf6-bf9e-430a-81d1-3ba84dcb5bbc",
@@ -796,6 +804,14 @@
                 "id": "41dafa93-bef7-4338-84e3-b38b3adae887",
                 "resourcePath": "views\\5a767cda-d0d3-4d2c-96bb-5fec170e3f20.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "5ad57e61-8ad1-4ae2-ae57-7f8789471df9",
+            "Value": {
+                "id": "306b389f-3e77-4640-8545-594493f73374",
+                "resourcePath": "objects\\oUnitPath\\oUnitPath.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -892,6 +908,14 @@
                 "id": "5db2f6c7-71ca-48d9-a816-fa0ff4d5616b",
                 "resourcePath": "rooms\\rDebugRoom3\\rDebugRoom3.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "694bd561-ab23-4d50-a22b-782d1b94c3ae",
+            "Value": {
+                "id": "d44664f9-8473-4399-8990-35ed8510c5d7",
+                "resourcePath": "scripts\\pathfind_get_closest_point\\pathfind_get_closest_point.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1567,6 +1591,14 @@
             }
         },
         {
+            "Key": "ba9f2b95-00e0-46c0-a94b-f5a00b8933c1",
+            "Value": {
+                "id": "2858c27e-5c33-491a-9d67-501c58acbdaa",
+                "resourcePath": "scripts\\pathfind_get_node_edge\\pathfind_get_node_edge.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "bdf24cfd-bc0e-4281-9856-ab8e9cdeea68",
             "Value": {
                 "id": "826f84b8-af61-46da-85f3-c367e1c2be62",
@@ -1660,6 +1692,14 @@
                 "id": "449052f8-b999-4652-a156-b9c74ce955ae",
                 "resourcePath": "objects\\oWindGenerator\\oWindGenerator.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "cbda4289-afb7-410a-be4e-acf45d073de5",
+            "Value": {
+                "id": "00db18cf-d099-488b-85f7-232010781e83",
+                "resourcePath": "scripts\\pathfind_get_closest_point_edge\\pathfind_get_closest_point_edge.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2074,7 +2114,7 @@
             "Key": "f86e77b3-1d6c-4964-ac3c-bc6863b01cda",
             "Value": {
                 "id": "8cf6053c-7a0b-498d-b1e6-92bb20c97aec",
-                "resourcePath": "scripts\\pathfind_get_path\\pathfind_get_path.yy",
+                "resourcePath": "scripts\\pathfind_recursive\\pathfind_recursive.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -2215,6 +2255,10 @@
         "4ab6e364-4e80-4fb7-9ab5-78a87c360631",
         "3ae7877a-d8c3-435a-80db-01630638406e",
         "f86e77b3-1d6c-4964-ac3c-bc6863b01cda",
+        "5167d13e-3c23-4089-bf12-2a3cdbe8e5fc",
+        "ba9f2b95-00e0-46c0-a94b-f5a00b8933c1",
+        "694bd561-ab23-4d50-a22b-782d1b94c3ae",
+        "cbda4289-afb7-410a-be4e-acf45d073de5",
         "e3eb4f29-c3cc-435d-9cff-ad2dfcea7794",
         "192c1d3a-ee15-45b7-87f9-6ac78bdc2b7c"
     ],

@@ -1,5 +1,5 @@
 /// @description Unit Update Event
-// Performs calculations necessary for the Unit's behavior
+// Performs calculations necessary for the Unit's behaviour
 
 // Movement (Player Input)
 if (canmove) {

@@ -1,8 +1,8 @@
 {
-    "id": "5167d13e-3c23-4089-bf12-2a3cdbe8e5fc",
+    "id": "694bd561-ab23-4d50-a22b-782d1b94c3ae",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "pathfind_get_path",
+    "name": "pathfind_get_closest_point",
     "IsCompatibility": false,
     "IsDnD": false
 }

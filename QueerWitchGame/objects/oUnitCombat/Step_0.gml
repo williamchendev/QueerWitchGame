@@ -1,7 +1,7 @@
 /// @description Unit Combat Update Event
 // The combat calculations and behaviour of the Unit
 
-// Physics & Unit Behaviour Inheritance
+// Physics, Pathfinding, & Unit Behaviour Inheritance
 event_inherited();
 
 // Limbs

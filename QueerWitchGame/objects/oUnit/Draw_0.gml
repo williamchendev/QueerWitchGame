@@ -48,6 +48,7 @@ if (canmove and health_show) {
 
 // Debug
 if (global.debug) {
+	/*
 	var temp_x = x;
 	var temp_y = y;
 	
@@ -82,4 +83,19 @@ if (global.debug) {
 		}
 	}
 	draw_set_color(c_white);
+	*/
+	
+	/*
+	var new_path = pathfind_get_path(x, y, mouse_x, mouse_y);
+	if (new_path != noone) {
+		draw_set_color(c_red);
+		for (var i = 0; i < array_height_2d(new_path); i++) {
+			if (i < array_height_2d(new_path) - 1) {
+				draw_line(new_path[i, 1], new_path[i, 2], new_path[i + 1, 1], new_path[i + 1, 2]);
+			}
+			draw_circle(new_path[i, 1], new_path[i, 2], 5, false);
+		}
+		draw_set_color(c_white);
+	}
+	*/
 }
