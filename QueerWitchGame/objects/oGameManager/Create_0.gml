@@ -31,6 +31,9 @@ sprite_index = noone;
 debug_x_offset = 4;
 debug_y_offset = 0;
 
+debug_fps = 0;
+debug_fps_timer = 0;
+
 // Player Input Management
 up_check = ord("W");
 down_check = ord("S");

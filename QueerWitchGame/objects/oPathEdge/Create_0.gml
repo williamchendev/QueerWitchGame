@@ -3,6 +3,7 @@
 
 // Path Settings
 nodes = noone;
+jump = false;
 
 // Weight Settings
 distance = 0;

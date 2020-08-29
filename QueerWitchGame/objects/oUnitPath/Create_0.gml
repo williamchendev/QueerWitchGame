@@ -5,11 +5,14 @@
 event_inherited();
 
 // Pathfinding Settings
-pathing = true;
+ai_behaviour = true;
 
-path_movement_radius = 5;
+path_x_delta_tolerance = 3;
+
+path_increment_index_radius = 5;
 
 // Pathfinding Variables
+pathing = false;
 path_array = noone;
 path_array_index = 0;
 
@@ -18,6 +21,8 @@ path_start_y = 0;
 
 path_end_x = 0;
 path_end_y = 0;
+
+path_edge = noone;
 
 // Debug Variables
 path_debug_start_x = 0;

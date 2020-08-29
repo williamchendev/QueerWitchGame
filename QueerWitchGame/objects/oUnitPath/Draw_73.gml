@@ -7,7 +7,7 @@ if (!global.debug) {
 }
 
 // Draw 
-if (pathing) {
+if (ai_behaviour) {
 	// Draw Path
 	if (path_array != noone) {
 		draw_set_color(c_red);
@@ -80,10 +80,18 @@ if (pathing) {
 		}
 	}
 	
+	// Draw Path Edge
+	/*
+	if (path_edge != noone) {
+		draw_set_color(c_blue);
+		draw_line(path_edge.nodes[0].x, path_edge.nodes[0].y, path_edge.nodes[1].x, path_edge.nodes[1].y);
+	}
+	*/
+	
 	// Draw Movement Indexing Radius
 	draw_set_color(c_purple);
-	draw_circle(x, y, path_movement_radius / 2, false);
-	draw_circle(x, y, path_movement_radius, true);
+	draw_circle(x, y, path_increment_index_radius / 2, false);
+	draw_circle(x, y, path_increment_index_radius, true);
 	
 	// Reset Draw Color
 	draw_set_color(c_white);
