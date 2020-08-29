@@ -48,7 +48,6 @@ if (canmove and health_show) {
 
 // Debug
 if (global.debug) {
-	/*
 	var temp_x = x;
 	var temp_y = y;
 	
@@ -83,7 +82,6 @@ if (global.debug) {
 		}
 	}
 	draw_set_color(c_white);
-	*/
 	
 	/*
 	var new_path = pathfind_get_path(x, y, mouse_x, mouse_y);

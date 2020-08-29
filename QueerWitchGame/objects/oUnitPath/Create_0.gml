@@ -8,7 +8,6 @@ event_inherited();
 ai_behaviour = true;
 
 path_x_delta_tolerance = 3;
-
 path_increment_index_radius = 5;
 
 // Pathfinding Variables
@@ -23,6 +22,12 @@ path_end_x = 0;
 path_end_y = 0;
 
 path_edge = noone;
+path_jump_range_width = 0;
+path_jump_range_height = 0;
+
+path_jump_up = false;
+path_jump_down = false;
+path_double_jump = false;
 
 // Debug Variables
 path_debug_start_x = 0;

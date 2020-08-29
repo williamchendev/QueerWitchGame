@@ -10,5 +10,7 @@ if (nodes[0] != noone and nodes[1] != noone) {
 	drawTextOutline(x, y, c_white, c_black, string(distance));
 	if (jump) {
 		drawTextOutline(x, y + 11, c_white, c_black, "[Jump]");
+		draw_rectangle(nodes[0].x - 5, nodes[0].y - 5, nodes[0].x + 5, nodes[0].y + 5, false);
+		draw_rectangle(nodes[1].x - 5, nodes[1].y - 5, nodes[1].x + 5, nodes[1].y + 5, false);
 	}
 }

@@ -67,6 +67,23 @@ for (var l = 0; l < array_length_1d(pathedge_index); l++) {
 		ds_map_add(pathnodes, temp_dnode_b, temp_node);
 	}
 	
+	// Check for Debug Node Jump Variables
+	var temp_edge_jump = false;
+	for (var k = 0; k < array_length_1d(temp_dnode_a.jump_edges); k++) {
+		if (temp_dnode_a.jump_edges[k] == temp_edge_index) {
+			temp_edge_jump = true;
+			break;
+		}
+	}
+	if (!temp_edge_jump) {
+		for (var k = 0; k < array_length_1d(temp_dnode_b.jump_edges); k++) {
+			if (temp_dnode_b.jump_edges[k] == temp_edge_index) {
+				temp_edge_jump = true;
+				break;
+			}
+		}
+	}
+	
 	// Establish Nodes & Edge
 	var temp_node_a = ds_map_find_value(pathnodes, temp_dnode_a);
 	var temp_node_b = ds_map_find_value(pathnodes, temp_dnode_b);
@@ -75,6 +92,7 @@ for (var l = 0; l < array_length_1d(pathedge_index); l++) {
 	temp_node_b.edges[array_length_1d(temp_node_b.edges)] = temp_edge;
 	temp_edge.nodes[0] = temp_node_a;
 	temp_edge.nodes[1] = temp_node_b;
+	temp_edge.jump = temp_edge_jump;
 	temp_edge.distance = point_distance(temp_node_a.x, temp_node_a.y, temp_node_b.x, temp_node_b.y);
 }
 

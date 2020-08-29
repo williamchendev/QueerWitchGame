@@ -1,2 +1,2 @@
-edges[0] = "B";
-edges[1] = "C";
+edges[0] = "G";
+edges[1] = "F";
