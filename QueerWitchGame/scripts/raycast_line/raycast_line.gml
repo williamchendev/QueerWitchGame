@@ -43,6 +43,15 @@ for (var i = 0; i <= temp_length; i += temp_interpolation) {
 		if (temp_unit.team_id != temp_ignore_id) {
 			temp_unit.health_points -= temp_damage;
 			temp_unit.health_points = clamp(temp_unit.health_points, 0, temp_unit.max_health_points);
+			
+			if (temp_unit.health_points == 0) {
+				temp_unit.force_applied = true;
+				temp_unit.force_x = temp_check_x;
+				temp_unit.force_y = temp_check_y;
+				temp_unit.force_xvector = cos(degtorad(temp_angle)) * 15;
+				temp_unit.force_yvector = sin(degtorad(temp_angle)) * 15;
+			}
+			
 			return i;
 		}
 	}

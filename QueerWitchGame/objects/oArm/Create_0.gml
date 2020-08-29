@@ -21,3 +21,6 @@ point1_y = 0;
 
 point2_x = 0;
 point2_y = 0;
+
+angle_1 = 0;
+angle_2 = 0;

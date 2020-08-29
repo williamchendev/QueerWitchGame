@@ -31,17 +31,22 @@ sprite_index = noone;
 debug_x_offset = 4;
 debug_y_offset = 0;
 
+debug_fps = 0;
+debug_fps_timer = 0;
+
 // Player Input Management
-up_check = vk_up;
-down_check = vk_down;
-left_check = vk_left;
-right_check = vk_right;
+up_check = ord("W");
+down_check = ord("S");
+left_check = ord("A");
+right_check = ord("D");
 
 select_check = ord("Z");
 cancel_check = ord("X");
 menu_check = ord("C");
 
 command_check = vk_control;
+
+reload_check = ord("R");
 
 // Time Settings
 time_spd = 1;

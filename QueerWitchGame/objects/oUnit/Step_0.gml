@@ -1,14 +1,19 @@
 /// @description Unit Update Event
-// Performs calculations necessary for the Unit's behavior
+// Performs calculations necessary for the Unit's behaviour
 
 // Movement (Player Input)
 if (canmove) {
 	// Horizontal Movement
+	var temp_spd = spd;
+	if (key_aim_press or reload) {
+		temp_spd = walk_spd;
+	}
+	
 	if (key_left) {
-		x_velocity = -spd;
+		x_velocity = -temp_spd;
 	}
 	else if (key_right) {
-		x_velocity = spd;
+		x_velocity = temp_spd;
 	}
 	else {
 		x_velocity = 0;
@@ -86,6 +91,7 @@ if (temp_x_velocity != 0) {
 				for (var i = 0.5; i <= abs(slope_tolerance); i += 0.5) {
 					if (!place_free(x + temp_x_velocity, y + (sign(slope_tolerance) * i))) {
 						y += sign(slope_tolerance) * prev_slope_y;
+						action_target_y += sign(slope_tolerance) * prev_slope_y;
 						break;
 					}
 					prev_slope_y = i;
@@ -100,6 +106,7 @@ if (temp_x_velocity != 0) {
 				if (place_free(x + temp_x_velocity, y - (sign(slope_tolerance) * i))) {
 					hspd += temp_x_velocity;
 					y -= sign(slope_tolerance) * i;
+					action_target_y -= sign(slope_tolerance) * i;
 					break;
 				}
 			}
@@ -140,8 +147,13 @@ if (temp_y_velocity != 0) {
 
 x += hspd;
 y += vspd;
+if (action != noone) {
+	action_target_x += hspd;
+	action_target_y += vspd;
+}
 
 // Animation
+var anim_spd_sign = 1;
 draw_xscale = lerp(draw_xscale, 1, scale_reset_spd * global.deltatime);
 draw_yscale = lerp(draw_yscale, 1, scale_reset_spd * global.deltatime);
 
@@ -153,16 +165,34 @@ if (x_velocity != 0) {
 if (!platform_free(x, y + 1, platform_list)) {
 	// Set Unit ground Animation
 	if (x_velocity != 0) {
-		sprite_index = walk_animation;
+		if (!key_aim_press and !reload) {
+			sprite_index = walk_animation;
+		}
+		else if (canmove) {
+			sprite_index = aim_walk_animation;
+			if (!reload) {
+				if (image_xscale != sign(mouse_x - x)) {
+					anim_spd_sign = -1;
+				}
+			}
+		}
 	}
 	else {
-		sprite_index = idle_animation;
+		if (key_aim_press and canmove and !reload) {
+			sprite_index = aim_animation;
+		}
+		else {
+			sprite_index = idle_animation;
+		}
 	}
 	
 	// Set Unit Image Index
-	draw_index += animation_spd * global.deltatime;
+	draw_index += (animation_spd * anim_spd_sign) * global.deltatime;
 	while (draw_index > sprite_get_number(sprite_index)) {
 		draw_index -= sprite_get_number(sprite_index);
+	}
+	while (draw_index < 0) {
+		draw_index += sprite_get_number(sprite_index);
 	}
 	image_index = clamp(floor(draw_index), 0, sprite_get_number(sprite_index) - 1);
 	
@@ -200,7 +230,80 @@ else {
 	draw_angle = slope_angle;
 }
 
-// Hurt Animation
+// Death & Ragdoll
 if (health_points <= 0) {
 	sprite_index = hurt_animation;
+	
+	// Ragdoll
+	if (ragdoll) {
+		// Establish Ragdoll Sprite Array
+		var temp_ragdoll_sprites = noone;
+		temp_ragdoll_sprites[0] = ragdoll_head_sprite;
+		temp_ragdoll_sprites[1] = ragdoll_arm_left_sprite;
+		temp_ragdoll_sprites[2] = ragdoll_arm_right_sprite;
+		temp_ragdoll_sprites[3] = ragdoll_chest_top_sprite;
+		temp_ragdoll_sprites[4] = ragdoll_chest_bot_sprite;
+		temp_ragdoll_sprites[5] = ragdoll_leg_left_sprite;
+		temp_ragdoll_sprites[6] = ragdoll_leg_right_sprite;
+	
+		// Instantiate Ragdoll and the Ragdoll Limbs Array
+		var temp_ragdoll_limbs = create_ragdoll(x, y, image_xscale, layer_get_id("Instances"), temp_ragdoll_sprites);
+	
+		// Move Arms
+		with (temp_ragdoll_limbs[2]) {
+			phy_fixed_rotation = true;
+			phy_rotation = -90 - other.arm_left_angle_1;
+		}
+		with (temp_ragdoll_limbs[1]) {
+			phy_fixed_rotation = true;
+			phy_rotation = -90 - other.arm_left_angle_2;
+		}
+		
+		with (temp_ragdoll_limbs[6]) {
+			phy_fixed_rotation = true;
+			phy_rotation = -90 - other.arm_right_angle_1;
+		}
+		with (temp_ragdoll_limbs[5]) {
+			phy_fixed_rotation = true;
+			phy_rotation = -90 - other.arm_right_angle_2;
+		}
+	
+		// Apply Ragdoll Forces
+		if (force_applied) {
+			for (var i = 0; i < array_length_1d(temp_ragdoll_limbs); i++) {
+				if (collision_circle(force_x, force_y, 3, temp_ragdoll_limbs[i], false, true)) {
+					with(temp_ragdoll_limbs[i]) {
+						physics_apply_impulse(other.force_x, other.force_y, other.force_xvector, -other.force_yvector);
+					}
+				}
+			}
+		}
+		
+		ragdoll = false;
+	}
+	
+	/*
+	with (instance_create_layer(x, y, layer_get_id("Instances"), oRagdollParent)) {
+		// Set Ragdoll Parent to Active
+		instantiated = true;
+		
+		// Set Ragdoll Variables
+		image_xscale = other.image_xscale;
+		
+		ragdoll_force = other.ragdoll_force;
+		force_x = other.force_x;
+		force_y = other.force_y;
+		force_xvector = other.force_xvector;
+		force_yvector = other.force_yvector;
+		
+		show_debug_message(string(force_x));
+		show_debug_message(string(force_y));
+		
+		// Run Ragdoll Instantiation
+		event_perform(ev_create, 0);
+	}
+	*/
 }
+
+// Reset Force Applied
+force_applied = false;

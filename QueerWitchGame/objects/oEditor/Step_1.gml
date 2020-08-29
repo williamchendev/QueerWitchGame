@@ -35,18 +35,6 @@ else if (editor_mode == editortypes.block) {
 editor_click = true;
 editor_cursor = -1;
 
-// Resizing Screen
-if (keyboard_check_pressed(vk_f11)) {
-	if (window_get_fullscreen()) {
-		surface_resize(application_surface, 960, 540);
-		camera_set_view_size(view_camera[0], 960, 540);
-	}
-	else {
-		surface_resize(application_surface, 480, 270);
-		camera_set_view_size(view_camera[0], 480, 270);
-	}
-}
-
 // Camera Movement
 if (camera_follow) {
 	var target_pos_x = x;

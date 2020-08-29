@@ -11,6 +11,8 @@ var temp_extension_angle2 = (90 * limb_direction) * (1 - temp_extension_percent)
 
 var temp_limb_angle1 = temp_direction + temp_extension_angle1;
 var temp_limb_angle2 = temp_direction + temp_extension_angle2;
+angle_1 = temp_limb_angle1;
+angle_2 = temp_limb_angle2;
 
 var temp_limb_length = (limb_length / 2) - ((1 - temp_extension_percent) * (limb_compress * limb_length));
 

@@ -9,6 +9,8 @@ idle_animation = sWilliamDS_Idle;
 walk_animation = sWilliamDS_Run;
 jump_animation = sWilliamDS_Jump;
 
+knockout = true;
+
 // Behaviour Settings
 command = false;
 
@@ -53,6 +55,7 @@ camera_y = camera_get_view_y(temp_camera);
 team_id = "player";
 
 addItemInventory(inventory, 5);
+addItemInventory(inventory, 7, 6);
 var temp_weapon = ds_list_find_value(inventory.weapons, 0);
 temp_weapon.equip = true;
 inventory.debug = true;

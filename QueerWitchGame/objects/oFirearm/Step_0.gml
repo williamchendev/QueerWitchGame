@@ -11,13 +11,7 @@ y = lerp(y, y_position, move_spd * global.deltatime);
 var temp_x = x + recoil_offset_x;
 var temp_y = y + recoil_offset_y;
 
-/// Weapon Rotation & Scaling
-/*
-var temp_target_x = mouse_room_x();
-var temp_target_y = mouse_room_y();
-weapon_rotation = point_direction(temp_x, temp_y, temp_target_x, temp_target_y);
-*/
-
+/// Weapon Scaling & Rotation
 if (temp_x + lengthdir_x(5, weapon_rotation) < temp_x) {
 	weapon_yscale = -1;
 }
@@ -25,14 +19,17 @@ else {
 	weapon_yscale = 1;
 }
 
-// Weapon Rotation
 var temp_weapon_rotation = weapon_rotation + recoil_angle_shift;
 
 // Set Fire Mode Behaviour
 if (attack) {
 	attack = false;
-	bursts = max(burst, 1);
-	bursts_timer = 0;
+	
+	if (bullets > 0) {
+		bursts = min(max(burst, 1), bullets);
+		bursts_timer = 0;
+		bullets -= bursts;
+	}
 }
 
 // Firearm Behaviour
@@ -104,11 +101,13 @@ if (bursts > 0) {
 		}
 	
 		// Animation
+		/*
 		if (reload_sprite != noone) {
 			weapon_sprite = reload_sprite;
 			image_index = 0;
 			image_speed = sprite_get_speed(reload_sprite);
 		}
+		*/
 	}
 }
 
@@ -125,6 +124,9 @@ for (var f = ds_list_size(flash_timer) - 1; f >= 0; f--) {
 			ds_list_delete(flash_yposition, f);
 			ds_list_delete(flash_imageindex, f);
 			continue;
+		}
+		else {
+			temp_flash_timer = 0;
 		}
 	}
 	ds_list_set(flash_timer, f, temp_flash_timer);
@@ -160,7 +162,8 @@ if (bullet_cases != 0) {
 		var temp_eject_y = y + recoil_offset_y + lengthdir_y(temp_eject_distance, temp_weapon_rotation + temp_eject_direction);
 		
 		var temp_case = instance_create_layer(temp_eject_x, temp_eject_y, layer, oBulletCase);
-		temp_case.case_direction = (random_range(0, case_direction) * weapon_yscale) + 90;
+		temp_case.case_direction = ((random_range(0, case_direction) * weapon_yscale) + 90);
+		//temp_case.case_direction = (weapon_rotation + ((-90 * weapon_yscale) - 180)) + (random_range(0, case_direction) * weapon_yscale);
 		temp_case.sprite_index = case_sprite;
 		temp_case.image_xscale = weapon_yscale;
 	}
@@ -180,6 +183,7 @@ if (instance_exists(oKnockout)) {
 			hit_effect_yscale = -1;
 		}
 		hit_effect_yscale *= random_range(0.7, 1);
+		hit_effect_sign = sign(hit_effect_yscale);
 	}
 }
 else {
