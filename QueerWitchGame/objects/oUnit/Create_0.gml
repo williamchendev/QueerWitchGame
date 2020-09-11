@@ -27,18 +27,12 @@ health_points = 6;
 max_health_points = 6;
 
 // Animation Settings
-idle_animation = sCathIdle;
-walk_animation = sCathRun;
-jump_animation = sCathJump;
+idle_animation = sWilliamDS_Idle;
+walk_animation = sWilliamDS_Run;
+jump_animation = sWilliamDS_Jump;
 aim_animation = sWilliamDS_Aim;
 aim_walk_animation = sWilliamDS_Aim_Walk;
 hurt_animation = sWilliam_Hurt;
-
-/*
-idle_animation = sWillIdle;
-walk_animation = sWillWalk;
-jump_animation = sWillIdle;
-*/
 
 animation_spd = 0.18;
 
@@ -110,6 +104,12 @@ arm_left_angle_1 = 0;
 arm_left_angle_2 = 0;
 arm_right_angle_1 = 0;
 arm_right_angle_2 = 0;
+
+// Hitbox Variables
+hitbox_left_top_x_offset = 0;
+hitbox_left_top_y_offset = 0;
+hitbox_right_bottom_x_offset = 0;
+hitbox_right_bottom_y_offset = 0;
 
 // Input Variables
 key_left = false;

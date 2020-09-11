@@ -1,8 +1,147 @@
 /// @description Unit Path Update Event
 // Performs calculations necessary for the Pathfinding Unit's behaviour
 
+// Ai Behaviour Check
+if (!ai_behaviour) {
+	// Unit Physics & Behaviour Event
+	event_inherited();
+	return;
+}
+
+// Sight Behaviour
+if (sight) {
+	// Sight Angle
+	sight_angle = (sign(image_xscale) * -90) + 90;
+
+	// Sight Calculation
+	var temp_sight_origin_distance = point_distance(0, 0, sight_origin_x, sight_origin_y);
+	var temp_sight_origin_direction = point_direction(0, 0, sight_origin_x, sight_origin_y);
+	var temp_sight_x = x + lengthdir_x(temp_sight_origin_distance, temp_sight_origin_direction + draw_angle);
+	var temp_sight_y = y + lengthdir_y(temp_sight_origin_distance, temp_sight_origin_direction + draw_angle) * draw_yscale;
+
+	var temp_sight_angle = sight_angle - (sight_arc / 2);
+	var temp_sight_point_1_x = lengthdir_x(sight_radius, temp_sight_angle);
+	var temp_sight_point_1_y = lengthdir_y(sight_radius, temp_sight_angle);
+	var temp_sight_point_2_x = lengthdir_x(sight_radius, temp_sight_angle + sight_arc);
+	var temp_sight_point_2_y = lengthdir_y(sight_radius, temp_sight_angle + sight_arc);
+
+	// Create Sight Unit List
+	var temp_sight_unit_list = ds_list_create();
+	collision_circle_list(temp_sight_x, temp_sight_y, sight_radius, oUnit, true, true, temp_sight_unit_list, false);
+
+	// Iterate through Units within sight radius
+	for (var l = ds_list_size(temp_sight_unit_list) - 1; l >= 0; l--) {
+		// Find Unit
+		var temp_sight_unit = ds_list_find_value(temp_sight_unit_list, l);
+		
+		// Find Unit Sight Hitbox
+		var temp_unit_top_left_x = temp_sight_unit.hitbox_left_top_x_offset + temp_sight_unit.x;
+		var temp_unit_top_left_y = temp_sight_unit.hitbox_left_top_y_offset + temp_sight_unit.y;
+		var temp_unit_bot_right_x = temp_sight_unit.hitbox_right_bottom_x_offset + temp_sight_unit.x;
+		var temp_unit_bot_right_y = temp_sight_unit.hitbox_right_bottom_y_offset + temp_sight_unit.y;
+		
+		// Check if Unit is in Sight Arc
+		var temp_sight_unit_valid = false;
+		if (rectangle_in_triangle(temp_unit_top_left_x, temp_unit_top_left_y, temp_unit_bot_right_x, temp_unit_bot_right_y, temp_sight_x, temp_sight_y, temp_sight_x + temp_sight_point_1_x, temp_sight_y + temp_sight_point_1_y, temp_sight_x + temp_sight_point_2_x, temp_sight_y + temp_sight_point_2_y)) {
+			// Find Unit Height
+			var temp_sight_unit_height = temp_unit_bot_right_y - temp_unit_top_left_y;
+			
+			// Check for Solids
+			for (var k = 0; k <= temp_sight_unit_height; k += (temp_sight_unit_height / 2)) {
+				if (!collision_line(temp_sight_x, temp_sight_y, temp_sight_unit.x, temp_sight_unit.y - k, oSolid, false, true)) {
+					temp_sight_unit_valid = true;
+					break;
+				}
+			}
+		}
+		
+		// Remove Unit if not viable
+		if (!temp_sight_unit_valid) {
+			ds_list_delete(temp_sight_unit_list, l);
+		}
+	}
+	
+	// Iterate through valid visible Units
+	sight_unit_num = 0;
+	sight_unit_nearest = noone;
+	var temp_sight_unit_dis = 0;
+	for (var l = 0; l < ds_list_size(temp_sight_unit_list); l++) {
+		// Find Unit
+		var temp_sight_unit = ds_list_find_value(temp_sight_unit_list, l);
+		
+		// Check Unit Team ID
+		if (temp_sight_unit.team_id != team_id) {
+			sight_unit_num++;
+			var temp_sight_new_unit_dis = point_distance(temp_sight_x, temp_sight_y, temp_sight_unit.x, temp_sight_unit.y);
+			
+			if (sight_unit_nearest != noone) {
+				if (temp_sight_new_unit_dis < temp_sight_unit_dis) {
+					sight_unit_nearest = temp_sight_unit;
+					temp_sight_unit_dis = temp_sight_new_unit_dis;
+				}
+			}
+			else {
+				sight_unit_nearest = temp_sight_unit;
+				temp_sight_unit_dis = temp_sight_new_unit_dis;
+			}
+		}
+	}
+	
+	// Set Sight Unit last seen variables
+	if (sight_unit_nearest != noone) {
+		sight_unit_seen = true;
+		sight_unit_seen_x = sight_unit_nearest.x;
+		sight_unit_seen_y = sight_unit_nearest.y;
+	}
+
+	// Garbage Collection
+	ds_list_destroy(temp_sight_unit_list);
+}
+
+// Ai Behaviour
+if (ai_behaviour_mode != "debug") {
+	// Behaviour Switch
+	switch (ai_behaviour_mode) {
+		case "sentry":
+			// Sentry Behaviour
+			pathing = false;
+			// Set Pursue Enemy
+			if (sight_unit_num <= 0) {
+				if (sight_unit_seen) {
+					// Create New Path to Unit last seen
+					sight_unit_seen = false;
+					
+					path_create = true;
+					path_end_x = sight_unit_seen_x;
+					path_end_y = sight_unit_seen_y;
+					ai_behaviour_mode = "hunt";
+				}
+			}
+			break;
+		case "patrol":
+			// Patrol Behaviour
+			
+			// Set Targeting Behaviour
+			if (sight_unit_num > 0) {
+				ai_behaviour_mode = "sentry";
+			}
+			break;
+		case "hunt":
+			if (!pathing) {
+				if (sight_unit_num <= 0) {
+					ai_behaviour_mode = "sentry";
+				}
+			}
+			break;
+		case "squad":
+			break;
+		default:
+			break;
+	}
+}
+
 // Path Array Creation
-if (mouse_check_button_pressed(mb_left)) {
+if (path_create) {
 	// Calculate Jump
 	var temp_x = 0;
 	var temp_y = 0;
@@ -40,8 +179,6 @@ if (mouse_check_button_pressed(mb_left)) {
 	// Create Path
 	path_start_x = x;
 	path_start_y = y;
-	path_end_x = mouse_x;
-	path_end_y = mouse_y;
 	path_array = pathfind_get_path(path_start_x, path_start_y, path_end_x, path_end_y);
 	path_array_index = 1;
 	
@@ -129,15 +266,16 @@ if (mouse_check_button_pressed(mb_left)) {
 			}
 		}
 	}
+	
+	// Reset
+	path_create = false;
 }
 
 // Set Pathfinding Active
 var temp_pathfind_active = false;
-if (ai_behaviour) {
-	if (pathing) {
-		if (path_array_index < array_height_2d(path_array)) {
-			temp_pathfind_active = true;
-		}
+if (pathing) {
+	if (path_array_index < array_height_2d(path_array)) {
+		temp_pathfind_active = true;
 	}
 }
 

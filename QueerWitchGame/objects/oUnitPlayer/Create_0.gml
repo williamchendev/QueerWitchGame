@@ -20,6 +20,9 @@ command_lerp_time = false;
 
 inventory_show = false;
 
+// AI Settings
+ai_behaviour = false;
+
 // Inventory Settings
 inventory_x_offset = 32;
 inventory_lerp_spd = 0.08;

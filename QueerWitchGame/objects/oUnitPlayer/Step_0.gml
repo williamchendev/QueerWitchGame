@@ -21,6 +21,8 @@ if (player_input) {
 		key_aim_press = mouse_check_button(mb_right);
 		key_reload_press = keyboard_check_pressed(game_manager.reload_check);
 		
+		key_order_press = keyboard_check_pressed(ord("Q"));
+		
 		key_cancel_press = keyboard_check_pressed(game_manager.cancel_check);
 		key_menu_press = keyboard_check_pressed(game_manager.menu_check);
 		

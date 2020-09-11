@@ -23,6 +23,23 @@ for (var i = 0; i < ds_list_size(inventory.weapons); i++) {
 	var temp_weapon = ds_list_find_value(inventory.weapons, i);
 	
 	if (temp_weapon.equip) {
+		// AI Behaviour
+		if (ai_behaviour) {
+			key_reload_press = false;
+			if (temp_weapon.bullets <= 0) {
+				key_reload_press = true;
+			}
+			
+			target_manual = false;
+			if (sight_unit_nearest != noone) {
+				target_manual = true;
+				
+				var temp_unit_height = sight_unit_nearest.hitbox_right_bottom_y_offset - sight_unit_nearest.hitbox_left_top_y_offset;
+				target_x = sight_unit_nearest.x;
+				target_y = sight_unit_nearest.y - (temp_unit_height / 2);
+			}
+		}
+		
 		// Weapon Behaviour
 		if (!reload) {
 			if (key_select_press) {

@@ -9,7 +9,7 @@ if (unit_num > 0) {
 	for (var i = 0; i < ds_list_size(unit_list); i++) {
 		var temp_unit = ds_list_find_value(unit_list, i);
 		if (ds_list_find_index(units, temp_unit) == -1) {
-			if (temp_unit.y <= y and temp_unit.y_velocity >= 0) {
+			if (temp_unit.y <= y + 1 and temp_unit.y_velocity >= 0) {
 				ds_list_add(temp_unit.platform_list, id);
 				ds_list_add(units, temp_unit);
 			}

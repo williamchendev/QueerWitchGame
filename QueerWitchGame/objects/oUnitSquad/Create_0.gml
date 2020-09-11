@@ -4,6 +4,9 @@
 // Inherit the parent event
 event_inherited();
 
+ai_behaviour = true;
+ai_behaviour_mode = "debug";
+
 addItemInventory(inventory, 5);
 addItemInventory(inventory, 7, 6);
 var temp_weapon = ds_list_find_value(inventory.weapons, 0);
@@ -11,7 +14,7 @@ temp_weapon.equip = true;
 
 target = noone;
 
-team_id = "enemy";
+team_id = "player";
 
 debug_timer = 0;
 
@@ -26,3 +29,5 @@ limb[1].limb_sprite = sWilliamDS_Arms;
 health_points = 1;
 max_health_points = 1;
 health_show = false;
+
+path_debug_draw = true;

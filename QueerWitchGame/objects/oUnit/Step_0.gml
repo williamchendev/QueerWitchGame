@@ -137,11 +137,18 @@ if (temp_y_velocity != 0) {
 				break;
 			}
 		}
-		y_velocity = 0;
 		
 		// Squash and Stretch
-		draw_xscale = 1 + squash_stretch;
-		draw_yscale = 1 - squash_stretch;
+		if (y_velocity > 0) {
+			draw_xscale = 1 + squash_stretch;
+			draw_yscale = 1 - squash_stretch;
+		}
+		else {
+			draw_xscale = 1 + squash_stretch;
+			draw_yscale = 1;
+		}
+		
+		y_velocity = 0;
 	}
 }
 
@@ -230,6 +237,44 @@ else {
 	draw_angle = slope_angle;
 }
 
+// Hitbox
+var temp_sprite_index = sprite_index;
+var temp_object_x_scale = draw_xscale * image_xscale;
+var temp_object_y_scale = draw_yscale * image_yscale;
+
+var temp_bbox_left = sprite_get_bbox_left(temp_sprite_index) * temp_object_x_scale;
+var temp_bbox_right = sprite_get_bbox_right(temp_sprite_index) * temp_object_x_scale;
+var temp_bbox_top = sprite_get_bbox_top(temp_sprite_index) * temp_object_y_scale;
+var temp_bbox_bottom = sprite_get_bbox_bottom(temp_sprite_index) * temp_object_y_scale;
+	
+temp_bbox_left -= sprite_get_xoffset(temp_sprite_index) * temp_object_x_scale;
+temp_bbox_bottom -= sprite_get_yoffset(temp_sprite_index) * temp_object_y_scale;
+temp_bbox_right -= sprite_get_xoffset(temp_sprite_index) * temp_object_x_scale;
+temp_bbox_top -= sprite_get_yoffset(temp_sprite_index) * temp_object_y_scale;
+	
+var temp_point1_dis = point_distance(0, 0, temp_bbox_left, temp_bbox_top);
+var temp_point1_angle = point_direction(0, 0, temp_bbox_left, temp_bbox_top);
+var temp_point2_dis = point_distance(0, 0, temp_bbox_right, temp_bbox_top);
+var temp_point2_angle = point_direction(0, 0, temp_bbox_right, temp_bbox_top);
+var temp_point3_dis = point_distance(0, 0, temp_bbox_right, temp_bbox_bottom);
+var temp_point3_angle = point_direction(0, 0, temp_bbox_right, temp_bbox_bottom);
+var temp_point4_dis = point_distance(0, 0, temp_bbox_left, temp_bbox_bottom);
+var temp_point4_angle = point_direction(0, 0, temp_bbox_left, temp_bbox_bottom);
+	
+var temp_left_top_x_offset = lengthdir_x(temp_point1_dis, temp_point1_angle + draw_angle);
+var temp_left_top_y_offset = lengthdir_y(temp_point1_dis, temp_point1_angle + draw_angle);
+var temp_right_top_x_offset = lengthdir_x(temp_point2_dis, temp_point2_angle + draw_angle);
+var temp_right_top_y_offset = lengthdir_y(temp_point2_dis, temp_point2_angle + draw_angle);
+var temp_right_bottom_x_offset = lengthdir_x(temp_point3_dis, temp_point3_angle + draw_angle);
+var temp_right_bottom_y_offset = lengthdir_y(temp_point3_dis, temp_point3_angle + draw_angle);
+var temp_left_bottom_x_offset = lengthdir_x(temp_point4_dis, temp_point4_angle + draw_angle);
+var temp_left_bottom_y_offset = lengthdir_y(temp_point4_dis, temp_point4_angle + draw_angle);
+				
+hitbox_left_top_x_offset = min(temp_left_top_x_offset, temp_right_top_x_offset, temp_right_bottom_x_offset, temp_left_bottom_x_offset);
+hitbox_right_bottom_x_offset = max(temp_left_top_x_offset, temp_right_top_x_offset, temp_right_bottom_x_offset, temp_left_bottom_x_offset);
+hitbox_left_top_y_offset = min(temp_left_top_y_offset, temp_right_top_y_offset, temp_right_bottom_y_offset, temp_left_bottom_y_offset);
+hitbox_right_bottom_y_offset = max(temp_left_top_y_offset, temp_right_top_y_offset, temp_right_bottom_y_offset, temp_left_bottom_y_offset);	
+
 // Death & Ragdoll
 if (health_points <= 0) {
 	sprite_index = hurt_animation;
@@ -281,28 +326,6 @@ if (health_points <= 0) {
 		
 		ragdoll = false;
 	}
-	
-	/*
-	with (instance_create_layer(x, y, layer_get_id("Instances"), oRagdollParent)) {
-		// Set Ragdoll Parent to Active
-		instantiated = true;
-		
-		// Set Ragdoll Variables
-		image_xscale = other.image_xscale;
-		
-		ragdoll_force = other.ragdoll_force;
-		force_x = other.force_x;
-		force_y = other.force_y;
-		force_xvector = other.force_xvector;
-		force_yvector = other.force_yvector;
-		
-		show_debug_message(string(force_x));
-		show_debug_message(string(force_y));
-		
-		// Run Ragdoll Instantiation
-		event_perform(ev_create, 0);
-	}
-	*/
 }
 
 // Reset Force Applied
