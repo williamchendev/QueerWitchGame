@@ -83,20 +83,6 @@ for (var i = 0; i < ds_list_size(inventory.weapons); i++) {
 				}
 			}
 		}
-		else {
-			// Reload Weapon
-			/*
-			if (object_is_ancestor(temp_weapon.object_index, oFirearm)) {
-				var temp_ammo = countItemInventory(inventory, temp_weapon.weapon_ammo_id);
-				if (temp_ammo > 0) {
-					reload = true;
-					var temp_ammo_reload = min(temp_ammo, temp_weapon.bullets_max);
-					temp_weapon.bullets = temp_ammo_reload;
-					removeItemInventory(inventory, temp_weapon.weapon_ammo_id, temp_ammo_reload)
-				}
-			}
-			*/
-		}
 		
 		// Weapon Layer
 		temp_weapon.layer = layers[3];
@@ -106,7 +92,7 @@ for (var i = 0; i < ds_list_size(inventory.weapons); i++) {
 		temp_weapon.weapon_rotation = temp_weapon.weapon_rotation mod 360;
 		if (reload) {
 			// Set Gun Tilt
-			var temp_weapon_target_angle = point_direction(0, 0, sign(image_xscale), -2);
+			var temp_weapon_target_angle = ((sign(image_xscale) * -90) + 90) + (sign(image_xscale) * 45);
 			var temp_weapon_delta_angle = angle_difference(temp_weapon.weapon_rotation, temp_weapon_target_angle);
 			temp_weapon.weapon_rotation = temp_weapon.weapon_rotation - (temp_weapon_delta_angle * temp_weapon.lerp_spd * global.deltatime);
 			
@@ -295,6 +281,11 @@ for (var i = 0; i < ds_list_size(inventory.weapons); i++) {
 		}
 	}
 }
+
+// Reset Combat Action Variables
+key_fire_press = false;
+key_aim_press = false;
+key_reload_press = false;
 
 // Knockout
 if (knockout) {

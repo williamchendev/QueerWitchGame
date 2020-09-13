@@ -26,6 +26,7 @@ path_increment_index_radius = 5;
 sight_angle = 0;
 
 sight_unit_num = 0;
+sight_unit_array = noone;
 sight_unit_nearest = noone;
 
 sight_unit_seen = false;

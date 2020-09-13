@@ -9,6 +9,10 @@ if (!ai_behaviour) {
 }
 
 // Sight Behaviour
+sight_unit_num = 0;
+sight_unit_array = noone;
+sight_unit_nearest = noone;
+
 if (sight) {
 	// Sight Angle
 	sight_angle = (sign(image_xscale) * -90) + 90;
@@ -34,6 +38,13 @@ if (sight) {
 		// Find Unit
 		var temp_sight_unit = ds_list_find_value(temp_sight_unit_list, l);
 		
+		// Check Unit Team
+		if (temp_sight_unit.team_id == team_id) {
+			// Delete Same Team Unit
+			ds_list_delete(temp_sight_unit_list, l);
+			continue;
+		}
+		
 		// Find Unit Sight Hitbox
 		var temp_unit_top_left_x = temp_sight_unit.hitbox_left_top_x_offset + temp_sight_unit.x;
 		var temp_unit_top_left_y = temp_sight_unit.hitbox_left_top_y_offset + temp_sight_unit.y;
@@ -48,7 +59,14 @@ if (sight) {
 			
 			// Check for Solids
 			for (var k = 0; k <= temp_sight_unit_height; k += (temp_sight_unit_height / 2)) {
-				if (!collision_line(temp_sight_x, temp_sight_y, temp_sight_unit.x, temp_sight_unit.y - k, oSolid, false, true)) {
+				var temp_sight_line_dis = point_distance(temp_sight_x, temp_sight_y, temp_sight_unit.x, temp_sight_unit.y - k);
+				var temp_sight_line_angle = point_direction(temp_sight_x, temp_sight_y, temp_sight_unit.x, temp_sight_unit.y - k);
+				var temp_sight_line_clamp_angle = sight_angle + clamp(angle_difference(sight_angle, temp_sight_line_angle), -sight_arc / 2, sight_arc / 2);
+				
+				var temp_sight_line_end_x = temp_sight_x + lengthdir_x(temp_sight_line_dis, temp_sight_line_clamp_angle);
+				var temp_sight_line_end_y = temp_sight_y + lengthdir_y(temp_sight_line_dis, temp_sight_line_clamp_angle);
+				
+				if (!collision_line(temp_sight_x, temp_sight_y, temp_sight_line_end_x, temp_sight_line_end_y, oSolid, false, true)) {
 					temp_sight_unit_valid = true;
 					break;
 				}
@@ -62,28 +80,29 @@ if (sight) {
 	}
 	
 	// Iterate through valid visible Units
-	sight_unit_num = 0;
-	sight_unit_nearest = noone;
 	var temp_sight_unit_dis = 0;
 	for (var l = 0; l < ds_list_size(temp_sight_unit_list); l++) {
-		// Find Unit
+		// Find Unit & Unit Distance
 		var temp_sight_unit = ds_list_find_value(temp_sight_unit_list, l);
+		var temp_sight_new_unit_dis = point_distance(temp_sight_x, temp_sight_y, temp_sight_unit.x, temp_sight_unit.y);
 		
-		// Check Unit Team ID
-		if (temp_sight_unit.team_id != team_id) {
-			sight_unit_num++;
-			var temp_sight_new_unit_dis = point_distance(temp_sight_x, temp_sight_y, temp_sight_unit.x, temp_sight_unit.y);
-			
-			if (sight_unit_nearest != noone) {
-				if (temp_sight_new_unit_dis < temp_sight_unit_dis) {
-					sight_unit_nearest = temp_sight_unit;
-					temp_sight_unit_dis = temp_sight_new_unit_dis;
-				}
-			}
-			else {
+		// Index Units to Sight Unit Array
+		sight_unit_array[sight_unit_num] = temp_sight_unit;
+		sight_unit_num++;
+		
+		// Compare for Nearest Unit
+		if (sight_unit_nearest != noone) {
+			// Check distances against each other
+			if (temp_sight_new_unit_dis < temp_sight_unit_dis) {
+				// Set New Unit
 				sight_unit_nearest = temp_sight_unit;
 				temp_sight_unit_dis = temp_sight_new_unit_dis;
 			}
+		}
+		else {
+			// Set Unit
+			sight_unit_nearest = temp_sight_unit;
+			temp_sight_unit_dis = temp_sight_new_unit_dis;
 		}
 	}
 	
@@ -98,6 +117,7 @@ if (sight) {
 	ds_list_destroy(temp_sight_unit_list);
 }
 
+// DEBUG REMOVE **********************
 // Ai Behaviour
 if (ai_behaviour_mode != "debug") {
 	// Behaviour Switch
@@ -178,7 +198,7 @@ if (path_create) {
 	
 	// Create Path
 	path_start_x = x;
-	path_start_y = y;
+	path_start_y = y - 1;
 	path_array = pathfind_get_path(path_start_x, path_start_y, path_end_x, path_end_y);
 	path_array_index = 1;
 	
@@ -313,15 +333,6 @@ while (temp_pathfind_active) {
 		
 	// Determine Movement Behaviour
 	if (path_array_index < array_height_2d(path_array)) {
-		// Reset Movement Behaviour Variables
-		key_left = false;
-		key_right = false;
-		key_up = false;
-		key_down = false;
-		
-		key_up_press = false;
-		key_down_press = false;
-		
 		// Vertical Movement
 		if (path_edge != noone) {
 			if (path_edge.jump) {
@@ -385,3 +396,18 @@ while (temp_pathfind_active) {
 
 // Unit Physics & Behaviour Event
 event_inherited();
+
+// Reset Movement Variables
+key_left = false;
+key_right = false;
+key_up = false;
+key_down = false;
+
+key_left_press = false;
+key_right_press = false;
+key_up_press = false;
+key_down_press = false;
+
+key_select_press = false;
+key_cancel_press = false;
+key_menu_press = false;

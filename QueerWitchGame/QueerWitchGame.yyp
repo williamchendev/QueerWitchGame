@@ -834,7 +834,7 @@
             "Key": "5ad57e61-8ad1-4ae2-ae57-7f8789471df9",
             "Value": {
                 "id": "306b389f-3e77-4640-8545-594493f73374",
-                "resourcePath": "objects\\oUnitAI\\oUnitAI.yy",
+                "resourcePath": "objects\\oUnitPath\\oUnitPath.yy",
                 "resourceType": "GMObject"
             }
         },
