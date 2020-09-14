@@ -23,23 +23,17 @@ if (camera_follow) {
 			for (var i = 0; i < instance_number(oUnitCombat); i++) {
 				var temp_unit = instance_find(oUnitCombat, i);
 				if (instance_exists(temp_unit)) {
-					// Check if Target Exists
-					if (temp_unit.target != noone) {
-						if (instance_exists(temp_unit.target)) {
-							// Valid Target
-							var temp_unit_target = temp_unit.target;
-							if (team_id == temp_unit_target.team_id) {
-								// Check if within Camera Mask
-								var temp_within_camera = collision_rectangle(game_manager.camera_x + camera_lockon_bounds, game_manager.camera_y + camera_lockon_bounds, game_manager.camera_x + game_manager.camera_width - camera_lockon_bounds, game_manager.camera_y + game_manager.camera_height - camera_lockon_bounds, temp_unit, false, true);
-								if (temp_within_camera) {
-									// Index Unit
-									temp_lockon_units[temp_lockon_index] = temp_unit;
-									if (point_distance(x, y, temp_unit.x, temp_unit.y) < point_distance(x, y, temp_lockon_units[temp_lockon_closest_index].x, temp_lockon_units[temp_lockon_closest_index].y)) {
-										temp_lockon_closest_index = temp_lockon_index;
-									}
-									temp_lockon_index++;
-								}
+					// Valid Target
+					if (team_id != temp_unit.team_id) {
+						// Check if within Camera Mask
+						var temp_within_camera = collision_rectangle(game_manager.camera_x + camera_lockon_bounds, game_manager.camera_y + camera_lockon_bounds, game_manager.camera_x + game_manager.camera_width - camera_lockon_bounds, game_manager.camera_y + game_manager.camera_height - camera_lockon_bounds, temp_unit, false, true);
+						if (temp_within_camera) {
+							// Index Unit
+							temp_lockon_units[temp_lockon_index] = temp_unit;
+							if (point_distance(x, y, temp_unit.x, temp_unit.y) < point_distance(x, y, temp_lockon_units[temp_lockon_closest_index].x, temp_lockon_units[temp_lockon_closest_index].y)) {
+								temp_lockon_closest_index = temp_lockon_index;
 							}
+							temp_lockon_index++;
 						}
 					}
 				}

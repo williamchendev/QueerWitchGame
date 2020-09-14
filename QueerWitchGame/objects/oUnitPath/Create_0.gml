@@ -11,11 +11,19 @@ ai_behaviour_mode = "sentry";
 // Sight Settings
 sight = true;
 
+alert = 0;
+alert_spd = 0.005;
+alert_threshold = 0.8;
+
 sight_origin_x = 0;
 sight_origin_y = -40;
 
-sight_radius = 280;
-sight_arc = 15;
+sight_unalert_radius = 280;
+sight_unalert_arc = 15;
+
+sight_alert_radius = 340;
+sight_alert_arc = 30;
+
 sight_interpolate = 5;
 
 // Pathfinding Settings
@@ -24,6 +32,9 @@ path_increment_index_radius = 5;
 
 // Sight Variables
 sight_angle = 0;
+
+sight_radius = 0;
+sight_arc = 0;
 
 sight_unit_num = 0;
 sight_unit_array = noone;

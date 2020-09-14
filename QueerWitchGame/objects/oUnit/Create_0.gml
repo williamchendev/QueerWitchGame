@@ -41,6 +41,8 @@ action_spd = 0.20;
 squash_stretch = 0.4;
 scale_reset_spd = 0.15;
 
+stats_y_offset = 8;
+
 // Ragdoll Settings
 ragdoll = true;
 ragdoll_head_sprite = sWilliamDS_Head;
@@ -89,6 +91,8 @@ action_timer = 0;
 action_anim_timer = 0;
 action_target_x = 0;
 action_target_y = 0;
+
+draw_set_xscale_manual = false;
 
 // Weapon Variables
 reload = false;

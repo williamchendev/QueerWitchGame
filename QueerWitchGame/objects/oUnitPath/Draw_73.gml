@@ -10,6 +10,12 @@ if (!global.debug) {
 if (ai_behaviour) {
 	// Sight Behaviour
 	if (sight) {
+		// Draw Alertness
+		draw_set_font(fHeartBit);
+		draw_set_halign(fa_center);
+		drawTextOutline(x, y - (hitbox_right_bottom_y_offset - hitbox_left_top_y_offset) - ((stats_y_offset * draw_yscale) * 2), c_white, c_black, "[Alert: " + string(alert) + "]");
+		draw_set_halign(fa_left);
+		
 		// Draw Vision
 		var temp_sight_origin_distance = point_distance(0, 0, sight_origin_x, sight_origin_y);
 		var temp_sight_origin_direction = point_direction(0, 0, sight_origin_x, sight_origin_y);

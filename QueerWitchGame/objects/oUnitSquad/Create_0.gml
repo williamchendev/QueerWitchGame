@@ -19,6 +19,8 @@ team_id = "player";
 debug_timer = 0;
 
 // Debug
+alert_spd = 1;
+
 idle_animation = sWilliamDS_Idle;
 walk_animation = sWilliamDS_Run;
 jump_animation = sWilliamDS_Jump;

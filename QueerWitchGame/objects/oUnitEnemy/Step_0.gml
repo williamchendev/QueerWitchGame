@@ -10,10 +10,6 @@ if (sight_unit_nearest != noone) {
 	}
 }
 
-if (x != oUnitPlayer.x) {
-	image_xscale = sign(oUnitPlayer.x - x);
-}
-
 // Inherit the parent event
 event_inherited();
 

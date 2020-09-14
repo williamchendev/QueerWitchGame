@@ -5,8 +5,8 @@
 draw_sprite_ext(sprite_index, image_index, x, y, draw_xscale * image_xscale, draw_yscale, draw_angle, draw_color, image_alpha);
 
 // Draw Stats Variables
-var temp_stats_x = x - 1;
-var temp_stats_y = y - (54 * draw_yscale);
+var temp_stats_x = x;
+var temp_stats_y = y - (hitbox_right_bottom_y_offset - hitbox_left_top_y_offset) - (stats_y_offset * draw_yscale);
 
 // Draw Health Bar
 if (canmove and health_show) {

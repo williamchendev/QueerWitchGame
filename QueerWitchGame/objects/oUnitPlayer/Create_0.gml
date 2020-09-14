@@ -1,5 +1,5 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Player Unit Initialization
+// The variable and settings initialization for the Player Unit
 
 // Inherit the parent event
 event_inherited();

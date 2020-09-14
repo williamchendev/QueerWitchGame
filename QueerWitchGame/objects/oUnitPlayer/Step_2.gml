@@ -1,5 +1,5 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Unit Late Update Event
+// performs the late calculations necessary for the Unit's behavior
 
 /*
 if (camera_follow) {

@@ -1,5 +1,5 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Unit Update Event
+// performs the calculations necessary for the Unit's behavior
 
 // Key Checks (Player Input)
 if (player_input) {
@@ -14,15 +14,11 @@ if (player_input) {
 		key_up_press = keyboard_check_pressed(game_manager.up_check);
 		key_down_press = keyboard_check_pressed(game_manager.down_check);
 		
-		//key_select_press = keyboard_check_pressed(game_manager.select_check);
-		key_select_press = mouse_check_button_pressed(mb_left);
-		
 		key_fire_press = mouse_check_button_pressed(mb_left);
 		key_aim_press = mouse_check_button(mb_right);
 		key_reload_press = keyboard_check_pressed(game_manager.reload_check);
 		
-		key_order_press = keyboard_check_pressed(ord("Q"));
-		
+		key_select_press = keyboard_check_pressed(game_manager.select_check);
 		key_cancel_press = keyboard_check_pressed(game_manager.cancel_check);
 		key_menu_press = keyboard_check_pressed(game_manager.menu_check);
 		
@@ -57,59 +53,12 @@ if (canmove) {
 		if (!inventory_show) {
 			// Command Mode Targeting Behaviour
 			if (key_command) {
-				// Targeting Behaviour
-				if (targets != noone) {
-					if (key_select_press) {
-						// Select Target
-						if (target != ds_list_find_value(targets, targets_index)) {
-							target = ds_list_find_value(targets, targets_index);
-							
-							// Open Inventory
-							if (target == self) {
-								target = noone;
-								inventory_show = true;
-							}
-						}
-						else {
-							target = noone;
-						}
-					}
-					else if (key_left_press) {
-						// Move Target Select Index Left
-						targets_index--;
-						if (targets_index < 0) {
-							targets_index = ds_list_size(targets) - 1;
-						}
-					}
-					else if (key_right_press) {
-						// Move Target Select Index Right
-						targets_index++;
-						if (targets_index >= ds_list_size(targets)) {
-							targets_index = 0;
-						}
-					}
-				}
-			
-				if (instance_exists(oTargetUI)) {
-					var temp_target_ui = instance_find(oTargetUI, 0);
-					temp_target_ui.target = ds_list_find_value(targets, targets_index);
-					temp_target_ui.selected = false;
-					if (temp_target_ui.target == target) {
-						temp_target_ui.selected = true;
-					}
-				}
+				
 			}
 			else {
 				// Disable Command Mode
 				command = false;
 				command_lerp_time = true;
-			
-				if (ds_exists(targets, ds_type_list)) {
-					ds_list_destroy(targets);
-				}
-				instance_destroy(oTargetUI);
-				targets = -1;
-				targets_index = -1;
 			}
 		}
 		
@@ -153,88 +102,15 @@ if (canmove) {
 			// Enable Command
 			command = true;
 			command_lerp_time = true;
-			
-			// Equiped Weapon
-			var temp_weapon_distance = 264;
-			if (inventory.weapons != noone) {
-				for (var w = 0; w < ds_list_size(inventory.weapons); w++) {
-					// Find Equiped Weapon
-					var temp_weapon = ds_list_find_value(inventory.weapons, w);
-					if (temp_weapon.equip) {
-						temp_weapon_distance = max(temp_weapon_distance, temp_weapon.range);
-						break;
-					}
-				}
-			}
-			
-			// Establish Targets
-			var temp_targets = ds_list_create();
-			for (var t = 0; t < instance_number(oUnit); t++) {
-				// Check if Target is within range
-				var temp_unit = instance_find(oUnit, t);
-				if (temp_unit == self) {
-					continue;
-				}
-				else if (point_distance(x, y, temp_unit.x, temp_unit.y) < temp_weapon_distance) {
-					// Add Target to Sorting List
-					ds_list_add(temp_targets, temp_unit);
-				}
-			}
-			
-			// Sort Targets
-			targets = ds_list_create();
-			while (ds_list_size(temp_targets) > 0) {
-				var temp_nearest_unit = 0;
-				for (var q = 0; q < ds_list_size(temp_targets); q++) {
-					var temp_near_unit = ds_list_find_value(temp_targets, temp_nearest_unit);
-					var temp_near_distance = point_distance(x, y, temp_near_unit.x, temp_near_unit.y);
-					var temp_check_unit = ds_list_find_value(temp_targets, q);
-					var temp_check_distance = point_distance(x, y, temp_check_unit.x, temp_check_unit.y);
-					if (temp_check_distance <= temp_near_distance) {
-						temp_nearest_unit = q;
-					}
-				}
-				ds_list_add(targets, ds_list_find_value(temp_targets, temp_nearest_unit));
-				ds_list_delete(temp_targets, temp_nearest_unit);
-			}
-			ds_list_destroy(temp_targets);
-			ds_list_add(targets, self);
-			temp_targets = -1;
-			targets_index = 0;
-			
-			// Set Target Index to Selected Target
-			if (target != noone) {
-				for (var t = 0; t < ds_list_size(targets); t++) {
-					if (target == ds_list_find_value(targets, t)) {
-						targets_index = t;
-					}
-				}
-			}
-			
-			// Destroy Targets List if no Viable Targets
-			if (ds_list_size(targets) <= 0) {
-				ds_list_destroy(targets);
-				targets = noone;
-				target = noone;
-			}
-			else {
-				// Create Target Reticle
-				if (!instance_exists(oTargetUI)) {
-					var temp_target_ui = instance_create_layer(x, y, layers[3], oTargetUI);
-					temp_target_ui.target = ds_list_find_value(targets, targets_index);
-				}
-			}
 		}
 	}
 	
-	// Manual Aim Behaviour
+	// Aim Behaviour
+	targeting = false;
 	if (key_aim_press) {
-		target_manual = true;
+		targeting = true;
 		target_x = mouse_x;
 		target_y = mouse_y;
-	}
-	else {
-		target_manual = false;
 	}
 }
 

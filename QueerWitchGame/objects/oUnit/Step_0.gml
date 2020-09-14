@@ -165,9 +165,12 @@ draw_xscale = lerp(draw_xscale, 1, scale_reset_spd * global.deltatime);
 draw_yscale = lerp(draw_yscale, 1, scale_reset_spd * global.deltatime);
 
 if (x_velocity != 0) {
-	// Set Sprite facing direction
-	image_xscale = sign(x_velocity);	
+	if (!draw_set_xscale_manual) {
+		// Set Sprite facing direction
+		image_xscale = sign(x_velocity);
+	}
 }
+draw_set_xscale_manual = false;
 
 if (!platform_free(x, y + 1, platform_list)) {
 	// Set Unit ground Animation
@@ -178,7 +181,7 @@ if (!platform_free(x, y + 1, platform_list)) {
 		else if (canmove) {
 			sprite_index = aim_walk_animation;
 			if (!reload) {
-				if (image_xscale != sign(mouse_x - x)) {
+				if (image_xscale != sign(x_velocity)) {
 					anim_spd_sign = -1;
 				}
 			}
