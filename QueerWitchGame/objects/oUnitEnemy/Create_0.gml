@@ -9,11 +9,7 @@ addItemInventory(inventory, 7, 6);
 var temp_weapon = ds_list_find_value(inventory.weapons, 0);
 temp_weapon.equip = true;
 
-target = noone;
-
 team_id = "enemy";
-
-debug_timer = 0;
 
 // Debug
 idle_animation = sWilliamDS_Idle;

@@ -1,58 +1,16 @@
 /// @description Unit Combat Update Event
 // The combat calculations and behaviour of the Unit
 
-// Combat AI Behaviour
-if (ai_behaviour) {
-	// Reset Behaviour
-	targeting = false;
-			
-	// Targeting Enemies
-	if (sight_unit_nearest != noone) {
-		if (instance_exists(sight_unit_nearest)) {
-			// Target Valid
-			targeting = true;
-				
-			// Find Target Center
-			var temp_unit_height = sight_unit_nearest.hitbox_right_bottom_y_offset - sight_unit_nearest.hitbox_left_top_y_offset;
-			target_x = sight_unit_nearest.x;
-			target_y = sight_unit_nearest.y - (temp_unit_height / 2);
-					
-			// Valid Targeting Position
-			if (alert >= alert_threshold) {
-				if (!platform_free(x, y + 1, platform_list)) {
-					// Set Aim Behaviour
-					key_aim_press = true;
-				}
-			}
-		}
-		else {
-			sight_unit_seen = false;
-			sight_unit_nearest = noone;
-		}
-	}
-	else if (sight_unit_seen) {
-		// Get Unit Height
-		var temp_combat_unit_height = hitbox_right_bottom_y_offset - hitbox_left_top_y_offset;
-				
-		// Check Valid Distance
-		if (point_distance(x, y - (temp_combat_unit_height / 2), target_x, target_y) > (sight_radius / 2)) {
-			// Target Unit Last Seen
-			targeting = true;
-				
-			target_x = sight_unit_seen_x;
-			target_y = sight_unit_seen_y;
-		}
-	}
-}
-
 // Facing Behaviour
 if (!pathing) {
 	// Set Facing Target
 	if (targeting) {
-		if (sign(target_x - x) != 0) {
-			// Manually Set image_xscale to face target
-			image_xscale = sign(target_x - x);
-			draw_set_xscale_manual = true;
+		if (!reload) {
+			if (sign(target_x - x) != 0) {
+				// Manually Set image_xscale to face target
+				image_xscale = sign(target_x - x);
+				draw_set_xscale_manual = true;
+			}
 		}
 	}
 }
@@ -64,7 +22,7 @@ event_inherited();
 if (pathing) {
 	// Stop Targeting if walking in other Direction
 	if (targeting) {
-		if (sign(target_x - x) != x_velocity) {
+		if (sign(target_x - x) != sign(x_velocity)) {
 			targeting = false;
 		}
 	}

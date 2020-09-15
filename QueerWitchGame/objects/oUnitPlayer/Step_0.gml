@@ -26,9 +26,6 @@ if (player_input) {
 	}
 }
 
-// Reset Behaviour Variables
-//target_manual = false;
-
 // Player Unit Behaviour
 if (canmove) {
 	// Command Mode Behaviour

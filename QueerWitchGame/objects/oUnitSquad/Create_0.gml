@@ -5,7 +5,6 @@
 event_inherited();
 
 ai_behaviour = true;
-ai_behaviour_mode = "debug";
 
 addItemInventory(inventory, 5);
 addItemInventory(inventory, 7, 6);
@@ -16,10 +15,11 @@ target = noone;
 
 team_id = "player";
 
-debug_timer = 0;
-
 // Debug
-alert_spd = 1;
+alert = 1;
+alert_spd = 0;
+ai_hunt = false;
+ai_command = true;
 
 idle_animation = sWilliamDS_Idle;
 walk_animation = sWilliamDS_Run;

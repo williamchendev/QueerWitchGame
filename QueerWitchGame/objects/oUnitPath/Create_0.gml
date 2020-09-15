@@ -6,7 +6,6 @@ event_inherited();
 
 // Ai Behaviour Settings
 ai_behaviour = true;
-ai_behaviour_mode = "sentry";
 
 // Sight Settings
 sight = true;
@@ -23,8 +22,6 @@ sight_unalert_arc = 15;
 
 sight_alert_radius = 340;
 sight_alert_arc = 30;
-
-sight_interpolate = 5;
 
 // Pathfinding Settings
 path_x_delta_tolerance = 3;
@@ -43,6 +40,8 @@ sight_unit_nearest = noone;
 sight_unit_seen = false;
 sight_unit_seen_x = 0;
 sight_unit_seen_y = 0;
+
+sight_interpolate = 5;
 
 // Pathfinding Variables
 pathing = false;

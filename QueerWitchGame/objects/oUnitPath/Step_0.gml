@@ -352,7 +352,6 @@ if (sight) {
 	}
 	
 	// Set Sight Unit last seen variables
-	var temp_ambient_sight_angle = ((sign(image_xscale) * -90) + 90) + draw_angle;
 	if (sight_unit_nearest != noone) {
 		// Raise Alertness
 		alert += global.deltatime * alert_spd;
@@ -372,26 +371,26 @@ if (sight) {
 		sight_angle = point_direction(temp_sight_x, temp_sight_y, sight_unit_seen_x, sight_unit_seen_y);
 	}
 	else {
-		// Set Unit Sight Angle
+		// Alert Behaviour
 		if (sight_unit_seen) {
-			// Look At Unit Last Seen
-			sight_angle = point_direction(temp_sight_x, temp_sight_y, sight_unit_seen_x, sight_unit_seen_y);
-			
 			// Lower Alertness When Within Range
 			if (point_distance(temp_sight_x, temp_sight_y, sight_unit_seen_x, sight_unit_seen_y) <= (sight_radius / 2)) {
 				alert -= global.deltatime * alert_spd;
 			}
 		}
 		else {
-			// Ambient Sight Angle
-			sight_angle = temp_ambient_sight_angle;
-			
 			// Raise Alertness
 			alert -= global.deltatime * alert_spd;
 		}
-	}
-	if (abs(angle_difference(temp_ambient_sight_angle, sight_angle)) >= 90) {
-		sight_angle = temp_ambient_sight_angle
+		
+		// Reset Unit Last Seen
+		if (alert <= 0) {
+			sight_unit_seen = false;
+		}
+		
+		// Ambient Sight Angle
+		var temp_ambient_sight_angle = ((sign(image_xscale) * -90) + 90) + draw_angle;
+		sight_angle = temp_ambient_sight_angle;
 	}
 	alert = clamp(alert, 0, 1);
 
