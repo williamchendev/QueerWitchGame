@@ -26,7 +26,11 @@ var temp_length_b = point_distance(temp_x, temp_y, temp_node_a.x, temp_node_a.y)
 var temp_length_c = point_distance(temp_node_a.x, temp_node_a.y, temp_node_b.x, temp_node_b.y);
 
 var temp_value = (sqr(temp_length_b) + sqr(temp_length_c) - sqr(temp_length_a)) / (2 * temp_length_b * temp_length_c);
-temp_value = round(arccos(clamp(temp_value, -0.9999, 0.9999)));
+temp_value = clamp(temp_value, -0.99, 0.99);
+if (is_nan(temp_value)) {
+	temp_value = 0;
+}
+temp_value = round(arccos(temp_value));
 if (temp_value >= pi / 2) {
 	var temp_obtuse_return_array = noone;
 	temp_obtuse_return_array[0] = temp_node_a.x;

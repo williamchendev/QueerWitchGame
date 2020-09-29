@@ -68,9 +68,9 @@ if (equip) {
 }
 */
 
-// Draw the Flash
+// Draw the Attack
 draw_set_color(c_white);
-if (ds_list_size(flash_timer) > 0) {
+if (ds_list_size(flash_timer) > 0 and attack_show) {
 	// Check Shader
 	var temp_shader = shader_current();
 	if (temp_shader != -1) {
@@ -117,9 +117,6 @@ if (ds_list_size(flash_timer) > 0) {
 			shader_set(temp_shader);
 		}
 	}
-	
-	// Gun Muzzle Flash
-	//draw_sprite_ext(muzzle_flash_sprite, muzzle_flash_index, temp_muzzle_x, temp_muzzle_y, inverse_smooth_lerp(power((temp_flash_timer / flash_delay), 2)), weapon_yscale, temp_weapon_rotation, c_white, 1);
 }
 
 // Draw the Firearm

@@ -663,6 +663,14 @@
             }
         },
         {
+            "Key": "44fef93f-25c7-43a7-895e-92031daa772f",
+            "Value": {
+                "id": "98b5f1dc-9e4b-4759-829b-6588d16f9f81",
+                "resourcePath": "objects\\oUnitPlayer\\oUnitPlayer.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "4522ac04-c4e7-428a-934e-d96cc92668d1",
             "Value": {
                 "id": "b3bcfc18-d2d0-48b4-9b1d-41ea0de3d7bf",
@@ -810,7 +818,7 @@
             "Key": "57a143f2-a530-4c90-b566-2f57f5ae445a",
             "Value": {
                 "id": "863367ec-433d-4f8a-a1ba-2065ee7c18e3",
-                "resourcePath": "objects\\oUnitSquad\\oUnitSquad.yy",
+                "resourcePath": "objects\\oUnitSquadDebug\\oUnitSquadDebug.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1100,6 +1108,14 @@
                 "id": "8d43567b-243d-45c8-8933-00515006a9a2",
                 "resourcePath": "objects\\oUnitCombat\\oUnitCombat.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "75e4455b-5e8d-42a1-ab29-fa8c0d0cf3f9",
+            "Value": {
+                "id": "5301b528-01a9-4bbe-9e02-368eb9474812",
+                "resourcePath": "views\\75e4455b-5e8d-42a1-ab29-fa8c0d0cf3f9.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -1503,6 +1519,14 @@
             }
         },
         {
+            "Key": "ab36f4a1-bd39-4eb8-b691-a78de55bfee5",
+            "Value": {
+                "id": "8501b747-ca84-4462-ba88-c355d6b00f14",
+                "resourcePath": "objects\\oDoor\\oDoor.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ab478ca5-ee9c-416a-a52d-e22e4d7516ea",
             "Value": {
                 "id": "3654e26c-0485-4cc4-b23b-7479b0067969",
@@ -1815,6 +1839,14 @@
             }
         },
         {
+            "Key": "d3ea79b5-a179-4587-a624-115fb8c95887",
+            "Value": {
+                "id": "ff86180c-9984-4bff-94bb-a76d445c8f7c",
+                "resourcePath": "objects\\oSurfaceManager\\oSurfaceManager.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "d4c5108c-24c8-46f3-b172-92038827006b",
             "Value": {
                 "id": "ee8ecf42-136b-4dbb-94e0-ab3160468857",
@@ -1919,6 +1951,14 @@
             }
         },
         {
+            "Key": "df56a0c2-bd26-4008-b20e-ae04225dfa37",
+            "Value": {
+                "id": "6f95f883-619d-4708-ab3a-4024c5993f04",
+                "resourcePath": "objects\\oInteract\\oInteract.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "dfb03f7d-c2f8-4131-93ab-6e231bb013a1",
             "Value": {
                 "id": "9c592154-833c-4aec-8910-5d7b5d0870ce",
@@ -1954,7 +1994,7 @@
             "Key": "e3456b8f-3823-4f58-9f4c-63d8b3f64ae9",
             "Value": {
                 "id": "c2f016b3-840e-4665-bc3f-06c9a49da064",
-                "resourcePath": "objects\\oUnitPlayer\\oUnitPlayer.yy",
+                "resourcePath": "objects\\oUnitSquad\\oUnitSquad.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -2079,6 +2119,14 @@
             }
         },
         {
+            "Key": "ee36c7b4-109a-406b-8905-9f28d053ff9e",
+            "Value": {
+                "id": "6a0302a5-fd59-4d51-9c10-056e77f43123",
+                "resourcePath": "objects\\oUnitSelection\\oUnitSelection.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "f018591b-9c39-443d-b4b9-29195a1ac01e",
             "Value": {
                 "id": "8dd1ca90-df5a-4800-bc78-d4e35c0108f8",
@@ -2100,6 +2148,14 @@
                 "id": "280a8ace-3e71-4fca-aefa-366214c49f81",
                 "resourcePath": "objects\\oWilliamDS_Chest\\oWilliamDS_Chest.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "f36d01dc-63dd-41ea-8598-186383c87d82",
+            "Value": {
+                "id": "258d5622-78c9-409f-ae90-1ae430bcd0ee",
+                "resourcePath": "shaders\\shd_outline\\shd_outline.yy",
+                "resourceType": "GMShader"
             }
         },
         {

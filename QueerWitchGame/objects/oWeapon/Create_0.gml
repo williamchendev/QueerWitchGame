@@ -16,6 +16,9 @@ attack = false;
 equip = false;
 aiming = true;
 
+// Draw Settings
+attack_show = true;
+
 // Combat Settings
 damage = 1;
 

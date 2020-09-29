@@ -40,9 +40,8 @@ down_check = ord("S");
 left_check = ord("A");
 right_check = ord("D");
 
-select_check = ord("Z");
-cancel_check = ord("X");
-menu_check = ord("C");
+interact_check = ord("E");
+inventory_check = ord("I");
 
 command_check = vk_control;
 
@@ -60,3 +59,6 @@ camera_width = 480;
 camera_height = 270;
 camera_x = 0;
 camera_y = 0;
+
+// Surface Manager Variables
+surface_manager = noone;

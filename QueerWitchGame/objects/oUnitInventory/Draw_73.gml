@@ -84,8 +84,8 @@ else {
 	var select_xi = select_index % inventory_width;
 	var select_yi = select_index div inventory_width;
 	if (inventory[select_xi, select_yi] > 0) {
-		var temp_desc_x = ((select_index % inventory_width) * inventory_grid_size) + temp_x;
-		var temp_desc_length = (game_manager.camera_x + game_manager.camera_width) - temp_desc_x - 16;
+		//var temp_desc_x = ((select_index % inventory_width) * inventory_grid_size) + temp_x;
+		//var temp_desc_length = (game_manager.camera_x + game_manager.camera_width) - temp_desc_x - 16;
 		
 		draw_set_font(fHeartBit);
 		drawTextOutline(temp_cursor_x, temp_cursor_y_h, c_white, c_black, global.item_data[inventory[select_xi, select_yi], itemstats.name]);
