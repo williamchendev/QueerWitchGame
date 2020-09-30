@@ -133,6 +133,20 @@ if (ai_behaviour and canmove) {
 			}
 		}
 	}
+	else if (ai_follow and ai_follow_aim) {
+		// Aim & Fire Where Ai Follow Unit Aims & Fires
+		temp_aggro_behaviour_active = false;
+		if (ai_follow_unit.squad_key_aim_press) {
+			targeting = true;
+			key_aim_press = true;
+			key_fire_press = ai_follow_unit.squad_key_fire_press;
+			target_x = ai_follow_unit.cursor_x;
+			target_y = ai_follow_unit.cursor_y;
+			if (!pathing) {
+				image_xscale = ai_follow_unit.image_xscale;
+			}
+		}
+	}
 	else if (temp_target_exists) {
 		// Target Visible Movement Behaviour
 		if (pathing and ai_hunt) {

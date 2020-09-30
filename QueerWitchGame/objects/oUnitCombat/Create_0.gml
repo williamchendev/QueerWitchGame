@@ -11,6 +11,11 @@ targeting = false;
 
 target_aim_threshold = 0.85;
 
+// Squad Variables
+squad_aim = false;
+squad_key_fire_press = false;
+squad_key_aim_press = false;
+
 // Weapon Settings
 weapon_hip_x = -1;
 weapon_hip_y = -24;

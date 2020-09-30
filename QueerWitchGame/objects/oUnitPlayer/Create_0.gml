@@ -10,5 +10,5 @@ ai_behaviour = false;
 camera_follow = true;
 
 // Debug
-var temp_song = ds_list_find_value(inventory.weapons, 0);
-temp_song.equip = false;
+//var temp_song = ds_list_find_value(inventory.weapons, 0);
+//temp_song.equip = false;

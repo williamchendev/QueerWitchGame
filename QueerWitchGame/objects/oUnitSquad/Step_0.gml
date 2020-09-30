@@ -16,9 +16,8 @@ if (player_input) {
 		
 		key_interact_press = keyboard_check_pressed(game_manager.interact_check);
 		key_inventory_press = keyboard_check_pressed(game_manager.inventory_check);
-		key_order_press = mouse_check_button_pressed(mb_right);
 		
-		key_fire_press = mouse_check_button_pressed(mb_left);
+		key_fire_press = mouse_check_button(mb_left);
 		key_aim_press = mouse_check_button(mb_right);
 		key_reload_press = keyboard_check_pressed(game_manager.reload_check);
 		
@@ -29,38 +28,53 @@ if (player_input) {
 	}
 }
 else {
-	// Physics & Combat & Unit Behaviour Inheritance
-	event_inherited();
-	
-	// Set Squad Unit Outline
+	// Squad Behaviour
+	var temp_ai_follow_valid = false;
 	if (ai_behaviour) {
 		if (ai_follow) {
 			if (ai_follow_unit != noone) {
 				if (instance_exists(ai_follow_unit)) {
-					// Set Unit to have Squad Outline
-					if (is_undefined(ds_map_find_value(game_manager.surface_manager.units_outline, self))) {
-						ds_map_add(game_manager.surface_manager.units_outline, self, squad_outline_color);
-					}
-					else if (ds_map_find_value(game_manager.surface_manager.units_outline, self) != c_white) {
-						ds_map_replace(game_manager.surface_manager.units_outline, self, squad_outline_color);
-					}
-					// Set Following Unit to have Squad Outline
-					if (is_undefined(ds_map_find_value(game_manager.surface_manager.units_outline, ai_follow_unit))) {
-						ds_map_add(game_manager.surface_manager.units_outline, ai_follow_unit, squad_outline_color);
-					}
-					else if (ds_map_find_value(game_manager.surface_manager.units_outline, ai_follow_unit) != c_white) {
-						ds_map_replace(game_manager.surface_manager.units_outline, ai_follow_unit, squad_outline_color);
+					// Squad Unit is Valid & Exists
+					temp_ai_follow_valid = true;
+					
+					// Squad Unit is Player
+					if (ai_follow_unit.player_input) {
+						squad_aim = true;
 					}
 				}
 			}
 		}
 	}
 	
+	// Physics & Combat & Unit Behaviour Inheritance
+	event_inherited();
+	
+	// Set Squad Unit Outline
+	if (temp_ai_follow_valid) {		
+		// Set Unit to have Squad Outline
+		if (is_undefined(ds_map_find_value(game_manager.surface_manager.units_outline, self))) {
+			ds_map_add(game_manager.surface_manager.units_outline, self, squad_outline_color);
+		}
+		else if (ds_map_find_value(game_manager.surface_manager.units_outline, self) != c_white) {
+			ds_map_replace(game_manager.surface_manager.units_outline, self, squad_outline_color);
+		}
+		// Set Following Unit to have Squad Outline
+		if (is_undefined(ds_map_find_value(game_manager.surface_manager.units_outline, ai_follow_unit))) {
+			ds_map_add(game_manager.surface_manager.units_outline, ai_follow_unit, squad_outline_color);
+		}
+		else if (ds_map_find_value(game_manager.surface_manager.units_outline, ai_follow_unit) != c_white) {
+			ds_map_replace(game_manager.surface_manager.units_outline, ai_follow_unit, squad_outline_color);
+		}
+	}
+	squad_aim = false;
+	
 	// End Event
 	return;
 }
 
 // Player Unit Behaviour
+var temp_fire_press = key_fire_press;
+var temp_aim_press = key_aim_press;
 if (canmove) {
 	// Command Mode Behaviour
 	if (command) {
@@ -88,8 +102,8 @@ if (canmove) {
 				var temp_hitbox_p2_y = temp_unit_squad.y + temp_unit_squad.hitbox_right_bottom_y_offset + unit_select_hitbox_offset;
 					
 				if (point_in_rectangle(cursor_x, cursor_y, temp_hitbox_p1_x, temp_hitbox_p1_y, temp_hitbox_p2_x, temp_hitbox_p2_y)) {
-					if (key_order_press) {
-						if (unit_select != noone) {
+					if (key_aim_press and !old_aim_press) {
+						if (unit_select != noone and unit_select != temp_unit_squad) {
 							with (unit_select) {
 								path_create = true;
 								path_end_x = temp_unit_squad.x;
@@ -101,10 +115,10 @@ if (canmove) {
 								ai_follow_combat_timer = 0;
 							}
 							unit_select = noone;
-							key_order_press = false;
+							key_aim_press = false;
 						}
 					}
-					else if (key_fire_press) {
+					else if (key_fire_press and !old_fire_press) {
 						if (temp_unit_squad != self) {
 							unit_select = temp_unit_squad;
 							key_fire_press = false;
@@ -119,12 +133,12 @@ if (canmove) {
 			}
 			
 			// Deselect Unit
-			if (key_fire_press) {
+			if (key_fire_press and !old_fire_press) {
 				unit_select = noone;
 			}
 			
 			// Move Unit
-			if (key_order_press) {
+			if (key_aim_press and !old_aim_press) {
 				if (unit_select != noone) {
 					with (unit_select) {
 						path_create = true;
@@ -257,3 +271,7 @@ if (command_time) {
 	command_time = false;
 	global.deltatime = global.deltatime / command_time_mod;
 }
+
+// Old Click
+old_fire_press = temp_fire_press;
+old_aim_press = temp_aim_press;

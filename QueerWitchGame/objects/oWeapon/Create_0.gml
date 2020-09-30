@@ -15,6 +15,7 @@ weapon_yscale = 1;
 attack = false;
 equip = false;
 aiming = true;
+click = false;
 
 // Draw Settings
 attack_show = true;
@@ -24,3 +25,4 @@ damage = 1;
 
 // Behaviour Variables
 aim = 0;
+click_old = false;

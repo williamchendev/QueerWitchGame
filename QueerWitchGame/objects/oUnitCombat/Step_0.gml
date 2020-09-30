@@ -60,14 +60,22 @@ if (temp_weapon != noone) {
 	if (ai_behaviour) {
 		// Reloading
 		if (temp_weapon.bullets <= 0) {
+			key_fire_press = false;
 			key_reload_press = true;
 		}
-		else {
+		else if (!squad_aim) {
 			// Check Aiming
 			if (key_aim_press) {
-				// Compare Aim Threshold
-				if (temp_weapon.aim > target_aim_threshold) {
-					// Attack
+				// Types of Ai Aiming Behaviour
+				if (temp_weapon.click) {
+					// Compare Aim Threshold
+					if (temp_weapon.aim > target_aim_threshold) {
+						// Click Attack
+						key_fire_press = true;
+					}
+				}
+				else {
+					// Hold Attack
 					key_fire_press = true;
 				}
 			}
@@ -223,6 +231,7 @@ if (temp_weapon != noone) {
 		temp_weapon_y = weapon_aim_y;
 	}
 		
+	var temp_limb_run_move_offset_x = 0;
 	var temp_limb_aim_move_offset_x = 0;
 	var temp_limb_aim_offset_y = 0;
 	if (key_aim_press) {
@@ -231,15 +240,20 @@ if (temp_weapon != noone) {
 			temp_limb_aim_move_offset_x = sign(x_velocity) * limb_aim_move_offset_x;
 		}
 	}
+	else {
+		if (x_velocity != 0) {
+			temp_limb_run_move_offset_x = (sign(x_velocity) * (spd - 1));
+		}
+	}
 		
 	weapon_x = lerp(weapon_x, temp_weapon_x, temp_weapon.lerp_spd * global.deltatime);
 	weapon_y = lerp(weapon_y, temp_weapon_y, temp_weapon.lerp_spd * global.deltatime);
 		
 	var temp_weapon_distance = point_distance(0, 0, (draw_xscale * image_xscale * weapon_x), (draw_yscale * image_yscale * weapon_y));
 	var temp_weapon_direction = point_direction(0, 0, (draw_xscale * image_xscale * weapon_x), (draw_yscale * image_yscale * weapon_y));
-	temp_weapon.x_position = x + lengthdir_x(temp_weapon_distance, temp_weapon_direction + draw_angle) - temp_limb_aim_move_offset_x;
+	temp_weapon.x_position = (x + lengthdir_x(temp_weapon_distance, temp_weapon_direction + draw_angle) - temp_limb_aim_move_offset_x) + temp_limb_run_move_offset_x;
 	temp_weapon.y_position = y + lengthdir_y(temp_weapon_distance, temp_weapon_direction + draw_angle);
-		
+	
 	// Establish Arm Variables
 	var temp_arm_direction = 0;
 	if (sign(image_xscale) < 0) {
@@ -264,7 +278,7 @@ if (temp_weapon != noone) {
 		
 	var temp_limb_distance = point_distance(0, 0, temp_weapon.arm_x[0], temp_weapon.arm_y[0] * sign(image_xscale));
 	var temp_limb_direction = point_direction(0, 0, temp_weapon.arm_x[0], temp_weapon.arm_y[0] * sign(image_xscale));
-	limb[0].limb_target_x = temp_weapon.x + temp_weapon.recoil_offset_x + lengthdir_x(temp_limb_distance, temp_limb_direction + temp_weapon.weapon_rotation + temp_weapon.recoil_angle_shift);
+	limb[0].limb_target_x = temp_weapon.x + temp_weapon.recoil_offset_x + lengthdir_x(temp_limb_distance, temp_limb_direction + temp_weapon.weapon_rotation + temp_weapon.recoil_angle_shift) + temp_limb_run_move_offset_x;
 	limb[0].limb_target_y = temp_weapon.y + temp_weapon.recoil_offset_y + lengthdir_y(temp_limb_distance, temp_limb_direction + temp_weapon.weapon_rotation + temp_weapon.recoil_angle_shift);
 		
 	if (action != noone) {
@@ -284,10 +298,9 @@ if (temp_weapon != noone) {
 			
 		var temp_limb_distance = point_distance(0, 0, temp_weapon.arm_x[1], temp_weapon.arm_y[1] * sign(image_xscale));
 		var temp_limb_direction = point_direction(0, 0, temp_weapon.arm_x[1], temp_weapon.arm_y[1] * sign(image_xscale));
-		
 			
 		if (temp_weapon.double_handed) {
-			limb[1].limb_target_x = temp_weapon.x + temp_weapon.recoil_offset_x + lengthdir_x(temp_limb_distance, temp_limb_direction + temp_weapon.weapon_rotation + temp_weapon.recoil_angle_shift);
+			limb[1].limb_target_x = temp_weapon.x + temp_weapon.recoil_offset_x + lengthdir_x(temp_limb_distance, temp_limb_direction + temp_weapon.weapon_rotation + temp_weapon.recoil_angle_shift) + temp_limb_run_move_offset_x;
 			limb[1].limb_target_y = temp_weapon.y + temp_weapon.recoil_offset_y + lengthdir_y(temp_limb_distance, temp_limb_direction + temp_weapon.weapon_rotation + temp_weapon.recoil_angle_shift);
 		}
 		else {
@@ -299,6 +312,9 @@ if (temp_weapon != noone) {
 }
 
 // Reset Combat Action Variables
+squad_key_fire_press = key_fire_press;
+squad_key_aim_press = key_aim_press;
+
 key_fire_press = false;
 key_aim_press = false;
 key_reload_press = false;

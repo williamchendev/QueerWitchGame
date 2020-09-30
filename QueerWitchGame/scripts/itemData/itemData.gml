@@ -112,3 +112,14 @@ global.item_data[7, itemstats.height_space] = 1;
 global.item_data[7, itemstats.stack_limit] = 2;
 global.item_data[7, itemstats.type] = itemtypes.ammo;
 global.item_data[7, itemstats.type_index] = 0;
+
+// M3 Grease Gun
+global.item_data[8, itemstats.name] = "M3 Grease Gun";
+global.item_data[8, itemstats.description] = "Shitty foreign sub machine gun";
+global.item_data[8, itemstats.sprite_index] = sItems6x2;
+global.item_data[8, itemstats.image_index] = 2;
+global.item_data[8, itemstats.width_space] = 6;
+global.item_data[8, itemstats.height_space] = 2;
+global.item_data[8, itemstats.stack_limit] = 1;
+global.item_data[8, itemstats.type] = itemtypes.weapon;
+global.item_data[8, itemstats.type_index] = 3;

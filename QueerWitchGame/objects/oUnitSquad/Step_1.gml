@@ -86,9 +86,10 @@ if (camera_follow) {
 	cam_target_x = clamp(cam_target_x, x + camera_horizontal_spacing - game_manager.camera_width, x - camera_horizontal_spacing);
 	cam_target_y = clamp(cam_target_y, y + camera_vertical_spacing - game_manager.camera_height, y - camera_vertical_spacing);
 	
-	// Set Camera Position
-	camera_set_view_pos(camera, cam_target_x, cam_target_y);
-	
+	// Save Camera Position
 	camera_x = cam_target_x;
 	camera_y = cam_target_y;
+	
+	// Set Camera Position
+	camera_set_view_pos(camera, cam_target_x, cam_target_y);
 }

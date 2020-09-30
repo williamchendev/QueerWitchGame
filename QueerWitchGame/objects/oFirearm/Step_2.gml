@@ -26,9 +26,24 @@ if (attack) {
 	attack = false;
 	
 	if (bullets > 0) {
-		bursts = min(max(burst, 1), bullets);
+		if (click) {
+			bursts = min(max(burst, 1), bullets);
+			bursts_timer = 0;
+			bullets -= bursts;
+		}
+		else {
+			bursts_timer -= global.deltatime;
+			if (bursts_timer <= 0) {
+				bursts = min(max(burst, 1), bullets);
+				bursts_timer = 0;
+				bullets -= bursts;
+			}
+		}
+	}
+}
+else {
+	if (!click) {
 		bursts_timer = 0;
-		bullets -= bursts;
 	}
 }
 

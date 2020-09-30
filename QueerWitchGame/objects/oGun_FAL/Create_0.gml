@@ -46,6 +46,8 @@ recoil_direction = 6;
 recoil_delay = 8;
 recoil_clamp = 8;
 
+click = true;
+
 // Aiming Settings
 sniper = false;
 

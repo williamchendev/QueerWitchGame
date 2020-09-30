@@ -367,6 +367,14 @@
             }
         },
         {
+            "Key": "2fa2db4c-8d4b-496d-b5f9-6edad3de824b",
+            "Value": {
+                "id": "26f023a8-aeb2-40f5-871f-26fd09c056e6",
+                "resourcePath": "sprites\\sGreaseGun\\sGreaseGun.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "308f564e-803f-4e3e-b814-f48a12d4f758",
             "Value": {
                 "id": "19ce4ebc-bc6e-4f54-a388-b024955ec5cb",
@@ -380,6 +388,14 @@
                 "id": "89c91d4e-9c5d-4899-b229-4bae2557b0d2",
                 "resourcePath": "objects\\oUnitAI\\oUnitAI.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "310ebc95-cac0-44ce-b362-65148e5e18ad",
+            "Value": {
+                "id": "77f46d8e-1e8f-4d99-b124-045271eaa8cf",
+                "resourcePath": "scripts\\raycast_line_debug\\raycast_line_debug.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -516,6 +532,14 @@
                 "id": "5f399c6d-51e1-4c9b-8e48-3b6cf4ec0f45",
                 "resourcePath": "objects\\oKnockout\\oKnockout.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "388dc455-e1c2-4991-bd0f-07e75f55d122",
+            "Value": {
+                "id": "7ef0f442-d5d5-4161-a3b1-eaab2df4251f",
+                "resourcePath": "sprites\\sGreaseGun1\\sGreaseGun1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -911,6 +935,14 @@
             }
         },
         {
+            "Key": "6182ad8f-ff31-46fb-85e2-0efdd04cd7c9",
+            "Value": {
+                "id": "7009aac4-6a09-4630-9742-e2694919b67e",
+                "resourcePath": "objects\\oGun_M3_Mag\\oGun_M3_Mag.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "63e2dda2-8381-4f9a-ae2a-271945fd373d",
             "Value": {
                 "id": "de9c395e-d7cb-4797-91b4-2c6b05329c19",
@@ -972,6 +1004,14 @@
                 "id": "62fa3349-00e0-4eb9-ac10-14c04f2fc11c",
                 "resourcePath": "objects\\oEditor\\oEditor.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "6991ec70-661e-4ab4-8d49-cef345a7030e",
+            "Value": {
+                "id": "067a266e-81ff-45d3-8f07-c4c9b78ce4a1",
+                "resourcePath": "views\\6991ec70-661e-4ab4-8d49-cef345a7030e.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -1247,6 +1287,14 @@
             }
         },
         {
+            "Key": "861967fc-3423-4f00-844e-02ffd153f6ca",
+            "Value": {
+                "id": "10c45de8-68d7-4133-94b8-428153ba87b9",
+                "resourcePath": "objects\\oGun_M3\\oGun_M3.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "864236af-6270-4abf-9217-29948b37c0a0",
             "Value": {
                 "id": "e4225b4a-dd78-4b41-ab08-0870f8166b8c",
@@ -1372,6 +1420,14 @@
                 "id": "309a328b-3424-44eb-b982-3dd3277b7f4a",
                 "resourcePath": "scripts\\debugInventoryPopulationFill\\debugInventoryPopulationFill.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "94485295-a0f6-4e0c-9aaf-ccd8f5289de2",
+            "Value": {
+                "id": "30678e24-4c92-4496-aa38-6c59825ae64e",
+                "resourcePath": "sprites\\sGreaseGun_Magazine\\sGreaseGun_Magazine.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2303,6 +2359,14 @@
             }
         },
         {
+            "Key": "fcf9809c-f4e3-457b-8008-9a511c3d2739",
+            "Value": {
+                "id": "7f1391f0-67e4-4a35-a10c-cc5a91b3de90",
+                "resourcePath": "views\\fcf9809c-f4e3-457b-8008-9a511c3d2739.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "feaa8645-e987-4b3e-81b3-c70ce7e7477e",
             "Value": {
                 "id": "de3842c2-c3ea-495b-8999-38b025e35f53",
@@ -2374,7 +2438,8 @@
         "e3eb4f29-c3cc-435d-9cff-ad2dfcea7794",
         "4639cae7-35f6-4900-be1a-8094250b9999",
         "fabd2941-154a-45d7-b68f-3ce45f7c0660",
-        "192c1d3a-ee15-45b7-87f9-6ac78bdc2b7c"
+        "192c1d3a-ee15-45b7-87f9-6ac78bdc2b7c",
+        "310ebc95-cac0-44ce-b362-65148e5e18ad"
     ],
     "tutorial": ""
 }

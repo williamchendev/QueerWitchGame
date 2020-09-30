@@ -11,7 +11,7 @@ jump_animation = sWilliamDS_Jump;
 
 knockout = true;
 
-squad_outline_color = c_yellow;
+squad_outline_color = make_color_rgb(212, 175, 55);
 
 // Command Settings
 command = false;
@@ -31,6 +31,10 @@ unit_select_hitbox_offset = 8;
 ai_behaviour = true;
 ai_command = true;
 ai_hunt = false;
+ai_follow_aim = true;
+
+alert = 1;
+alert_spd = 0;
 
 // Combat Settings
 health_points = 3;
@@ -61,12 +65,15 @@ camera_vertical_spacing = 64;
 cursor_x = 0;
 cursor_y = 0;
 
+old_fire_press = false;
+old_aim_press = false;
+
 // Debug
 var temp_camera = view_camera[0];
 camera_x = camera_get_view_x(temp_camera);
 camera_y = camera_get_view_y(temp_camera);
 
-addItemInventory(inventory, 5);
+addItemInventory(inventory, 8);
 addItemInventory(inventory, 7, 6);
 var temp_weapon = ds_list_find_value(inventory.weapons, 0);
 temp_weapon.equip = true;

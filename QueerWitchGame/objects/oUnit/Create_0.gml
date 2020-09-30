@@ -128,7 +128,6 @@ key_down_press = false;
 
 key_interact_press = false;
 key_inventory_press = false;
-key_order_press = false;
 
 key_fire_press = false;
 key_aim_press = false;
