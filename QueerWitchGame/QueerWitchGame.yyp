@@ -151,6 +151,14 @@
             }
         },
         {
+            "Key": "0c930bcd-a067-4903-a3df-c4ff526daee7",
+            "Value": {
+                "id": "2279bdbe-3a33-4318-93dc-052ee8e0899a",
+                "resourcePath": "views\\0c930bcd-a067-4903-a3df-c4ff526daee7.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "0e8854b3-d0b9-4601-83f1-ffd4a539f6fc",
             "Value": {
                 "id": "cd76b889-786f-4a0f-9061-c519506e8d11",
@@ -394,7 +402,7 @@
             "Key": "310ebc95-cac0-44ce-b362-65148e5e18ad",
             "Value": {
                 "id": "77f46d8e-1e8f-4d99-b124-045271eaa8cf",
-                "resourcePath": "scripts\\raycast_line_debug\\raycast_line_debug.yy",
+                "resourcePath": "scripts\\raycast_combat_line\\raycast_combat_line.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -604,6 +612,14 @@
                 "id": "4fdfa4a1-4a58-4d8a-b9f1-49c091c1b187",
                 "resourcePath": "sprites\\sWill_Arms\\sWill_Arms.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3e77bb22-3853-42b0-838a-35194d3b5b2e",
+            "Value": {
+                "id": "4298e5d2-e304-429f-b0b1-ef79a2e45379",
+                "resourcePath": "views\\3e77bb22-3853-42b0-838a-35194d3b5b2e.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -843,6 +859,14 @@
             "Value": {
                 "id": "863367ec-433d-4f8a-a1ba-2065ee7c18e3",
                 "resourcePath": "objects\\oUnitSquadDebug\\oUnitSquadDebug.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "582c74e3-a395-4296-b48a-9441a6e31984",
+            "Value": {
+                "id": "7f4e9578-2c86-4144-987e-b8f53326a383",
+                "resourcePath": "objects\\oGun_Shotgun\\oGun_Shotgun.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1139,6 +1163,14 @@
             "Value": {
                 "id": "c9415f22-e3ff-49cf-a5ed-4e838be23c3e",
                 "resourcePath": "sprites\\sEditorFolder\\sEditorFolder.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "754e8f0f-e51a-4ae3-98de-1ed582b6805a",
+            "Value": {
+                "id": "22b288a0-9342-49fc-a939-cb20406ddc00",
+                "resourcePath": "sprites\\sShotgun\\sShotgun.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2438,8 +2470,8 @@
         "e3eb4f29-c3cc-435d-9cff-ad2dfcea7794",
         "4639cae7-35f6-4900-be1a-8094250b9999",
         "fabd2941-154a-45d7-b68f-3ce45f7c0660",
-        "192c1d3a-ee15-45b7-87f9-6ac78bdc2b7c",
-        "310ebc95-cac0-44ce-b362-65148e5e18ad"
+        "310ebc95-cac0-44ce-b362-65148e5e18ad",
+        "192c1d3a-ee15-45b7-87f9-6ac78bdc2b7c"
     ],
     "tutorial": ""
 }

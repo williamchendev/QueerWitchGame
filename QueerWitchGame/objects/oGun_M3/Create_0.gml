@@ -63,6 +63,10 @@ click = false;
 // Aiming Settings
 sniper = true;
 
-range = 1000;
 accuracy = 30;
 accuracy_peak = 20;
+
+close_range_hit_chance = 1.0;
+mid_range_hit_chance = 0.80;
+far_range_hit_chance = 0.20;
+sniper_range_hit_chance = 0.05;

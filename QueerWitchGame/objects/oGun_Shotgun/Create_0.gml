@@ -1,13 +1,13 @@
-/// @description M14 Init
+/// @description Shotgun Init
 
 // Inherit the parent event
 event_inherited();
 
 // Sprite Settings
-weapon_sprite = sMarinda308;
+weapon_sprite = sShotgun;
 
 // Bullet Settings
-projectiles = 1;
+projectiles = 5;
 
 burst = 0;
 burst_delay = 0.1;
@@ -15,11 +15,11 @@ burst_delay = 0.1;
 flash_delay = 7;
 
 // Position Settings
-muzzle_x = 28;
+muzzle_x = 23;
 muzzle_y = -2;
 
-reload_x = 6;
-reload_y = 0;
+reload_x = 7;
+reload_y = 1;
 
 reload_offset_y = 6;
 
@@ -29,38 +29,38 @@ magazine_obj = oGun_M14_Mag;
 // Arm Settings
 double_handed = true;
 
-arm_x[0] = 2;
-arm_y[0] = 1;
+arm_x[0] = 4;
+arm_y[0] = 2;
 
-arm_x[1] = 16;
-arm_y[1] = 0;
+arm_x[1] = 14;
+arm_y[1] = 1;
 
 // Bullet Case Settings
 case_sprite = s308Case;
-case_eject_x = 1;
+case_eject_x = 8;
 case_eject_y = -1;
 case_direction = 30;
 
 // Behaviour Settings
 aim_spd = 0.04;
-lerp_spd = 0.12;
+lerp_spd = 0.1;
 angle_adjust_spd = 0.1;
 
-recoil_spd = 0.66;
-recoil_angle = 8;
-recoil_direction = 6;
-recoil_delay = 4.6;
-recoil_clamp = 6;
+recoil_spd = 2.5;
+recoil_angle = 14;
+recoil_direction = 15;
+recoil_delay = 7;
+recoil_clamp = 7;
 
 click = true;
 
 // Aiming Settings
 sniper = true;
 
-accuracy = 10;
-accuracy_peak = 1;
+accuracy = 30;
+accuracy_peak = 30;
 
 close_range_hit_chance = 1.0;
-mid_range_hit_chance = 1.0;
-far_range_hit_chance = 1.0;
-sniper_range_hit_chance = 1.0;
+mid_range_hit_chance = 0.80;
+far_range_hit_chance = 0.10;
+sniper_range_hit_chance = 0.02;

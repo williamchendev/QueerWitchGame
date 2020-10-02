@@ -79,8 +79,8 @@ if (camera_follow) {
 	var cam_x = camera_x;
 	var cam_y = camera_y;
 	
-	var cam_target_x = lerp(cam_x, target_pos_x - (cam_width / 2), camera_follow_spd);
-	var cam_target_y = lerp(cam_y, target_pos_y - (cam_height / 2) + camera_y_offset, camera_follow_spd);
+	var cam_target_x = lerp(cam_x, target_pos_x - (cam_width / 2), camera_follow_spd * global.realdeltatime);
+	var cam_target_y = lerp(cam_y, target_pos_y - (cam_height / 2) + camera_y_offset, camera_follow_spd * global.realdeltatime);
 	
 	// Clamp Player Spacing
 	cam_target_x = clamp(cam_target_x, x + camera_horizontal_spacing - game_manager.camera_width, x - camera_horizontal_spacing);

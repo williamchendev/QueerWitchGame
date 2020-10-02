@@ -73,7 +73,7 @@ var temp_camera = view_camera[0];
 camera_x = camera_get_view_x(temp_camera);
 camera_y = camera_get_view_y(temp_camera);
 
-addItemInventory(inventory, 8);
+addItemInventory(inventory, 9);
 addItemInventory(inventory, 7, 6);
 var temp_weapon = ds_list_find_value(inventory.weapons, 0);
 temp_weapon.equip = true;

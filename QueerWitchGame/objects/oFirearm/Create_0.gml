@@ -10,6 +10,10 @@ weapon_ammo_id = 7;
 bullets = 0;
 bullets_max = 5;
 
+close_range_radius = 100;
+mid_range_radius = 220;
+far_range_radius = 400;
+
 // Sprite Settings
 weapon_sprite = sMarinda308;
 case_sprite = s308Case;
@@ -67,9 +71,14 @@ click = true;
 // Aiming Settings
 sniper = true;
 
-range = 1000;
+range = 800;
 accuracy = 120;
 accuracy_peak = 0.1;
+
+close_range_hit_chance = 1.0;
+mid_range_hit_chance = 1.0;
+far_range_hit_chance = 1.0;
+sniper_range_hit_chance = 1.0;
 
 // Firearm Variables
 x_position = x;
@@ -92,8 +101,6 @@ bullet_cases = 0;
 ignore_id = "unassigned";
 
 // Draw Variables
-//muzzle_flash_index = 0;
-
 flash_timer = ds_list_create();
 flash_length = ds_list_create();
 flash_direction = ds_list_create();
@@ -107,3 +114,8 @@ hit_effect_offset = 0;
 hit_effect_xscale = 1;
 hit_effect_yscale = 1;
 hit_effect_sign = 1;
+
+// Collider Variables
+collider_array_hit = noone;
+collider_array_hit[0] = oUnit;
+collider_array_hit[1] = oMaterial;

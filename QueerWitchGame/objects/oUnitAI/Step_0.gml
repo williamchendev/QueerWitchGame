@@ -142,9 +142,6 @@ if (ai_behaviour and canmove) {
 			key_fire_press = ai_follow_unit.squad_key_fire_press;
 			target_x = ai_follow_unit.cursor_x;
 			target_y = ai_follow_unit.cursor_y;
-			if (!pathing) {
-				image_xscale = ai_follow_unit.image_xscale;
-			}
 		}
 	}
 	else if (temp_target_exists) {

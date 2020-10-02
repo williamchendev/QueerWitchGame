@@ -26,3 +26,6 @@ damage = 1;
 // Behaviour Variables
 aim = 0;
 click_old = false;
+
+// Debug Settings
+draw_debug = false;

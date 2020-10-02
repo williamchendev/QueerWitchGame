@@ -123,3 +123,14 @@ global.item_data[8, itemstats.height_space] = 2;
 global.item_data[8, itemstats.stack_limit] = 1;
 global.item_data[8, itemstats.type] = itemtypes.weapon;
 global.item_data[8, itemstats.type_index] = 3;
+
+// M3 Grease Gun
+global.item_data[9, itemstats.name] = "Trench Gun";
+global.item_data[9, itemstats.description] = "Shitty foreign shotgun";
+global.item_data[9, itemstats.sprite_index] = sItems6x2;
+global.item_data[9, itemstats.image_index] = 2;
+global.item_data[9, itemstats.width_space] = 6;
+global.item_data[9, itemstats.height_space] = 2;
+global.item_data[9, itemstats.stack_limit] = 1;
+global.item_data[9, itemstats.type] = itemtypes.weapon;
+global.item_data[9, itemstats.type_index] = 4;

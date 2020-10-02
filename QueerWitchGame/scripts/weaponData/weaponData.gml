@@ -44,3 +44,10 @@ global.weapon_data[3, weaponstats.image_index] = 5;
 global.weapon_data[3, weaponstats.object] = oGun_M3;
 global.weapon_data[3, weaponstats.type] = weapontype.firearm;
 global.weapon_data[3, weaponstats.ammo] = 7;
+
+// M3
+global.weapon_data[4, weaponstats.action_title] = "Trench Gun";
+global.weapon_data[4, weaponstats.image_index] = 5;
+global.weapon_data[4, weaponstats.object] = oGun_Shotgun;
+global.weapon_data[4, weaponstats.type] = weapontype.firearm;
+global.weapon_data[4, weaponstats.ammo] = 7;
