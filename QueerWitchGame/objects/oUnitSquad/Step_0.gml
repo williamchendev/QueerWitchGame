@@ -72,6 +72,11 @@ else {
 	return;
 }
 
+// Reset Interact Section
+with (oInteract) {
+	interact_select = false;
+}
+
 // Player Unit Behaviour
 var temp_fire_press = key_fire_press;
 var temp_aim_press = key_aim_press;
@@ -227,7 +232,7 @@ if (canmove) {
 				
 				// Disable Unit Select Surface
 				if (instance_exists(game_manager)) {
-					game_manager.surface_manager.calc_overlay = false;
+					game_manager.surface_manager.calc_unit_overlay = false;
 				}
 			}
 		}
@@ -248,7 +253,19 @@ if (canmove) {
 			
 			// Enable Unit Select Surface
 			if (instance_exists(game_manager)) {
-				game_manager.surface_manager.calc_overlay = true;
+				game_manager.surface_manager.calc_unit_overlay = true;
+			}
+		}
+		
+		// Interact Behaviour
+		if (interact_collision_list != noone) {
+			// Interate Through Interact Objects
+			for (var q = 0; q < array_length_1d(interact_collision_list); q++) {
+				// Cursor Hover
+				if (position_meeting(cursor_x, cursor_y, interact_collision_list[q])) {
+					interact_collision_list[q].interact_select = true;
+					break;
+				}
 			}
 		}
 	}

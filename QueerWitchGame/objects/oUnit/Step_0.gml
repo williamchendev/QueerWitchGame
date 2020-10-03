@@ -278,6 +278,20 @@ hitbox_right_bottom_x_offset = max(temp_left_top_x_offset, temp_right_top_x_offs
 hitbox_left_top_y_offset = min(temp_left_top_y_offset, temp_right_top_y_offset, temp_right_bottom_y_offset, temp_left_bottom_y_offset);
 hitbox_right_bottom_y_offset = max(temp_left_top_y_offset, temp_right_top_y_offset, temp_right_bottom_y_offset, temp_left_bottom_y_offset);	
 
+// Interact Behaviour
+interact_collision_list = noone;
+if (canmove and interact_active) {
+	var temp_interact_list = ds_list_create();
+	var temp_interact_number = collision_rectangle_list(x + hitbox_left_top_x_offset - interact_reach, y + hitbox_left_top_y_offset - interact_reach, x + hitbox_right_bottom_x_offset + interact_reach, y + hitbox_right_bottom_y_offset + interact_reach, oInteract, false, true, temp_interact_list, true);
+	for (var i = 0; i < temp_interact_number; i++) {
+		var temp_interact_object = ds_list_find_value(temp_interact_list, i);
+		if (temp_interact_object.active and temp_interact_object.interact_unit == noone) {
+			interact_collision_list[i] = temp_interact_object;
+		}
+	}
+	ds_list_destroy(temp_interact_list);
+}
+
 // Death & Ragdoll
 if (health_points <= 0) {
 	sprite_index = hurt_animation;

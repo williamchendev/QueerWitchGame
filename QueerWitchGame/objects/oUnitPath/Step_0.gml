@@ -242,16 +242,16 @@ while (temp_pathfind_active) {
 	break;
 }
 
-// Interact Behaviour
-var temp_interact_list = ds_list_create();
-var temp_interact_number = instance_place_list(x, y, oInteract, temp_interact_list, false);
-for (var i = 0; i < temp_interact_number; i++) {
-	
-}
-ds_list_destroy(temp_interact_list);
-
 // Unit Physics & Behaviour Event
 event_inherited();
+
+// Interact Behaviour
+if (interact_collision_list != noone) {
+	// Interate Through Interact Objects
+	for (var q = 0; q < array_length_1d(interact_collision_list); q++) {
+		
+	}
+}
 
 // Sight Behaviour
 sight_unit_num = 0;
@@ -418,7 +418,3 @@ key_up_press = false;
 key_down_press = false;
 
 key_interact_press = false;
-
-key_select_press = false;
-key_cancel_press = false;
-key_menu_press = false;

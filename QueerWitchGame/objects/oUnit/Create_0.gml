@@ -115,6 +115,11 @@ hitbox_left_top_y_offset = 0;
 hitbox_right_bottom_x_offset = 0;
 hitbox_right_bottom_y_offset = 0;
 
+// Interact Variables
+interact_active = true;
+interact_reach = 16;
+interact_collision_list = noone;
+
 // Input Variables
 key_left = false;
 key_right = false;

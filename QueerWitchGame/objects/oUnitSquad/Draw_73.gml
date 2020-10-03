@@ -31,9 +31,18 @@ if (canmove and player_input) {
 		
 		// Draw Unit Select Overlay
 		if (!inventory_show and command) {
+			// Draw Unit Outlines Overlay
+			if (instance_exists(game_manager)) {
+				if (surface_exists(game_manager.surface_manager.unit_outline_overlay_surface)) {
+					draw_surface(game_manager.surface_manager.unit_outline_overlay_surface, game_manager.surface_manager.draw_x, game_manager.surface_manager.draw_y);
+				}
+			}
+			
 			// Draw Unit Select Cursor
 			if (unit_select_hover != noone) {
 				with (unit_select_hover) {
+					var temp_health_show = health_show;
+					health_show = false;
 					for (var l = 0; l < array_length_1d(layers); l++) {
 						// Find Layer Elements
 						var temp_layer_elements = layer_get_all_elements(layers[l]);
@@ -48,13 +57,7 @@ if (canmove and player_input) {
 						    }
 						}
 					}
-				}
-			}
-			
-			// Draw Unit Outlines Overlay
-			if (instance_exists(game_manager)) {
-				if (surface_exists(game_manager.surface_manager.unit_outline_overlay_surface)) {
-					draw_surface(game_manager.surface_manager.unit_outline_overlay_surface, game_manager.surface_manager.draw_x, game_manager.surface_manager.draw_y);
+					health_show = temp_health_show;
 				}
 			}
 			

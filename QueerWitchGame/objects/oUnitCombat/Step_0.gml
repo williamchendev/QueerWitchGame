@@ -118,8 +118,8 @@ if (temp_weapon != noone) {
 									physics_apply_angular_impulse(random_range(-5, 5));
 								}
 							}
-							temp_weapon.image_index = 1;
 						}
+						temp_weapon.image_index = 1;
 					}
 				}
 			}

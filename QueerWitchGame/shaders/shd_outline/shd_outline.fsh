@@ -21,5 +21,5 @@ void main()
 	alpha = max(alpha, texture2D( gm_BaseTexture, v_vTexcoord - offsety).a);
 
 	gl_FragColor = v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
-	gl_FragColor.a = alpha;
+	gl_FragColor.a = alpha - texture2D( gm_BaseTexture, v_vTexcoord ).a;
 }

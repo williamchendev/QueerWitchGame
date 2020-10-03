@@ -10,7 +10,7 @@ weapon_sprite = sGreaseGun;
 weapon_ammo_id = 7;
 
 bullets = 0;
-bullets_max = 15;
+bullets_max = 16;
 
 // Bullet Settings
 projectiles = 1;

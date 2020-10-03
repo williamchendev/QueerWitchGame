@@ -12,7 +12,7 @@ projectiles = 5;
 burst = 0;
 burst_delay = 0.1;
 
-flash_delay = 7;
+flash_delay = 9;
 
 // Position Settings
 muzzle_x = 23;
@@ -24,7 +24,7 @@ reload_y = 1;
 reload_offset_y = 6;
 
 // Reload Settings
-magazine_obj = oGun_M14_Mag;
+magazine_obj = noone;
 
 // Arm Settings
 double_handed = true;
@@ -47,7 +47,7 @@ lerp_spd = 0.1;
 angle_adjust_spd = 0.1;
 
 recoil_spd = 2.5;
-recoil_angle = 14;
+recoil_angle = 15;
 recoil_direction = 15;
 recoil_delay = 7;
 recoil_clamp = 7;
@@ -57,7 +57,7 @@ click = true;
 // Aiming Settings
 sniper = true;
 
-accuracy = 30;
+accuracy = 35;
 accuracy_peak = 30;
 
 close_range_hit_chance = 1.0;

@@ -79,7 +79,12 @@ if (bursts > 0) {
 			ds_list_add(flash_timer, flash_delay);
 			
 			if (muzzle_flash_sprite != noone) {
-				ds_list_add(flash_imageindex, random_range(0, sprite_get_number(muzzle_flash_sprite)));
+				if (i == 0) {
+					ds_list_add(flash_imageindex, random_range(0, sprite_get_number(muzzle_flash_sprite)));
+				}
+				else {
+					ds_list_add(flash_imageindex, -1);
+				}
 			}
 			
 			// Position

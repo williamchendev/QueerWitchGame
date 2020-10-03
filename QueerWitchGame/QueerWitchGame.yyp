@@ -279,6 +279,14 @@
             }
         },
         {
+            "Key": "21c96cbf-51a5-469e-bad0-4b0426302f09",
+            "Value": {
+                "id": "9280c6d8-f5ce-416d-8d24-9caf8198ac18",
+                "resourcePath": "views\\21c96cbf-51a5-469e-bad0-4b0426302f09.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "2271a1c4-813f-43fd-ad65-806c5e7e208f",
             "Value": {
                 "id": "4178bdae-e74c-41b7-a658-d1d6072bb08c",
@@ -855,14 +863,6 @@
             }
         },
         {
-            "Key": "57a143f2-a530-4c90-b566-2f57f5ae445a",
-            "Value": {
-                "id": "863367ec-433d-4f8a-a1ba-2065ee7c18e3",
-                "resourcePath": "objects\\oUnitSquadDebug\\oUnitSquadDebug.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "582c74e3-a395-4296-b48a-9441a6e31984",
             "Value": {
                 "id": "7f4e9578-2c86-4144-987e-b8f53326a383",
@@ -1036,6 +1036,14 @@
                 "id": "067a266e-81ff-45d3-8f07-c4c9b78ce4a1",
                 "resourcePath": "views\\6991ec70-661e-4ab4-8d49-cef345a7030e.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "69d59a1a-1103-4bc6-ba42-916ce29cbfef",
+            "Value": {
+                "id": "29f09e9c-93da-41ac-8792-6dcb269a4531",
+                "resourcePath": "sprites\\sDoorPanel\\sDoorPanel.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1535,6 +1543,14 @@
             }
         },
         {
+            "Key": "a3028145-d3cc-4c06-b2e2-778395e44084",
+            "Value": {
+                "id": "7e390900-8a4d-4e10-ba9c-1db02dfd9f14",
+                "resourcePath": "views\\a3028145-d3cc-4c06-b2e2-778395e44084.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "a3b08c58-8371-44b0-9a04-997584430d1a",
             "Value": {
                 "id": "9cb65ecc-22cf-4fe0-a02c-4c36f00ec5a2",
@@ -1919,14 +1935,6 @@
             }
         },
         {
-            "Key": "d3a6a5f1-ccbd-424c-b1f9-bac9acedb681",
-            "Value": {
-                "id": "c122fa71-e797-46a4-a57a-275a658b004a",
-                "resourcePath": "views\\d3a6a5f1-ccbd-424c-b1f9-bac9acedb681.yy",
-                "resourceType": "GMFolder"
-            }
-        },
-        {
             "Key": "d3ea79b5-a179-4587-a624-115fb8c95887",
             "Value": {
                 "id": "ff86180c-9984-4bff-94bb-a76d445c8f7c",
@@ -2071,6 +2079,14 @@
             }
         },
         {
+            "Key": "e292c3b8-4026-4398-8ebb-a9070c068af6",
+            "Value": {
+                "id": "f833a9cc-963d-4179-91d3-ca8c836b438a",
+                "resourcePath": "sprites\\sDoorEndPanel\\sDoorEndPanel.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e30583b5-7547-44b8-9a34-c6d71d53c6fd",
             "Value": {
                 "id": "cce41e8f-668e-4cff-9269-9ee1b12cd627",
@@ -2207,14 +2223,6 @@
             }
         },
         {
-            "Key": "ee36c7b4-109a-406b-8905-9f28d053ff9e",
-            "Value": {
-                "id": "6a0302a5-fd59-4d51-9c10-056e77f43123",
-                "resourcePath": "objects\\oUnitSelection\\oUnitSelection.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "f018591b-9c39-443d-b4b9-29195a1ac01e",
             "Value": {
                 "id": "8dd1ca90-df5a-4800-bc78-d4e35c0108f8",
@@ -2228,14 +2236,6 @@
                 "id": "fb44d20e-2f9a-42b0-9bb2-dd75801ffd4e",
                 "resourcePath": "rooms\\rDebugRoom2\\rDebugRoom2.yy",
                 "resourceType": "GMRoom"
-            }
-        },
-        {
-            "Key": "f279e9f7-2d92-4e40-aa8f-e7b7514edd2e",
-            "Value": {
-                "id": "280a8ace-3e71-4fca-aefa-366214c49f81",
-                "resourcePath": "objects\\oWilliamDS_Chest\\oWilliamDS_Chest.yy",
-                "resourceType": "GMObject"
             }
         },
         {
@@ -2316,6 +2316,14 @@
                 "id": "f34962be-7064-40f5-b8c0-002d59383984",
                 "resourcePath": "views\\f89a800a-ead2-4415-b74d-7263df6f1e52.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "f98e98b4-b7ae-401f-87f0-ead814a2f31c",
+            "Value": {
+                "id": "6a2633ef-48a0-4bbc-8b18-1a4927f80740",
+                "resourcePath": "sprites\\sDoorMask\\sDoorMask.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

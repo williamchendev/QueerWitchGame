@@ -96,7 +96,9 @@ if (ds_list_size(flash_timer) > 0 and attack_show) {
 			// Draw Bullet Trail Muzzle Flash
 			draw_set_alpha(1);
 			if (muzzle_flash_sprite != noone) {
-				draw_sprite_ext(muzzle_flash_sprite, temp_flash_imageindex, temp_flash_xposition, temp_flash_yposition, 1, (1 - power(((flash_delay - temp_flash_timer) / flash_delay), 3)) * weapon_yscale, temp_flash_direction, c_white, 1);
+				if (temp_flash_imageindex != -1) {
+					draw_sprite_ext(muzzle_flash_sprite, temp_flash_imageindex, temp_flash_xposition, temp_flash_yposition, 1, (1 - power(((flash_delay - temp_flash_timer) / flash_delay), 3)) * weapon_yscale, temp_flash_direction, c_white, 1);
+				}
 			}
 		}
 		else {
@@ -104,7 +106,9 @@ if (ds_list_size(flash_timer) > 0 and attack_show) {
 			draw_set_alpha(1);
 			draw_set_color(c_black);
 			if (muzzle_flash_sprite != noone) {
-				draw_sprite_ext(muzzle_flash_sprite, temp_flash_imageindex, temp_muzzle_x, temp_muzzle_y, 1, (1 - power(((flash_delay - temp_flash_timer) / flash_delay), 3)) * weapon_yscale, temp_flash_direction, c_black, 1);
+				if (temp_flash_imageindex != -1) {
+					draw_sprite_ext(muzzle_flash_sprite, temp_flash_imageindex, temp_muzzle_x, temp_muzzle_y, 1, (1 - power(((flash_delay - temp_flash_timer) / flash_delay), 3)) * weapon_yscale, temp_flash_direction, c_black, 1);
+				}
 			}
 			/*
 			draw_line(temp_flash_xposition, temp_flash_yposition, temp_flash_xposition + lengthdir_x(temp_flash_length, temp_flash_direction), temp_flash_yposition + lengthdir_y(temp_flash_length, temp_flash_direction));
