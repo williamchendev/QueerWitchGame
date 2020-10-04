@@ -1,18 +1,25 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-// Door Behaviour
-
-/*
-door_value += global.deltatime * (0.05 * sign(door_timer));
-if (abs(door_value) > 1) {
-	door_timer *= -1;
-}
-door_value = clamp(door_value, -1, 1);
-*/
-
-if (keyboard_check_pressed(ord("P"))) {
-	door_open = !door_open;
+// Door Interact Behaviour
+if (interact.interact_action) {
+	// Check if Unit Exists in Door Solid Space
+	var temp_door_unit_check = collision_rectangle(x - (sprite_get_width(end_panel_sprite) / 2), y - sprite_get_height(end_panel_sprite), x + (sprite_get_width(end_panel_sprite) / 2), y, oUnit, false, true);
+	if (temp_door_unit_check == noone) {
+		// Set Door Behaviour
+		if (!door_touched) {
+			door_velocity = door_kick_velocity * -sign(interact.interact_unit.x - x);
+			door_open = true;
+		}
+		else {
+			door_open = false;
+		}
+		door_touched = true;
+	}
+	
+	// Reset Interact Behaviour
+	interact.interact_action = false;
+	interact.interact_unit = noone;
 }
 
 // Door Physics
@@ -32,16 +39,20 @@ if (door_open) {
 				door_velocity += temp_velocity;
 				door_touched = true;
 			}
+			else {
+				if (sign(door_velocity) == sign(temp_universal_physics_obj.x - temp_door_end_collider_x)) {
+					door_velocity *= -1;
+				}
+			}
 		}
 	}
 	else {
 		// Door Panel Collider Variables
 		var temp_draw_val = sin(door_value * 0.5 * pi);
-		var temp_door_panel_collider_x = x - (sign(door_value) * (sprite_get_width(end_panel_sprite) / 2));
-		var temp_door_end_collider_x = x + (temp_draw_val * sprite_get_width(panel_sprite)) - (door_value * (sprite_get_width(end_panel_sprite) / 2));
+		var temp_door_end_collider_x = x + (temp_draw_val * sprite_get_width(panel_sprite));
 		
 		// Unit Physics Collision Check
-		var temp_unit_obj = collision_rectangle(temp_door_panel_collider_x, y - sprite_get_height(panel_sprite), temp_door_end_collider_x, y, oUnit, false, true);
+		var temp_unit_obj = collision_rectangle(x, y - sprite_get_height(panel_sprite), temp_door_end_collider_x, y, oUnit, false, true);
 		if (temp_unit_obj != noone) {
 			if (door_value >= door_collider_value) {
 				door_min = door_collider_value;
@@ -56,7 +67,7 @@ if (door_open) {
 		}
 	}
 	
-	// Door Velocity
+	// Door Slam Velocity
 	var temp_physics_calc = true;
 	if (door_slam_timer > 0) {
 		door_slam_timer -= global.deltatime;
@@ -96,6 +107,7 @@ else {
 		door_value = lerp(door_value, 0, global.deltatime * door_lerp_close_spd);
 		if (abs(door_value) < 0.01) {
 			door_value = 0;
+			door_open = true;
 		}
 	}
 }
@@ -139,6 +151,7 @@ else {
 		
 		door_min = -1;
 		door_max = 1;
+		door_velocity = 0;
 		door_touched = false;
 	}
 }

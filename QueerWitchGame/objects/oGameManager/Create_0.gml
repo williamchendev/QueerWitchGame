@@ -40,12 +40,12 @@ down_check = ord("S");
 left_check = ord("A");
 right_check = ord("D");
 
+reload_check = ord("R");
+
 interact_check = ord("E");
 inventory_check = ord("I");
 
 command_check = vk_control;
-
-reload_check = ord("R");
 
 // Time Settings
 time_spd = 1;

@@ -8,10 +8,12 @@ interact.interact_obj = self;
 // Door Settings
 door_open = true;
 
-door_friction = 0.95;
-door_slam_delay = 2.3;
+door_friction = 0.90;
+door_slam_delay = 1.2;
 door_slam_friction = 0.7;
 door_lerp_close_spd = 0.23;
+
+door_kick_velocity = 0.17;
 
 door_collider_value = 0.6;
 door_collider_offset = 2;

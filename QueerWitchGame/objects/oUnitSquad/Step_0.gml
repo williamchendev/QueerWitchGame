@@ -261,9 +261,17 @@ if (canmove) {
 		if (interact_collision_list != noone) {
 			// Interate Through Interact Objects
 			for (var q = 0; q < array_length_1d(interact_collision_list); q++) {
-				// Cursor Hover
+				// Check Cursor Collider
 				if (position_meeting(cursor_x, cursor_y, interact_collision_list[q])) {
+					// Cursor Hover
 					interact_collision_list[q].interact_select = true;
+					
+					// Interaction Input
+					if (key_interact_press) {
+						interact_collision_list[q].interact_unit = self;
+					}
+					
+					// Break Loop
 					break;
 				}
 			}
