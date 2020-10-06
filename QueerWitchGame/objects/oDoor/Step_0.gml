@@ -35,7 +35,7 @@ if (door_open) {
 		var temp_universal_physics_obj = collision_rectangle(temp_door_end_collider_x - temp_door_end_width - door_collider_offset, y - sprite_get_height(end_panel_sprite), temp_door_end_collider_x + temp_door_end_width + door_collider_offset, y, oPhysics, false, true);
 		if (temp_universal_physics_obj != noone) {
 			if (temp_universal_physics_obj.hspd != 0) {
-				var temp_velocity = temp_universal_physics_obj.hspd / sprite_get_width(panel_sprite);
+				var temp_velocity = temp_universal_physics_obj.hspd / (sprite_get_width(panel_sprite) * 2);
 				door_velocity += temp_velocity;
 				door_touched = true;
 			}

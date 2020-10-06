@@ -23,20 +23,40 @@ var temp_weapon_rotation = weapon_rotation + recoil_angle_shift;
 
 // Set Fire Mode Behaviour
 if (attack) {
-	attack = false;
-	
-	if (bullets > 0) {
-		if (click) {
-			bursts = min(max(burst, 1), bullets);
-			bursts_timer = 0;
-			bullets -= bursts;
+	// Calculate Weapon Muzzle Position
+	var temp_muzzle_direction = point_direction(0, 0, muzzle_x * weapon_xscale, muzzle_y * weapon_yscale);
+	var temp_muzzle_distance = point_distance(0, 0, muzzle_x * weapon_xscale, muzzle_y * weapon_yscale);
+
+	var temp_muzzle_x = temp_x + lengthdir_x(temp_muzzle_distance, temp_weapon_rotation + temp_muzzle_direction);
+	var temp_muzzle_y = temp_y + lengthdir_y(temp_muzzle_distance, temp_weapon_rotation + temp_muzzle_direction);
+
+	// Door Muzzle Clip Check
+	var temp_muzzle_door_clipping = false;
+	var temp_door_instance = instance_position(temp_muzzle_x, temp_muzzle_y, oDoor);
+	if (temp_door_instance != noone) {
+		if (!temp_door_instance.door_touched) {
+			if (sign(temp_x - temp_door_instance.x) != sign(temp_muzzle_x - temp_door_instance.x)) {
+				temp_muzzle_door_clipping = true;
+			}
 		}
-		else {
-			bursts_timer -= global.deltatime;
-			if (bursts_timer <= 0) {
+	}
+	
+	// Attack Variable Behaviour
+	attack = false;
+	if (!temp_muzzle_door_clipping) {
+		if (bullets > 0) {
+			if (click) {
 				bursts = min(max(burst, 1), bullets);
 				bursts_timer = 0;
 				bullets -= bursts;
+			}
+			else {
+				bursts_timer -= global.deltatime;
+				if (bursts_timer <= 0) {
+					bursts = min(max(burst, 1), bullets);
+					bursts_timer = 0;
+					bullets -= bursts;
+				}
 			}
 		}
 	}
@@ -188,6 +208,9 @@ if (bursts > 0) {
 						temp_unit.force_xvector = cos(degtorad(temp_hitscan_angle)) * 15;
 						temp_unit.force_yvector = sin(degtorad(temp_hitscan_angle)) * 15;
 					}
+				}
+				else if (temp_raycast_data[3] == oMaterial) {
+					material_add_damage(temp_raycast_data[4], sMatDmg_Small_1, 0, temp_raycast_data[1], temp_raycast_data[2], 1, 1, random(360));
 				}
 			}
 			

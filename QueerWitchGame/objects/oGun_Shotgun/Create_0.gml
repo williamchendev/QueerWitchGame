@@ -42,7 +42,7 @@ case_eject_y = -1;
 case_direction = 30;
 
 // Behaviour Settings
-aim_spd = 0.04;
+aim_spd = 0.1;
 lerp_spd = 0.1;
 angle_adjust_spd = 0.1;
 

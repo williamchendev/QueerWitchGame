@@ -49,6 +49,11 @@ var temp_check_x = temp_x;
 var temp_check_y = temp_y;
 
 var temp_ignore_material = collision_point(temp_check_x, temp_check_y, oMaterial, false, true);
+if (temp_ignore_material != noone) {
+	if (!material_check_position(temp_ignore_material, temp_check_x, temp_check_y)) {
+		temp_ignore_material = noone;
+	}
+}
 
 var temp_interpolation = 1;
 for (var i = 0; i <= temp_length; i += temp_interpolation) {
@@ -66,10 +71,12 @@ for (var i = 0; i <= temp_length; i += temp_interpolation) {
 		var temp_material = collision_point(temp_check_x, temp_check_y, oMaterial, false, true);
 		if (temp_material != noone) {
 			if (temp_material != temp_ignore_material) {
-				temp_line_length = i;
-				temp_collider_object_type = oMaterial;
-				temp_collider_object = temp_material;
-				break;
+				if (material_check_position(temp_material, temp_check_x, temp_check_y)) {
+					temp_line_length = i;
+					temp_collider_object_type = oMaterial;
+					temp_collider_object = temp_material;
+					break;
+				}
 			}
 		}
 	}

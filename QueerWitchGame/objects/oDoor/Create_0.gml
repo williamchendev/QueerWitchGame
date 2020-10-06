@@ -13,7 +13,7 @@ door_slam_delay = 1.2;
 door_slam_friction = 0.7;
 door_lerp_close_spd = 0.23;
 
-door_kick_velocity = 0.17;
+door_kick_velocity = 0.19;
 
 door_collider_value = 0.6;
 door_collider_offset = 2;
