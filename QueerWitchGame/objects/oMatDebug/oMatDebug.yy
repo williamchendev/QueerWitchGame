@@ -1,23 +1,14 @@
 {
-    "id": "44fef93f-25c7-43a7-895e-92031daa772f",
+    "id": "dfe838b9-d977-405e-8a7a-37b4aec82475",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "oUnitPlayer",
+    "name": "oMatDebug",
     "eventList": [
-        {
-            "id": "6aee813c-ab1e-4039-8102-40f042b6f179",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "44fef93f-25c7-43a7-895e-92031daa772f"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "e3456b8f-3823-4f58-9f4c-63d8b3f64ae9",
+    "parentObjectId": "feaa8645-e987-4b3e-81b3-c70ce7e7477e",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -33,6 +24,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "40c7d2e0-6662-4b77-a69f-5ad969843e36",
+    "spriteId": "125dec70-69d9-4247-a27a-2b300cf56dde",
     "visible": true
 }

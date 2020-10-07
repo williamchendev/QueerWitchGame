@@ -23,7 +23,7 @@ var temp_angle = argument7;
 temp_material.material_damage++;
 ds_list_add(temp_material.material_damage_sprite_index, temp_sprite_index);
 ds_list_add(temp_material.material_damage_image_index, temp_image_index);
-ds_list_add(temp_material.material_damage_x, temp_x - temp_material.x);
+ds_list_add(temp_material.material_damage_x, (temp_x - temp_material.x) * temp_material.image_xscale);
 ds_list_add(temp_material.material_damage_y, temp_y - temp_material.y);
 ds_list_add(temp_material.material_damage_x_scale, temp_x_scale);
 ds_list_add(temp_material.material_damage_y_scale, temp_y_scale);

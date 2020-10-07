@@ -44,4 +44,5 @@ door_material = instance_create_layer(x, y, layer_get_id("Solids"), oMaterial);
 door_solid.sprite_index = end_panel_sprite;
 door_solid.visible = false;
 door_material.sprite_index = end_panel_sprite;
-door_material.visible = false;
+door_material.material_sprite = end_panel_sprite;
+//door_material.visible = false;

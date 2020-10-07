@@ -439,6 +439,14 @@
             }
         },
         {
+            "Key": "31db392c-f665-4e98-9082-7026ca301901",
+            "Value": {
+                "id": "b800d676-29c3-49fd-a91e-edfff3114278",
+                "resourcePath": "sprites\\sDebugPoint\\sDebugPoint.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "32717d97-b827-4836-923c-978b07534371",
             "Value": {
                 "id": "0955e7bb-3777-4b81-88fb-4e0608e9624c",
@@ -2119,6 +2127,14 @@
             }
         },
         {
+            "Key": "dfe838b9-d977-405e-8a7a-37b4aec82475",
+            "Value": {
+                "id": "452adeb3-049a-4ed9-9f1f-79e0a0011cd4",
+                "resourcePath": "objects\\oMatDebug\\oMatDebug.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e08c0600-96bf-4626-8293-38028ed1f281",
             "Value": {
                 "id": "bb49633c-fac6-41fe-a508-2cdbab1e45f9",
@@ -2348,6 +2364,14 @@
                 "id": "84d42300-a1cb-4906-ab7a-d7c8c0c34e13",
                 "resourcePath": "views\\f5a05ab3-05fb-4980-8f9d-2c8c8967b427.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "f6c84f1e-c2dd-4e77-8323-d32595a5dd1a",
+            "Value": {
+                "id": "3765d924-6cdd-4c73-81b1-43178240ed76",
+                "resourcePath": "objects\\oDebugPoint\\oDebugPoint.yy",
+                "resourceType": "GMObject"
             }
         },
         {

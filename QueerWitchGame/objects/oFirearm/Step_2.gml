@@ -117,6 +117,18 @@ if (bursts > 0) {
 			ds_list_add(flash_xposition, temp_muzzle_x);
 			ds_list_add(flash_yposition, temp_muzzle_y);
 			
+			// Disable Door Colliders
+			var temp_doors_active = noone;
+			for (var l = 0; l < instance_number(oDoor); l++) {
+				var temp_door_inst = instance_find(oDoor, l);
+				if (instance_exists(temp_door_inst.door_solid)) {
+					if (temp_door_inst.door_solid_active) {
+						temp_doors_active[l] = temp_door_inst.door_solid;
+						instance_deactivate_object(temp_door_inst.door_solid);
+					}
+				}
+			}
+			
 			// Raycast
 			var temp_hit_diceroll = random(1);
 			
@@ -210,8 +222,14 @@ if (bursts > 0) {
 					}
 				}
 				else if (temp_raycast_data[3] == oMaterial) {
+					// Add Material Damage
 					material_add_damage(temp_raycast_data[4], sMatDmg_Small_1, 0, temp_raycast_data[1], temp_raycast_data[2], 1, 1, random(360));
 				}
+			}
+			
+			// Re-enable All Door Colliders
+			for (var l = 0; l < array_length_1d(temp_doors_active); l++) {
+				instance_activate_object(temp_doors_active[l]);
 			}
 			
 			// Bullet Trail

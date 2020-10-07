@@ -1,7 +1,6 @@
 /// @description Material Instantiation
 // Instantiates the Settings for the Material
 
-
 // Material Settings
 material_sprite = sprite_index;
 
@@ -18,6 +17,9 @@ material_damage_angle = ds_list_create();
 // Surface Variables
 material_dmg_surface = noone;
 material_surface = noone
+
+// Buffer Variables
+material_buffer = noone;
 
 // Shader Textures
 material_alpha_tex = shader_get_sampler_index(shd_subtract_alpha, "alphaTex");

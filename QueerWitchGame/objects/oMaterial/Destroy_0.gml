@@ -10,6 +10,11 @@ ds_list_destroy(material_damage_x_scale);
 ds_list_destroy(material_damage_y_scale);
 ds_list_destroy(material_damage_angle);
 
+// Clean Up Buffers
+if (material_buffer != noone) {
+	buffer_delete(material_buffer);
+}
+
 // Clear Surfaces
 surface_free(material_dmg_surface);
 surface_free(material_surface);

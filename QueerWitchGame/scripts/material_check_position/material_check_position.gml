@@ -11,16 +11,25 @@ var temp_x = argument1;
 var temp_y = argument2;
 
 // Check if Surface Exists
-if (surface_exists(temp_material.material_surface)) {
-	var temp_mat_x = clamp((temp_x - temp_material.x) + sprite_get_xoffset(temp_material.material_sprite), 0, sprite_get_width(temp_material.material_sprite));
-	var temp_mat_y = clamp((temp_y - temp_material.y) + sprite_get_yoffset(temp_material.material_sprite), 0, sprite_get_height(temp_material.material_sprite));
-	var temp_mat_dmg_color = surface_getpixel(temp_material.material_dmg_surface, temp_mat_x, temp_mat_y);
-	var temp_mat_color = surface_getpixel(temp_material.material_surface, temp_mat_x, temp_mat_y);
+if (temp_material.material_buffer != noone) {
+	// Find Horizontal Position to Check
+	var temp_x_check;
+	if (sign(temp_material.image_xscale) >= 0) {
+		temp_x_check = (temp_x - temp_material.x) + sprite_get_xoffset(temp_material.material_sprite)
+	}
+	else {
+		temp_x_check = (sprite_get_width(temp_material.material_sprite) - sprite_get_xoffset(temp_material.material_sprite)) + (temp_x - temp_material.x);
+	}
 	
-	if (temp_mat_color != c_black) {
-		if (temp_mat_dmg_color != c_white) {
-			return true;
-		}
+	// Find Buffer Variables
+	var temp_mat_x = round(clamp(temp_x_check, 0, sprite_get_width(temp_material.material_sprite) - 1));
+	var temp_mat_y = round(clamp((temp_y - temp_material.y) + sprite_get_yoffset(temp_material.material_sprite), 0, sprite_get_height(temp_material.material_sprite) - 1));
+	var temp_mat_dmg_color = buffer_peek(temp_material.material_buffer, 4 * (temp_mat_x + (temp_mat_y * sprite_get_width(temp_material.material_sprite))), buffer_u32);
+	var temp_mat_dmg_alpha = (temp_mat_dmg_color >> 24) & $ff;
+	
+	// Check for Collision
+	if (temp_mat_dmg_alpha == 0) {
+		return true;
 	}
 }
 return false;
