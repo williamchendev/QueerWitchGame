@@ -1375,6 +1375,22 @@
             }
         },
         {
+            "Key": "8467b430-49e0-4617-93b4-78fb6e01318f",
+            "Value": {
+                "id": "008872d2-4cb0-4cb7-8dcf-f26a09143f8e",
+                "resourcePath": "sprites\\sWilliamDS_Heavy_Idle\\sWilliamDS_Heavy_Idle.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "85c9c223-e1a5-472a-a396-f3a775b2dce4",
+            "Value": {
+                "id": "b1bea3c8-13a9-439c-a0ad-2f0b57bb1057",
+                "resourcePath": "views\\85c9c223-e1a5-472a-a396-f3a775b2dce4.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "861967fc-3423-4f00-844e-02ffd153f6ca",
             "Value": {
                 "id": "10c45de8-68d7-4133-94b8-428153ba87b9",
@@ -1436,6 +1452,14 @@
                 "id": "2b02def1-b0b5-4274-95ca-222df6c31b62",
                 "resourcePath": "views\\8b86f196-8071-4450-8201-9b8862eda69b.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "8ba1cdf0-52b6-4fe5-8417-9f043b57dd08",
+            "Value": {
+                "id": "944236ac-325a-491f-aaad-1837491a4a02",
+                "resourcePath": "sprites\\sWilliamDS_Heavy_Arms\\sWilliamDS_Heavy_Arms.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1903,6 +1927,14 @@
             }
         },
         {
+            "Key": "c8ac55e3-050d-4339-956c-e363588a4f70",
+            "Value": {
+                "id": "232d4935-3069-421b-88b9-eb6c4db500e1",
+                "resourcePath": "sprites\\sWilliamDS_Heavy_Idle3\\sWilliamDS_Heavy_Idle3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c9e561d7-0090-40d7-bd28-edad252c73ec",
             "Value": {
                 "id": "0b860f33-fbd0-4d23-900f-d1482ce90389",
@@ -2292,6 +2324,14 @@
                 "id": "0a3aa988-c04a-4c09-b663-a4d1adb665f7",
                 "resourcePath": "sprites\\sFAL\\sFAL.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f01693be-aa32-469f-a6f9-81037c9292a9",
+            "Value": {
+                "id": "04741c23-1949-4e8e-b6e7-e2dc9f59deae",
+                "resourcePath": "objects\\oUnit_William_Heavy\\oUnit_William_Heavy.yy",
+                "resourceType": "GMObject"
             }
         },
         {

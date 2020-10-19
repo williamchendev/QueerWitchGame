@@ -12,8 +12,9 @@ limb_sprite = sWilliam_Arms;
 
 limb_direction = 1;
 
-limb_length = 18;
+limb_length = 0;
 limb_compress = 0.3;
+
 
 // Arm Variables
 point1_x = 0;

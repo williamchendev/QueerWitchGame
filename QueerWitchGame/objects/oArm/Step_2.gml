@@ -1,6 +1,9 @@
 /// @description Arm Update
 // Calculates the Arm Effect (Movement and Positional Variables)
 
+// Arm Variables
+limb_length = sprite_get_height(limb_sprite) * 2;
+
 // Calculate Limb Movement
 var temp_distance = point_distance(limb_anchor_x, limb_anchor_y, limb_target_x, limb_target_y);
 var temp_direction = point_direction(limb_anchor_x, limb_anchor_y, limb_target_x, limb_target_y);

@@ -242,7 +242,7 @@ if (temp_weapon != noone) {
 	}
 	else {
 		if (x_velocity != 0) {
-			temp_limb_run_move_offset_x = (sign(x_velocity) * (spd - 1));
+			temp_limb_run_move_offset_x = (sign(x_velocity) * spd);
 		}
 	}
 		
@@ -291,8 +291,8 @@ if (temp_weapon != noone) {
 		limb[1].visible = true;
 		limb[1].limb_direction = sign(image_xscale);
 			
-		var temp_limb_anchor_distance = point_distance(0, 0, (draw_xscale * image_xscale * limb_x[1]) + temp_arm_x_offset, (draw_yscale * image_yscale * limb_y[0]));
-		var temp_limb_anchor_direction = point_direction(0, 0, (draw_xscale * image_xscale * limb_x[1]) + temp_arm_x_offset, (draw_yscale * image_yscale * limb_y[0]));
+		var temp_limb_anchor_distance = point_distance(0, 0, (draw_xscale * image_xscale * limb_x[1]) + temp_arm_x_offset, (draw_yscale * image_yscale * limb_y[1]));
+		var temp_limb_anchor_direction = point_direction(0, 0, (draw_xscale * image_xscale * limb_x[1]) + temp_arm_x_offset, (draw_yscale * image_yscale * limb_y[1]));
 		limb[1].limb_anchor_x = x + lengthdir_x(temp_limb_anchor_distance, draw_angle + temp_limb_anchor_direction) + temp_limb_aim_move_offset_x;
 		limb[1].limb_anchor_y = y + lengthdir_y(temp_limb_anchor_distance, draw_angle + temp_limb_anchor_direction) + temp_limb_aim_offset_y;
 			

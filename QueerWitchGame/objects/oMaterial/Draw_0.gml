@@ -27,7 +27,7 @@ if (material_damage > 0) {
 		var temp_dmg_y = (ds_list_find_value(material_damage_y, i) + sprite_get_yoffset(material_sprite));
 		var temp_dmg_x_scale = ds_list_find_value(material_damage_x_scale, i) * image_xscale;
 		var temp_dmg_y_scale = ds_list_find_value(material_damage_y_scale, i);
-		var temp_dmg_angle = ds_list_find_value(material_damage_angle, i) * image_xscale;
+		var temp_dmg_angle = ds_list_find_value(material_damage_angle, i) * sign(image_xscale);
 		
 		draw_sprite_ext(temp_dmg_sprite, temp_dmg_image, temp_dmg_x, temp_dmg_y, temp_dmg_x_scale, temp_dmg_y_scale, temp_dmg_angle, c_white, 1);
 	}

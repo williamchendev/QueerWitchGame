@@ -20,10 +20,10 @@ if (limb_sprite == noone) {
 	draw_set_color(c_white);
 }
 else {
-	var temp_dis_1 = (point_distance(limb_anchor_x, limb_anchor_y, point1_x, point1_y) + 2) / 10;
+	var temp_dis_1 = (point_distance(limb_anchor_x, limb_anchor_y, point1_x, point1_y) + 2) / sprite_get_height(limb_sprite);
 	var temp_angle_1 = (point_direction(limb_anchor_x, limb_anchor_y, point1_x, point1_y) + 180) - (limb_direction * 90);
 	
-	var temp_dis_2 = (point_distance(point1_x, point1_y, point2_x, point2_y) + 2) / 10;
+	var temp_dis_2 = (point_distance(point1_x, point1_y, point2_x, point2_y) + 2) / sprite_get_height(limb_sprite);
 	var temp_angle_2 = (point_direction(point1_x, point1_y, point2_x, point2_y) + 180) - (limb_direction * 90);
 	
 	draw_sprite_ext(limb_sprite, 0, limb_anchor_x, limb_anchor_y, -1, temp_dis_1 * limb_direction, temp_angle_1, c_white, 1); 
