@@ -671,6 +671,14 @@
             }
         },
         {
+            "Key": "40724b5d-ee73-45c7-94ce-c7c6ce97e718",
+            "Value": {
+                "id": "c91b35bb-1f60-477e-8ecb-65e6d12c1239",
+                "resourcePath": "sprites\\sWilliamDS_Heavy_Run1\\sWilliamDS_Heavy_Run1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "40915929-7b27-4128-98dd-a577bc745bec",
             "Value": {
                 "id": "34f1e9b0-72bd-485f-ad79-cc55a627c9f7",
@@ -1719,6 +1727,14 @@
             }
         },
         {
+            "Key": "abdc61d5-fe66-417d-8163-e56e6ae3058f",
+            "Value": {
+                "id": "f6697503-0f24-40a0-8791-87dfa96bd0a0",
+                "resourcePath": "sprites\\sWilliamDS_Heavy_WalkAim\\sWilliamDS_Heavy_WalkAim.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ad7a675f-f055-451c-924e-f6380c799b1d",
             "Value": {
                 "id": "db7d1e35-2ede-48a2-a3b7-3cd0bccbd4a9",
@@ -2239,6 +2255,14 @@
             }
         },
         {
+            "Key": "e66ff74e-6749-41d6-abab-46b90b439201",
+            "Value": {
+                "id": "85a8ba2d-06f3-4514-8b16-3d756b0bc3c2",
+                "resourcePath": "sprites\\sWilliamDS_Heavy_Aim\\sWilliamDS_Heavy_Aim.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e761ccad-0c72-4e17-b007-706073eade60",
             "Value": {
                 "id": "7cc187bf-07e5-4a74-807b-ff90f9b9ee19",
@@ -2323,6 +2347,14 @@
             "Value": {
                 "id": "0a3aa988-c04a-4c09-b663-a4d1adb665f7",
                 "resourcePath": "sprites\\sFAL\\sFAL.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ee6be8a3-3b6a-4897-a673-45f7c5c18c42",
+            "Value": {
+                "id": "0d78bf44-8be7-42a1-89d6-410a49eb629d",
+                "resourcePath": "sprites\\sWilliamDS_Heavy_Jump\\sWilliamDS_Heavy_Jump.yy",
                 "resourceType": "GMSprite"
             }
         },

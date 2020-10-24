@@ -5,8 +5,8 @@
 event_inherited();
 
 // Physics Settings
-spd = 3; // Running Speed
-walk_spd = 1; // Walk Speed
+spd = 4; // Running Speed
+walk_spd = 2; // Walk Speed
 
 jump_spd = 2; // Jumping Speed
 double_jump_spd = 3.6; // Double Jumping Seed
@@ -31,10 +31,10 @@ max_health_points = 6;
 
 // Animation Settings
 idle_animation = sWilliamDS_Heavy_Idle;
-walk_animation = sWilliamDS_Heavy_Idle;
-jump_animation = sWilliamDS_Heavy_Idle;
-aim_animation = sWilliamDS_Heavy_Idle;
-aim_walk_animation = sWilliamDS_Heavy_Idle;
+walk_animation = sWilliamDS_Heavy_Run1;
+jump_animation = sWilliamDS_Heavy_Jump;
+aim_animation = sWilliamDS_Heavy_Aim;
+aim_walk_animation = sWilliamDS_Heavy_WalkAim;
 hurt_animation = sWilliam_Hurt;
 
 animation_spd = 0.18;
@@ -81,11 +81,11 @@ squad_key_fire_press = false;
 squad_key_aim_press = false;
 
 // Weapon Settings
-weapon_hip_x = 1;
+weapon_hip_x = -1;
 weapon_hip_y = -30;
 
-weapon_aim_x = 3;
-weapon_aim_y = -36;
+weapon_aim_x = 5;
+weapon_aim_y = -38;
 
 inventory_x = -6;
 inventory_y = -27;
@@ -93,14 +93,14 @@ inventory_y = -27;
 // Limb Settings
 limbs = 2;
 
-limb_x[0] = -7;
-limb_y[0] = -36;
+limb_x[0] = -6;
+limb_y[0] = -37;
 
 limb_x[1] = 5;
 limb_y[1] = -38;
 
-limb_aim_move_offset_x = -1;
-limb_aim_offset_y = 0;
+limb_aim_move_offset_x = -3;
+limb_aim_offset_y = 2;
 
 limb_sprite[0] = sWilliamDS_Heavy_Arms;  // Right Arm
 limb_sprite[1] = sWilliamDS_Heavy_Arms;  // Left Arm

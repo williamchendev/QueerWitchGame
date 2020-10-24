@@ -2,10 +2,10 @@
 // Draws the unit to the screen
 
 // Draw Unit Sprite
-draw_sprite_ext(sprite_index, image_index, x, y, draw_xscale * image_xscale, draw_yscale, draw_angle, draw_color, image_alpha);
+draw_sprite_ext(sprite_index, image_index, x, y - ((sin(degtorad(draw_angle)) * (bbox_left - bbox_right)) / 2), draw_xscale * image_xscale, draw_yscale, draw_angle, draw_color, image_alpha);
 
 // Draw Stats Variables
-var temp_stats_x = x;
+var temp_stats_x = x - (sin(degtorad(draw_angle)) * (hitbox_right_bottom_y_offset - hitbox_left_top_y_offset));
 var temp_stats_y = y - (hitbox_right_bottom_y_offset - hitbox_left_top_y_offset) - (stats_y_offset * draw_yscale);
 
 // Draw Health Bar
