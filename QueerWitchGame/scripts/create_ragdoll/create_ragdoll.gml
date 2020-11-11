@@ -88,18 +88,6 @@ ragdoll_chest_bot_obj.sprite_index = chest_bot_sprite;
 ragdoll_chest_bot_obj.image_xscale = temp_image_xscale;
 temp_limbs[4] = ragdoll_chest_bot_obj;
 
-var ragdoll_arm2bot_obj = instance_create_layer(temp_x + (arm_offset * temp_image_xscale), temp_y - chest_top_height + arm_bbox_height, temp_layer, oRagdoll_Limb_Arm);
-ragdoll_arm2bot_obj.sprite_index = arms_right_sprite;
-ragdoll_arm2bot_obj.image_index = 1;
-ragdoll_arm2bot_obj.image_xscale = -temp_image_xscale;
-temp_limbs[5] = ragdoll_arm2bot_obj;
-
-var ragdoll_arm2top_obj = instance_create_layer(temp_x + (arm_offset * temp_image_xscale), temp_y - chest_top_height, temp_layer, oRagdoll_Limb_Arm);
-ragdoll_arm2top_obj.sprite_index = arms_right_sprite;
-ragdoll_arm2top_obj.image_index = 0;
-ragdoll_arm2top_obj.image_xscale = -temp_image_xscale;
-temp_limbs[6] = ragdoll_arm2top_obj;
-
 var ragdoll_leftleg1_obj = instance_create_layer(temp_x - leg_offset, temp_y - (leg_bbox_height * 2), temp_layer, oRagdoll_Limb_Leg);
 ragdoll_leftleg1_obj.sprite_index = legs_left_sprite;
 ragdoll_leftleg1_obj.image_index = 0;
@@ -123,6 +111,18 @@ ragdoll_rightleg2_obj.sprite_index = legs_right_sprite;
 ragdoll_rightleg2_obj.image_index = 1;
 ragdoll_rightleg2_obj.image_xscale = temp_image_xscale;
 temp_limbs[10] = ragdoll_rightleg2_obj;
+
+var ragdoll_arm2bot_obj = instance_create_layer(temp_x + (arm_offset * temp_image_xscale), temp_y - chest_top_height + arm_bbox_height, temp_layer, oRagdoll_Limb_Arm);
+ragdoll_arm2bot_obj.sprite_index = arms_right_sprite;
+ragdoll_arm2bot_obj.image_index = 1;
+ragdoll_arm2bot_obj.image_xscale = -temp_image_xscale;
+temp_limbs[5] = ragdoll_arm2bot_obj;
+
+var ragdoll_arm2top_obj = instance_create_layer(temp_x + (arm_offset * temp_image_xscale), temp_y - chest_top_height, temp_layer, oRagdoll_Limb_Arm);
+ragdoll_arm2top_obj.sprite_index = arms_right_sprite;
+ragdoll_arm2top_obj.image_index = 0;
+ragdoll_arm2top_obj.image_xscale = -temp_image_xscale;
+temp_limbs[6] = ragdoll_arm2top_obj;
 
 // Instantiate Joints between Limbs
 physics_joint_revolute_create(ragdoll_head_obj, ragdoll_chest_top_obj, ragdoll_head_obj.x, ragdoll_head_obj.y, -45, 45, 1, 0, 0, 0, 0); 

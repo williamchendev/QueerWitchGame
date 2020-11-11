@@ -35,7 +35,8 @@ if (attack) {
 	var temp_door_instance = instance_position(temp_muzzle_x, temp_muzzle_y, oDoor);
 	if (temp_door_instance != noone) {
 		if (!temp_door_instance.door_touched) {
-			if (sign(temp_x - temp_door_instance.x) != sign(temp_muzzle_x - temp_door_instance.x)) {
+			var temp_door_instance_x = temp_door_instance.x + ((sprite_get_width(temp_door_instance.end_panel_sprite) / 2) * sign(temp_x - temp_door_instance.x));
+			if (sign(temp_x - temp_door_instance_x) != sign(temp_muzzle_x - temp_door_instance_x)) {
 				temp_muzzle_door_clipping = true;
 			}
 		}
@@ -223,7 +224,7 @@ if (bursts > 0) {
 				}
 				else if (temp_raycast_data[3] == oMaterial) {
 					// Add Material Damage
-					material_add_damage(temp_raycast_data[4], sMatDmg_Small_1, 0, temp_raycast_data[1], temp_raycast_data[2], 1, 1, random(360));
+					material_add_damage(temp_raycast_data[4], material_damage_sprite, irandom(sprite_get_number(material_damage_sprite)), temp_raycast_data[1], temp_raycast_data[2], 1, 1, random(360));
 				}
 			}
 			
@@ -235,6 +236,27 @@ if (bursts > 0) {
 			// Bullet Trail
 			var temp_bullet_trail_length = temp_raycast_data[0];
 			ds_list_add(flash_length, temp_bullet_trail_length);
+		}
+		
+		// Sound
+		if (!silent) {
+			// Index all oUnitAI objects within Firearm Sound Radius
+			var temp_sound_radius_unit_list = ds_list_create();
+			var temp_sound_radius_units_num = collision_circle_list(temp_x, temp_y, sound_radius, oUnitAI, false, true, temp_sound_radius_unit_list, false);
+			
+			// Interate through Sound Radius Unit List
+			for (var q = 0; q < temp_sound_radius_units_num; q++) {
+				var temp_sound_unit = ds_list_find_value(temp_sound_radius_unit_list, q);
+				if (temp_sound_unit.team_id != ignore_id) {
+					temp_sound_unit.sight_unit_seen = true;
+					temp_sound_unit.sight_unit_seen_x = temp_x;
+					temp_sound_unit.sight_unit_seen_y = temp_y;
+					temp_sound_unit.alert = 1;
+				}
+			}
+			
+			// Garbage Collection
+			ds_list_destroy(temp_sound_radius_unit_list);
 		}
 		
 		// Bullet Cases

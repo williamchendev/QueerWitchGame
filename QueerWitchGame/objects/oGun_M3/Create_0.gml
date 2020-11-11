@@ -12,6 +12,10 @@ weapon_ammo_id = 7;
 bullets = 0;
 bullets_max = 16;
 
+// Combat Settings
+damage = 1;
+material_damage_sprite = sMatDmg_Small_1;
+
 // Bullet Settings
 projectiles = 1;
 

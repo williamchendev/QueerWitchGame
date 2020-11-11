@@ -96,6 +96,11 @@ if (calc_unit_overlay) {
 	var temp_unit_outline_index = ds_map_find_first(units_outline);
 	var temp_unit_outline_map_size = ds_map_size(units_outline);
 	for (var k = 0; k < temp_unit_outline_map_size; k++) {
+		// Check if Unit Exists
+		if (!instance_exists(temp_unit_outline_index)) {
+			continue;
+		}
+		
 		// Unit Variables
 		var temp_unit_outline_color = ds_map_find_value(units_outline, temp_unit_outline_index);
 	

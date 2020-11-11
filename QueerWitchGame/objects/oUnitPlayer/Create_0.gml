@@ -8,3 +8,5 @@ event_inherited();
 player_input = true;
 ai_behaviour = false;
 camera_follow = true;
+
+can_die = false;

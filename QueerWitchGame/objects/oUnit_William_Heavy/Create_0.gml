@@ -26,15 +26,15 @@ canmove = true;
 team_id = "player";
 
 health_show = true;
-health_points = 6;
-max_health_points = 6;
+health_points = 12;
+max_health_points = 12;
 
 // Animation Settings
 idle_animation = sWilliamDS_Heavy_Idle;
-walk_animation = sWilliamDS_Heavy_Run1;
+walk_animation = sWilliamDS_Heavy_Run;
 jump_animation = sWilliamDS_Heavy_Jump;
 aim_animation = sWilliamDS_Heavy_Aim;
-aim_walk_animation = sWilliamDS_Heavy_WalkAim;
+aim_walk_animation = sWilliamDS_Heavy_AimWalk;
 hurt_animation = sWilliam_Hurt;
 
 animation_spd = 0.18;
@@ -46,7 +46,17 @@ scale_reset_spd = 0.15;
 
 stats_y_offset = 8;
 
-knockout = false;
+knockout = true;
+
+// Ragdoll Settings
+ragdoll = true;
+ragdoll_head_sprite = sWilliamDS_Heavy_Head;
+ragdoll_arm_left_sprite = sWilliamDS_Heavy_Arms;
+ragdoll_arm_right_sprite = sWilliamDS_Heavy_Arms;
+ragdoll_chest_top_sprite = sWilliamDS_Heavy_ChestTop;
+ragdoll_chest_bot_sprite = sWilliamDS_Heavy_ChestBot;
+ragdoll_leg_left_sprite = sWilliamDS_Heavy_LeftLeg;
+ragdoll_leg_right_sprite = sWilliamDS_Heavy_RightLeg;
 
 // Sight Settings
 sight = true;
@@ -97,7 +107,7 @@ limb_x[0] = -6;
 limb_y[0] = -37;
 
 limb_x[1] = 5;
-limb_y[1] = -38;
+limb_y[1] = -37;
 
 limb_aim_move_offset_x = -3;
 limb_aim_offset_y = 2;

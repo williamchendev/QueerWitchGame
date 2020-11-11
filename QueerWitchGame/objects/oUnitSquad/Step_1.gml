@@ -3,7 +3,7 @@
 
 // Camera Movement
 if (camera_follow) {
-	var target_pos_x = x + (sign(x_velocity) * camera_moving_x_offset * (1 - key_aim_press));
+	var target_pos_x = x + (sign(abs(x_velocity) * image_xscale) * camera_moving_x_offset * (1 - key_aim_press));
 	var target_pos_y = y;
 	
 	// UI Camera Modes

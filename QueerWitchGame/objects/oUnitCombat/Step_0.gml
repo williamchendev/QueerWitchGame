@@ -353,3 +353,29 @@ if (knockout) {
 		}
 	}
 }
+
+// Death Behaviour
+if (health_points <= 0) {
+	var temp_destroy_check = false;
+	if (knockout) {
+		if (knockout_timer <= 0) {
+			temp_destroy_check = true;
+		}
+	}
+	else {
+		temp_destroy_check = true;
+	}
+	
+	if (temp_destroy_check) {
+		// Destroy Unit Object
+		instance_destroy(inventory);
+		instance_destroy();
+		
+		// Restart Room
+		if (!can_die) {
+			ds_list_destroy(game_manager.instantiated_units);
+			game_manager.instantiated_units = ds_list_create();
+			room_restart();
+		}
+	}
+}

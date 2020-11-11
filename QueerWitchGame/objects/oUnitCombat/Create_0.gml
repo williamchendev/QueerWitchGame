@@ -39,6 +39,8 @@ limb_aim_move_offset_x = -1;
 limb_aim_offset_y = 2;
 
 // Knockout Settings
+can_die = true;
+
 knockout = false;
 knockout_active = false;
 knockout_timer = 0.6;

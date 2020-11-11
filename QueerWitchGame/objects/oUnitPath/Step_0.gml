@@ -379,10 +379,15 @@ if (sight) {
 		sight_angle = point_direction(temp_sight_x, temp_sight_y, sight_unit_seen_x, sight_unit_seen_y);
 	}
 	else {
+		// Ambient Sight Angle
+		var temp_ambient_sight_angle = ((sign(image_xscale) * -90) + 90) + draw_angle;
+		sight_angle = temp_ambient_sight_angle;
+		
 		// Alert Behaviour
 		if (sight_unit_seen) {
 			// Lower Alertness When Within Range
 			if (point_distance(temp_sight_x, temp_sight_y, sight_unit_seen_x, sight_unit_seen_y) <= (sight_radius / 2)) {
+				sight_angle = point_direction(temp_sight_x, temp_sight_y, sight_unit_seen_x, sight_unit_seen_y);
 				alert -= global.deltatime * alert_spd;
 			}
 		}
@@ -395,10 +400,6 @@ if (sight) {
 		if (alert <= 0) {
 			sight_unit_seen = false;
 		}
-		
-		// Ambient Sight Angle
-		var temp_ambient_sight_angle = ((sign(image_xscale) * -90) + 90) + draw_angle;
-		sight_angle = temp_ambient_sight_angle;
 	}
 	alert = clamp(alert, 0, 1);
 

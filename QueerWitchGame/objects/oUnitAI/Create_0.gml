@@ -8,7 +8,9 @@ event_inherited();
 ai_hunt = true;
 ai_command = false;
 ai_follow = false;
-ai_follow_aim = false;
+
+// AI Inspect Settings
+ai_inspect_radius = 48;
 
 // Ai Follow Settings
 ai_follow_start_radius = 72;

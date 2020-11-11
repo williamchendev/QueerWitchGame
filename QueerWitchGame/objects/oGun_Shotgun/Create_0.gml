@@ -14,6 +14,10 @@ burst_delay = 0.1;
 
 flash_delay = 9;
 
+// Combat Settings
+damage = 1;
+material_damage_sprite = sMatDmg_Small_3;
+
 // Position Settings
 muzzle_x = 23;
 muzzle_y = -2;

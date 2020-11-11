@@ -31,7 +31,7 @@ idle_animation = sWilliamDS_Idle;
 walk_animation = sWilliamDS_Run;
 jump_animation = sWilliamDS_Jump;
 aim_animation = sWilliamDS_Aim;
-aim_walk_animation = sWilliamDS_Aim_Walk;
+aim_walk_animation = sWilliamDS_AimWalk;
 hurt_animation = sWilliam_Hurt;
 
 animation_spd = 0.18;

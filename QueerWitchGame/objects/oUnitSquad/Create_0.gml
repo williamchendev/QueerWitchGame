@@ -5,10 +5,6 @@
 event_inherited();
 
 // Animation Settings
-idle_animation = sWilliamDS_Idle;
-walk_animation = sWilliamDS_Run;
-jump_animation = sWilliamDS_Jump;
-
 knockout = true;
 
 squad_outline_color = make_color_rgb(212, 175, 55);
@@ -31,14 +27,16 @@ unit_select_hitbox_offset = 8;
 ai_behaviour = true;
 ai_command = true;
 ai_hunt = false;
-ai_follow_aim = true;
 
 alert = 1;
 alert_spd = 0;
 
 // Combat Settings
+can_die = true;
+
 health_points = 3;
 max_health_points = 3;
+health_show = false;
 
 team_id = "player";
 
@@ -53,7 +51,7 @@ camera_x = x - (game_manager.camera_width / 2);
 camera_y = y - (game_manager.camera_height / 2);
 
 camera_follow = false;
-camera_follow_spd = 0.03;
+camera_follow_spd = 0.05;
 camera_y_offset = -42;
 
 camera_moving_x_offset = 120;

@@ -45,4 +45,22 @@ door_solid.sprite_index = end_panel_sprite;
 door_solid.visible = false;
 door_material.sprite_index = end_panel_sprite;
 door_material.material_sprite = end_panel_sprite;
+door_material.material_team_id = "unassigned";
 //door_material.visible = false;
+
+// Door Solid Fixture
+door_solid_fix = physics_fixture_create();
+physics_fixture_set_polygon_shape(door_solid_fix);
+physics_fixture_add_point(door_solid_fix, sprite_get_width(end_panel_sprite) / 2, 0);
+physics_fixture_add_point(door_solid_fix, -sprite_get_width(end_panel_sprite) / 2, 0);
+physics_fixture_add_point(door_solid_fix, -sprite_get_width(end_panel_sprite) / 2, -sprite_get_height(end_panel_sprite));
+physics_fixture_add_point(door_solid_fix, sprite_get_width(end_panel_sprite) / 2, -sprite_get_height(end_panel_sprite));
+
+physics_fixture_set_density(door_solid_fix, 0);
+physics_fixture_set_restitution(door_solid_fix, 0.1);
+physics_fixture_set_collision_group(door_solid_fix, 0);
+physics_fixture_set_linear_damping(door_solid_fix, 0.1);
+physics_fixture_set_angular_damping(door_solid_fix, 0.1);
+physics_fixture_set_friction(door_solid_fix, 0.2);
+physics_fixture_bind(door_solid_fix, door_solid);
+physics_fixture_delete(door_solid_fix);

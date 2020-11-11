@@ -143,11 +143,7 @@ if (temp_y_velocity != 0) {
 			draw_xscale = 1 + squash_stretch;
 			draw_yscale = 1 - squash_stretch;
 		}
-		else {
-			draw_xscale = 1 + squash_stretch;
-			draw_yscale = 1;
-		}
-		
+
 		y_velocity = 0;
 	}
 }

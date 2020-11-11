@@ -30,6 +30,10 @@ burst_delay = 0.1;
 
 flash_delay = 7;
 
+// Combat Settings
+damage = 1;
+material_damage_sprite = sMatDmg_Small_2;
+
 // Position Settings
 muzzle_x = 28;
 muzzle_y = -2;
@@ -79,6 +83,10 @@ close_range_hit_chance = 1.0;
 mid_range_hit_chance = 1.0;
 far_range_hit_chance = 1.0;
 sniper_range_hit_chance = 1.0;
+
+// Sound Settings
+silent = false;
+sound_radius = 360;
 
 // Firearm Variables
 x_position = x;

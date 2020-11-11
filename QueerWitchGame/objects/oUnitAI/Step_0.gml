@@ -133,7 +133,7 @@ if (ai_behaviour and canmove) {
 			}
 		}
 	}
-	else if (ai_follow and ai_follow_aim) {
+	else if (ai_follow and squad_aim) {
 		// Aim & Fire Where Ai Follow Unit Aims & Fires
 		temp_aggro_behaviour_active = false;
 		if (ai_follow_unit.squad_key_aim_press) {
@@ -163,7 +163,7 @@ if (ai_behaviour and canmove) {
 		var temp_combat_unit_height = hitbox_right_bottom_y_offset - hitbox_left_top_y_offset;
 		
 		// Last Seen Movement Behaviour
-		if (point_distance(x, y - (temp_combat_unit_height / 2), sight_unit_seen_x, sight_unit_seen_y) > (sight_radius / 4)) {
+		if (point_distance(x, y - (temp_combat_unit_height / 2), sight_unit_seen_x, sight_unit_seen_y) > ai_inspect_radius) {
 			if (point_distance(path_end_x, path_end_y, sight_unit_seen_x, sight_unit_seen_y) > 1) {
 				path_create = true;
 				path_end_x = sight_unit_seen_x;
@@ -206,4 +206,3 @@ if (ai_behaviour and canmove) {
 
 // Inherit the parent event
 event_inherited();
-

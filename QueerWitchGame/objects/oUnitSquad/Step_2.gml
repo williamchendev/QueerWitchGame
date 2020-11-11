@@ -14,7 +14,7 @@ if (inventory != noone) {
 }
 
 // Debug Reset Room
-if (keyboard_check_pressed(ord("L")) or (knockout_timer <= 0)) {
+if (keyboard_check_pressed(ord("L"))) {
 	ds_list_destroy(game_manager.instantiated_units);
 	game_manager.instantiated_units = ds_list_create();
 	room_restart();

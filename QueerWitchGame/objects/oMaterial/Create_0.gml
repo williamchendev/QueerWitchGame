@@ -14,6 +14,10 @@ material_damage_x_scale = ds_list_create();
 material_damage_y_scale = ds_list_create();
 material_damage_angle = ds_list_create();
 
+// Unit Variables
+material_team_id = noone;
+material_units = ds_list_create();
+
 // Surface Variables
 material_dmg_surface = noone;
 material_surface = noone

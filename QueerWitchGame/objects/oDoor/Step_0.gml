@@ -8,6 +8,8 @@ if (interact.interact_action) {
 	if (temp_door_unit_check == noone) {
 		// Set Door Behaviour
 		if (!door_touched) {
+			door_material.material_team_id = interact.interact_unit.team_id;
+			
 			door_velocity = door_kick_velocity * -sign(interact.interact_unit.x - x);
 			door_open = true;
 		}
@@ -138,20 +140,31 @@ if (door_open) {
 	// Deactivate Instance
 	if (door_touched) {
 		if (door_solid_active) {
+			door_solid.phy_active = false;
 			instance_deactivate_object(door_solid);
 			door_solid_active = false;
 		}
+	}
+	
+	// Set Door Material team_id
+	var temp_interact_unit = collision_rectangle(x - ((sprite_get_width(sprite_index) / 2) * sign(door_value)), y - sprite_get_height(end_panel_sprite), x + (door_value * (sprite_get_width(end_panel_sprite) / 2)), y, oUnit, false, true);
+	if (temp_interact_unit != noone) {
+		door_material.material_team_id = temp_interact_unit.team_id;
 	}
 }
 else {
 	// Reactivate Instance
 	if (!door_solid_active) {
 		instance_activate_object(door_solid);
+		door_solid.phy_active = true;
 		door_solid_active = true;
 		
 		door_min = -1;
 		door_max = 1;
 		door_velocity = 0;
 		door_touched = false;
+		
+		// Set Door Material team_id
+		door_material.material_team_id = "unassigned";
 	}
 }
