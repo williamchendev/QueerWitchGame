@@ -84,6 +84,23 @@ for (var l = 0; l < array_length_1d(pathedge_index); l++) {
 		}
 	}
 	
+	// Check for Debug Node Teleport Variables
+	var temp_edge_teleport = false;
+	for (var k = 0; k < array_length_1d(temp_dnode_a.teleport_edges); k++) {
+		if (temp_dnode_a.teleport_edges[k] == temp_edge_index) {
+			temp_edge_teleport = true;
+			break;
+		}
+	}
+	if (!temp_edge_teleport) {
+		for (var k = 0; k < array_length_1d(temp_dnode_b.teleport_edges); k++) {
+			if (temp_dnode_b.teleport_edges[k] == temp_edge_index) {
+				temp_edge_teleport = true;
+				break;
+			}
+		}
+	}
+	
 	// Establish Nodes & Edge
 	var temp_node_a = ds_map_find_value(pathnodes, temp_dnode_a);
 	var temp_node_b = ds_map_find_value(pathnodes, temp_dnode_b);
@@ -93,6 +110,7 @@ for (var l = 0; l < array_length_1d(pathedge_index); l++) {
 	temp_edge.nodes[0] = temp_node_a;
 	temp_edge.nodes[1] = temp_node_b;
 	temp_edge.jump = temp_edge_jump;
+	temp_edge.teleport = temp_edge_teleport;
 	temp_edge.distance = point_distance(temp_node_a.x, temp_node_a.y, temp_node_b.x, temp_node_b.y);
 }
 

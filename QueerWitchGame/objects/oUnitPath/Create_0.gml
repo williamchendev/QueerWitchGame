@@ -25,6 +25,7 @@ sight_alert_arc = 30;
 
 // Pathfinding Settings
 path_x_delta_tolerance = 3;
+path_teleporter_delta_tolerance = 30;
 path_increment_index_radius = 5;
 
 // Sight Variables

@@ -74,9 +74,17 @@ if (path_create) {
 				}
 			}
 			
+			// Check if First Path Target is a Teleport Edge
+			var temp_start_path_edge_teleport = false;
+			if (path_array[0, 0].object_index == oPathEdge or object_is_ancestor(path_array[0, 0].object_index, oPathEdge)) {
+				if (path_array[0, 0].jump) {
+					temp_start_path_edge_teleport = true;
+				}
+			}
+			
 			// Find Path Start Ground Tethers
 			var temp_start_path_ground_y = raycast_ground_ignore_edge(path_debug_start_x, path_debug_start_y, 150, path_array[0, 0]);
-			if (temp_start_path_ground_y == noone or temp_start_path_edge_jump) {
+			if (temp_start_path_ground_y == noone or temp_start_path_edge_jump or temp_start_path_edge_teleport) {
 				var temp_start_node_closest = path_array[0, 0].nodes[0];
 				if (point_distance(path_debug_start_x, path_debug_start_y, path_array[0, 0].nodes[1].x, path_array[0, 0].nodes[1].y) < point_distance(path_debug_start_x, path_debug_start_y, path_array[0, 0].nodes[0].x, path_array[0, 0].nodes[0].y)) {
 					temp_start_node_closest = path_array[0, 0].nodes[1];
@@ -99,9 +107,17 @@ if (path_create) {
 				}
 			}
 			
+			// Check if Final Path Target is a Teleport Edge
+			var temp_end_path_edge_teleport = false;
+			if (path_array[array_height_2d(path_array) - 1, 0].object_index == oPathEdge or object_is_ancestor(path_array[array_height_2d(path_array) - 1, 0].object_index, oPathEdge)) {
+				if (path_array[array_height_2d(path_array) - 1, 0].teleport) {
+					temp_end_path_edge_teleport = true;
+				}
+			}
+			
 			// Find Path End Ground Tethers
 			var temp_end_path_ground_y = raycast_ground_ignore_edge(path_debug_end_x, path_debug_end_y, 150, path_array[array_height_2d(path_array) - 1, 0]);
-			if (temp_end_path_ground_y == noone or temp_end_path_edge_jump) {
+			if (temp_end_path_ground_y == noone or temp_end_path_edge_jump or temp_end_path_edge_teleport) {
 				var temp_end_node_closest = path_array[array_height_2d(path_array) - 1, 0].nodes[0];
 				if (point_distance(path_debug_end_x, path_debug_end_y, path_array[array_height_2d(path_array) - 1, 0].nodes[1].x, path_array[array_height_2d(path_array) - 1, 0].nodes[1].y) < point_distance(path_debug_end_x, path_debug_end_y, path_array[array_height_2d(path_array) - 1, 0].nodes[0].x, path_array[array_height_2d(path_array) - 1, 0].nodes[0].y)) {
 					temp_end_node_closest = path_array[array_height_2d(path_array) - 1, 0].nodes[1];
@@ -125,7 +141,7 @@ if (path_create) {
 			// Find Path Edge
 			path_edge = noone;
 			var temp_start_node_a_viable = path_array[0, 0].object_index == oPathNode or object_is_ancestor(path_array[0, 0].object_index, oPathNode);
-			var temp_start_node_b_viable = path_array[1, 0].object_index == oPathNode or object_is_ancestor(path_array[1, 0].object_index, oPathNode)
+			var temp_start_node_b_viable = path_array[1, 0].object_index == oPathNode or object_is_ancestor(path_array[1, 0].object_index, oPathNode);
 			if (temp_start_node_a_viable and temp_start_node_b_viable) {
 				path_edge = pathfind_get_node_edge(path_array[0, 0], path_array[1, 0]);
 			}
@@ -183,6 +199,7 @@ while (temp_pathfind_active) {
 	if (path_array_index < array_height_2d(path_array)) {
 		// Vertical Movement
 		if (path_edge != noone) {
+			// Jump Movement
 			if (path_edge.jump) {
 				if (path_array_index < array_height_2d(path_array) - 1) {
 					// Jump Behaviour
@@ -223,6 +240,22 @@ while (temp_pathfind_active) {
 							// Jump Down
 							path_jump_down = true;
 							path_jump_up = false;
+						}
+					}
+				}
+			}
+			// Teleport Movement
+			if (path_edge.teleport) {
+				if (path_array_index < array_height_2d(path_array) - 1) {
+					// Trigger Teleport
+					var temp_teleport = instance_place(x, y, oTeleport);
+					if (temp_teleport != noone) {
+						// Check Teleporter in Range of Node with Teleport Flag
+						var temp_teleport_x = path_array[max(path_array_index - 1, 0), 1];
+						var temp_teleport_y = path_array[max(path_array_index - 1, 0), 2];
+						if (point_distance(temp_teleport.x, temp_teleport.y, temp_teleport_x, temp_teleport_y) < path_teleporter_delta_tolerance) {
+							// Interact with Teleport
+							temp_teleport.interact.interact_unit = self;
 						}
 					}
 				}

@@ -3,3 +3,4 @@
 
 edges = noone;
 jump_edges = noone;
+teleport_edges = noone;

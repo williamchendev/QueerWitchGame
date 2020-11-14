@@ -407,6 +407,14 @@
             }
         },
         {
+            "Key": "2a8af802-858a-4ddf-b222-9004b0affabc",
+            "Value": {
+                "id": "706a00e3-922c-4092-a1fb-819ce71d25ac",
+                "resourcePath": "sprites\\sVerticalDoorBack\\sVerticalDoorBack.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "2c33a1c5-03d1-4e97-9303-0a627b3fce90",
             "Value": {
                 "id": "5939108d-d75b-4430-889f-a2180606f726",
@@ -492,14 +500,6 @@
                 "id": "a6323288-f641-4a5d-9e37-ba2fb7c7678b",
                 "resourcePath": "sprites\\sWilliamDS_AimWalk\\sWilliamDS_AimWalk.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "32e0f7db-85ab-40ed-bf52-2c77ce1b2f08",
-            "Value": {
-                "id": "1adb01b7-0763-42f5-83b2-d30b971fb613",
-                "resourcePath": "objects\\oDebugGroundSearch\\oDebugGroundSearch.yy",
-                "resourceType": "GMObject"
             }
         },
         {
@@ -783,6 +783,14 @@
             }
         },
         {
+            "Key": "45ef4815-a59d-40b2-a9fa-ec6e13465073",
+            "Value": {
+                "id": "80b19626-1985-4f1e-a0d9-ad1516a9a54f",
+                "resourcePath": "objects\\oTeleport\\oTeleport.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "46037025-1be4-4e6e-84d4-b7e167d60e74",
             "Value": {
                 "id": "ba5e5768-6be0-4afe-9578-1bd5faec0f52",
@@ -932,14 +940,6 @@
                 "id": "9910296d-f467-411a-a32d-f5a659c5d3db",
                 "resourcePath": "sprites\\sMatDmg_Small_2\\sMatDmg_Small_2.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "57894c3e-6f8d-40f9-bb90-9ff1e0a1a53e",
-            "Value": {
-                "id": "bf5afa25-c1bb-4604-9978-d31d5bfc7a8f",
-                "resourcePath": "objects\\oMaterial1\\oMaterial1.yy",
-                "resourceType": "GMObject"
             }
         },
         {
@@ -1895,6 +1895,14 @@
             }
         },
         {
+            "Key": "b94e992f-c472-4612-8ebe-e3120e965222",
+            "Value": {
+                "id": "8881aaa6-82d3-4db7-9750-e8ee61105e22",
+                "resourcePath": "objects\\oDebugTeleportParent\\oDebugTeleportParent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "b98817fd-d677-488c-bb8e-250660a935ab",
             "Value": {
                 "id": "f3a11e18-fec8-4b93-a013-da53186b2354",
@@ -2239,14 +2247,6 @@
             }
         },
         {
-            "Key": "dfe838b9-d977-405e-8a7a-37b4aec82475",
-            "Value": {
-                "id": "452adeb3-049a-4ed9-9f1f-79e0a0011cd4",
-                "resourcePath": "objects\\oMatDebug\\oMatDebug.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "e08c0600-96bf-4626-8293-38028ed1f281",
             "Value": {
                 "id": "bb49633c-fac6-41fe-a508-2cdbab1e45f9",
@@ -2260,6 +2260,14 @@
                 "id": "a4323d3d-396e-43c2-9a84-6deeeea2903c",
                 "resourcePath": "sprites\\sEditorClose\\sEditorClose.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e15a4d25-e3b8-45ec-a207-a3368fb92972",
+            "Value": {
+                "id": "16f6c849-b2ac-4644-a8c3-dfcc265af970",
+                "resourcePath": "views\\e15a4d25-e3b8-45ec-a207-a3368fb92972.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -2428,6 +2436,14 @@
                 "id": "0d78bf44-8be7-42a1-89d6-410a49eb629d",
                 "resourcePath": "sprites\\sWilliamDS_Heavy_Jump\\sWilliamDS_Heavy_Jump.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ef036332-68f2-498d-8421-6afd91973b7c",
+            "Value": {
+                "id": "ce0618be-705b-4c62-9ff5-4d2ff1de2052",
+                "resourcePath": "objects\\oDebugTeleport\\oDebugTeleport.yy",
+                "resourceType": "GMObject"
             }
         },
         {

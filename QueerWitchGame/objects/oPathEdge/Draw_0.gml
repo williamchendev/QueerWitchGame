@@ -13,4 +13,9 @@ if (nodes[0] != noone and nodes[1] != noone) {
 		draw_rectangle(nodes[0].x - 5, nodes[0].y - 5, nodes[0].x + 5, nodes[0].y + 5, false);
 		draw_rectangle(nodes[1].x - 5, nodes[1].y - 5, nodes[1].x + 5, nodes[1].y + 5, false);
 	}
+	if (teleport) {
+		drawTextOutline(x, y + 11, c_white, c_black, "[Teleport]");
+		draw_rectangle(nodes[0].x - 5, nodes[0].y - 5, nodes[0].x + 5, nodes[0].y + 5, false);
+		draw_rectangle(nodes[1].x - 5, nodes[1].y - 5, nodes[1].x + 5, nodes[1].y + 5, false);
+	}
 }
