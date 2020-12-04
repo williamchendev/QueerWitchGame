@@ -35,4 +35,5 @@ if (material_team_id != noone) {
 
 // Garbage Collection
 ds_list_destroy(temp_material_units);
+temp_material_units = -1;
 

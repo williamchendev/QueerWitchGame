@@ -116,7 +116,7 @@ limb_sprite[0] = sWilliamDS_Heavy_Arms;  // Right Arm
 limb_sprite[1] = sWilliamDS_Heavy_Arms;  // Left Arm
 
 // Inventory Settings
-addItemInventory(inventory, 5);
+addItemInventory(inventory, 6);
 var temp_weapon = ds_list_find_value(inventory.weapons, 0);
 temp_weapon.equip = true;
 
@@ -124,3 +124,6 @@ temp_weapon.equip = true;
 player_input = true;
 ai_behaviour = false;
 camera_follow = true;
+
+// Debug
+crunch = false;

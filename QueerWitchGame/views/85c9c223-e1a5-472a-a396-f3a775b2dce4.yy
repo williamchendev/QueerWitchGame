@@ -12,7 +12,7 @@
         "46037025-1be4-4e6e-84d4-b7e167d60e74"
     ],
     "filterType": "GMSprite",
-    "folderName": "Will_Heavy",
+    "folderName": "WilliamHeavy",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

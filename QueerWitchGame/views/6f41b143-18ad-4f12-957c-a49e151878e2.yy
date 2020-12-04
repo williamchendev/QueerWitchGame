@@ -13,7 +13,7 @@
         "ec16c893-72ff-484f-9229-1eb880e73a44"
     ],
     "filterType": "GMSprite",
-    "folderName": "Will",
+    "folderName": "WilliamDS",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

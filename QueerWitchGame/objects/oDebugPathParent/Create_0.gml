@@ -123,4 +123,7 @@ for (var q = array_length_1d(delete_nodes) - 1; q >= 0; q--) {
 ds_map_destroy(pathnodes);
 ds_map_destroy(pathnode_index);
 
+pathnodes = -1;
+pathnode_index = -1;
+
 instance_destroy();

@@ -251,9 +251,7 @@ while (temp_pathfind_active) {
 					var temp_teleport = instance_place(x, y, oTeleport);
 					if (temp_teleport != noone) {
 						// Check Teleporter in Range of Node with Teleport Flag
-						var temp_teleport_x = path_array[max(path_array_index - 1, 0), 1];
-						var temp_teleport_y = path_array[max(path_array_index - 1, 0), 2];
-						if (point_distance(temp_teleport.x, temp_teleport.y, temp_teleport_x, temp_teleport_y) < path_teleporter_delta_tolerance) {
+						if (point_distance(temp_teleport.teleport_obj.x, temp_teleport.teleport_obj.y, path_array[path_array_index, 1], path_array[path_array_index, 2]) < path_teleporter_delta_tolerance) {
 							// Interact with Teleport
 							temp_teleport.interact.interact_unit = self;
 						}
@@ -438,6 +436,7 @@ if (sight) {
 
 	// Garbage Collection
 	ds_list_destroy(temp_sight_unit_list);
+	temp_sight_unit_list = -1;
 }
 
 // Reset Movement Variables

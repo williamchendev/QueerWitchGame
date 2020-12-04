@@ -55,8 +55,8 @@ global.realdeltatime = 0;
 stop_time = false; //DEBUG
 
 // Camera Variables
-camera_width = 480;
-camera_height = 270;
+camera_width = 640;
+camera_height = 360;
 camera_x = 0;
 camera_y = 0;
 

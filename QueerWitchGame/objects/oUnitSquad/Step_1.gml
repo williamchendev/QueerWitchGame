@@ -92,4 +92,13 @@ if (camera_follow) {
 	
 	// Set Camera Position
 	camera_set_view_pos(camera, cam_target_x, cam_target_y);
+	
+	// Parallax Background Behaviour
+	if (instance_exists(oParallaxBackground)) {
+		with (oParallaxBackground) {
+			var temp_background_lerp_spd = 0.25;
+			x = lerp(x, cam_target_x + (other.game_manager.game_width / 2), global.realdeltatime * temp_background_lerp_spd);
+			y = lerp(y, cam_target_y + other.game_manager.game_height + 10, global.realdeltatime * temp_background_lerp_spd);
+		}
+	}
 }
