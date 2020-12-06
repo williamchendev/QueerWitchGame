@@ -125,5 +125,14 @@ player_input = true;
 ai_behaviour = false;
 camera_follow = true;
 
-// Debug
+// Crunch Settings
+crunch_weapon_fire_delay = 0.6;
+crunch_weapon_move_spd = 0.6;
+crunch_weapon_move_range = 4;
+
+// Crunch Variables
 crunch = false;
+crunch_x = 0;
+crunch_y = 0;
+crunch_bursts = 0;
+crunch_weapon_move_timer = 0;

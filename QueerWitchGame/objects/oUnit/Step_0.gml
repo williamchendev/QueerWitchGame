@@ -1,6 +1,13 @@
 /// @description Unit Update Event
 // Performs calculations necessary for the Unit's behaviour
 
+// Teleport Behaviour
+if (teleport) {
+	x += teleport_x;
+	y += teleport_y;
+	teleport = false;
+}
+
 // Movement (Player Input)
 if (canmove) {
 	// Horizontal Movement
@@ -20,7 +27,7 @@ if (canmove) {
 	}
 	
 	// Vertical Movement (Jumping)
-	if (key_up) {
+	if (key_jump) {
 		if (!platform_free(x, y + 1, platform_list)) {
 			// First Jump
 			y_velocity = 0;
@@ -32,7 +39,7 @@ if (canmove) {
 			draw_xscale = 1 - squash_stretch;
 			draw_yscale = 1 + squash_stretch;
 		}
-		else if (key_up_press) {
+		else if (key_jump_press) {
 			// Second Jump
 			if (double_jump) {
 				y_velocity = 0;

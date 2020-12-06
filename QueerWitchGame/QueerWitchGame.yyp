@@ -263,6 +263,14 @@
             }
         },
         {
+            "Key": "19f740d7-fb80-41b7-bbd7-953d0950d353",
+            "Value": {
+                "id": "271807d4-f716-4d44-86a1-efb515b51b66",
+                "resourcePath": "sprites\\sDaySkyBackground1A\\sDaySkyBackground1A.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1a2bd610-e755-4cdf-b058-1ef50f3db865",
             "Value": {
                 "id": "4c0d1882-d4e6-46cd-92cd-1604cbde3920",
@@ -428,6 +436,14 @@
                 "id": "e032d3b2-38af-45d7-a7de-b12235b8c0ca",
                 "resourcePath": "views\\2a776ba8-ca72-4cfc-af11-8d8627994a8e.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "2a79f705-ed84-4b13-911b-6b9140f70613",
+            "Value": {
+                "id": "2fc10ed5-9e30-4ea8-80bb-aea760691a09",
+                "resourcePath": "sprites\\sDaySkyBackground1\\sDaySkyBackground1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

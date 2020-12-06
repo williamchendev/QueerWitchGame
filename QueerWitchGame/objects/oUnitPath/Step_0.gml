@@ -205,12 +205,12 @@ while (temp_pathfind_active) {
 					// Jump Behaviour
 					if (path_jump_up) {
 						// Jump Up
-						key_up = true;
+						key_jump = true;
 						
 						// Double Jump Logic
 						if (path_double_jump) {
 							if (y_velocity >= 0) {
-								key_up_press = true;
+								key_jump_press = true;
 							}
 						}
 						if (y_velocity < -jump_spd) {
@@ -449,5 +449,8 @@ key_left_press = false;
 key_right_press = false;
 key_up_press = false;
 key_down_press = false;
+
+key_jump = false;
+key_jump_press = false;
 
 key_interact_press = false;

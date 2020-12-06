@@ -14,6 +14,9 @@ if (player_input) {
 		key_up_press = keyboard_check_pressed(game_manager.up_check);
 		key_down_press = keyboard_check_pressed(game_manager.down_check);
 		
+		key_jump = keyboard_check(game_manager.jump_check);
+		key_jump_press = keyboard_check_pressed(game_manager.jump_check);
+		
 		key_interact_press = keyboard_check_pressed(game_manager.interact_check);
 		key_inventory_press = keyboard_check_pressed(game_manager.inventory_check);
 		
@@ -261,18 +264,28 @@ if (canmove) {
 		if (interact_collision_list != noone) {
 			// Interate Through Interact Objects
 			for (var q = 0; q < array_length_1d(interact_collision_list); q++) {
-				// Check Cursor Collider
-				if (position_meeting(cursor_x, cursor_y, interact_collision_list[q])) {
-					// Cursor Hover
-					interact_collision_list[q].interact_select = true;
+				// Teleport Interaction Check
+				if (interact_collision_list[q].interact_obj.object_index != oTeleport) {
+					// Check Cursor Collider
+					if (position_meeting(cursor_x, cursor_y, interact_collision_list[q])) {
+						// Cursor Hover
+						interact_collision_list[q].interact_select = true;
 					
+						// Interaction Input
+						if (key_interact_press) {
+							interact_collision_list[q].interact_unit = self;
+						}
+					
+						// Break Loop
+						break;
+					}
+				}
+				else {
 					// Interaction Input
-					if (key_interact_press) {
+					if (key_up_press) {
+						// Teleport Interact Object Behaviour
 						interact_collision_list[q].interact_unit = self;
 					}
-					
-					// Break Loop
-					break;
 				}
 			}
 		}

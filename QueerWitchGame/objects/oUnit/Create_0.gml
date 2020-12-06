@@ -120,6 +120,11 @@ interact_active = true;
 interact_reach = 16;
 interact_collision_list = noone;
 
+// Teleport Variables
+teleport = false;
+teleport_x = 0;
+teleport_y = 0;
+
 // Input Variables
 key_left = false;
 key_right = false;
@@ -130,6 +135,9 @@ key_left_press = false;
 key_right_press = false;
 key_up_press = false;
 key_down_press = false;
+
+key_jump = false;
+key_jump_press = false;
 
 key_interact_press = false;
 key_inventory_press = false;

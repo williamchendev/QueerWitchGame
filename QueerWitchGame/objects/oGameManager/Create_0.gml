@@ -40,6 +40,7 @@ down_check = ord("S");
 left_check = ord("A");
 right_check = ord("D");
 
+jump_check = vk_space;
 reload_check = ord("R");
 
 interact_check = ord("E");

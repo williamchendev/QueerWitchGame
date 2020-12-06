@@ -16,6 +16,7 @@ if (!pathing) {
 }
 
 // Physics, Pathfinding, & Unit Behaviour Inheritance
+var temp_teleport = teleport;
 event_inherited();
 
 // Check Target Valid
@@ -48,9 +49,24 @@ for (var i = 0; i < ds_list_size(inventory.weapons); i++) {
 	// Find Indexed Weapon
 	var temp_weapon_index = ds_list_find_value(inventory.weapons, i);
 	
-	// Set Equipped Weapon
-	if (temp_weapon_index.equip) {
-		temp_weapon = temp_weapon_index;
+	// Weapon Behaviour
+	if (instance_exists(temp_weapon_index)) {
+		// Teleport
+		if (temp_teleport) {
+			aim_ambient_x = x + (draw_xscale * image_xscale * 50);
+			aim_ambient_y = y + weapon_hip_y;
+	
+			temp_weapon_index.x += teleport_x;
+			temp_weapon_index.y += teleport_y;
+			temp_weapon_index.x_position += teleport_x;
+			temp_weapon_index.y_position += teleport_y;
+			temp_weapon_index.weapon_rotation = ((sign(image_xscale) * -90) + 90) + (sign(image_xscale) * 45);
+		}
+		
+		// Set Equipped Weapon
+		if (temp_weapon_index.equip) {
+			temp_weapon = temp_weapon_index;
+		}
 	}
 }
 
