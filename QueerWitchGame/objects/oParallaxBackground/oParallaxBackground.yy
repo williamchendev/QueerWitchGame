@@ -4,7 +4,36 @@
     "mvc": "1.0",
     "name": "oParallaxBackground",
     "eventList": [
-        
+        {
+            "id": "cbb580d9-a985-4d59-aef4-a2d12428b424",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "a56230aa-26e1-4b4c-899e-968d6f80fab9"
+        },
+        {
+            "id": "c65ad306-0115-4b95-95c9-8669427e4858",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 3,
+            "m_owner": "a56230aa-26e1-4b4c-899e-968d6f80fab9"
+        },
+        {
+            "id": "cbb123e9-8996-4a4e-8e6e-4cb95736ecf5",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 8,
+            "m_owner": "a56230aa-26e1-4b4c-899e-968d6f80fab9"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

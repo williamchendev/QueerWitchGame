@@ -1,6 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if (crunch) {
+	canmove = false;
+}
+
 // Inherit the parent event
 event_inherited();
 
@@ -22,6 +26,16 @@ if (temp_weapon != noone) {
 	if ((temp_weapon.object_index == oFirearm) or (object_is_ancestor(temp_weapon.object_index, oFirearm))) {
 		// Crunch
 		if (!crunch) {
+			// Screen Shake Bursts
+			if (ds_list_size(temp_weapon.flash_timer) > screen_shake_flashes) {
+				camera_screen_shake = true;
+				camera_screen_shake_timer = 1;
+			}
+			else {
+				camera_screen_shake = false;
+			}
+			screen_shake_flashes = ds_list_size(temp_weapon.flash_timer);
+			
 			if (keyboard_check_pressed(ord("F"))) {
 			// Equipped Weapon & Combat Unit Behaviour
 				if (temp_weapon.bullets > 0) {
@@ -37,16 +51,18 @@ if (temp_weapon != noone) {
 					crunch_y = temp_weapon.y;
 					crunch_bursts = temp_weapon.bursts;
 					crunch_weapon_move_timer = 0;
+					crunch_player_input = player_input;
+					player_input = false;
 				}
 			}
 		}
 		else {
 			// Player & Game Manager Behaviour
 			reload = false;
-			canmove = false;
 			x_velocity = 0;
 			game_manager.time_spd = 0.25;
 			sprite_index = aim_animation;
+			camera_screen_shake = true;
 			
 			// Crunch Bursts
 			if (temp_weapon.bursts < crunch_bursts) {
@@ -67,9 +83,12 @@ if (temp_weapon != noone) {
 			// Reset Crunch
 			if (ds_list_size(temp_weapon.flash_timer) < 1) {
 				crunch = false;
-				canmove = true;
+				camera_screen_shake = false;
 				game_manager.time_spd = 1;
+				player_input = crunch_player_input;
+				screen_shake_bursts = temp_weapon.bursts;
 			}
+			canmove = true;
 		}
 	}
 }

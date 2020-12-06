@@ -191,10 +191,10 @@
             }
         },
         {
-            "Key": "125dec70-69d9-4247-a27a-2b300cf56dde",
+            "Key": "13b3155d-964d-4e95-b290-28875edc1b65",
             "Value": {
-                "id": "0fa95419-ac98-4c06-868e-b11de643ee64",
-                "resourcePath": "sprites\\sFoggyMountains1\\sFoggyMountains1.yy",
+                "id": "46307316-ed4b-4ba1-9e7f-a94ee17b56b8",
+                "resourcePath": "sprites\\sBackgroundMiddaySky1_B\\sBackgroundMiddaySky1_B.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -323,6 +323,14 @@
             "Value": {
                 "id": "f99cb31c-a42e-4350-9f95-7e9e7e041572",
                 "resourcePath": "sprites\\sDebugEnemy_Aim_Walk\\sDebugEnemy_Aim_Walk.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "1e72df6c-daf8-4363-9d75-8690878e6654",
+            "Value": {
+                "id": "11fb06db-11ce-4201-b904-9942f858f4b0",
+                "resourcePath": "sprites\\sBackgroundMiddaySky1_C\\sBackgroundMiddaySky1_C.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -467,6 +475,14 @@
             "Value": {
                 "id": "9b8e32ae-f872-4cf7-9a29-1c8c1b9ff2cb",
                 "resourcePath": "sprites\\sWilliamDS_Idle\\sWilliamDS_Idle.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2f85ec53-2dac-45ed-803e-d0b702838ca8",
+            "Value": {
+                "id": "d813fc62-9544-4958-82cb-fdca3265d897",
+                "resourcePath": "sprites\\sBlackBlocking\\sBlackBlocking.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -796,6 +812,14 @@
                 "id": "3b5e81d9-d230-4ee3-b12c-102844b3d257",
                 "resourcePath": "views\\4217633c-02c5-43ab-a360-25f1a315fa42.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "424db202-379a-4452-a09f-ef8cdf177eb9",
+            "Value": {
+                "id": "97e3a833-3a80-4515-b516-b734760bce16",
+                "resourcePath": "sprites\\sBackgroundMiddaySky1_A\\sBackgroundMiddaySky1_A.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1188,6 +1212,14 @@
                 "id": "c6b437a0-573b-47a6-b8d6-c84efef90c4d",
                 "resourcePath": "sprites\\sWill_Attack\\sWill_Attack.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6745d533-0455-4785-acb2-9cbc2c8a5e5d",
+            "Value": {
+                "id": "5b014de0-aa25-4d4f-97a0-80ab28043f94",
+                "resourcePath": "views\\6745d533-0455-4785-acb2-9cbc2c8a5e5d.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -2183,6 +2215,14 @@
             }
         },
         {
+            "Key": "babcd5c1-bf0e-4fd8-bffc-9dae0cfeb52b",
+            "Value": {
+                "id": "6d48df26-04fd-40c2-9141-4e516f524f3e",
+                "resourcePath": "sprites\\sBackgroundMiddaySky1_E\\sBackgroundMiddaySky1_E.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "bb25ce90-91b9-4463-8ea1-4e7c5ab1dda2",
             "Value": {
                 "id": "eca4ae02-d18d-4d7a-b8bc-16de8bece40a",
@@ -2243,6 +2283,14 @@
             "Value": {
                 "id": "fe5df097-b5af-40a2-b73e-1a6b3c1cd133",
                 "resourcePath": "sprites\\sWilliam_Head\\sWilliam_Head.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c2cf5753-6427-4700-b6b1-60fcc16f3009",
+            "Value": {
+                "id": "f5e51216-a61a-4338-b0ba-ec9a688e3d0c",
+                "resourcePath": "sprites\\sBackgroundMiddaySky1_D\\sBackgroundMiddaySky1_D.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2831,6 +2879,14 @@
             }
         },
         {
+            "Key": "ef27dfb2-45f8-462e-a49e-273a28ded512",
+            "Value": {
+                "id": "11a2943d-9796-4ce7-8ec9-fce12c8902c2",
+                "resourcePath": "views\\ef27dfb2-45f8-462e-a49e-273a28ded512.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "f01693be-aa32-469f-a6f9-81037c9292a9",
             "Value": {
                 "id": "04741c23-1949-4e8e-b6e7-e2dc9f59deae",
@@ -2931,6 +2987,14 @@
             "Value": {
                 "id": "5a2de84f-8312-46ba-a211-cb3b80a453a3",
                 "resourcePath": "views\\f85c6891-f8f9-43ff-940e-7763e1071288.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "f8622e7b-221d-4a2b-8eb0-e33626513658",
+            "Value": {
+                "id": "87c336e8-695e-4f5a-bd73-ea29a9ba9c1d",
+                "resourcePath": "views\\f8622e7b-221d-4a2b-8eb0-e33626513658.yy",
                 "resourceType": "GMFolder"
             }
         },

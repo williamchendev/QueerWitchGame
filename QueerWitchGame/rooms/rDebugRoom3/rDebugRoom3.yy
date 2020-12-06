@@ -62,6 +62,34 @@
     "IsDnD": false,
     "layers": [
         {
+            "__type": "GMRAssetLayer_Model:#YoYoStudio.MVCFormat",
+            "name": "LevelArt",
+            "id": "ecb59b16-5751-4460-a480-f34914ffa842",
+            "assets": [
+{"__type": "GMRSpriteGraphic_Model:#YoYoStudio.MVCFormat","name": "graphic_3E7E1E42","id": "b0e42dd0-e02b-4cb8-8153-f11d847db495","animationFPS": 15,"animationSpeedType": "0","colour": { "Value": 4294967295 },"frameIndex": 0,"ignore": false,"inheritItemSettings": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRSpriteGraphic","rotation": 0,"scaleX": 32.5,"scaleY": 6,"mvc": "1.0","spriteId": "2f85ec53-2dac-45ed-803e-d0b702838ca8","userdefined_animFPS": false,"x": -192,"y": 192},
+{"__type": "GMRSpriteGraphic_Model:#YoYoStudio.MVCFormat","name": "graphic_126993A5","id": "638f2c32-a7c1-4f00-81cf-94de71145ad1","animationFPS": 15,"animationSpeedType": "0","colour": { "Value": 4294967295 },"frameIndex": 0,"ignore": false,"inheritItemSettings": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRSpriteGraphic","rotation": 18.42652,"scaleX": 4.765625,"scaleY": 1,"mvc": "1.0","spriteId": "2f85ec53-2dac-45ed-803e-d0b702838ca8","userdefined_animFPS": false,"x": 352,"y": 224},
+{"__type": "GMRSpriteGraphic_Model:#YoYoStudio.MVCFormat","name": "graphic_5D43B25A","id": "254a914f-1671-4eb6-a248-544af26502ca","animationFPS": 15,"animationSpeedType": "0","colour": { "Value": 4294967295 },"frameIndex": 0,"ignore": false,"inheritItemSettings": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRSpriteGraphic","rotation": 0.008653641,"scaleX": 4.25,"scaleY": 1,"mvc": "1.0","spriteId": "2f85ec53-2dac-45ed-803e-d0b702838ca8","userdefined_animFPS": false,"x": 640,"y": 127.9952}
+            ],
+            "depth": -1100,
+            "grid_x": 32,
+            "grid_y": 32,
+            "hierarchyFrozen": false,
+            "hierarchyVisible": true,
+            "inheritLayerDepth": false,
+            "inheritLayerSettings": false,
+            "inheritSubLayers": false,
+            "inheritVisibility": false,
+            "layers": [
+
+            ],
+            "m_parentID": "00000000-0000-0000-0000-000000000000",
+            "m_serialiseFrozen": false,
+            "modelName": "GMRAssetLayer",
+            "mvc": "1.0",
+            "userdefined_depth": false,
+            "visible": true
+        },
+        {
             "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
             "name": "Foreground_Instances",
             "id": "1140500b-e26e-4dab-acfd-a386f7618a5f",

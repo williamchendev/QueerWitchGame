@@ -1,6 +1,9 @@
 /// @description Level Generation
 // Generates the new level from the Game Manager's settings
 
+// Game FPS Cap
+game_set_speed(60, gamespeed_fps);
+
 // Generate Level
 if (generate) {
 	// Set Editor Data

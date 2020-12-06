@@ -90,15 +90,22 @@ if (camera_follow) {
 	camera_x = cam_target_x;
 	camera_y = cam_target_y;
 	
-	// Set Camera Position
-	camera_set_view_pos(camera, cam_target_x, cam_target_y);
-	
-	// Parallax Background Behaviour
-	if (instance_exists(oParallaxBackground)) {
-		with (oParallaxBackground) {
-			var temp_background_lerp_spd = 0.25;
-			x = lerp(x, cam_target_x + (other.game_manager.game_width / 2), global.realdeltatime * temp_background_lerp_spd);
-			y = lerp(y, cam_target_y + other.game_manager.game_height + 10, global.realdeltatime * temp_background_lerp_spd);
+	// Camera Screen Shake
+	if (camera_screen_shake) {
+		camera_screen_shake_timer += global.realdeltatime * camera_screen_shake_spd;
+		if (camera_screen_shake_timer >= 1) {
+			while (camera_screen_shake_timer >= 1) {
+				camera_screen_shake_timer--;
+			}
+			camera_screen_shake_x = random_range(-(camera_screen_shake_range / 2), (camera_screen_shake_range / 2));
+			camera_screen_shake_y = random_range(-(camera_screen_shake_range / 2), (camera_screen_shake_range / 2));
 		}
 	}
+	else {
+		camera_screen_shake_x = lerp(camera_screen_shake_x, 0, global.realdeltatime * camera_screen_shake_reset_spd);
+		camera_screen_shake_y = lerp(camera_screen_shake_y, 0, global.realdeltatime * camera_screen_shake_reset_spd);
+	}
+	
+	// Set Camera Position
+	camera_set_view_pos(camera, cam_target_x + camera_screen_shake_x, cam_target_y + camera_screen_shake_y);
 }

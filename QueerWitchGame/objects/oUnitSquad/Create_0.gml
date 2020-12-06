@@ -59,12 +59,22 @@ camera_lockon_bounds = -64;
 camera_horizontal_spacing = 120;
 camera_vertical_spacing = 64;
 
+camera_screen_shake = false;
+camera_screen_shake_spd = 0.6;
+camera_screen_shake_range = 20;
+camera_screen_shake_reset_spd = 0.3;
+
 // Cursor Settings
 cursor_x = 0;
 cursor_y = 0;
 
 old_fire_press = false;
 old_aim_press = false;
+
+// Camera Variables
+camera_screen_shake_x = 0;
+camera_screen_shake_y = 0;
+camera_screen_shake_timer = 0;
 
 // Debug
 var temp_camera = view_camera[0];

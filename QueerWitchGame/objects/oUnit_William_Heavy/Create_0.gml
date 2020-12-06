@@ -132,7 +132,11 @@ crunch_weapon_move_range = 4;
 
 // Crunch Variables
 crunch = false;
+crunch_player_input = false;
 crunch_x = 0;
 crunch_y = 0;
 crunch_bursts = 0;
 crunch_weapon_move_timer = 0;
+
+// Screen Shake Variables
+screen_shake_flashes = 0;
