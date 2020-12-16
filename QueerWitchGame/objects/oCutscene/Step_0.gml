@@ -2,7 +2,63 @@
 // You can write your code in this editor
 
 // Cutscene Behaviour
-if (cutscene_valid) {
+if (cutscene_valid and cutscene_enabled) {
+	// Cutscene Check Interrupt Units
+	var temp_interrupted = false;
+	if (ds_list_size(cutscene_interrupt_units) > 0) {
+		for (var i = 0; i < ds_list_size(cutscene_interrupt_units); i++) {
+			var temp_interrupted = false;
+			var temp_interrupt_unit = ds_list_find_value(cutscene_interrupt_units, i);
+			if (instance_exists(temp_interrupt_unit)) {
+				if (temp_interrupt_unit.alert >= 1) {
+					temp_interrupted = true;
+				}
+			}
+			else {
+				temp_interrupted = true;
+			}
+			
+			if (temp_interrupted) {
+				break;
+			}
+		}
+	}
+	
+	// Cutscene Interrupt Behaviour
+	if (temp_interrupted) {
+		if (cutscene_dialogue_entity != noone) {
+			if (instance_exists(cutscene_dialogue_entity)) {
+				if (cutscene_dialogue_entity.input_advance) {
+					// Destroy Input Advance Dialogue
+					cutscene_dialogue_entity.destroy = true;
+				}
+				else {
+					// Interrupted Conversation Dialogue
+					if (cutscene_dialogue_entity.unit != noone) {
+						if (instance_exists(cutscene_dialogue_entity.unit)) {
+							if (array_length_1d(interrupt_text) > 0) {
+								// Reset Dialogue Textbox
+								var temp_interrupted_conversation_text = interrupt_text[irandom(array_length_1d(interrupt_text) - 1)];
+								with (cutscene_dialogue_entity) {
+									text = temp_interrupted_conversation_text;
+									text_index = 0;
+									display_text = "";
+									destroy_timer = 0;
+									destroy_alpha = 1;
+									destroy = false;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		// Destroy & End Cutscene
+		instance_destroy();
+		return;
+	}
+	
 	// Cutscene Wait Behaviour
 	if (cutscene_wait) {
 		// Wait Types
@@ -272,6 +328,15 @@ if (cutscene_valid) {
 					case "method_move":
 						// Move Method Behaviour
 						thespian_move(self, ds_list_find_value(temp_data_words, 0));
+						break;
+					case "method_interrupt":
+						// Interrupt Method Behaviour
+						var temp_arguments = thespian_parse(self, ds_list_find_value(temp_data_words, 0));
+						
+						// Index Interrupt Units
+						for (var l = 0; l < array_length_1d(temp_arguments); l++) {
+							ds_list_add(cutscene_interrupt_units, temp_arguments[l]);
+						}
 						break;
 					default:
 						// Invalid Statement

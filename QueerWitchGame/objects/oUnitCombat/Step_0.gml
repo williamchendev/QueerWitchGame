@@ -219,6 +219,10 @@ if (temp_weapon != noone) {
 			action_target_y = lerp(action_target_y, temp_hand_y, action_spd * global.deltatime);
 		}
 			
+		if (!reload) {
+			event_perform(ev_step, 0);
+			return;
+		}
 		targeting = false;
 		key_aim_press = false;
 	}
@@ -251,14 +255,19 @@ if (temp_weapon != noone) {
 	var temp_limb_aim_move_offset_x = 0;
 	var temp_limb_aim_offset_y = 0;
 	if (key_aim_press) {
-		temp_limb_aim_offset_y = limb_aim_offset_y;
 		if (x_velocity != 0) {
 			temp_limb_aim_move_offset_x = sign(x_velocity) * limb_aim_move_offset_x;
+		}
+		if (y_velocity == 0) {
+			temp_limb_aim_offset_y = limb_aim_offset_y;
 		}
 	}
 	else {
 		if (x_velocity != 0) {
 			temp_limb_run_move_offset_x = (sign(x_velocity) * spd);
+			if ((y_velocity == 0) and reload) {
+				temp_limb_aim_offset_y = limb_aim_offset_y;
+			}
 		}
 	}
 		

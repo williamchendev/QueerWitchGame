@@ -5,8 +5,13 @@
 points = 6;
 height = 8;
 width = 2;
-color = make_color_rgb(236, 205, 104);
-color_dark = make_color_rgb(21, 29, 74);
+//color = make_color_rgb(236, 205, 104);
+//color_dark = make_color_rgb(21, 29, 74);
+
+//color = make_color_rgb(226, 109, 92);
+color = make_color_rgb(191, 74, 88);
+color_dark = make_color_rgb(94, 11, 21);
+
 max_color_change = 0.2;
 
 complex_physics = true;

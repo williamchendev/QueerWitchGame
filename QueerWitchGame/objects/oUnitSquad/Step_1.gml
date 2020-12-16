@@ -15,7 +15,7 @@ if (camera_follow) {
 				target_pos_y = inventory.y + ((inventory.inventory_height / 2) * inventory.inventory_grid_size) + inventory.inventory_offset_size;
 			}
 		}
-		else {
+		else if (!camera_debug_gif_mode) {
 			// Check Lock On Enemies
 			var temp_lockon_index = 0;
 			var temp_lockon_closest_index = 0;
@@ -68,9 +68,6 @@ if (camera_follow) {
 			}
 		}
 	}
-	else {
-		return;
-	}
 	
 	// Establish Camera Variables
 	var camera = view_camera[0];
@@ -79,8 +76,13 @@ if (camera_follow) {
 	var cam_x = camera_x;
 	var cam_y = camera_y;
 	
-	var cam_target_x = lerp(cam_x, target_pos_x - (cam_width / 2), camera_follow_spd * global.realdeltatime);
-	var cam_target_y = lerp(cam_y, target_pos_y - (cam_height / 2) + camera_y_offset, camera_follow_spd * global.realdeltatime);
+	if (camera_lock) {
+		target_pos_x = camera_lock_x;
+		target_pos_y = camera_lock_y - camera_y_offset;
+	}
+	
+	var cam_target_x = lerp(cam_x, target_pos_x - (cam_width / 2), camera_follow_spd);
+	var cam_target_y = lerp(cam_y, target_pos_y - (cam_height / 2) + camera_y_offset, camera_follow_spd);
 	
 	// Clamp Player Spacing
 	cam_target_x = clamp(cam_target_x, x + camera_horizontal_spacing - game_manager.camera_width, x - camera_horizontal_spacing);
@@ -94,11 +96,14 @@ if (camera_follow) {
 	if (camera_screen_shake) {
 		camera_screen_shake_timer += global.realdeltatime * camera_screen_shake_spd;
 		if (camera_screen_shake_timer >= 1) {
-			while (camera_screen_shake_timer >= 1) {
-				camera_screen_shake_timer--;
+			camera_screen_shake_timer--;
+			var temp_screen_shake_size = camera_screen_shake_sml_range;
+			if (camera_screen_shake_lrg) {
+				temp_screen_shake_size = camera_screen_shake_lrg_range;
 			}
-			camera_screen_shake_x = random_range(-(camera_screen_shake_range / 2), (camera_screen_shake_range / 2));
-			camera_screen_shake_y = random_range(-(camera_screen_shake_range / 2), (camera_screen_shake_range / 2));
+			var temp_random_screen_shake_angle = random(2 * pi);
+			camera_screen_shake_x = cos(temp_random_screen_shake_angle) * temp_screen_shake_size;
+			camera_screen_shake_y = sin(temp_random_screen_shake_angle) * temp_screen_shake_size;
 		}
 	}
 	else {
@@ -107,5 +112,13 @@ if (camera_follow) {
 	}
 	
 	// Set Camera Position
-	camera_set_view_pos(camera, cam_target_x + camera_screen_shake_x, cam_target_y + camera_screen_shake_y);
+	var temp_camera_set_x_pos = cam_target_x + camera_screen_shake_x;
+	var temp_camera_set_y_pos = cam_target_y + camera_screen_shake_y;
+	if (camera_room_clamp_x) {
+		temp_camera_set_x_pos = clamp(temp_camera_set_x_pos, 0, room_width - game_manager.game_width);
+	}
+	if (camera_room_clamp_y) {
+		temp_camera_set_x_pos = clamp(temp_camera_set_y_pos, 0, room_height - game_manager.game_height);
+	}
+	camera_set_view_pos(camera, temp_camera_set_x_pos, temp_camera_set_y_pos);
 }

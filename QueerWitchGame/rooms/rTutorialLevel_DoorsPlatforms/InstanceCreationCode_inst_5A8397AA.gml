@@ -1,0 +1,1 @@
+transition_room_goto = rCornField1;

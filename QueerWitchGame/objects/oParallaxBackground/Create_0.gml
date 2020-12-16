@@ -9,17 +9,17 @@ background_sprite[3] = sBackgroundMiddaySky1_D;
 background_sprite[4] = sBackgroundMiddaySky1_E;
 
 background_move_spd[0] = 0;
-background_move_spd[1] = 0.06;
-background_move_spd[2] = 0.04;
-background_move_spd[3] = 0;
+background_move_spd[1] = 0;
+background_move_spd[2] = 0;
+background_move_spd[3] = -0.005;
 background_move_spd[4] = -0.2;
 
 background_y = -60;
 background_move_y_spd = 0.4;
 
 background_scroll_spd[0] = 0;
-background_scroll_spd[1] = 0;
-background_scroll_spd[2] = 0;
+background_scroll_spd[1] = 0.0001;
+background_scroll_spd[2] = 0.0003;
 background_scroll_spd[3] = 0;
 background_scroll_spd[4] = 0;
 

@@ -21,16 +21,16 @@ inno_spelman_text_alpha_spd = 0.015;
 
 // Play Option Settings
 play_fade_spd = 0.03;
-play_room_goto = rDebugRoom311;
+play_room_goto = rTutorialLevel_Movement;
 
 // Options Settings
 options_text = "Press F11 for Fullscreen\n\nCheck back in 2 years for more options...";
 
 // Credits Settings
-credits_text = "Design, Programming, Animation: Inno Spelman\n\nGame, Story, & Level Design: Amir Budhai\n\nArt Direction: Toni Chadwell";
+credits_text = "Design, Programming, Animation: Inno Spelman\n\nGame, Story, & Level Design: Amir Budhai\n\nArt Direction & Music: Toni Chadwell";
 
 // Title Button Settings
-play_button_sprite = sPlayIconTitle;
+play_button_sprite = sPraxisIconTitle;
 play_button_sprite_y_offset = 6;
 
 options_button_sprite = sOptionsIconTitle;

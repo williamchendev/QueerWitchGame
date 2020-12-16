@@ -28,9 +28,9 @@ if (player_input) {
 		key_up_press = keyboard_check_pressed(game_manager.up_check);
 		key_down_press = keyboard_check_pressed(game_manager.down_check);
 		
-		key_select_press = keyboard_check_pressed(game_manager.select_check);
-		key_cancel_press = keyboard_check_pressed(game_manager.cancel_check);
-		key_menu_press = keyboard_check_pressed(game_manager.menu_check);
+		key_select_press = keyboard_check_pressed(game_manager.reload_check);
+		key_cancel_press = keyboard_check_pressed(game_manager.interact_check);
+		key_menu_press = keyboard_check_pressed(game_manager.command_check);
 	}
 }
 

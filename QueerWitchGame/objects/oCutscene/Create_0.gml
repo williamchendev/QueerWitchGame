@@ -3,7 +3,7 @@
 
 // Cutscene Settings
 cutscene_valid = false;
-//cutscene_enabled = false;
+cutscene_enabled = true;
 
 // File Settings
 cutscene_file = noone;
@@ -40,14 +40,27 @@ if (file_name != "") {
 	cutscene_valid = true;
 	cutscene_variables = ds_map_create();
 	cutscene_wait_unitpath = ds_list_create();
+	cutscene_interrupt_units = ds_list_create();
 }
 
-// Variables
+// Cutscene Variables
 cutscene_wait = false;
 cutscene_wait_text = false;
 cutscene_wait_timer = 0;
 
 cutscene_dialogue_entity = noone;
+
+// Interrupt Cutscene Variables
+interrupt_text[0] = "Hey!";
+interrupt_text[1] = "-ah!";
+interrupt_text[2] = "-gh!";
+interrupt_text[3] = "wwhat?!";
+interrupt_text[4] = "-hha!";
+interrupt_text[5] = "There!";
+interrupt_text[6] = "Get down!";
+interrupt_text[7] = "hey HEY!";
+interrupt_text[8] = "-ffuck!";
+interrupt_text[9] = "Hhhh!";
 
 // Debug
 sprite_index = -1;

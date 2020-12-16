@@ -346,6 +346,45 @@ if (health_points <= 0) {
 		
 		ragdoll = false;
 	}
+	
+	// Death Dialogue
+	if (death_dialogue) {
+		// Check Dialogue Exists
+		var temp_death_dialogue_exists = false;
+		for (var l = 0; l < instance_number(oTextBox); l++) {
+			var temp_textbox_inst = instance_find(oTextBox, l);
+			if (temp_textbox_inst.unit == self) {
+				temp_death_dialogue_exists = true;
+				if (death_dialogue_text != noone) {
+					temp_textbox_inst.destroy = true;
+					temp_death_dialogue_exists = false;
+				}
+				break;
+			}
+		}
+		
+		// Create Death Dialogue
+		if ((!temp_death_dialogue_exists) and ((random(1) < death_dialogue_chance) or (death_dialogue_text != noone))) {
+			var temp_death_dialogue = instance_create_layer(x, y, layer_get_id("Instances"), oTextBox);
+			
+			if (death_dialogue_text != noone) {
+				temp_death_dialogue.text = death_dialogue_text;
+				temp_death_dialogue.unit = self;
+				temp_death_dialogue.interrupt_text_active = false;
+			}
+			else {
+				temp_death_dialogue.text = "...";
+				temp_death_dialogue.unit = self;
+			}
+			
+			with (temp_death_dialogue) {
+				unit_draw_x = unit.x - (sin(degtorad(unit.draw_angle)) * (unit.hitbox_right_bottom_y_offset - unit.hitbox_left_top_y_offset));
+				unit_draw_y = unit.y - (unit.hitbox_right_bottom_y_offset - unit.hitbox_left_top_y_offset) - (unit.stats_y_offset * unit.draw_yscale);
+				x = unit_draw_x;
+				y = unit_draw_y;
+			}
+		}
+	}
 }
 
 // Reset Force Applied

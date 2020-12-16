@@ -47,6 +47,23 @@ vowels[2] = "i";
 vowels[3] = "o";
 vowels[4] = "u";
 
+// Interrupt Settings
+interrupt_text_active = true;
+interrupt_text_chance = 1;
+interrupt_text_y_offset = 8;
+interrupt_text_read_timer_multiplier = 10;
+
+interrupt_text[0] = "hh-";
+interrupt_text[1] = "ffuck";
+interrupt_text[2] = "-gck";
+interrupt_text[3] = "-kch";
+interrupt_text[4] = "hnnn";
+interrupt_text[5] = "-hhah";
+interrupt_text[6] = "n-no";
+interrupt_text[7] = "pplease";
+interrupt_text[8] = "ffuck";
+interrupt_text[9] = "ah-";
+
 // Text Box Variables
 draw_val = random(1);
 

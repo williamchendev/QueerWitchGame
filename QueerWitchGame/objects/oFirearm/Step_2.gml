@@ -4,14 +4,20 @@
 // Inherit the parent event
 event_inherited();
 
+// Deltatime Calc
+var temp_deltatime = global.deltatime;
+if (use_realdeltatime) {
+	temp_deltatime = global.realdeltatime;
+}
+
 /// Weapon Position
-x = lerp(x, x_position, move_spd * global.deltatime);
-y = lerp(y, y_position, move_spd * global.deltatime);
+x = lerp(x, x_position, move_spd * temp_deltatime);
+y = lerp(y, y_position, move_spd * temp_deltatime);
 
 var temp_x = x + recoil_offset_x;
 var temp_y = y + recoil_offset_y;
 
-/// Weapon Scaling & Rotation
+// Weapon Scaling & Rotation
 if (temp_x + lengthdir_x(5, weapon_rotation) < temp_x) {
 	weapon_yscale = -1;
 }
@@ -52,7 +58,7 @@ if (attack) {
 				bullets -= bursts;
 			}
 			else {
-				bursts_timer -= global.deltatime;
+				bursts_timer -= temp_deltatime;
 				if (bursts_timer <= 0) {
 					bursts = min(max(burst, 1), bullets);
 					bursts_timer = 0;
@@ -70,7 +76,7 @@ else {
 
 // Firearm Behaviour
 if (aiming) {
-	aim = lerp(aim, 1, aim_spd * global.deltatime);
+	aim = lerp(aim, 1, aim_spd * temp_deltatime);
 	var temp_accuracy = clamp((accuracy - accuracy_peak) * (1 - aim), 0, 360 - accuracy_peak) + accuracy_peak;
 	if (temp_accuracy <= accuracy_peak + 0.1) {
 		aim = 1;
@@ -78,12 +84,12 @@ if (aiming) {
 	aim_hip_max = aim;
 }
 else {
-	aim = lerp(aim, clamp(aim_hip_max - 0.4, 0, 1), (aim_spd * 0.7) * global.deltatime);
+	aim = lerp(aim, clamp(aim_hip_max - 0.4, 0, 1), (aim_spd * 0.7) * temp_deltatime);
 }
 
 // Fire Behaviour
 if (bursts > 0) {
-	bursts_timer -= global.deltatime;
+	bursts_timer -= temp_deltatime;
 	if (bursts_timer <= 0) {
 		// Burst Behaviour
 		bursts--;
@@ -281,7 +287,7 @@ if (bursts > 0) {
 // Flash
 for (var f = ds_list_size(flash_timer) - 1; f >= 0; f--) {
 	var temp_flash_timer = ds_list_find_value(flash_timer, f);
-	temp_flash_timer -= global.deltatime;
+	temp_flash_timer -= temp_deltatime;
 	if (temp_flash_timer <= 0) {
 		if (!instance_exists(oKnockout)) {
 			ds_list_delete(flash_timer, f);
@@ -301,10 +307,10 @@ for (var f = ds_list_size(flash_timer) - 1; f >= 0; f--) {
 
 // Recoil
 if (recoil_timer > 0) {
-	recoil_timer -= global.deltatime;
-	recoil_velocity += recoil_spd * global.deltatime;
-	recoil_offset_x += lengthdir_x(recoil_velocity, recoil_position_direction + temp_weapon_rotation) * global.deltatime;
-	recoil_offset_y += lengthdir_y(recoil_velocity, recoil_position_direction + temp_weapon_rotation) * global.deltatime;
+	recoil_timer -= temp_deltatime;
+	recoil_velocity += recoil_spd * temp_deltatime;
+	recoil_offset_x += lengthdir_x(recoil_velocity, recoil_position_direction + temp_weapon_rotation) * temp_deltatime;
+	recoil_offset_y += lengthdir_y(recoil_velocity, recoil_position_direction + temp_weapon_rotation) * temp_deltatime;
 	
 	var temp_recoil_distance = point_distance(recoil_offset_x, recoil_offset_y, 0, 0);
 	if (temp_recoil_distance > recoil_clamp) {
@@ -314,9 +320,9 @@ if (recoil_timer > 0) {
 }
 else {
 	aiming = true;
-	recoil_angle_shift = lerp(recoil_angle_shift, 0, angle_adjust_spd * global.deltatime);
-	recoil_offset_x = lerp(recoil_offset_x, 0, lerp_spd * global.deltatime);
-	recoil_offset_y = lerp(recoil_offset_y, 0, lerp_spd * global.deltatime);
+	recoil_angle_shift = lerp(recoil_angle_shift, 0, angle_adjust_spd * temp_deltatime);
+	recoil_offset_x = lerp(recoil_offset_x, 0, lerp_spd * temp_deltatime);
+	recoil_offset_y = lerp(recoil_offset_y, 0, lerp_spd * temp_deltatime);
 }
 
 // Bullet Cases
@@ -338,9 +344,9 @@ if (bullet_cases != 0) {
 
 // Hit Effect
 if (instance_exists(oKnockout)) {
-	hit_effect_offset += global.deltatime;
-	hit_effect_xscale += global.deltatime * 0.1;
-	hit_effect_yscale -= global.deltatime * 0.05;
+	hit_effect_offset += temp_deltatime;
+	hit_effect_xscale += temp_deltatime * 0.1;
+	hit_effect_yscale -= temp_deltatime * 0.05;
 	if (hit_effect_index == -1) {
 		hit_effect_index = irandom_range(0, sprite_get_number(sImpact_Blood));
 		hit_effect_xscale = 0.8;

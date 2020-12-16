@@ -6,25 +6,33 @@ event_inherited();
 
 team_id = "enemy";
 
-// Animation Settings
-idle_animation = sDebugEnemy_Idle;
-walk_animation = sDebugEnemy_Run;
-jump_animation = sDebugEnemy_Jump;
-aim_animation = sDebugEnemy_Aim;
-aim_walk_animation = sDebugEnemy_Aim_Walk;
+var temp_debug = false;
+if (temp_debug) {
+	// Animation Settings
+	idle_animation = sDebugEnemy_Idle;
+	walk_animation = sDebugEnemy_Run;
+	jump_animation = sDebugEnemy_Jump;
+	aim_animation = sDebugEnemy_Aim;
+	aim_walk_animation = sDebugEnemy_Aim_Walk;
 
-limb_sprite[0] = sDebugEnemy_Arms;  // Right Arm
-limb_sprite[1] = sDebugEnemy_Arms;  // Left Arm
+	limb_sprite[0] = sDebugEnemy_Arms;  // Right Arm
+	limb_sprite[1] = sDebugEnemy_Arms;  // Left Arm
 
-// Ragdoll Settings
-ragdoll = true;
-ragdoll_head_sprite = sDebugEnemy_Head;
-ragdoll_arm_left_sprite = sDebugEnemy_Arms;
-ragdoll_arm_right_sprite = sDebugEnemy_Arms;
-ragdoll_chest_top_sprite = sDebugEnemy_ChestTop;
-ragdoll_chest_bot_sprite = sDebugEnemy_ChestBot;
-ragdoll_leg_left_sprite = sDebugEnemy_LeftLeg;
-ragdoll_leg_right_sprite = sDebugEnemy_RightLeg;
+	// Ragdoll Settings
+	ragdoll = true;
+	ragdoll_head_sprite = sDebugEnemy_Head;
+	ragdoll_arm_left_sprite = sDebugEnemy_Arms;
+	ragdoll_arm_right_sprite = sDebugEnemy_Arms;
+	ragdoll_chest_top_sprite = sDebugEnemy_ChestTop;
+	ragdoll_chest_bot_sprite = sDebugEnemy_ChestBot;
+	ragdoll_leg_left_sprite = sDebugEnemy_LeftLeg;
+	ragdoll_leg_right_sprite = sDebugEnemy_RightLeg;
+}
+
+// Death Dialogue Settings
+death_dialogue = true;
+death_dialogue_chance = 0.4;
+death_dialogue_text = noone;
 
 // Health Settings
 health_points = 3;
@@ -32,6 +40,7 @@ max_health_points = 3;
 health_show = false;
 
 // Inventory Settings
+addItemInventory(inventory, 7, 10);
 addItemInventory(inventory, 5);
 var temp_weapon = ds_list_find_value(inventory.weapons, 0);
 temp_weapon.equip = true;

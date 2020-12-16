@@ -46,6 +46,9 @@ if (sign(image_xscale) == -1) {
 draw_sprite_ext(material_sprite, 0, temp_mat_x, sprite_get_yoffset(material_sprite), image_xscale, 1, 0, image_blend, image_alpha);
 surface_reset_target();
 
+// Draw Material Backing
+draw_sprite_ext(material_sprite, 0, x, y, image_xscale, 1, 0, c_dkgray, image_alpha);
+
 // Draw Surface
 shader_set(shd_subtract_alpha);
 texture_set_stage(material_alpha_tex, surface_get_texture(material_dmg_surface));

@@ -53,7 +53,7 @@ angle_adjust_spd = 0.1;
 recoil_spd = 0.66;
 recoil_angle = 8;
 recoil_direction = 6;
-recoil_delay = 4.6;
+recoil_delay = 6.6;
 recoil_clamp = 6;
 
 click = true;

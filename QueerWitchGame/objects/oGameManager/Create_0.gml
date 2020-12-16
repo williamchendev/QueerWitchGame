@@ -50,10 +50,10 @@ command_check = vk_control;
 
 // Time Settings
 time_spd = 1;
+time_delta_clamp = 3;
+
 global.deltatime = 0;
 global.realdeltatime = 0;
-
-stop_time = false; //DEBUG
 
 // Camera Variables
 camera_width = 640;

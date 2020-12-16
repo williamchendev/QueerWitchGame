@@ -1,0 +1,52 @@
+// Cutscene File
+player = find("unit_player")
+
+unit1 = find("unit", "enemy1")
+unit2 = find("unit", "enemy2")
+unit3 = find("unit", "enemy3")
+
+node1 = find("node", "node1")
+node2 = find("node", "node2")
+node3 = find("node", "node3")
+node4 = find("node", "node4")
+
+interrupt(player,unit1,unit2,unit3)
+
+move(unit1, node3)
+move(unit2, node2)
+move(unit3, node1)
+wait(unit1, "path")
+wait()
+
+unit1 : Fuck!
+wait()
+unit1 : I told you to secure the platform!
+wait()
+unit2 : -hhh Twenty-Three...
+wait()
+unit1 : Goddamnit.
+wait()
+unit1 : Fuck!
+wait()
+
+move(unit1, node4)
+wait(unit1, "path")
+wait()
+
+unit1 : Listen to me
+wait()
+unit1 : very fucking carefully.
+wait()
+unit1 : Despite being disposable clones-
+wait()
+unit1 : Arkov's top brass is not fond
+wait()
+unit1 : of you bumblefucks dying for no good reason.
+wait()
+unit1 : Resecure every shitty plank and board you can find
+wait()
+unit1 : Understood?
+wait()
+unit2 : Yes sir!
+unit3 : Yes!
+wait()

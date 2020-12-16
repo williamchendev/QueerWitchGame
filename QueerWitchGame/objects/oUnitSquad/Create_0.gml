@@ -59,9 +59,18 @@ camera_lockon_bounds = -64;
 camera_horizontal_spacing = 120;
 camera_vertical_spacing = 64;
 
+camera_lock = false;
+camera_lock_x = 0;
+camera_lock_y = 0;
+
+camera_room_clamp_x = false;
+camera_room_clamp_y = false;
+
 camera_screen_shake = false;
-camera_screen_shake_spd = 0.6;
-camera_screen_shake_range = 20;
+camera_screen_shake_spd = 0.8;
+camera_screen_shake_lrg = false;
+camera_screen_shake_sml_range = 16;
+camera_screen_shake_lrg_range = 28;
 camera_screen_shake_reset_spd = 0.3;
 
 // Cursor Settings
@@ -80,6 +89,8 @@ camera_screen_shake_timer = 0;
 var temp_camera = view_camera[0];
 camera_x = camera_get_view_x(temp_camera);
 camera_y = camera_get_view_y(temp_camera);
+
+camera_debug_gif_mode = false;
 
 //addItemInventory(inventory, 8);
 addItemInventory(inventory, 7, 6);

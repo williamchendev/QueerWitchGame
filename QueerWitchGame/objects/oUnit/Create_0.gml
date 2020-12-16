@@ -53,6 +53,11 @@ ragdoll_chest_bot_sprite = sWilliamDS_ChestBot;
 ragdoll_leg_left_sprite = sWilliamDS_LeftLeg;
 ragdoll_leg_right_sprite = sWilliamDS_RightLeg;
 
+// Death Dialogue Settings
+death_dialogue = false;
+death_dialogue_chance = 1;
+death_dialogue_text = noone;
+
 // Physics Variables
 platform_list = ds_list_create();
 

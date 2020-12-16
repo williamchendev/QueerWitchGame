@@ -2,6 +2,7 @@
 // Performs calculations for the Ragdoll Entity Object
 
 // Debug
+/*
 if (held) {
 	var px = (mouse_x-x);
 	var py = (mouse_y-y);
@@ -22,6 +23,7 @@ else {
 		}
 	}
 }
+*/
 
 // Deltatime Physics
 var temp_speed_change_x = phy_linear_velocity_x - phy_speed_old_x;

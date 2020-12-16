@@ -71,6 +71,7 @@ recoil_delay = 4.6;
 recoil_clamp = 16;
 
 click = true;
+use_realdeltatime = false;
 
 // Aiming Settings
 sniper = true;

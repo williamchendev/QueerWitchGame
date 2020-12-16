@@ -18,6 +18,11 @@ health_points = 3;
 max_health_points = 3;
 health_show = false;
 
+// Death Dialogue Settings
+death_dialogue = true;
+death_dialogue_chance = 1;
+death_dialogue_text = noone;
+
 // Debug Debug
 /*
 spd = 4; // Running Speed

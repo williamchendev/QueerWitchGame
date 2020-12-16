@@ -21,7 +21,7 @@
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
-            "eventtype": 2,
+            "eventtype": 3,
             "m_owner": "cba479bc-eb1d-4b92-9b16-444d931f7e15"
         }
     ],
@@ -109,7 +109,7 @@
             "rangeMin": 0,
             "resourceFilter": 1023,
             "value": "50",
-            "varName": "wind_time",
+            "varName": "wind_time_delay",
             "varType": 0
         },
         {

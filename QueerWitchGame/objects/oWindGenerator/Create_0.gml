@@ -1,4 +1,4 @@
 /// @description Initialize Wind Generator
 
-// Alarm
-alarm[0] = 1;
+// Wind Generation Variables
+wind_time = random_range(0, wind_time_delay);

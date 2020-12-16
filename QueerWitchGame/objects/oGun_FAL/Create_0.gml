@@ -31,7 +31,7 @@ muzzle_y = -1;
 // Reload Settings
 magazine_obj = oGun_FAL_Mag;
 
-reload_x = 9;
+reload_x = 10;
 reload_y = 2;
 
 reload_offset_y = 6;

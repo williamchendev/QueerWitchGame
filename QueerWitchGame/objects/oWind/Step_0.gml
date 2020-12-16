@@ -1,7 +1,7 @@
 /// @description Wind Movement Update
 
 // Move Wind
-x += wind_spd;
+x += wind_spd * global.deltatime;
 
 if (sign(wind_spd) == 1) {
 	if (x > width + offset) {

@@ -1,0 +1,28 @@
+// Cutscene File
+player = find("unit_player")
+
+unit1 = find("unit", "enemy1")
+unit2 = find("unit", "enemy2")
+
+interrupt(player,unit1,unit2)
+
+wait(0.3)
+unit2 : I'm so sick of this dogshit country
+wait()
+unit2 : Capital knew I hated corn and sent me anyways
+wait()
+unit1 : At least we got plantation duty
+wait()
+unit1 : 4th Division is southside and they are fuuuucked
+wait()
+unit1 : The towns are crawling with Blacktorch
+wait()
+unit2 : I can't wait to light up those commie fucks
+wait()
+unit1 : I'd rather stay here than be on the urban front...
+wait()
+unit2 : ...
+wait()
+unit2 : Pussy
+wait()
+unit1 : Fuck you

@@ -126,9 +126,9 @@ ai_behaviour = false;
 camera_follow = true;
 
 // Crunch Settings
-crunch_weapon_fire_delay = 0.6;
 crunch_weapon_move_spd = 0.6;
 crunch_weapon_move_range = 4;
+crunch_weapon_recoil_resist = 0.7;
 
 // Crunch Variables
 crunch = false;
@@ -139,4 +139,8 @@ crunch_bursts = 0;
 crunch_weapon_move_timer = 0;
 
 // Screen Shake Variables
-screen_shake_flashes = 0;
+screen_shake_shots = 0;
+
+// Debug
+//can_die = true;
+camera_debug_gif_mode = false;

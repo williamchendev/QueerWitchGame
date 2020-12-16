@@ -11,4 +11,7 @@ if (cutscene_valid) {
 	
 	ds_list_destroy(cutscene_wait_unitpath);
 	cutscene_wait_unitpath = -1;
+	
+	ds_list_destroy(cutscene_interrupt_units);
+	cutscene_interrupt_units = -1;
 }
