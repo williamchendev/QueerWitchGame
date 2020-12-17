@@ -10,7 +10,7 @@ if (transition_active) {
 	var temp_transition_alpha = transition_alpha * transition_alpha * transition_alpha;
 	var temp_transition_lerp = lerp(0, game_manager.game_width + (camera_offset * 2), temp_transition_alpha);
 	draw_set_alpha(1);
-	draw_set_color(c_black);
+	draw_set_color(transition_color);
 	
 	// Draw Transition
 	if (transition_other_room_active) {

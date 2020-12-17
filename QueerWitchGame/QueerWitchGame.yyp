@@ -543,6 +543,14 @@
             }
         },
         {
+            "Key": "2cf22a2a-0954-4ec0-8cd6-b8798f072b18",
+            "Value": {
+                "id": "c6d40bc2-1f79-43d9-8511-baea93286435",
+                "resourcePath": "sprites\\sCornfields_HouseBacking1\\sCornfields_HouseBacking1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "2e36d9c2-49f2-4b12-9210-46deddc59d93",
             "Value": {
                 "id": "aa892362-401d-4fe7-af83-3e1765a51e65",
@@ -823,6 +831,14 @@
             }
         },
         {
+            "Key": "3dc4e561-7589-4f61-a74c-73aa05304235",
+            "Value": {
+                "id": "58cf4d31-ce2b-48da-b4c4-460ddd04e68a",
+                "resourcePath": "rooms\\rTutorialLevel_Houses\\rTutorialLevel_Houses.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "3e77bb22-3853-42b0-838a-35194d3b5b2e",
             "Value": {
                 "id": "4298e5d2-e304-429f-b0b1-ef79a2e45379",
@@ -915,6 +931,14 @@
             "Value": {
                 "id": "97e3a833-3a80-4515-b516-b734760bce16",
                 "resourcePath": "sprites\\sBackgroundMiddaySky1_A\\sBackgroundMiddaySky1_A.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "42f3eab4-091d-4319-a79d-49bcc6b7c525",
+            "Value": {
+                "id": "235e2907-eca0-4624-8182-c54167172b9c",
+                "resourcePath": "sprites\\sCornfields_BarnBurnedBacking1\\sCornfields_BarnBurnedBacking1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1843,6 +1867,14 @@
             "Value": {
                 "id": "576ed74c-4e56-4880-a14d-74e135de297d",
                 "resourcePath": "views\\80e7a65c-14b3-4d09-bd92-d54265f79e7a.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "81120f5d-af96-4629-8d1b-56fd2762893a",
+            "Value": {
+                "id": "be93b39a-449d-4669-9ae5-81ea7cd50e85",
+                "resourcePath": "views\\81120f5d-af96-4629-8d1b-56fd2762893a.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -2839,6 +2871,14 @@
             }
         },
         {
+            "Key": "d0ef9086-c3ca-4ae7-89b3-bcb4c389a9f0",
+            "Value": {
+                "id": "1599d303-8785-455f-997e-4756e941053a",
+                "resourcePath": "objects\\oUnitEnemyHeavy\\oUnitEnemyHeavy.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "d119d879-9b82-40e3-9aac-d1849f0b948d",
             "Value": {
                 "id": "9b2e5a54-5c74-4004-a020-4e89beeaa120",
@@ -2883,6 +2923,14 @@
             "Value": {
                 "id": "ff86180c-9984-4bff-94bb-a76d445c8f7c",
                 "resourcePath": "objects\\oSurfaceManager\\oSurfaceManager.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "d4121c29-e5dd-4f33-b349-a3be7e4c13d3",
+            "Value": {
+                "id": "6d3e2806-f2d5-4b2c-9a52-61e5e7ecd1c5",
+                "resourcePath": "objects\\oUnitEnemyGruntSmg\\oUnitEnemyGruntSmg.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -2948,6 +2996,14 @@
                 "id": "8d0d7103-d150-48ae-aa16-21b3ce3b4915",
                 "resourcePath": "views\\d82cd549-004c-4d12-b42e-e359e4a727ae.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "d8b0f9fe-3378-43f0-a802-216e25f6f3d4",
+            "Value": {
+                "id": "4f0c3c25-42b8-4823-b7f3-857390e5154c",
+                "resourcePath": "sprites\\sCornfields_HouseBacking2\\sCornfields_HouseBacking2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3127,6 +3183,14 @@
             }
         },
         {
+            "Key": "e5a4b996-78af-455a-91cc-d7654fc54c02",
+            "Value": {
+                "id": "668f490c-a503-4405-ba58-184a85af64a7",
+                "resourcePath": "sprites\\sCornfields_HouseRoof1\\sCornfields_HouseRoof1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e6187859-bffd-42dd-9a43-3c292abcf039",
             "Value": {
                 "id": "a617f523-0928-4470-a59f-50a2740e7f73",
@@ -3236,6 +3300,14 @@
                 "id": "62dcc1d7-8fe6-4e57-a85a-0ba46a94baa3",
                 "resourcePath": "views\\ea99e3d7-1051-4be5-b4be-4871bab8b189.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "eaf3b3cf-2a34-4fad-ab1b-a77896f84730",
+            "Value": {
+                "id": "d3b19eda-38fd-4853-8a0a-d5041ab46aab",
+                "resourcePath": "sprites\\sCornfields_HouseWall1\\sCornfields_HouseWall1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

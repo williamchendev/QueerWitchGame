@@ -8,7 +8,7 @@ font = fNormalFont;
 font_color = c_white;
 
 text_spd = 0.5;
-text_read_timer_multiplier = 3.5;
+text_read_timer_multiplier = 2.3;
 
 text_separation = 0;
 text_wrap_width = 160;

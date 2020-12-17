@@ -109,7 +109,7 @@ global.item_data[7, itemstats.sprite_index] = sItems1x1;
 global.item_data[7, itemstats.image_index] = 2;
 global.item_data[7, itemstats.width_space] = 1;
 global.item_data[7, itemstats.height_space] = 1;
-global.item_data[7, itemstats.stack_limit] = 2;
+global.item_data[7, itemstats.stack_limit] = 8;
 global.item_data[7, itemstats.type] = itemtypes.ammo;
 global.item_data[7, itemstats.type_index] = 0;
 

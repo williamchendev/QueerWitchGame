@@ -50,13 +50,13 @@ knockout = true;
 
 // Ragdoll Settings
 ragdoll = true;
-ragdoll_head_sprite = sWilliamDS_Heavy_Head;
-ragdoll_arm_left_sprite = sWilliamDS_Heavy_Arms;
-ragdoll_arm_right_sprite = sWilliamDS_Heavy_Arms;
-ragdoll_chest_top_sprite = sWilliamDS_Heavy_ChestTop;
-ragdoll_chest_bot_sprite = sWilliamDS_Heavy_ChestBot;
-ragdoll_leg_left_sprite = sWilliamDS_Heavy_LeftLeg;
-ragdoll_leg_right_sprite = sWilliamDS_Heavy_RightLeg;
+ragdoll_head_sprite = sWilliam_Head;
+ragdoll_arm_left_sprite = sWolf_Arms;
+ragdoll_arm_right_sprite = sWolf_Arms;
+ragdoll_chest_top_sprite = sWilliamDS_ChestTop;
+ragdoll_chest_bot_sprite = sWilliamDS_ChestBot;
+ragdoll_leg_left_sprite = sWilliamDS_LeftLeg;
+ragdoll_leg_right_sprite = sWilliamDS_RightLeg;
 
 // Sight Settings
 sight = true;

@@ -8,6 +8,8 @@ transition_room_goto = rTutorialLevel_DoorsPlatforms;
 transition_spd = 0.018;
 transition_duration = 1;
 
+transition_color = c_black;
+
 // Variables
 transition_active = false;
 transition_other_room_active = false;
